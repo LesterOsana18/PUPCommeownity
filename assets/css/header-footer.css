@@ -39,6 +39,7 @@ header .logo-slogan-container p {
     font-weight: 400;
     font-size: 0.875rem;
     letter-spacing: 0.02rem;
+    color:#ffffff;
 
     display: flex;
     align-items: center;
@@ -103,6 +104,8 @@ footer div.follow-us {
 
 footer .logo-slogan-container p {
     width: 80%;
+
+    color:#ffffff;
 
     font-style: italic;
     font-weight: 400;
