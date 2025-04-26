@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-header, footer, a {
+header, footer, a, p {
     color: white;
 }
 
@@ -224,6 +224,7 @@ footer .footer-content h3 {
 }
 
 footer .footer-copyright {
+    font-weight: 500;
     text-align: center;
     background-color: #34193a;
     padding: 20px;
