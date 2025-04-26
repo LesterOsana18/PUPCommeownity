@@ -26,7 +26,7 @@ header {
 
 header .logo-slogan-container {
     display: flex;
-    align-items: center; 
+    align-items: center;
     gap: 0.5rem;
 }
 
@@ -39,7 +39,7 @@ header .logo-slogan-container p {
     font-style: italic;
     font-weight: 400;
     font-size: 0.875rem;
-    letter-spacing: 0.05rem;
+    letter-spacing: 0.02rem;
 
     display: flex;
     align-items: center;
@@ -49,12 +49,12 @@ header .logo-slogan-container p {
     background: #E7AB39;
     box-shadow: 0px 1.75839px 2.04571px rgba(0, 0, 0, 0.25);
     border-radius: 115px;
-    
+
     padding: 0px 30px;
 }
 
 header .pupsp-navlist {
-    display: flex; 
+    display: flex;
     gap: 3rem;
 }
 
@@ -66,8 +66,8 @@ header .pupsp-navlist a {
     font-weight: 500;
     font-size: 1.2rem;
     line-height: 30px;
-    
-    transition: color 0.3s ease; 
+
+    transition: color 0.3s ease;
 }
 
 header .pupsp-navlist a:hover {
@@ -83,17 +83,144 @@ footer {
     background-repeat: no-repeat;
 }
 
-.footer-content {
+footer .footer-content {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    grid-template-rows: auto;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto; 
     gap: 20px;
 
-    padding: 3rem;
+    padding: 2rem 5rem 1rem 5rem;
 }
 
-.footer-copyright {
+footer div.logo-slogan-container,
+footer div.footer-map,
+footer div.find-us-address,
+footer div.op-hours,
+footer div.follow-us {
+    margin: 20px 0px;
+}
+
+footer .logo-slogan-container p {
+    width: 80%;
+
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.875rem;
+    letter-spacing: 0.02rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    background-color: #3B2141;
+
+    background: #E7AB39;
+    box-shadow: 0px 1.75839px 2.04571px rgba(0, 0, 0, 0.25);
+    border-radius: 115px;
+}
+
+footer .footer-map iframe {
+    width: 80%;
+    height: 215px;
+    border-radius: 10px;
+    border-radius: 10px;
+}
+
+.footer-icon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+footer .address {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0px;
+}
+
+footer .address p {
+    margin: 0;
+}
+
+footer .address a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer .address a:hover {
+    color: #4ABDAC;
+    text-decoration: underline;
+}
+
+footer .open-hours {
+    width: 80%;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+    border-spacing: 10px;
+    border-radius: 12px;
+    overflow: hidden;
+
+}
+
+footer .open-hours th {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 30px;
+}
+
+footer .open-hours td {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1rem;
+    color: rgb(46, 46, 46);
+}
+
+
+footer .open-hours th,
+footer .open-hours td {
+    padding: 10px 20px;
+    text-align: left;
+    background: #f5f3f3;
+    transition: background-color 0.3s ease;
+}
+
+footer .open-hours th {
+    background-color: #E7AB39;
+    color: rgb(255, 255, 255);
+}
+
+footer .open-hours tr:hover td {
+    background-color: #4abdac;
+}
+
+footer .push-follow-us {
+    height: 65%;
+}
+
+footer .social-grid a {
+    margin: 0px 10px;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+
+}
+
+footer .social-grid a:hover {
+    transform: scale(1.1);
+}
+
+footer .footer-content h3 {
+    margin-bottom: 15px;
+    color: #E7AB39;
+    font-size: 1.3rem;
+    user-select: none;
+    text-shadow: 0px 3.58203px 3.18801px rgba(0, 0, 0, 0.25);
+}
+
+footer .footer-copyright {
+    text-align: center;
+    background-color: #34193a;
     padding: 30px;
 }
