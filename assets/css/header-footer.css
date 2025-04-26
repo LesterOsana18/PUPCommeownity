@@ -22,3 +22,56 @@ header {
 
     filter: drop-shadow(0px 10.7461px 19.5221px rgba(0, 0, 0, 0.25));
 }
+
+header .logo-slogan-container {
+    display: flex;
+    align-items: center; 
+    gap: 0.5rem;
+}
+
+header .logo-slogan-container img {
+    width: 80px;
+    height: auto;
+}
+
+header .logo-slogan-container p {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.875rem;
+    letter-spacing: 0.05rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    color: #FFFFFF;
+
+    background: #E7AB39;
+    box-shadow: 0px 1.75839px 2.04571px rgba(0, 0, 0, 0.25);
+    border-radius: 115px;
+    
+    padding: 0px 30px;
+}
+
+header .pupsp-navlist {
+    display: flex; 
+    gap: 3rem;
+}
+
+header .pupsp-navlist a {
+    color: white;
+    text-decoration: none;
+    text-shadow: 0px 3.58203px 3.18801px rgba(0, 0, 0, 0.25);
+
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 30px;
+    
+    transition: color 0.3s ease; 
+}
+
+header .pupsp-navlist a:hover {
+    color: #E7AB39;
+}
