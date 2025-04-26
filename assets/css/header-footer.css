@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-}
-
 header, footer, a {
     color: white;
 }
@@ -87,13 +81,14 @@ footer {
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
+    box-shadow: 0px -10.7461px 19.5221px rgba(0, 0, 0, 0.25);
 }
 
 footer .footer-content {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1.5fr 1.5fr 1fr;
     grid-template-rows: auto; 
-    gap: 20px;
+    gap: 15px;
 
     padding: 2rem 5rem 1rem 5rem;
 }
@@ -228,5 +223,5 @@ footer .footer-content h3 {
 footer .footer-copyright {
     text-align: center;
     background-color: #34193a;
-    padding: 30px;
+    padding: 20px;
 }
