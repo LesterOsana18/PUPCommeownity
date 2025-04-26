@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(53, 52, 52);
+}
+
+body,
+html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: url('/assets/img/main-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+main {
+    flex: 1;
+    margin: 2rem;
+    padding: 1rem;
+}
