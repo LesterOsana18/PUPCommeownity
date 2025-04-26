@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*{ Header Styles */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1rem 3rem;
+
+    background-image: url('/assets/img/header-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter: drop-shadow(0px 10.7461px 19.5221px rgba(0, 0, 0, 0.25));
+}
