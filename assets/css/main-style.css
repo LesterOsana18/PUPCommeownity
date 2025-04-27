@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    color: rgb(53, 52, 52);
 }
 
 body,
@@ -48,13 +47,13 @@ main {
     margin-bottom: 10px;
 }
 
-h1 {
+.report-title {
     color: #E7AB39;
     font-size: 2rem;
     margin-bottom: 5px;
 }
 
-p {
+.report-text {
     color: #666;
     font-size: 1rem;
 }
@@ -95,6 +94,11 @@ textarea:focus {
     outline: none;
 }
 
+input[type="text"]::placeholder,
+textarea::placeholder, select, input[type="file"] {
+    color: #999;
+}
+
 textarea {
     resize: vertical;
 }
@@ -107,12 +111,11 @@ button {
     border-radius: 10px;
     font-size: 1.1rem;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #3f1a47;
-    transform: translateY(-2px);
+    background-color: #4ABDAC;
 }
 
 @keyframes slideInUp {
