@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report a Cat</title>
+
+    <link rel="stylesheet" href="/assets/css/header-footer.css">
+    <link rel="stylesheet" href="/assets/css/main-style.css">
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <div class="report-container">
+            <div class="report-page-header">
+                <img src="https://cdn-icons-png.flaticon.com/512/3360/3360417.png" alt="Crying Cat Icon"
+                    class="cat-icon">
+                <h1>Report a Cat</h1>
+                <p>Found a cat in need? Let us know so we can help. 🐾</p>
+            </div>
+            <form action="#" method="post" enctype="multipart/form-data" class="report-form">
+
+                <div class="form-group">
+                    <label for="cat-type">Type of Report</label>
+                    <select id="cat-type" name="cat-type" required>
+                        <option value="">Select an option</option>
+                        <option value="stray">Stray Cat</option>
+                        <option value="injured">Injured Cat</option>
+                        <option value="sick">Sick Cat</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location" placeholder="Enter the location" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="photo">Upload Photo</label>
+                    <input type="file" id="photo" name="photo" accept="image/*" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="4"
+                        placeholder="Describe the cat's condition, behavior, or any important details..."
+                        required></textarea>
+                </div>
+
+                <button type="submit">📤 Submit Report</button>
+            </form>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/assets/js/load-header-footer.js"></script>
+</body>
+
+</html>

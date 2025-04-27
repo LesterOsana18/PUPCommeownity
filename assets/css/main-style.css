@@ -14,10 +14,117 @@ html {
     background-image: url('/assets/img/main-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 main {
     flex: 1;
-    margin: 2rem;
+    margin: 3rem;
     padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+/* ------ REPORT A CAT PAGE ------ */
+.report-container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 60%;
+    animation: slideInUp 0.5s ease-out;
+}
+
+.report-page-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.cat-icon {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    color: #E7AB39;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.report-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="file"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #E7AB39;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: #E7AB39;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #3f1a47;
+    transform: translateY(-2px);
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------ END STYLE: REPORT A CAT PAGE ------ */
