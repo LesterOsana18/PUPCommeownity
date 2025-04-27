@@ -1,0 +1,4 @@
+Observations and Possible Improvements
+
+1. Report a Cat Page: Possible integration of Google Maps API for easier location uploading and tracking.
+2. Header and Footer: Currently lacks mobile responsiveness.
