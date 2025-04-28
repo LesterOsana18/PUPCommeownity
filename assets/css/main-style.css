@@ -28,13 +28,16 @@ main {
 
 /* ------ REPORT A CAT PAGE ------ */
 .report-container {
-    background: #ffffff;
     padding: 40px;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 60%;
     animation: slideInUp 0.5s ease-out;
+
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .report-page-header {
@@ -48,7 +51,7 @@ main {
 }
 
 .report-title {
-    color: #E7AB39;
+    color: #e36861;
     font-size: 2rem;
     margin-bottom: 5px;
 }
@@ -95,7 +98,9 @@ textarea:focus {
 }
 
 input[type="text"]::placeholder,
-textarea::placeholder, select, input[type="file"] {
+textarea::placeholder,
+select,
+input[type="file"] {
     color: #999;
 }
 
@@ -104,7 +109,7 @@ textarea {
 }
 
 button {
-    background-color: #E7AB39;
+    background-color: #e36861;
     color: white;
     border: none;
     padding: 14px;
