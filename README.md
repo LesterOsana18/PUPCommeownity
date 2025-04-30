@@ -16,11 +16,12 @@ PUP Com-meow-nity is a Transaction Processing System (TPS)-powered web applicati
 
 It serves as a one-stop hub for engaging with PUP Sintang Pusa — whether you're a student, alumni, faculty member, or external supporter.
 
-## 🔧 Technologies Used (NOT YET OFFICIAL!)
+## 🔧 Technologies Used
 
-- HTML, CSS, JavaScript (Vanilla)
-- React.js (initial setup phase)
-- MySQL (for database management)
+- HTML, CSS, JavaScript
+- PHP (Backend Logic)
+- Laravel Framework (Routing, MVC, Validation)
+- MySQL (Database Management)
 
 ## 🎯 Objectives
 
