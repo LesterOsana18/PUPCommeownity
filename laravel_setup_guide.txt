@@ -1,0 +1,36 @@
+
+Laravel Project Setup (Quick Guide)
+===================================
+
+1. Install PHP dependencies
+---------------------------
+composer install
+# Downloads all required PHP packages into the vendor/ directory.
+
+2. Create environment config file
+---------------------------------
+cp .env.example .env
+# Copies the example environment file to .env, which Laravel uses to load config.
+# On Windows PowerShell or CMD, if 'cp' doesn't work, use: copy .env.example .env
+
+3. Generate application key
+---------------------------
+php artisan key:generate
+# Generates and sets the APP_KEY in .env — required for encryption and sessions.
+
+4. Create SQLite database file
+------------------------------
+PowerShell:
+New-Item -Path "database\database.sqlite" -ItemType File
+
+CMD:
+type nul > database\database.sqlite
+# Creates an empty SQLite database file Laravel can connect to.
+
+5. Run database migrations
+--------------------------
+php artisan migrate
+# Creates all required tables in the SQLite database.
+
+After completing these steps, open the project in your browser (via Herd, Laravel Valet, or your local server),
+and the app should be up and running.
