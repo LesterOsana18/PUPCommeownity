@@ -1,6 +1,9 @@
 <x-layout>
-    <section class="max-w-md mx-auto py-12 px-4">
-        <h1 class="text-4xl font-bold text-center text-[#502C58] mb-8">Log in</h1>
+    <section class="max-w-md mx-auto py-16 px-6">
+        <h1 class="text-4xl font-bold text-center text-[#502C58] mb-6">Welcome Back</h1>
+        <p class="text-center text-gray-600 mb-8">
+            Log in to access your account and stay connected with the Commeownity.
+        </p>
 
         <form method="POST" action="/login" class="bg-white shadow-md rounded-md p-6 space-y-6">
             @csrf
@@ -35,5 +38,13 @@
                 </button>
             </div>
         </form>
+
+        <div class="mt-6 text-center">
+            <p class="text-sm text-gray-700">Don't have an account?</p>
+            <a href="/register"
+                class="inline-block mt-2 border border-[#E7AB39] text-[#E7AB39] px-5 py-2 rounded-md text-sm font-semibold hover:bg-[#fff3d5] transition">
+                Sign Up
+            </a>
+        </div>
     </section>
 </x-layout>
