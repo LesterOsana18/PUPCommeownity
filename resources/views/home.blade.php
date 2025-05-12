@@ -5,11 +5,11 @@
             <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
                 <div class="lg:w-1/2 text-center lg:text-left">
                     <h1 class="text-5xl font-extrabold text-[#502C58] sm:text-7xl">
-                        For the cats of PUP, we serve
+                        <span class="text-[#2e2e2e]">For the cats of PUP,</span> we serve
                     </h1>
                     <p class="mt-4 text-lg text-gray-700 max-w-2xl">
-                        PUP Com-meow-nity is a student-led platform dedicated to caring for, protecting, and celebrating the campus cats of PUP.
-                        From adoption to education, we’re building a digital home where advocacy meets action—one paw at a time.
+                        <span class="font-bold text-[#E7AB39]">PUP Commeownity</span> is a student-led platform dedicated to caring for, protecting, and celebrating the campus cats of PUP.
+                        From adoption to education, we’re building a digital home where advocacy meets action— <span class="font-bold text-[#E7AB39]">one paw at a time.</span>
                     </p>
                     <div class="mt-8 flex flex-wrap justify-end gap-4">
                         <a href="/register"
