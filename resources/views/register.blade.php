@@ -209,7 +209,7 @@
                     class="h-4 w-4 text-[#502C58] border-gray-300 rounded focus:ring-[#502C58] transition"
                 >
                 <label for="terms" class="ml-2 text-sm text-gray-700">
-                    I agree to the <a href="#" class="text-[#502C58] underline">terms and conditions</a>
+                    I agree to the <a href="/terms" class="text-[#502C58] underline">terms and conditions</a>
                 </label>
             </div>
 
