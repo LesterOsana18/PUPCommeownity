@@ -1,6 +1,9 @@
-<footer class="bg-[#502C58] text-white px-6 py-8">
-    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+<footer class="relative bg-[#502C58] text-white px-6 py-8 z-0 overflow-hidden">
+    <!-- Decorative background cats image -->
+    <img src="/images/footer-cats.svg" alt="Decorative cats"
+        class="absolute top-[-50px] right-[-5%] h-[150%] w-auto z-0 pointer-events-none opacity-50 mix-blend-luminosity" />
 
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 relative z-10">
         <!-- Left column: logos + tagline + map -->
         <div class="flex flex-col space-y-4">
             <!-- Logos -->
@@ -223,11 +226,8 @@
             </div>
         </div>
     </div>
-
     <!-- Bottom full-width: Copyright -->
     <div class="absolute bottom-0 left-0 right-0 bg-[#3d2243] text-center text-sm py-4">
         &copy; {{ date('Y') }} PUP Sintang Pusa. All rights reserved.
     </div>
 </footer>
-
-
