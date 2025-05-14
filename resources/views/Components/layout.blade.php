@@ -49,6 +49,7 @@
             inset: 0;
             z-index: 50;
             background-color: #3d2243;
+            display: flex;
             align-items: center;
             justify-content: center;
             transform: translateY(-100%);
