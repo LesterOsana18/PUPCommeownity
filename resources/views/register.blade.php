@@ -1,5 +1,5 @@
 <x-layout>
-    <section class="max-w-4xl mx-auto py-16 px-6">
+    <section class="max-w-4xl mx-auto px-6 mb-12">
         <form method="POST"
                 action="{{ url('/register') }}"
                 enctype="multipart/form-data"
