@@ -133,12 +133,12 @@
 
     @include('components.navbar')
 
+    <div class="py-12"></div>
+
     <div id="content-wrapper" class="flex-grow relative">
         <!-- Main content above the background -->
         <main class="relative z-0">
-            <div class="container mx-auto p-4">
-                {{ $slot }}
-            </div>
+            {{ $slot }}
         </main>
 
         <!-- Background image with dynamic positioning -->
@@ -218,6 +218,8 @@
             });
         });
     </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 
 </body>
 </html>

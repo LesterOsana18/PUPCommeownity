@@ -1,6 +1,17 @@
+<style>
+    [data-carousel-slide-to][aria-current="true"] {
+        background-color: #5e00e6;
+        opacity: 1;
+    }
+    [data-carousel-slide-to][aria-current="false"] {
+        background-color: #502C58;
+        opacity: 0.5;
+    }
+</style>
+
 <x-layout>
     <!-- Hero with Cat of the Day -->
-    <section class="py-16">
+    <section class="py-0">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center justify-between gap-10">
                 <div class="lg:w-1/2 text-center lg:text-left">
@@ -32,11 +43,82 @@
     </section>
 
     <!-- News & Events Carousel -->
-    <section class="py-20">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-            <h2 class="text-2xl font-bold text-[#502C58] mb-6">News & Events</h2>
-            <div class="p-10 rounded-lg shadow-md border border-gray-200 backdrop-blur-md bg-white/60">
-                <p class="text-gray-700">[ Carousel Placeholder: Upcoming adoption fairs, kitty yoga sessions, campus clean-up drives, and more. Stay tuned for regular event highlights! ]</p>
+    <section class="w-full py-8" style="background-image: url('/images/carousel-waves.svg'); background-size: cover;">
+        <div class="h-12"></div>
+        <!-- Main content -->
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <h2 class="text-5xl font-extrabold text-center mb-8">
+                <span class="text-[#502C58]">News</span> <span class="text-[#ffffff]">&</span> <span class="text-[#502C58]">Events</span>
+            </h2>
+            <div id="default-carousel" class="relative w-full" data-carousel="slide">
+                <!-- Carousel wrapper -->
+                <div class="relative h-[24rem] overflow-hidden rounded-lg md:h-[36rem]">
+                    <!-- Item 1 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="/images/carousel-temp-1.jpg" class="absolute block w-full h-full object-cover" alt="Item 1">
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="/images/carousel-temp-2.png" class="absolute block w-full h-full object-cover" alt="Item 2">
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="/images/carousel-temp-3.png" class="absolute block w-full h-full object-cover" alt="Item 3">
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="/images/carousel-temp-4.jpg" class="absolute block w-full h-full object-cover" alt="Item 4">
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                        <img src="/images/carousel-temp-5.jpg" class="absolute block w-full h-full object-cover" alt="Item 5">
+                    </div>
+                </div>
+                <!-- Slider indicators -->
+                <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+                    <button type="button"
+                        class="w-3 h-3 rounded-full bg-[#502C58] opacity-100"
+                        aria-current="true"
+                        aria-label="Slide 1"
+                        data-carousel-slide-to="0"></button>
+                    <button type="button"
+                        class="w-3 h-3 rounded-full bg-[#502C58] opacity-50"
+                        aria-current="false"
+                        aria-label="Slide 2"
+                        data-carousel-slide-to="1"></button>
+                    <button type="button"
+                        class="w-3 h-3 rounded-full bg-[#502C58] opacity-50"
+                        aria-current="false"
+                        aria-label="Slide 3"
+                        data-carousel-slide-to="2"></button>
+                    <button type="button"
+                        class="w-3 h-3 rounded-full bg-[#502C58] opacity-50"
+                        aria-current="false"
+                        aria-label="Slide 4"
+                        data-carousel-slide-to="3"></button>
+                    <button type="button"
+                        class="w-3 h-3 rounded-full bg-[#502C58] opacity-50"
+                        aria-current="false"
+                        aria-label="Slide 5"
+                        data-carousel-slide-to="4"></button>
+                </div>
+                <!-- Slider controls -->
+                <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#5e00e6]/30 dark:bg-[#5e00e6]/30 group-hover:bg-[#5e00e6]/50 dark:group-hover:bg-[#5e00e6]/60 group-focus:ring-4 group-focus:ring-[#5e00e6]/70 dark:group-focus:ring-[#5e00e6]/70 group-focus:outline-none">
+                        <svg class="w-4 h-4 text-black dark:text-[#5e00e6] rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                        </svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#5e00e6]/30 dark:bg-[#5e00e6]/30 group-hover:bg-[#5e00e6]/50 dark:group-hover:bg-[#5e00e6]/60 group-focus:ring-4 group-focus:ring-[#5e00e6]/70 dark:group-focus:ring-[#5e00e6]/70 group-focus:outline-none">
+                        <svg class="w-4 h-4 text-black dark:text-[#5e00e6] rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                        </svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
             </div>
         </div>
     </section>
@@ -74,3 +156,4 @@
         </div>
     </section>
 </x-layout>
+
