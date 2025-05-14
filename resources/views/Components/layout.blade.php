@@ -106,7 +106,7 @@
         }
     </style>
 </head>
-<body class="flex flex-col min-h-screen text-gray-800 font-poppins overflow-x-hidden">
+<body class="flex flex-col min-h-screen text-gray-800 font-poppins overflow-x-hidden bg-white">
     <!-- Loader shown AFTER navigation (starts visible, goes up) -->
     <div id="transition-up">
         <div class="flex flex-col items-center">
@@ -223,3 +223,5 @@
 
 </body>
 </html>
+
+
