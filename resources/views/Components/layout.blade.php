@@ -48,19 +48,23 @@
             position: fixed;
             inset: 0;
             z-index: 50;
-            background-color: #502C58; /* your custom purple */
-            display: flex;
+            background-color: #3d2243;
             align-items: center;
             justify-content: center;
             transform: translateY(-100%);
-            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-            will-change: transform;
-            border-bottom-left-radius: 50% 40px;
-            border-bottom-right-radius: 50% 40px;
+            transition:
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                border-bottom-left-radius 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                border-bottom-right-radius 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform, border-bottom-left-radius, border-bottom-right-radius;
+            border-bottom-left-radius: 99% 1000px;
+            border-bottom-right-radius: 99% 1000px;
         }
 
         #transition-drop.active {
             transform: translateY(0%);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
         }
 
         /* Upward transition (after page load) */
@@ -68,20 +72,22 @@
             position: fixed;
             inset: 0;
             z-index: 50;
-            background-color: #502C58;
+            background-color: #3d2243;
             display: flex;
             align-items: center;
             justify-content: center;
             transform: translateY(0%);
-            transition: transform 0.6s ease-in-out;
-            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-            will-change: transform;
-            border-bottom-left-radius: 50% 40px;
-            border-bottom-right-radius: 50% 40px;
+            transition:
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                border-bottom-left-radius 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                border-bottom-right-radius 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform, border-bottom-left-radius, border-bottom-right-radius;
         }
 
         #transition-up.hide {
             transform: translateY(-100%);
+            border-bottom-left-radius: 99% 1000px;
+            border-bottom-right-radius: 99% 1000px;
         }
 
         @keyframes pawBounce {
@@ -214,4 +220,3 @@
 
 </body>
 </html>
-
