@@ -43,6 +43,9 @@
     </section>
 
     <!-- News & Events Carousel -->
+    /**
+    * TODO: Adjust size (smaller)
+    */
     <section class="w-full py-8" style="background-image: url('/images/carousel-waves.svg'); background-size: cover;">
         <div class="h-12"></div>
         <!-- Main content -->
@@ -226,6 +229,9 @@
     </section>
 
     <!-- Be Updated Section -->
+    /**
+    * TODO: Add search bar functionality
+    */
     <section class="py-12">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <h2 class="text-5xl font-extrabold mb-10 text-[#0a9396]">
