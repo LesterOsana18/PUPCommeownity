@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{{ config('app.name', 'Commeownity') }}</title>
+    <link rel="icon" type="image/svg+xml" href="{{ asset('images/commeownity-icon.svg') }}">
 
     <!-- Include Tailwind CSS from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -42,39 +43,83 @@
             bottom: 0;
         }
 
-        #transition-loader {
+        /* Drop transition (before navigating away) */
+        #transition-drop {
             position: fixed;
             inset: 0;
             z-index: 50;
-            background-color: #FACC15; /* yellow-400 */
+            background-color: #502C58; /* your custom purple */
             display: flex;
             align-items: center;
             justify-content: center;
+            transform: translateY(-100%);
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform;
             border-bottom-left-radius: 50% 40px;
             border-bottom-right-radius: 50% 40px;
+        }
+
+        #transition-drop.active {
+            transform: translateY(0%);
+        }
+
+        /* Upward transition (after page load) */
+        #transition-up {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            background-color: #502C58;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(0%);
+            transition: transform 0.6s ease-in-out;
             transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-            transform: translateY(-100%);
             will-change: transform;
+            border-bottom-left-radius: 50% 40px;
+            border-bottom-right-radius: 50% 40px;
         }
 
-        #transition-loader.slide-down {
-            transform: translateY(0);
-        }
-
-        #transition-loader.slide-up {
+        #transition-up.hide {
             transform: translateY(-100%);
+        }
+
+        @keyframes pawBounce {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-12px) scale(1.05);
+            }
+        }
+
+        .paw-animate {
+            animation: pawBounce 0.8s ease-in-out infinite;
+            transform-origin: bottom center;
         }
     </style>
 </head>
 <body class="flex flex-col min-h-screen text-gray-800 font-poppins overflow-x-hidden">
-    <!-- Transition Screen Loader -->
-    <div id="transition-loader" class="fixed inset-0 bg-yellow-400 z-50 flex items-center justify-center">
+    <!-- Loader shown AFTER navigation (starts visible, goes up) -->
+    <div id="transition-up">
         <div class="flex flex-col items-center">
             <h1 class="text-3xl font-bold text-white">Loading...</h1>
             <div class="mt-3 flex space-x-2">
-                <div class="w-3 h-3 bg-white rounded-full animate-bounce" style="animation-delay: 0s"></div>
-                <div class="w-3 h-3 bg-white rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
-                <div class="w-3 h-3 bg-white rounded-full animate-bounce" style="animation-delay: 0.4s"></div>
+                <img src="/images/loader-paw.svg" class="w-6 h-6 paw-animate" style="animation-delay: 0s;">
+                <img src="/images/loader-paw.svg" class="w-6 h-6 paw-animate" style="animation-delay: 0.15s;">
+                <img src="/images/loader-paw.svg" class="w-6 h-6 paw-animate" style="animation-delay: 0.3s;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Loader shown BEFORE navigation (starts hidden, drops down) -->
+    <div id="transition-drop">
+        <div class="flex flex-col items-center">
+            <h1 class="text-3xl font-bold text-white">Loading...</h1>
+            <div class="mt-3 flex space-x-2">
+                <img src="/images/loader-paw.svg" class="w-6 h-6 paw-animate" style="animation-delay: 0s;">
+                <img src="/images/loader-paw.svg" class="w-6 h-6 paw-animate" style="animation-delay: 0.15s;">
+                <img src="/images/loader-paw.svg" class="w-6 h-6 paw-animate" style="animation-delay: 0.3s;">
             </div>
         </div>
     </div>
@@ -130,47 +175,43 @@
     </script>
 
     <script>
-        // Handle loader animations
         document.addEventListener('DOMContentLoaded', () => {
-            const loader = document.getElementById('transition-loader');
+            const dropLoader = document.getElementById('transition-drop');
+            const upLoader = document.getElementById('transition-up');
 
-            // Initial page load animation
-            // Start with loader visible (slides down when page begins loading)
-            loader.classList.add('slide-down');
-
-            // Hide the loader when page is fully loaded
+            // On full page load, slide UP the visible loader
             window.addEventListener('load', () => {
                 setTimeout(() => {
-                    loader.classList.remove('slide-down');
-                    loader.classList.add('slide-up');
-                }, 600);
+                    upLoader.classList.add('hide');
+                }, 300); // Optional delay for visual continuity
             });
 
-            // Handle tab/navigation transitions
-            document.querySelectorAll('.tab-button, a[href]:not([href^="#"]):not([target="_blank"])').forEach(element => {
-                element.addEventListener('click', (e) => {
-                    // Only handle internal navigation links
-                    if (element.getAttribute('href') &&
-                        (element.getAttribute('href').startsWith('/') ||
-                        element.getAttribute('href').startsWith(window.location.origin) ||
-                        !element.getAttribute('href').includes('://'))) {
+            // Intercept navigation and trigger drop-down loader
+            document.querySelectorAll('a[href]:not([href^="#"]):not([target="_blank"])').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
 
+                    if (
+                        href &&
+                        (href.startsWith('/') ||
+                        href.startsWith(window.location.origin) ||
+                        !href.includes('://'))
+                    ) {
                         e.preventDefault();
-                        const targetUrl = element.getAttribute('href');
 
-                        // Show loader (slide down)
-                        loader.classList.remove('slide-up');
-                        loader.classList.add('slide-down');
+                        // Show drop loader
+                        dropLoader.classList.add('active');
 
-                        // Navigate after animation completes
+                        // Wait before redirecting
                         setTimeout(() => {
-                            window.location.href = targetUrl;
-                        }, 400);
+                            window.location.href = href;
+                        }, 500);
                     }
                 });
             });
         });
     </script>
+
 </body>
 </html>
 

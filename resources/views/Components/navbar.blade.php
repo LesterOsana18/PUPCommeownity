@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         <!-- Logo -->
         <a href="/" class="flex items-center gap-3 text-2xl font-bold text-white tracking-tight hover:text-[#E7AB39] transition">
-            <img src="/images/sintang-pusa-logo.svg" alt="Sintang Pusa Logo" class="h-10 w-auto">
+            <img src="/images/commeownity-icon.svg" alt="Commeownity Logo" class="h-10 w-auto">
             Commeownity
         </a>
 
