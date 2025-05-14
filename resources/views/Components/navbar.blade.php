@@ -8,23 +8,54 @@
 
         <!-- Desktop Menu -->
         <div class="hidden lg:flex items-center space-x-6">
-        <a href="/" class="text-white font-bold hover:text-[#E7AB39] transition">Home</a>
-        <a href="/adopt" class="text-white font-bold hover:text-[#E7AB39] transition">Adopt a Cat</a>
-        <div class="relative group">
-            <button class="flex items-center text-white font-bold hover:text-[#E7AB39] transition focus:outline-none">
-            Get Involved
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
-            </button>
-            <div class="absolute left-0 mt-2 w-48 bg-[#3d2243] shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
-            <a href="/volunteer" class="block px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58]">Volunteer</a>
-            <a href="/donate" class="block px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58]">Donate</a>
-            <a href="/report" class="block px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58]">Report a Cat</a>
+            <a href="/"
+                class="text-white font-bold hover:text-[#E7AB39] transition {{ request()->is('/') ? 'underline underline-offset-4' : '' }}">
+                Home
+            </a>
+
+            <a href="/adopt"
+                class="text-white font-bold hover:text-[#E7AB39] transition {{ request()->is('adopt') ? 'underline underline-offset-4' : '' }}">
+                Adopt a Cat
+            </a>
+
+            <div class="relative group">
+
+                @php
+                    $getInvolvedActive = request()->is('volunteer') || request()->is('donate') || request()->is('report*');
+                @endphp
+                <button class="flex items-center text-white font-bold hover:text-[#E7AB39] transition focus:outline-none {{ $getInvolvedActive ? 'underline underline-offset-4' : '' }}">
+                    Get Involved
+
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="absolute left-0 mt-2 w-48 bg-[#3d2243] shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
+                    <a href="/volunteer"
+                        class="block px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58] {{ request()->is('volunteer') ? 'underline underline-offset-2' : '' }}">
+                        Volunteer
+                    </a>
+                    <a href="/donate"
+                        class="block px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58] {{ request()->is('donate') ? 'underline underline-offset-2' : '' }}">
+                        Donate
+                    </a>
+                    <a href="/report"
+                        class="block px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58] {{ request()->is('report*') ? 'underline underline-offset-2' : '' }}">
+                        Report a Cat
+                    </a>
+                </div>
             </div>
-        </div>
-        <a href="/about" class="text-white font-bold hover:text-[#E7AB39] transition">About & Resources</a>
-        <a href="/login" class="text-white font-bold hover:text-[#E7AB39] transition">Log In</a>
+
+            <a href="/about"
+                class="text-white font-bold hover:text-[#E7AB39] transition {{ request()->is('about') ? 'underline underline-offset-4' : '' }}">
+                About & Resources
+            </a>
+
+            <a href="/login"
+                class="text-white font-bold hover:text-[#E7AB39] transition {{ request()->is('login') ? 'underline underline-offset-4' : '' }}">
+                Log In
+            </a>
+
         </div>
 
         <!-- Mobile Hamburger -->
@@ -41,27 +72,34 @@
         </button>
     </div>
 
+    @php
+        $getInvolvedActive = request()->is('volunteer') || request()->is('donate') || request()->is('report*');
+    @endphp
+
     <!-- Mobile Menu Panel -->
     <div id="mobile-menu" class="fixed inset-0 bg-[#502C58] bg-opacity-95 transform -translate-x-full transition-transform duration-300 ease-in-out lg:hidden">
         <!-- Close Button for Mobile Menu -->
         <button id="menu-close" aria-label="Close menu" class="absolute top-4 right-4 focus:outline-none">
-        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
         </button>
+
         <div class="mt-20 px-6 space-y-6">
-        <a href="/" class="block text-white font-bold text-lg hover:text-[#E7AB39] transition">Home</a>
-        <a href="/adopt" class="block text-white font-bold text-lg hover:text-[#E7AB39] transition">Adopt a Cat</a>
-        <div class="space-y-2">
-            <button class="w-full text-left text-white font-bold text-lg hover:text-[#E7AB39] transition focus:outline-none">Get Involved</button>
-            <div class="pl-4 space-y-1">
-            <a href="/volunteer" class="block text-white hover:text-[#E7AB39] transition">Volunteer</a>
-            <a href="/donate" class="block text-white hover:text-[#E7AB39] transition">Donate</a>
-            <a href="/report" class="block text-white hover:text-[#E7AB39] transition">Report a Cat</a>
+            <a href="/" class="block text-white font-bold text-lg hover:text-[#E7AB39] transition {{ request()->is('/') ? 'underline underline-offset-4' : '' }}">Home</a>
+            <a href="/adopt" class="block text-white font-bold text-lg hover:text-[#E7AB39] transition {{ request()->is('adopt') ? 'underline underline-offset-4' : '' }}">Adopt a Cat</a>
+
+            <div class="space-y-2">
+                <button class="w-full text-left text-white font-bold text-lg hover:text-[#E7AB39] transition focus:outline-none {{ $getInvolvedActive ? 'underline underline-offset-4' : '' }}">Get Involved</button>
+                <div class="pl-4 space-y-1">
+                    <a href="/volunteer" class="block text-white hover:text-[#E7AB39] transition {{ request()->is('volunteer') ? 'underline underline-offset-4' : '' }}">Volunteer</a>
+                    <a href="/donate" class="block text-white hover:text-[#E7AB39] transition {{ request()->is('donate') ? 'underline underline-offset-4' : '' }}">Donate</a>
+                    <a href="/report" class="block text-white hover:text-[#E7AB39] transition {{ request()->is('report*') ? 'underline underline-offset-4' : '' }}">Report a Cat</a>
+                </div>
             </div>
-        </div>
-        <a href="/about" class="block text-white font-bold text-lg hover:text-[#E7AB39] transition">About & Resources</a>
-        <a href="/login" class="block text-white font-bold text-lg hover:text-[#E7AB39] transition">Log In</a>
+
+            <a href="/about" class="block text-white font-bold text-lg hover:text-[#E7AB39] transition {{ request()->is('about') ? 'underline underline-offset-4' : '' }}">About & Resources</a>
+            <a href="/login" class="block text-white font-bold text-lg hover:text-[#E7AB39] transition {{ request()->is('login') ? 'underline underline-offset-4' : '' }}">Log In</a>
         </div>
     </div>
 
@@ -86,4 +124,5 @@
         });
     </script>
 </nav>
+
 
