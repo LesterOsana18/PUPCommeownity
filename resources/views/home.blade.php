@@ -46,9 +46,7 @@
                 </div>
 
                 <!-- Cat of the Day Section -->
-                <div class="lg:w-1/2 mt-10 lg:mt-0 text-center">
-                    <img src="/images/cod-group.svg" alt="Cat of the Day" class="mx-auto w-full max-w-[550px]">
-                </div>
+                <x-cat-of-the-day />
             </div>
         </div>
     </section>
@@ -242,7 +240,7 @@
             <div class="flex flex-col md:flex-row items-center justify-between mb-10">
                 <!-- Section Title -->
                 <h2 class="text-5xl font-extrabold text-[#48BDAC] mb-4 md:mb-0 mr-4 md:flex md:items-baseline md:whitespace-nowrap">
-                    <span class="text-gray-800">Be </span>
+                    <span class="text-[#2e2e2e]">Be&nbsp;</span>
                     <span class="text-[#48BDAC]">Updated</span>
                 </h2>
 
