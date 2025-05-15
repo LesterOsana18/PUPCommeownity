@@ -1,11 +1,20 @@
 <style>
     [data-carousel-slide-to][aria-current="true"] {
-        background-color: #5e00e6;
+        background-color: #774383;
         opacity: 1;
     }
     [data-carousel-slide-to][aria-current="false"] {
         background-color: #502C58;
         opacity: 0.5;
+    }
+
+    #default-carousel .carousel-wrapper {
+    height: 30rem;
+    }
+    @media (min-width: 768px) {
+        #default-carousel .carousel-wrapper {
+        height: 35rem;
+        }
     }
 </style>
 
@@ -43,9 +52,6 @@
     </section>
 
     <!-- News & Events Carousel -->
-    /**
-    * TODO: Adjust size (smaller)
-    */
     <section class="w-full py-8" style="background-image: url('/images/carousel-waves.svg'); background-size: cover;">
         <div class="h-12"></div>
         <!-- Main content -->
@@ -55,7 +61,7 @@
             </h2>
             <div id="default-carousel" class="relative w-full" data-carousel="slide">
                 <!-- Carousel wrapper -->
-                <div class="relative h-[40rem] overflow-hidden rounded-lg md:h-[50rem]">
+                <div class="relative carousel-wrapper overflow-hidden rounded-lg">
                     <!-- Item 1 -->
                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
                         <div class="absolute w-full h-full flex flex-col">
@@ -229,14 +235,44 @@
     </section>
 
     <!-- Be Updated Section -->
-    /**
-    * TODO: Add search bar functionality
-    */
     <section class="py-12">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <h2 class="text-5xl font-extrabold mb-10 text-[#0a9396]">
-                <span class="text-[#2e2e2e]">Be</span> <span class="text-[#0a9396]">Updated</span>
-            </h2>
+            <div class="flex flex-col md:flex-row items-center justify-between mb-10">
+                <!-- Section Title -->
+                <h2 class="text-5xl font-extrabold text-[#48BDAC] mb-4 md:mb-0 mr-4 md:flex md:items-baseline md:whitespace-nowrap">
+                    <span class="text-gray-800">Be</span>
+                    <span class="text-[#48BDAC]">Updated</span>
+                </h2>
+
+                <!-- Search Form -->
+                <form role="search" action="/search" method="get" class="w-full max-w-md sm:max-w-xl md:max-w-2xl">
+                    <label for="be-updated-search" class="sr-only">Search articles, events, and more</label>
+                    <div class="relative">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" aria-hidden="true">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 19l-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                        </svg>
+                    </div>
+                    <input
+                        type="search"
+                        id="be-updated-search"
+                        name="q"
+                        class="block w-full pl-10 pr-24 py-3 text-sm text-gray-900 border border-primary rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#48BDAC] focus:border-transparent transition"
+                        placeholder="Search for articles, events, and more…"
+                        required
+                        aria-label="Search for articles, events, and more"
+                    />
+                    <button
+                        type="submit"
+                        class="absolute inset-y-0 right-0 px-4 flex items-center text-sm font-medium text-white bg-[#48BDAC] rounded-r-lg hover:bg-[#48BDAC]/90 focus:outline-none focus:ring-2 focus:ring-[#48BDAC] focus:ring-offset-1 transition"
+                    >
+                        Search
+                    </button>
+                    </div>
+                </form>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="p-6 rounded-lg shadow border border-gray-200 backdrop-blur-md bg-white/60 hover:bg-[#0a9396]/10">
                     <img src="/images/carousel-temp-1.jpg" class="w-full h-40 object-cover rounded-t-lg" alt="Card 1">
