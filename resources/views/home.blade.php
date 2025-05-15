@@ -34,10 +34,12 @@
                     <div class="mt-8 flex flex-wrap justify-end gap-4">
                         <a href="/register"
                             class="inline-block bg-[#502C58] text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-[#3f2247] transition">
+                            <i class="fas fa-user-plus mr-1"></i>
                             Join Now
                         </a>
                         <a href="/about"
                             class="inline-block bg-[#48BDAC] text-white px-6 py-3 rounded-md text-sm font-semibold hover:bg-[#407c73] transition">
+                            <i class="fas fa-info-circle mr-1"></i>
                             Learn More
                         </a>
                     </div>
