@@ -5,9 +5,9 @@
 
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 relative z-10">
         <!-- Left column: logos + tagline + map -->
-        <div class="flex flex-col space-y-4">
+        <div class="flex flex-col space-y-4 items-start">
             <!-- Logos -->
-            <div class="flex flex-wrap items-center justify-center space-x-2 md:space-x-4">
+            <div class="flex flex-wrap items-center space-x-2 md:space-x-4">
                 <img src="/images/pup-logo.svg" alt="PUP Logo" class="h-16 md:h-20">
                 <img src="/images/sintang-pusa-logo.svg" alt="Sintang Pusa Logo" class="h-16 md:h-20">
                 <img src="/images/sintang-pusa-title.svg" alt="Sintang Pusa Title" class="h-16 md:h-20">
