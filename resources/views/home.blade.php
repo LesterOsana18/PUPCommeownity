@@ -46,7 +46,9 @@
                 </div>
 
                 <!-- Cat of the Day Section -->
-                <x-cat-of-the-day />
+                @foreach (['tuesday'] as $day) {{-- later add monday, wednesday… --}}
+                    <x-cat-of-the-day :day="$day" />
+                @endforeach
             </div>
         </div>
     </section>

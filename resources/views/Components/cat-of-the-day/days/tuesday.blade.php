@@ -1,6 +1,4 @@
-{{-- resources/views/components/cat-of-the-day.blade.php --}}
-<div id="cat-of-the-day-wrapper" class="lg:w-1/2 mt-10 lg:mt-0 text-center overflow-visible">
-    <svg id="monday-cat" width="548" height="467" viewBox="0 0 548 467" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="visible">
+<svg width="548" height="467" viewBox="0 0 548 467" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="visible">
         <path d="M296.897 1.49908C361.224 1.49912 419.411 16.0773 461.482 39.5958C503.585 63.1325 529.346 95.4903 529.346 131.003C529.346 166.515 503.585 198.873 461.482 222.409C419.411 245.928 361.224 260.506 296.897 260.506C232.57 260.506 174.382 245.928 132.311 222.409C90.2083 198.873 64.4482 166.515 64.4479 131.003C64.4479 95.4904 90.2081 63.1325 132.311 39.5958C174.382 16.0772 232.57 1.49908 296.897 1.49908Z" stroke="#2E2E2E" stroke-width="2" class="svg-elem-1"></path>
         <path d="M296.897 57.3966C361.224 57.3967 419.411 71.9748 461.482 95.4933C503.585 119.03 529.346 151.388 529.346 186.901C529.346 222.413 503.585 254.77 461.482 278.307C419.411 301.825 361.224 316.403 296.897 316.403C232.57 316.403 174.382 301.825 132.311 278.307C90.2083 254.77 64.4482 222.413 64.4479 186.901C64.4479 151.388 90.2081 119.03 132.311 95.4933C174.382 71.9748 232.57 57.3966 296.897 57.3966Z" stroke="#2E2E2E" stroke-width="2" class="svg-elem-2"></path>
         <path d="M296.897 113.294C361.224 113.294 419.411 127.872 461.482 151.391C503.585 174.928 529.346 207.285 529.346 242.798C529.346 278.311 503.585 310.668 461.482 334.204C419.411 357.723 361.224 372.301 296.897 372.301C232.57 372.301 174.382 357.723 132.311 334.204C90.2083 310.668 64.4482 278.31 64.4479 242.798C64.4479 207.286 90.2081 174.928 132.311 151.391C174.382 127.872 232.57 113.294 296.897 113.294Z" stroke="#2E2E2E" stroke-width="2" class="svg-elem-3"></path>
@@ -25,76 +23,6 @@
         </defs>
     </svg>
 
-    <style>
-        @keyframes animate-svg-stroke-1{0%{stroke-dashoffset:1162.2584228515625px;stroke-dasharray:1162.2584228515625px}100%{stroke-dashoffset:0;stroke-dasharray:1162.2584228515625px}}.svg-elem-1{animation:animate-svg-stroke-1 1s cubic-bezier(0.47,0,0.745,0.715) 0s both,animate-svg-fill-1 0.7s cubic-bezier(0.47,0,0.745,0.715) 0.8s both}@keyframes animate-svg-stroke-2{0%{stroke-dashoffset:1162.2581787109375px;stroke-dasharray:1162.2581787109375px}100%{stroke-dashoffset:0;stroke-dasharray:1162.2581787109375px}}.svg-elem-2{animation:animate-svg-stroke-2 1s cubic-bezier(0.47,0,0.745,0.715) 0.12s both,animate-svg-fill-2 0.7s cubic-bezier(0.47,0,0.745,0.715) 0.9s both}@keyframes animate-svg-stroke-3{0%{stroke-dashoffset:1162.25830078125px;stroke-dasharray:1162.25830078125px}100%{stroke-dashoffset:0;stroke-dasharray:1162.25830078125px}}.svg-elem-3{animation:animate-svg-stroke-3 1s cubic-bezier(0.47,0,0.745,0.715) 0.24s both,animate-svg-fill-3 0.7s cubic-bezier(0.47,0,0.745,0.715) 1s both}@keyframes animate-svg-stroke-4{0%{stroke-dashoffset:321.9349670410156px;stroke-dasharray:321.9349670410156px}100%{stroke-dashoffset:0;stroke-dasharray:321.9349670410156px}}@keyframes animate-svg-fill-4{0%{fill:transparent}100%{fill:rgb(46,46,46)}}.svg-elem-4{animation:animate-svg-stroke-4 1s cubic-bezier(0.47,0,0.745,0.715) 0.36s both,animate-svg-fill-4 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.1s both}@keyframes animate-svg-stroke-5{0%{stroke-dashoffset:1280.8309326171875px;stroke-dasharray:1280.8309326171875px}100%{stroke-dashoffset:0;stroke-dasharray:1280.8309326171875px}}@keyframes animate-svg-fill-5{0%{fill:transparent}100%{fill:url("#pattern0_2026_307")}}.svg-elem-5{animation:animate-svg-stroke-5 1s cubic-bezier(0.47,0,0.745,0.715) 0.48s both,animate-svg-fill-5 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.2000000000000002s both}@keyframes animate-svg-stroke-6{0%{stroke-dashoffset:208.36256408691406px;stroke-dasharray:208.36256408691406px}100%{stroke-dashoffset:0;stroke-dasharray:208.36256408691406px}}@keyframes animate-svg-fill-6{0%{fill:transparent}100%{fill:rgb(74,189,172)}}.svg-elem-6{animation:animate-svg-stroke-6 1s cubic-bezier(0.47,0,0.745,0.715) 0.6s both,animate-svg-fill-6 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.3s both}@keyframes animate-svg-stroke-7{0%{stroke-dashoffset:1224.1146240234375px;stroke-dasharray:1224.1146240234375px}100%{stroke-dashoffset:0;stroke-dasharray:1224.1146240234375px}}@keyframes animate-svg-fill-7{0%{fill:transparent}100%{fill:rgb(74,189,172)}}.svg-elem-7{animation:animate-svg-stroke-7 1s cubic-bezier(0.47,0,0.745,0.715) 0.72s both,animate-svg-fill-7 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.4000000000000001s both}@keyframes animate-svg-stroke-8{0%{stroke-dashoffset:802.34814453125px;stroke-dasharray:802.34814453125px}100%{stroke-dashoffset:0;stroke-dasharray:802.34814453125px}}@keyframes animate-svg-fill-8{0%{fill:transparent}100%{fill:rgb(46,46,46)}}.svg-elem-8{animation:animate-svg-stroke-8 1s cubic-bezier(0.47,0,0.745,0.715) 0.84s both,animate-svg-fill-8 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.5s both}@keyframes animate-svg-stroke-9{0%{stroke-dashoffset:618.5120849609375px;stroke-dasharray:618.5120849609375px}100%{stroke-dashoffset:0;stroke-dasharray:618.5120849609375px}}@keyframes animate-svg-fill-9{0%{fill:transparent}100%{fill:rgb(46,46,46)}}.svg-elem-9{animation:animate-svg-stroke-9 1s cubic-bezier(0.47,0,0.745,0.715) 0.96s both,animate-svg-fill-9 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.6s both}@keyframes animate-svg-stroke-10{0%{stroke-dashoffset:470px;stroke-dasharray:470px}100%{stroke-dashoffset:0;stroke-dasharray:470px}}@keyframes animate-svg-fill-10{0%{fill:transparent}100%{fill:rgb(255,255,255)}}.svg-elem-10{animation:animate-svg-stroke-10 1s cubic-bezier(0.47,0,0.745,0.715) 1.08s both,animate-svg-fill-10 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.7000000000000002s both}@keyframes animate-svg-stroke-11{0%{stroke-dashoffset:618.511474609375px;stroke-dasharray:618.511474609375px}100%{stroke-dashoffset:0;stroke-dasharray:618.511474609375px}}@keyframes animate-svg-fill-11{0%{fill:transparent}100%{fill:rgb(0,0,0)}}.svg-elem-11{animation:animate-svg-stroke-11 1s cubic-bezier(0.47,0,0.745,0.715) 1.2s both,animate-svg-fill-11 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.8s both}@keyframes animate-svg-stroke-12{0%{stroke-dashoffset:1690.631591796875px;stroke-dasharray:1690.631591796875px}100%{stroke-dashoffset:0;stroke-dasharray:1690.631591796875px}}@keyframes animate-svg-fill-12{0%{fill:transparent}100%{fill:rgb(74,189,172)}}.svg-elem-12{animation:animate-svg-stroke-12 1s cubic-bezier(0.47,0,0.745,0.715) 1.3199999999999998s both,animate-svg-fill-12 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.9000000000000001s both}@keyframes animate-svg-stroke-13{0%{stroke-dashoffset:668.78759765625px;stroke-dasharray:668.78759765625px}100%{stroke-dashoffset:0;stroke-dasharray:668.78759765625px}}@keyframes animate-svg-fill-13{0%{fill:transparent}100%{fill:rgb(74,189,172)}}.svg-elem-13{animation:animate-svg-stroke-13 1s cubic-bezier(0.47,0,0.745,0.715) 1.44s both,animate-svg-fill-13 0.7s cubic-bezier(0.47,0,0.745,0.715) 2s both}@keyframes animate-svg-stroke-14{0%{stroke-dashoffset:236.15487670898438px;stroke-dasharray:236.15487670898438px}100%{stroke-dashoffset:0;stroke-dasharray:236.15487670898438px}}@keyframes animate-svg-fill-14{0%{fill:transparent}100%{fill:rgb(46,46,46)}}.svg-elem-14{animation:animate-svg-stroke-14 1s cubic-bezier(0.47,0,0.745,0.715) 1.56s both,animate-svg-fill-14 0.7s cubic-bezier(0.47,0,0.745,0.715) 2.1s both}
-    </style>
-
-    <script>
-    (function(){
-        const wrapper  = document.getElementById('cat-of-the-day-wrapper');
-        const svgRoot  = wrapper.querySelector('svg');
-
-        // configuration: change these to control how much movement overall
-        const DEFAULT_MAX_X = 8; // max ±px horizontally
-        const DEFAULT_MAX_Y = 5; // max ±px vertically
-
-        // pick all shape/container elements you want animated:
-        const candidates = svgRoot.querySelectorAll('path, circle, rect, ellipse, polygon, polyline, g');
-
-        // build our movables array just like before
-        const movables = Array.from(candidates).map(el => {
-        // each element gets its own random maxX/Y between 0.5× and 1.5× the defaults
-        const maxX = DEFAULT_MAX_X * (0.5 + Math.random());
-        const maxY = DEFAULT_MAX_Y * (0.5 + Math.random());
-        // random bias direction
-        const angle = Math.random() * Math.PI * 2;
-        return {
-            el,
-            maxX,
-            maxY,
-            biasX: Math.cos(angle),
-            biasY: Math.sin(angle),
-            targetX: 0, targetY: 0,
-            currentX: 0, currentY: 0
-        };
-        });
-
-        // keep wrapper bounds up to date
-        let rect = wrapper.getBoundingClientRect();
-        window.addEventListener('resize', () => rect = wrapper.getBoundingClientRect());
-        window.addEventListener('scroll', () => rect = wrapper.getBoundingClientRect());
-
-        // on every mousemove, compute global relX/relY
-        window.addEventListener('mousemove', e => {
-        let relX = (e.clientX - rect.left)  / rect.width  - 0.5;
-        let relY = (e.clientY - rect.top)   / rect.height - 0.5;
-        relX = Math.max(-0.5, Math.min(0.5, relX));
-        relY = Math.max(-0.5, Math.min(0.5, relY));
-
-        movables.forEach(item => {
-            // dot against each element’s bias
-            const influence = relX * item.biasX + relY * item.biasY;
-            item.targetX = influence * item.maxX * 2;
-            item.targetY = influence * item.maxY * 2;
-        });
-        });
-
-        // smooth lerp loop
-        function animate() {
-        movables.forEach(item => {
-            item.currentX += (item.targetX - item.currentX) * 0.1;
-            item.currentY += (item.targetY - item.currentY) * 0.1;
-            item.el.style.transform =
-            `translate3d(${item.currentX.toFixed(2)}px, ${item.currentY.toFixed(2)}px, 0)`;
-        });
-        requestAnimationFrame(animate);
-        }
-        animate();
-
-        // reset on blur
-        window.addEventListener('blur', () => {
-        movables.forEach(i => i.targetX = i.targetY = 0);
-        });
-    })();
-    </script>
-</div>
+<style>
+    @keyframes animate-svg-stroke-1{0%{stroke-dashoffset:1162.2584228515625px;stroke-dasharray:1162.2584228515625px}100%{stroke-dashoffset:0;stroke-dasharray:1162.2584228515625px}}.svg-elem-1{animation:animate-svg-stroke-1 1s cubic-bezier(0.47,0,0.745,0.715) 0s both,animate-svg-fill-1 0.7s cubic-bezier(0.47,0,0.745,0.715) 0.8s both}@keyframes animate-svg-stroke-2{0%{stroke-dashoffset:1162.2581787109375px;stroke-dasharray:1162.2581787109375px}100%{stroke-dashoffset:0;stroke-dasharray:1162.2581787109375px}}.svg-elem-2{animation:animate-svg-stroke-2 1s cubic-bezier(0.47,0,0.745,0.715) 0.12s both,animate-svg-fill-2 0.7s cubic-bezier(0.47,0,0.745,0.715) 0.9s both}@keyframes animate-svg-stroke-3{0%{stroke-dashoffset:1162.25830078125px;stroke-dasharray:1162.25830078125px}100%{stroke-dashoffset:0;stroke-dasharray:1162.25830078125px}}.svg-elem-3{animation:animate-svg-stroke-3 1s cubic-bezier(0.47,0,0.745,0.715) 0.24s both,animate-svg-fill-3 0.7s cubic-bezier(0.47,0,0.745,0.715) 1s both}@keyframes animate-svg-stroke-4{0%{stroke-dashoffset:321.9349670410156px;stroke-dasharray:321.9349670410156px}100%{stroke-dashoffset:0;stroke-dasharray:321.9349670410156px}}@keyframes animate-svg-fill-4{0%{fill:transparent}100%{fill:rgb(46,46,46)}}.svg-elem-4{animation:animate-svg-stroke-4 1s cubic-bezier(0.47,0,0.745,0.715) 0.36s both,animate-svg-fill-4 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.1s both}@keyframes animate-svg-stroke-5{0%{stroke-dashoffset:1280.8309326171875px;stroke-dasharray:1280.8309326171875px}100%{stroke-dashoffset:0;stroke-dasharray:1280.8309326171875px}}@keyframes animate-svg-fill-5{0%{fill:transparent}100%{fill:url("#pattern0_2026_307")}}.svg-elem-5{animation:animate-svg-stroke-5 1s cubic-bezier(0.47,0,0.745,0.715) 0.48s both,animate-svg-fill-5 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.2000000000000002s both}@keyframes animate-svg-stroke-6{0%{stroke-dashoffset:208.36256408691406px;stroke-dasharray:208.36256408691406px}100%{stroke-dashoffset:0;stroke-dasharray:208.36256408691406px}}@keyframes animate-svg-fill-6{0%{fill:transparent}100%{fill:rgb(74,189,172)}}.svg-elem-6{animation:animate-svg-stroke-6 1s cubic-bezier(0.47,0,0.745,0.715) 0.6s both,animate-svg-fill-6 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.3s both}@keyframes animate-svg-stroke-7{0%{stroke-dashoffset:1224.1146240234375px;stroke-dasharray:1224.1146240234375px}100%{stroke-dashoffset:0;stroke-dasharray:1224.1146240234375px}}@keyframes animate-svg-fill-7{0%{fill:transparent}100%{fill:rgb(74,189,172)}}.svg-elem-7{animation:animate-svg-stroke-7 1s cubic-bezier(0.47,0,0.745,0.715) 0.72s both,animate-svg-fill-7 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.4000000000000001s both}@keyframes animate-svg-stroke-8{0%{stroke-dashoffset:802.34814453125px;stroke-dasharray:802.34814453125px}100%{stroke-dashoffset:0;stroke-dasharray:802.34814453125px}}@keyframes animate-svg-fill-8{0%{fill:transparent}100%{fill:rgb(46,46,46)}}.svg-elem-8{animation:animate-svg-stroke-8 1s cubic-bezier(0.47,0,0.745,0.715) 0.84s both,animate-svg-fill-8 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.5s both}@keyframes animate-svg-stroke-9{0%{stroke-dashoffset:618.5120849609375px;stroke-dasharray:618.5120849609375px}100%{stroke-dashoffset:0;stroke-dasharray:618.5120849609375px}}@keyframes animate-svg-fill-9{0%{fill:transparent}100%{fill:rgb(46,46,46)}}.svg-elem-9{animation:animate-svg-stroke-9 1s cubic-bezier(0.47,0,0.745,0.715) 0.96s both,animate-svg-fill-9 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.6s both}@keyframes animate-svg-stroke-10{0%{stroke-dashoffset:470px;stroke-dasharray:470px}100%{stroke-dashoffset:0;stroke-dasharray:470px}}@keyframes animate-svg-fill-10{0%{fill:transparent}100%{fill:rgb(255,255,255)}}.svg-elem-10{animation:animate-svg-stroke-10 1s cubic-bezier(0.47,0,0.745,0.715) 1.08s both,animate-svg-fill-10 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.7000000000000002s both}@keyframes animate-svg-stroke-11{0%{stroke-dashoffset:618.511474609375px;stroke-dasharray:618.511474609375px}100%{stroke-dashoffset:0;stroke-dasharray:618.511474609375px}}@keyframes animate-svg-fill-11{0%{fill:transparent}100%{fill:rgb(0,0,0)}}.svg-elem-11{animation:animate-svg-stroke-11 1s cubic-bezier(0.47,0,0.745,0.715) 1.2s both,animate-svg-fill-11 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.8s both}@keyframes animate-svg-stroke-12{0%{stroke-dashoffset:1690.631591796875px;stroke-dasharray:1690.631591796875px}100%{stroke-dashoffset:0;stroke-dasharray:1690.631591796875px}}@keyframes animate-svg-fill-12{0%{fill:transparent}100%{fill:rgb(74,189,172)}}.svg-elem-12{animation:animate-svg-stroke-12 1s cubic-bezier(0.47,0,0.745,0.715) 1.3199999999999998s both,animate-svg-fill-12 0.7s cubic-bezier(0.47,0,0.745,0.715) 1.9000000000000001s both}@keyframes animate-svg-stroke-13{0%{stroke-dashoffset:668.78759765625px;stroke-dasharray:668.78759765625px}100%{stroke-dashoffset:0;stroke-dasharray:668.78759765625px}}@keyframes animate-svg-fill-13{0%{fill:transparent}100%{fill:rgb(74,189,172)}}.svg-elem-13{animation:animate-svg-stroke-13 1s cubic-bezier(0.47,0,0.745,0.715) 1.44s both,animate-svg-fill-13 0.7s cubic-bezier(0.47,0,0.745,0.715) 2s both}@keyframes animate-svg-stroke-14{0%{stroke-dashoffset:236.15487670898438px;stroke-dasharray:236.15487670898438px}100%{stroke-dashoffset:0;stroke-dasharray:236.15487670898438px}}@keyframes animate-svg-fill-14{0%{fill:transparent}100%{fill:rgb(46,46,46)}}.svg-elem-14{animation:animate-svg-stroke-14 1s cubic-bezier(0.47,0,0.745,0.715) 1.56s both,animate-svg-fill-14 0.7s cubic-bezier(0.47,0,0.745,0.715) 2.1s both}
+</style>
