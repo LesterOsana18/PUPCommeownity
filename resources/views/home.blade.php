@@ -46,9 +46,12 @@
                 </div>
 
                 <!-- Cat of the Day Section -->
-                @foreach (['tuesday'] as $day) {{-- later add monday, wednesday… --}}
-                    <x-cat-of-the-day :day="$day" />
-                @endforeach
+                @php
+                    $days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+                    $day = $days[array_rand($days)];
+                @endphp
+
+                <x-cat-of-the-day :day="$day" />
             </div>
         </div>
     </section>
