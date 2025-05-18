@@ -47,8 +47,7 @@
 
                 <!-- Cat of the Day Section -->
                 @php
-                    $days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
-                    $day = $days[array_rand($days)];
+                    $day = strtolower(date('l'));
                 @endphp
 
                 <x-cat-of-the-day :day="$day" />
