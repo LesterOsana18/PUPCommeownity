@@ -2,7 +2,7 @@
     <section class="max-w-xl mx-auto px-4 py-12">
         <div
             class="max-w-xl w-full
-                    bg-white/20 backdrop-blur-lg border border-white/30
+                    bg-white/10 backdrop-blur-lg border border-white/20
                     rounded-2xl shadow-xl
                     p-8">
 
