@@ -11,9 +11,6 @@
             <p class="text-base text-gray-600 mb-4">
                 We have a variety of cats available for adoption, each with their own unique personality and story.
             </p>
-            <p class="text-base text-gray-600">
-                If you're interested in adopting a cat, please fill out the adoption application form below.
-            </p><br>
         </div>
 
         <div class="grid md:grid-cols-2 gap-4 mb-12">
@@ -25,7 +22,7 @@
             <div class="bg-yellow-100 p-6 rounded-lg text-center relative">
                 <h2 class="text-xl font-bold mb-2">Interested?</h2>
                 <p class="text-sm mb-4">See a cat and wonder if they're free to adopt?</p>
-                <a href="#" class="bg-purple-700 text-white px-4 py-2 rounded hover:bg-purple-900 transition">Adopt Now</a>
+                <a href="/adoptionprocess" class="bg-purple-700 text-white px-4 py-2 rounded hover:bg-purple-900 transition">Adopt Now</a>
             </div>
         </div>
 

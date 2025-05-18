@@ -31,7 +31,7 @@
                     </ul>
 
                     <!-- Adoption Process Button -->
-                    <button class="mt-6 inline-block bg-purple-800 hover:bg-purple-700 text-white px-6 py-2 rounded font-semibold">
+                    <button href="/adoptionprocess" class="mt-6 inline-block bg-purple-800 hover:bg-purple-700 text-white px-6 py-2 rounded font-semibold">
                         VIEW ADOPTION PROCESS
                     </button>
                 </div>

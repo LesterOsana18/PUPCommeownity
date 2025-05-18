@@ -10,6 +10,10 @@ Route::get('/adopt', function () {
     return view('adopt');
 });
 
+Route::get('/adoptionprocess', function () {
+    return view('adoptionprocess');
+});
+
 Route::get('/catprofile', function () {
     return view('catprofile');
 });
