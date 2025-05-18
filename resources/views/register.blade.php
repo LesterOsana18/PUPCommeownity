@@ -200,7 +200,7 @@
             </div>
 
             <!-- Terms & Conditions -->
-            <div class="flex items-center md:col-span-2">
+            <div class="flex items-center">
                 <input
                     type="checkbox"
                     name="terms"
@@ -209,16 +209,15 @@
                     class="h-4 w-4 text-[#502C58] border-gray-300 rounded focus:ring-[#502C58] transition"
                 >
                 <label for="terms" class="ml-2 text-sm text-gray-700">
-                    I agree to the <a href="/terms" class="text-[#502C58] underline">terms and conditions</a>
+                    I agree to the <a href="/terms" class="text-[#502C58] underline">terms and conditions</a>.
                 </label>
             </div>
 
             <!-- Submit -->
-            <div class="md:col-span-2 text-right">
+            <div class="text-right">
                 <button
                     type="submit"
-                    class="bg-[#502C58] text-white font-semibold px-6 py-2 rounded-md hover:bg-[#3f2247] transition"
-                >
+                    class="bg-[#502C58] text-white font-semibold px-6 py-2 rounded-md hover:bg-[#3f2247] transition">
                     Submit
                 </button>
             </div>
