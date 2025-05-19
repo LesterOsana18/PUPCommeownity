@@ -412,21 +412,17 @@
                                             stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
-                                    <div class="flex text-sm text-gray-600">
-                                        <label
-                                            for="media"
-                                            class="relative cursor-pointer bg-white rounded-md font-medium text-[#502C58] hover:text-[#3f2247] focus-within:outline-none">
-                                            <span>Upload a file</span>
-                                            <input
-                                                id="media"
-                                                name="media"
-                                                type="file"
-                                                accept="image/*,video/*"
-                                                class="sr-only">
-                                        </label>
-                                        <p class="pl-1">or drag and drop</p>
-                                    </div>
-                                    <p class="text-xs text-gray-500">PNG, JPG, MP4 up to 10MB</p>
+                                    <label
+                                        for="media"
+                                        class="relative cursor-pointer bg-white rounded-md text-sm font-light text-[#502C58] hover:text-[#3f2247] focus-within:outline-none">
+                                        <span>Upload a file</span>
+                                        <input
+                                            id="media"
+                                            name="media"
+                                            type="file"
+                                            accept=".jpg,.jpeg,.png,.mp4"
+                                            class="sr-only">
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -572,6 +568,59 @@
 
         </div>
     </section>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInput = document.getElementById('media');
+            if (!fileInput) {
+                console.error('File input with ID "media" not found');
+                return;
+            }
+
+            // Safer element selection with fallback
+            const fileLabel = fileInput.previousElementSibling?.querySelector('span')
+                || document.querySelector('label[for="media"] span')
+                || document.createElement('span'); // fallback
+
+            const maxFileSizeMB = 10;
+            const allowedTypes = ['image/jpeg', 'image/png', 'video/mp4'];
+            const maxSizeReadable = `${maxFileSizeMB} MB`;
+
+            fileInput.addEventListener('change', function() {
+                if (!fileInput.files || fileInput.files.length === 0) {
+                    fileLabel.textContent = 'Upload a file';
+                    return;
+                }
+
+                const file = fileInput.files[0];
+                let isValid = true;
+
+                // Validate file type
+                if (!allowedTypes.includes(file.type)) {
+                    alert(`Invalid file type (${file.type}). Please upload: ${allowedTypes.join(', ')}`);
+                    isValid = false;
+                }
+
+                // Validate file size
+                const fileSizeMB = file.size / (1024 * 1024);
+                if (fileSizeMB > maxFileSizeMB) {
+                    alert(`File size (${fileSizeMB.toFixed(2)}MB) exceeds ${maxSizeReadable} limit`);
+                    isValid = false;
+                }
+
+                // Handle invalid file
+                if (!isValid) {
+                    fileInput.value = '';
+                    fileLabel.textContent = 'Upload a file';
+                    return;
+                }
+
+                // Update UI for valid file
+                fileLabel.textContent = file.name;
+            });
+        });
+    </script>
 
     {{-- <script>
         let map;
