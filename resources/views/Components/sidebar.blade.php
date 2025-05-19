@@ -29,7 +29,7 @@
     <nav class="flex-1 mt-6 px-6 flex flex-col space-y-2">
         <!-- Dashboard -->
         <a href="/dashboard"
-           class="flex items-center py-2 px-4 rounded hover:bg-[#774383] transition font-semibold {{ request()->is('dashboard') ? 'bg-[#774383] text-[#4ABDAC]' : '' }}">
+           class="flex items-center py-2 px-4 rounded hover:bg-[#774383] transition font-semibold {{ request()->is('dashboard') ? 'bg-[#774383]' : '' }}">
             <i class="fas fa-tachometer-alt mr-2"></i>
             Dashboard
         </a>
@@ -44,15 +44,15 @@
                 <i class="fas fa-chevron-down ml-auto transition-transform peer-checked:rotate-180"></i>
             </label>
             <div class="ml-8 mt-1 flex flex-col space-y-1 max-h-0 overflow-hidden transition-all duration-300 peer-checked:max-h-40">
-                <a href="/tables/adoptions"
-                   class="py-1 px-4 rounded hover:bg-[#774383] transition {{ request()->is('tables/adoptions') ? 'bg-[#774383]' : '' }}">
+                <a href="/tables#adoptions"
+                   class="py-1 px-4 rounded hover:bg-[#774383] transition {{ request()->is('tables/adoptions') ? 'bg-[#774383] text-[#4ABDAC]' : '' }}">
                     Adoptions
                 </a>
-                <a href="/tables/donations"
+                <a href="/tables#donations"
                    class="py-1 px-4 rounded hover:bg-[#774383] transition {{ request()->is('tables/donations') ? 'bg-[#774383]' : '' }}">
                     Donations
                 </a>
-                <a href="/tables/applications"
+                <a href="/tables#applications"
                    class="py-1 px-4 rounded hover:bg-[#774383] transition {{ request()->is('tables/applications') ? 'bg-[#774383]' : '' }}">
                     Applications
                 </a>
@@ -69,11 +69,11 @@
                 <i class="fas fa-chevron-down ml-auto transition-transform peer-checked:rotate-180"></i>
             </label>
             <div class="ml-8 mt-1 flex flex-col space-y-1 max-h-0 overflow-hidden transition-all duration-300 peer-checked:max-h-20">
-                <a href="/moderation/reports"
+                <a href="/moderation#reports"
                    class="py-1 px-4 rounded hover:bg-[#774383] transition {{ request()->is('moderation/reports') ? 'bg-[#774383]' : '' }}">
                     Reports
                 </a>
-                <a href="/moderation/posts"
+                <a href="/moderation#posts"
                    class="py-1 px-4 rounded hover:bg-[#774383] transition {{ request()->is('moderation/posts') ? 'bg-[#774383]' : '' }}">
                     Posts
                 </a>
@@ -90,15 +90,15 @@
                 <i class="fas fa-chevron-down ml-auto transition-transform peer-checked:rotate-180"></i>
             </label>
             <div class="ml-8 mt-1 flex flex-col space-y-1 max-h-0 overflow-hidden transition-all duration-300 peer-checked:max-h-28">
-                <a href="/update/announcements"
+                <a href="/update#announcements"
                    class="py-1 px-4 rounded hover:bg-[#774383] transition {{ request()->is('update/announcements') ? 'bg-[#774383]' : '' }}">
                     Announcements
                 </a>
-                <a href="/update/gallery"
+                <a href="/update#gallery"
                    class="py-1 px-4 rounded hover:bg-[#774383] transition {{ request()->is('update/gallery') ? 'bg-[#774383]' : '' }}">
                     Gallery
                 </a>
-                <a href="/update/educational"
+                <a href="/update#educational"
                    class="py-1 px-4 rounded hover:bg-[#774383] transition {{ request()->is('update/educational') ? 'bg-[#774383]' : '' }}">
                     Educational
                 </a>
