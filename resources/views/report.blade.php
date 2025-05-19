@@ -312,8 +312,8 @@
                         <div>
                             <label
                                 for="description"
-                                class="block mb-1 text-sm font-medium text-gray-700">Cat
-                                Description <span class="text-[#ce4257] font-bold text-sm">*</span>
+                                class="block mb-1 text-sm font-medium text-gray-700">
+                                Cat Description <span class="text-[#ce4257] font-bold text-sm">*</span>
                             </label>
                             <p class="text-xs text-gray-400 mb-2">Color, size, breed if known, collar, behavior, etc.</p>
                             <textarea
@@ -465,12 +465,19 @@
                         <p class="text-xs text-gray-400 mb-2">This helps us determine if the cat stays in the area</p>
                         <div class="flex space-x-6">
                             <label class="inline-flex items-center">
-                                <input type="radio" name="recurring" value="yes" required
+                                <input
+                                    type="radio"
+                                    name="recurring"
+                                    value="yes"
+                                    required
                                     class="h-4 w-4 text-[#502C58] border-gray-300 focus:ring-[#502C58]">
                                 <span class="ml-2 text-gray-700">Yes</span>
                             </label>
                             <label class="inline-flex items-center">
-                                <input type="radio" name="recurring" value="no"
+                                <input
+                                    type="radio"
+                                    name="recurring"
+                                    value="no"
                                     class="h-4 w-4 text-[#502C58] border-gray-300 focus:ring-[#502C58]">
                                 <span class="ml-2 text-gray-700">No</span>
                             </label>
