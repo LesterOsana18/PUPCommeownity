@@ -8,26 +8,24 @@
 
         <!-- Desktop Menu -->
         <div class="hidden lg:flex items-center space-x-6">
-            <a href="/"
-                class="flex items-center text-white font-bold hover:text-[#E7AB39] transition {{ request()->is('/') ? 'underline underline-offset-4' : '' }}">
+            <a href="/" class="flex items-center text-white font-bold text-lg hover:text-[#E7AB39] transition">
                 <i class="fa-solid fa-home mr-1"></i>
-                Home
+                <span class="{{ request()->is('/') ? 'underline underline-offset-4' : '' }}">Home</span>
             </a>
 
-            <a href="/adopt"
-                class="flex items-center text-white font-bold hover:text-[#E7AB39] transition {{ request()->is('adopt') ? 'underline underline-offset-4' : '' }}">
+            <a href="/adopt" class="flex items-center text-white font-bold text-lg hover:text-[#E7AB39] transition">
                 <i class="fa-solid fa-cat mr-1"></i>
-                Adopt a Cat
+                <span class="{{ request()->is('adopt') ? 'underline underline-offset-4' : '' }}">Adopt a Cat</span>
             </a>
+
 
             <div class="relative group">
-
                 @php
                     $getInvolvedActive = request()->is('volunteer') || request()->is('donate') || request()->is('report*');
                 @endphp
-                <button class="flex items-center text-white font-bold hover:text-[#E7AB39] transition focus:outline-none {{ $getInvolvedActive ? 'underline underline-offset-4' : '' }}">
+                <button class="flex items-center text-white font-bold hover:text-[#E7AB39] transition focus:outline-none">
                     <i class="fa-solid fa-hands-helping mr-1"></i>
-                    Get Involved
+                    <span class="{{ $getInvolvedActive ? 'underline underline-offset-4' : '' }}">Get Involved</span>
 
                     <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -35,19 +33,19 @@
                 </button>
                 <div class="absolute left-0 mt-2 w-48 bg-[#3d2243] shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
                     <a href="/volunteer"
-                        class="block px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58] {{ request()->is('volunteer') ? 'underline underline-offset-2' : '' }}">
+                        class="flex items-center px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58] {{ request()->is('volunteer') ? 'underline underline-offset-2' : '' }}">
                         <i class="fas fa-user-friends mr-1"></i>
-                        Volunteer
+                        <span class="ml-1">Volunteer</span>
                     </a>
                     <a href="/donate"
-                        class="block px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58] {{ request()->is('donate') ? 'underline underline-offset-2' : '' }}">
+                        class="flex items-center px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58] {{ request()->is('donate') ? 'underline underline-offset-2' : '' }}">
                         <i class="fas fa-donate mr-1"></i>
-                        Donate
+                        <span class="ml-1">Donate</span>
                     </a>
                     <a href="/report"
-                        class="block px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58] {{ request()->is('report*') ? 'underline underline-offset-2' : '' }}">
+                        class="flex items-center px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58] {{ request()->is('report*') ? 'underline underline-offset-2' : '' }}">
                         <i class="fas fa-exclamation-triangle mr-1"></i>
-                        Report a Cat
+                        <span class="ml-1">Report a Cat</span>
                     </a>
                 </div>
             </div>
@@ -93,42 +91,48 @@
         </button>
 
         <div class="mt-20 px-6 space-y-6">
-            <a href="/" class="flex items-center text-white font-bold text-lg hover:text-[#E7AB39] transition {{ request()->is('/') ? 'underline underline-offset-4' : '' }}">
+            <a href="/" class="flex items-center text-white font-bold text-lg hover:text-[#E7AB39] transition">
                 <i class="fas fa-home mr-2"></i>
-                Home
+                <span class="{{ request()->is('/') ? 'underline underline-offset-4' : '' }}">Home</span>
             </a>
-            <a href="/adopt" class="flex items-center text-white font-bold text-lg hover:text-[#E7AB39] transition {{ request()->is('adopt') ? 'underline underline-offset-4' : '' }}">
+
+            <a href="/adopt" class="flex items-center text-white font-bold text-lg hover:text-[#E7AB39] transition">
                 <i class="fas fa-cat mr-2"></i>
-                Adopt a Cat
+                <span class="{{ request()->is('adopt') ? 'underline underline-offset-4' : '' }}">Adopt a Cat</span>
             </a>
+
             <div class="space-y-2">
-                <button class="w-full flex items-center text-white font-bold text-lg hover:text-[#E7AB39] transition focus:outline-none {{ $getInvolvedActive ? 'underline underline-offset-4' : '' }}">
+                <button class="w-full flex items-center text-white font-bold text-lg hover:text-[#E7AB39] transition focus:outline-none">
                     <i class="fas fa-hands-helping mr-2"></i>
-                    Get Involved
+                    <span class="{{ $getInvolvedActive ? 'underline underline-offset-4' : '' }}">Get Involved</span>
                 </button>
+
                 <div class="pl-4 space-y-1">
-                    <a href="/volunteer" class="block text-white hover:text-[#E7AB39] transition {{ request()->is('volunteer') ? 'underline underline-offset-4' : '' }}">
+                    <a href="/volunteer" class="block text-white hover:text-[#E7AB39] transition">
                         <i class="fas fa-user-friends mr-1"></i>
-                        Volunteer
+                        <span class="{{ request()->is('volunteer') ? 'underline underline-offset-4' : '' }}">Volunteer</span>
                     </a>
-                    <a href="/donate" class="block text-white hover:text-[#E7AB39] transition {{ request()->is('donate') ? 'underline underline-offset-4' : '' }}">
+
+                    <a href="/donate" class="block text-white hover:text-[#E7AB39] transition">
                         <i class="fas fa-donate mr-1"></i>
-                        Donate
+                        <span class="{{ request()->is('donate') ? 'underline underline-offset-4' : '' }}">Donate</span>
                     </a>
-                    <a href="/report" class="block text-white hover:text-[#E7AB39] transition {{ request()->is('report*') ? 'underline underline-offset-4' : '' }}">
+
+                    <a href="/report" class="block text-white hover:text-[#E7AB39] transition">
                         <i class="fas fa-exclamation-triangle mr-1"></i>
-                        Report a Cat
+                        <span class="{{ request()->is('report*') ? 'underline underline-offset-4' : '' }}">Report a Cat</span>
                     </a>
                 </div>
             </div>
 
-            <a href="/about" class="flex items-center text-white font-bold text-lg hover:text-[#E7AB39] transition {{ request()->is('about') ? 'underline underline-offset-4' : '' }}">
+            <a href="/about" class="flex items-center text-white font-bold text-lg hover:text-[#E7AB39] transition">
                 <i class="fas fa-info-circle mr-2"></i>
-                About & Resources
+                <span class="{{ request()->is('about') ? 'underline underline-offset-4' : '' }}">About & Resources</span>
             </a>
-            <a href="/login" class="flex items-center text-white font-bold text-lg hover:text-[#E7AB39] transition {{ request()->is('login') ? 'underline underline-offset-4' : '' }}">
+
+            <a href="/login" class="flex items-center text-white font-bold text-lg hover:text-[#E7AB39] transition">
                 <i class="fas fa-sign-in-alt mr-2"></i>
-                Log In
+                <span class="{{ request()->is('login') ? 'underline underline-offset-4' : '' }}">Log In</span>
             </a>
         </div>
     </div>
