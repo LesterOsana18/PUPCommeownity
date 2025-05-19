@@ -1,6 +1,6 @@
 <x-layout>
     <section class="max-w-3xl mx-auto px-6 py-16">
-        <div class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-xl p-10">
+        <div class="bg-white/10 backdrop-blur-lg border border-gray-200 rounded-2xl shadow-xl p-10">
 
             <!-- Header -->
             <div class="text-center mb-10">
@@ -29,7 +29,7 @@
                             placeholder="e.g., color, size, breed if known, collar, behavior, etc."
                             class="w-full px-4 py-2
                                 border border-gray-300 rounded-md
-                                focus:outline-none focus:ring-1 focus:ring-[#E7AB39] focus:border-[#E7AB39]"></textarea>
+                                focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50 p-2 border"></textarea>
                     </div>
 
                     <div>
@@ -42,7 +42,7 @@
                             placeholder="e.g., Near Charlie Bldg., In Lagoon Park, Amphitheater, etc."
                             class="w-full px-4 py-2
                                 border border-gray-300 rounded-md
-                                focus:outline-none focus:ring-1 focus:ring-[#E7AB39] focus:border-[#E7AB39]">
+                                focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50 p-2 border">
                     </div>
 
                     <div>
@@ -54,7 +54,7 @@
                             required
                             class="w-full px-4 py-2
                                 border border-gray-300 rounded-md
-                                focus:outline-none focus:ring-1 focus:ring-[#E7AB39] focus:border-[#E7AB39]">
+                                focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50 p-2 border">
                     </div>
                 </div>
 
@@ -71,7 +71,7 @@
                         accept="image/*,video/*"
                         class="w-full px-4 py-2
                             border border-gray-300 rounded-md '
-                            focus:outline-none focus:ring-1 focus:ring-[#E7AB39] focus:border-[#E7AB39]">
+                            focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50 p-2 border">
                 </div>
 
                 <!-- Additional Details -->
@@ -88,7 +88,7 @@
                             placeholder="Was the cat injured, aggressive, friendly, scared, pregnant, with kittens, etc.?"
                             class="w-full px-4 py-2
                                 border border-gray-300 rounded-md
-                                focus:outline-none focus:ring-1 focus:ring-[#E7AB39] focus:border-[#E7AB39]"></textarea>
+                                focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50 p-2 border"></textarea>
                     </div>
 
                     <div>
@@ -121,7 +121,7 @@
                             placeholder="Please enter your name"
                             class="w-full px-4 py-2
                                 border border-gray-300 rounded-md
-                                focus:outline-none focus:ring-1 focus:ring-[#E7AB39] focus:border-[#E7AB39]">
+                                focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50 p-2 border">
                     </div>
 
                     <div>
@@ -134,7 +134,7 @@
                             placeholder="Please enter your email address"
                             class="w-full px-4 py-2
                                 border border-gray-300 rounded-md
-                                focus:outline-none focus:ring-1 focus:ring-[#E7AB39] focus:border-[#E7AB39]">
+                                focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50 p-2 border">
                     </div>
 
                     <div>
@@ -143,7 +143,7 @@
                             id="reporter-affiliation"
                             name="reporter-affiliation"
                             required
-                            class="w-full px-4 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-[#E7AB39] focus:border-[#E7AB39]">
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md bg-white focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50 p-2 border">
                                 <option value="" disabled selected>Select your affiliation</option>
                                 <option value="student">Student</option>
                                 <option value="faculty">Faculty</option>
@@ -155,11 +155,6 @@
 
                 <!-- Final Actions -->
                 <div class="space-y-4">
-                    <button type="submit"
-                        class="w-full bg-[#502C58] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#3f2247] transition">
-                        Submit Report
-                    </button>
-
                     <div class="flex items-start">
                         <input type="checkbox"
                             id="privacy"
@@ -170,6 +165,10 @@
                             I agree to the <a href="/privacy-policy" class="text-[#502C58] underline hover:text-[#3f2247]">privacy policy</a>.
                         </label>
                     </div>
+                    <button type="submit"
+                        class="w-full bg-[#502C58] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#3f2247] transition">
+                        Submit Report
+                    </button>
                 </div>
             </form>
 
