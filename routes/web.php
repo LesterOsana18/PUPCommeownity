@@ -14,10 +14,6 @@ Route::get('/adoptionprocess', function () {
     return view('adoptionprocess');
 });
 
-Route::get('/application', function () {
-    return view('application');
-});
-
 Route::get('/catprofile', function () {
     return view('catprofile');
 });

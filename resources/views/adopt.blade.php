@@ -14,30 +14,16 @@
         </div>
 
         <div class="grid md:grid-cols-2 gap-4 mb-12">
-            <div class="relative rounded-lg text-center p-6 overflow-hidden">
-                <!-- Background image -->
-                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://placecats.com/millie_neo/300/200');"></div>
-                <!-- Overlay tint -->
-                <div class="absolute inset-0 bg-teal-100 opacity-60"></div>
-                <!-- Content -->
-                <div class="relative z-10">
-                  <h2 class="text-xl font-bold mb-2">Give Back!</h2>
-                  <p class="text-sm mb-4">Your support would mean the world to us and the cats in our university.</p>
-                  <a href="/donate" class="bg-purple-700 text-white px-4 py-2 rounded hover:bg-purple-900 transition">Donate Now</a>
-                </div>
-              </div>
-              <div class="relative rounded-lg text-center p-6 overflow-hidden">
-                <!-- Background image -->
-                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://placecats.com/poppy/300/200');"></div>
-                <!-- Overlay tint -->
-                <div class="absolute inset-0 bg-yellow-100 opacity-60"></div>
-                <!-- Content -->
-                <div class="relative z-10">
-                  <h2 class="text-xl font-bold mb-2">Interested?</h2>
-                  <p class="text-sm mb-4">See a cat and wonder if they're free to adopt?</p>
-                  <a href="/adoptionprocess" class="bg-purple-700 text-white px-4 py-2 rounded hover:bg-purple-900 transition">Adopt Now</a>
-                </div>
-              </div>
+            <div class="bg-teal-100 p-6 rounded-lg text-center relative">
+                <h2 class="text-xl font-bold mb-2">Give Back!</h2>
+                <p class="text-sm mb-4">Your support would mean the world to us and the cats in our university.</p>
+                <a href="/donate" class="bg-purple-700 text-white px-4 py-2 rounded hover:bg-purple-900 transition">Donate Now</a>
+            </div>
+            <div class="bg-yellow-100 p-6 rounded-lg text-center relative">
+                <h2 class="text-xl font-bold mb-2">Interested?</h2>
+                <p class="text-sm mb-4">See a cat and wonder if they're free to adopt?</p>
+                <a href="/adoptionprocess" class="bg-purple-700 text-white px-4 py-2 rounded hover:bg-purple-900 transition">Adopt Now</a>
+            </div>
         </div>
 
         {{-- Available Cats --}}
