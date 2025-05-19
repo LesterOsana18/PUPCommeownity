@@ -343,6 +343,21 @@
                                     focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50 p-2 border">
                         </div>
 
+                        {{-- <div>
+                            <label for="location" class="block mb-1 text-sm font-medium text-gray-700">
+                                Location Seen <span class="text-[#ce4257] font-bold text-sm">*</span>
+                            </label>
+                            <p class="text-xs text-gray-400 mb-2">Click on the map to select the location</p>
+
+                            <!-- Read-only input that stores lat,lng -->
+                            <input type="text" id="location" name="location" required readonly
+                                class="w-full px-4 py-2 mb-3 border border-gray-300 rounded-md
+                                       focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50" />
+
+                            <!-- Map container -->
+                            <div id="map" class="w-full h-64 rounded-md border border-gray-300"></div>
+                        </div> --}}
+
                         <div>
                             <label
                             for="seen-at"
@@ -550,4 +565,47 @@
 
         </div>
     </section>
+
+    {{-- <script>
+        let map;
+        let marker;
+
+        function initMap() {
+            const defaultLatLng = { lat: 14.5995, lng: 120.9842 };
+
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: defaultLatLng,
+                zoom: 16,
+            });
+
+            map.addListener("click", function (e) {
+                placeMarker(e.latLng);
+            });
+        }
+
+        function placeMarker(latLng) {
+            if (!marker) {
+                marker = new google.maps.Marker({
+                    position: latLng,
+                    map: map,
+                    draggable: true,
+                });
+
+                marker.addListener("dragend", function () {
+                    updateLocationInput(marker.getPosition());
+                });
+            } else {
+                marker.setPosition(latLng);
+            }
+
+            updateLocationInput(latLng);
+        }
+
+        function updateLocationInput(latLng) {
+            document.getElementById("location").value = `${latLng.lat().toFixed(6)},${latLng.lng().toFixed(6)}`;
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap"
+            async defer></script> --}}
 </x-layout>
