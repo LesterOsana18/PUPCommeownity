@@ -31,7 +31,7 @@
 
                 <p class="font-semibold mb-1">For our <span class="font-bold">online</span> applications, follow these steps:</p>
                 <ol class="list-decimal list-inside pl-4 text-gray-800">
-                    <li>Fill up the <a href="#" class="font-bold text-purple-800 underline">online application form</a> in our website.</li>
+                    <li>Fill up the <a href="/application" class="font-bold text-purple-800 underline">online application form</a> in our website.</li>
                     <li>Schedule an online meeting with our staff to your availability for a brief interview.</li>
                     <li>
                         Once the application form and the online interview have both been accomplished, set a date for you to visit the cat of your choice here at (?)
@@ -68,7 +68,7 @@
                     <textarea id="message" name="message" placeholder="Enter your message here" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-base min-h-[160px] resize-none focus:ring-2 focus:ring-purple-300 outline-none"></textarea>
                     <div class="flex-1"></div>
                     <div class="flex justify-end mt-4">
-                        <button type="submit" class="bg-purple-900 text-white font-semibold px-8 py-2 rounded-lg shadow hover:bg-purple-800 transition">Submit</button>
+                        <button type="submit" class="bg-[#502C58] text-white font-semibold px-8 py-2 rounded-lg shadow hover:bg-[#3f2247] transition">Submit</button>
                     </div>
                 </div>
             </form>
