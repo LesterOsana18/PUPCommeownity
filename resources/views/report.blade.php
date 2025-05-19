@@ -155,15 +155,17 @@
 
                 <!-- Final Actions -->
                 <div class="space-y-4">
-                    <div class="flex items-start">
+                    <div class="flex items-center">
                         <input type="checkbox"
                             id="privacy"
                             name="privacy"
                             required
-                            class="h-4 w-4 text-[#E7AB39] focus:ring-[#E7AB39] border-gray-300 rounded">
-                        <label for="privacy" class="ml-2 text-sm text-gray-700">
-                            I agree to the <a href="/privacy-policy" class="text-[#502C58] underline hover:text-[#3f2247]">privacy policy</a>.
-                        </label>
+                            class="h-4 w-4 text-[#502C58] border-gray-300 rounded focus:ring-[#502C58] transition">
+                            <label for="privacy" class="ml-2 text-sm text-gray-700">
+                                I understand that
+                                <span class="font-semibold text-[#502C58]">PUP Sintang Pusa</span>
+                                may contact me for follow-up regarding this report.
+                            </label>
                     </div>
                     <button type="submit"
                         class="w-full bg-[#502C58] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#3f2247] transition">
