@@ -12,9 +12,7 @@ return new class extends Migration
             $table->dropColumn([
                 'name',
                 'email_verified_at',
-                'remember_token',
-                'created_at',
-                'updated_at'
+                'remember_token'
             ]);
             // If you want to drop more columns, add them here.
         });
@@ -26,8 +24,6 @@ return new class extends Migration
             $table->string('name');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
-            $table->string('created_at')->nullable();
-            $table->string('updated_at')->nullable();
         });
     }
 };
