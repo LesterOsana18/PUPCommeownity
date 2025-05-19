@@ -292,12 +292,13 @@
                 <!-- Basic Information -->
                 <div class="space-y-4">
                     <h3 class="text-xl font-semibold text-[#502C58]">🐾 Basic Information</h3>
+                    <p class="mb-8 text-xs font-light text-gray-400"><span class="text-[#ce4257] font-bold text-sm">*</span>indicates required fields</p>
 
                     <div>
                         <label
                             for="description"
-                            class="block text-l font-medium text-gray-700 mb-1">Cat
-                            Description
+                            class="block mb-2 text-sm font-medium text-gray-700">Cat
+                            Description<span class="text-[#ce4257] font-bold text-sm">*</span>
                         </label>
                         <textarea
                             id="description"
@@ -313,8 +314,8 @@
                     <div>
                         <label
                             for="location"
-                            class="block text-l font-medium text-gray-700 mb-1">Location
-                            Seen
+                            class="block mb-2 text-sm font-medium text-gray-700">
+                            Location Seen<span class="text-[#ce4257] font-bold text-sm">*</span>
                         </label>
                         <input
                             type="text"
@@ -330,8 +331,8 @@
                     <div>
                         <label
                         for="seen-at"
-                        class="block text-l font-medium text-gray-700 mb-1">
-                        Date & Time Spotted
+                        class="block mb-2 text-sm font-medium text-gray-700">
+                        Date & Time Spotted<span class="text-[#ce4257] font-bold text-sm">*</span>
                         </label>
                         <input
                             type="datetime-local"
@@ -358,7 +359,7 @@
                         class="block text-sm font-medium text-gray-700 mb-1">
                         Upload Photo or Video
                     </label>
-                    <p class="text-sm text-gray-500">Accepted formats: JPG, PNG, MP4</p>
+                    <p class="text-xs font-light text-gray-400">Accepted formats: JPG, PNG, MP4</p>
                     <input
                         type="file"
                         id="media"
@@ -376,9 +377,9 @@
                     <div>
                         <label
                             for="observation"
-                            class="block text-sm font-medium text-gray-700 mb-1">
-                            Condition/Behavior Observed
-                            <span class="text-xs font-light text-gray-400">(optional)
+                            class="block mb-2 text-sm font-medium text-gray-700">
+                            Condition/Behavior Observed<span class="text-[#ce4257] font-bold text-sm">*</span>
+                            {{-- <span class="text-xs font-light text-gray-400">(optional) --}}
                             </span>
                         </label>
                         <textarea
@@ -393,8 +394,8 @@
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Is this a recurring sight?</label>
-                        <p class="text-sm text-gray-500 mb-2">This will help us determine if the cat stays in the area.</p>
+                        <label class="block mb-2 text-sm font-medium text-gray-700">Is this a recurring sight?<span class="text-[#ce4257] font-bold text-sm">*</span></label>
+                        <p class="text-xs font-light text-gray-400">This will help us determine if the cat stays in the area.</p>
                         <div class="flex items-center gap-6">
                             <label class="inline-flex items-center">
                                 <input
@@ -423,7 +424,7 @@
                     <div>
                         <label
                             for="reporter-name"
-                            class="block text-sm font-medium text-gray-700 mb-1">
+                            class="block mb-2 text-sm font-medium text-gray-700">
                             Name
                         </label>
                         <input
@@ -440,7 +441,7 @@
                     <div>
                         <label
                             for="reporter-email"
-                            class="block text-sm font-medium text-gray-700 mb-1">
+                            class="block mb-2 text-sm font-medium text-gray-700">
                             Email Address
                         </label>
                         <input
@@ -457,8 +458,8 @@
                     <div>
                         <label
                             for="reporter-affiliation"
-                            class="block text-sm font-medium text-gray-700 mb-1">
-                            Affiliation
+                            class="block mb-2 text-sm font-medium text-gray-700">
+                            Affiliation<span class="text-[#ce4257] font-bold text-sm">*</span>
                         </label>
                         <select
                             id="reporter-affiliation
@@ -486,10 +487,7 @@
                         <label
                             for="privacy"
                             class="ml-2 text-sm text-gray-700">
-                            I understand that
-                            <span class="font-semibold text-[#502C58]">PUP Sintang Pusa</span>
-                            may contact me for follow-up regarding this report.
-                        </label>
+                            I understand that <span class="font-semibold text-[#502C58]">PUP Sintang Pusa</span> may contact me for follow-up regarding this report.
                     </div>
                     <button
                         type="submit"
