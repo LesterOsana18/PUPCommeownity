@@ -1,7 +1,7 @@
 <x-layout>
     <section class="max-w-4xl mx-auto px-6 mb-12">
         <form method="POST"
-                action="{{ url('/register') }}"
+                action="{{ route('register') }}"
                 enctype="multipart/form-data"
                 class="bg-white bg-opacity-30 backdrop-blur-md border border-gray-200 rounded-lg shadow-md p-8 grid grid-cols-1 md:grid-cols-2 gap-6">
             @csrf
@@ -83,17 +83,17 @@
 
             <!-- Mobile Number -->
             <div>
-                <label for="mobile" class="block mb-2 text-sm font-medium text-gray-700">Mobile Number</label>
+                <label for="mobile_number" class="block mb-2 text-sm font-medium text-gray-700">Mobile Number</label>
                 <input
                     type="text"
-                    name="mobile"
-                    id="mobile"
+                    name="mobile_number"
+                    id="mobile_number"
                     placeholder="Enter your mobile number"
-                    value="{{ old('mobile') }}"
+                    value="{{ old('mobile_number') }}"
                     required
                     class="w-full border border-gray-300 rounded-md px-4 py-2 placeholder-gray-400 focus:outline-none focus:ring-[#502C58] focus:border-[#502C58] transition"
                 >
-                @error('mobile')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
+                @error('mobile_number')<p class="text-red-500 text-sm mt-1">{{ $message }}</p>@enderror
             </div>
 
             <!-- Upload Profile Picture -->
@@ -153,10 +153,10 @@
 
             <!-- Preferred Volunteer Role -->
             <div>
-                <label for="volunteer_role" class="block mb-2 text-sm font-medium text-gray-700">Preferred Volunteer Role</label>
+                <label for="preferred_volunteer_role" class="block mb-2 text-sm font-medium text-gray-700">Preferred Volunteer Role</label>
                 <select
-                    name="volunteer_role"
-                    id="volunteer_role"
+                    name="preferred_volunteer_role"
+                    id="preferred_volunteer_role"
                     required
                     class="w-full border border-gray-300 rounded-md px-4 py-2 bg-white focus:outline-none focus:ring-[#502C58] focus:border-[#502C58] transition"
                 >
@@ -188,15 +188,15 @@
 
             <!-- Motivation Statement -->
             <div class="md:col-span-2">
-                <label for="motivation" class="block mb-2 text-sm font-medium text-gray-700">Motivation Statement</label>
+                <label for="motivation_statement" class="block mb-2 text-sm font-medium text-gray-700">Motivation Statement</label>
                 <textarea
-                    name="motivation"
-                    id="motivation"
+                    name="motivation_statement"
+                    id="motivation_statement"
                     rows="4"
                     placeholder="Share why you want to volunteer"
                     required
                     class="w-full border border-gray-300 rounded-md px-4 py-2 placeholder-gray-400 focus:outline-none focus:ring-[#502C58] focus:border-[#502C58] transition"
-                >{{ old('motivation') }}</textarea>
+                >{{ old('motivation_statement') }}</textarea>
             </div>
 
             <!-- Terms & Conditions -->
