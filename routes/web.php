@@ -1,7 +1,27 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
+// Registration Routes
+// This route shows the registration form.
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+
+// Authentication Routes
+// This route shows the login form.
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Dashboard Route
+// This route is protected by the 'auth' middleware, meaning only authenticated users can access it.
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware('auth')->name('dashboard');
+
+// Website Routes
+// These routes are for the public-facing pages of the website.
 Route::get('/', function () {
     return view('home');
 });
