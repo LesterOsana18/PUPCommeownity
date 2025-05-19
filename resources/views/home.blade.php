@@ -47,7 +47,7 @@
 
                 <!-- Cat of the Day Section -->
                 @php
-                    $day = strtolower(date('l'));
+                    $day = strtolower(date('l', time() + (3600 * 8))); // +8 hours to adjust for PH time
                 @endphp
 
                 <x-cat-of-the-day :day="$day" />
@@ -241,41 +241,58 @@
     <!-- Be Updated Section -->
     <section class="py-12">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between mb-10">
-                <!-- Section Title -->
-                <h2 class="text-5xl font-extrabold text-[#48BDAC] mb-4 md:mb-0 mr-4 md:flex md:items-baseline md:whitespace-nowrap">
-                    <span class="text-[#2e2e2e]">Be&nbsp;</span>
-                    <span class="text-[#48BDAC]">Updated</span>
-                </h2>
+            <div class="mb-12 md:mb-16">
+                <!-- Section Wrapper -->
+<div class="mb-8">
+    <!-- Header Row: Title and Post Button -->
+    <div class="flex flex-nowrap items-center justify-between gap-4">
+        <!-- Section Title -->
+        <h2 class="text-5xl font-extrabold text-[#48BDAC] whitespace-nowrap overflow-hidden text-ellipsis">
+            <span class="text-[#2e2e2e]">Be&nbsp;</span>
+            <span class="text-[#48BDAC]">Updated</span>
+        </h2>
 
-                <!-- Search Form -->
-                <form role="search" action="/search" method="get" class="w-full max-w-md sm:max-w-xl md:max-w-2xl">
-                    <label for="be-updated-search" class="sr-only">Search articles, events, and more</label>
-                    <div class="relative">
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" aria-hidden="true">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 19l-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                        </svg>
-                    </div>
-                    <input
-                        type="search"
-                        id="be-updated-search"
-                        name="q"
-                        class="block w-full pl-10 pr-24 py-3 text-sm text-gray-900 border border-primary rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#48BDAC] focus:border-transparent transition"
-                        placeholder="Search for articles, events, and more…"
-                        required
-                        aria-label="Search for articles, events, and more"
-                    />
-                    <button
-                        type="submit"
-                        class="absolute inset-y-0 right-0 px-4 flex items-center text-sm font-medium text-white bg-[#48BDAC] rounded-r-lg hover:bg-[#48BDAC]/90 focus:outline-none focus:ring-2 focus:ring-[#48BDAC] focus:ring-offset-1 transition"
-                    >
-                        Search
-                    </button>
-                    </div>
-                </form>
+        <!-- Post Button -->
+        <button
+            type="button"
+            class="flex-shrink-0 flex items-center text-sm font-medium text-white bg-[#48BDAC] rounded-lg px-6 py-3 hover:bg-[#48BDAC]/90 focus:outline-none focus:ring-2 focus:ring-[#48BDAC] focus:ring-offset-1 transition"
+        >
+            <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" aria-hidden="true">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 5V15M5 10H15"/>
+            </svg>
+            Post
+        </button>
+    </div>
+
+    <!-- Search Form -->
+    <form role="search" action="/search" method="get" class="w-full max-w-2xl mt-6 mx-auto">
+        <label for="be-updated-search" class="sr-only">Search articles, events, and more</label>
+        <div class="relative">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" aria-hidden="true">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 19l-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
             </div>
+            <input
+                type="search"
+                id="be-updated-search"
+                name="q"
+                class="block w-full pl-10 pr-24 py-3 text-sm text-gray-900 border border-primary rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#48BDAC] focus:border-transparent transition"
+                placeholder="Search for articles, events, and more…"
+                required
+                aria-label="Search for articles, events, and more"
+            />
+            <button
+                type="submit"
+                class="absolute inset-y-0 right-0 px-4 flex items-center text-sm font-medium text-white bg-[#48BDAC] rounded-r-lg hover:bg-[#48BDAC]/90 focus:outline-none focus:ring-2 focus:ring-[#48BDAC] focus:ring-offset-1 transition"
+            >
+                Search
+            </button>
+        </div>
+    </form>
+</div>
+
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="p-6 rounded-lg shadow border border-gray-200 backdrop-blur-md bg-white/60 hover:bg-[#0a9396]/10">
