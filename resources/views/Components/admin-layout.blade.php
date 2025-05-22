@@ -53,7 +53,7 @@
     <!-- Main Content -->
     <div id="main-content" class="flex flex-col min-h-screen md:ml-64">
         <!-- Mobile Burger Menu -->
-        <div class="md:hidden flex items-center p-4 bg-[#502C58] shadow-sm">
+        <div class="md:hidden flex items-center p-4 bg-[#502C58] shadow-sm sticky top-0 z-40">
             <button id="sidebar-toggle-btn" class="text-white hover:text-[#E7AB39] focus:outline-none mr-2">
                 <i class="fas fa-bars text-2xl"></i>
             </button>

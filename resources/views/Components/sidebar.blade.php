@@ -1,7 +1,7 @@
 <aside
     id="sidebar"
     class="w-64 bg-[#502C58] shadow-lg transform -translate-x-full md:translate-x-0 transition-transform duration-200 ease-in-out flex flex-col
-           fixed inset-y-0 left-0 h-screen z-30"
+           fixed inset-y-0 left-0 h-screen z-50"
     style="will-change: transform;"
 >
     <!-- Brand/Logo -->
