@@ -73,3 +73,19 @@ Route::get('/register', function () {
 Route::get('/terms', function () {
     return view('terms');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+
+Route::get('/tables', function () {
+    return view('tables');
+});
+
+Route::get('/moderation', function () {
+    return view('moderation');
+});
+
+Route::get('/update', function () {
+    return view('update');
+});
