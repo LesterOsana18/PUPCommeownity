@@ -54,7 +54,7 @@
         #transition-drop {
             position: fixed;
             inset: 0;
-            z-index: 50;
+            z-index: 9999;
             background-color: #3d2243;
             display: flex;
             align-items: center;
@@ -79,7 +79,7 @@
         #transition-up {
             position: fixed;
             inset: 0;
-            z-index: 50;
+            z-index: 9999;
             background-color: #3d2243;
             display: flex;
             align-items: center;
