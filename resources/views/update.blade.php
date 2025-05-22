@@ -13,7 +13,7 @@
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500 w-[120px]">ID No.</th>
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500 w-[160px] whitespace-nowrap">Date Posted</th>
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500 min-w-[300px]">Title</th>
-                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500 w-[130px] whitespace-nowrap">Action</th>
+                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500 w-[130px] whitespace-nowrap">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -107,7 +107,7 @@
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500 w-[120px]">ID No.</th>
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500 w-[160px] whitespace-nowrap">Date Posted</th>
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500 min-w-[300px]">Title</th>
-                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500 w-[130px] whitespace-nowrap">Action</th>
+                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500 w-[130px] whitespace-nowrap">Actions</th>
                         </tr>
                     </thead>
                     <tbody>

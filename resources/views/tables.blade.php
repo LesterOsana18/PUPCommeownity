@@ -27,7 +27,7 @@
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 5</th>
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 6</th>
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 7</th>
-                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Action</th>
+                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -118,7 +118,7 @@
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 5</th>
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 6</th>
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 7</th>
-                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Action</th>
+                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -209,7 +209,7 @@
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 5</th>
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 6</th>
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 7</th>
-                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Action</th>
+                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -305,7 +305,7 @@
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 6</th>
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 7</th>
 
-                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Action</th>
+                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -397,7 +397,7 @@
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 6</th>
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 7</th>
 
-                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Action</th>
+                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -489,7 +489,7 @@
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 6</th>
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 7</th>
 
-                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Action</th>
+                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -585,7 +585,7 @@
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 6</th>
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 7</th>
 
-                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Action</th>
+                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -677,7 +677,7 @@
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 6</th>
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 7</th>
 
-                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Action</th>
+                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -769,7 +769,7 @@
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 6</th>
                             <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 7</th>
 
-                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Action</th>
+                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
