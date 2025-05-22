@@ -5,7 +5,7 @@
     style="will-change: transform;"
 >
     <!-- Brand/Logo -->
-    <div class="flex items-center space-x-2 px-6 py-5 text-white hover:text-[#E7AB39] transition">
+    <div class="flex items-center justify-center px-6 py-5 text-white hover:text-[#E7AB39] transition">
         <img src="/images/commeownity-icon.svg" alt="Logo" class="h-8 mr-3">
         <span class="font-bold text-lg tex">Commeownity</span>
     </div>
