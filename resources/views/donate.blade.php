@@ -28,12 +28,12 @@
                         'desc' => 'Supports treatment, vaccination, and first-aid needs for injured or sick cats.',
                     ],
                 ] as $card)
-                <div class="bg-white border border-gray-200 rounded-lg shadow-md text-center flex flex-col">
-                    <a href="#">
+                <div class="bg-white border border-gray-200 rounded-lg shadow-md text-center flex flex-col transition-transform duration-200 ease-in-out hover:scale-105 hover:shadow-lg">
+                    <a>
                         <img src="{{ $card['img'] }}" class="rounded-t-lg w-full" alt="{{ $card['alt'] }}"/>
                     </a>
                     <div class="p-5 flex-1 flex flex-col">
-                        <a href="#">
+                        <a>
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-center text-gray-900">{{ $card['title'] }}</h5>
                         </a>
                         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 flex-1">{{ $card['desc'] }}</p>

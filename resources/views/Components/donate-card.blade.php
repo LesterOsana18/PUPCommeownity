@@ -1,4 +1,4 @@
-<div class="max-w-sm w-full mx-auto relative border border-gray-200 rounded-2xl shadow-lg text-center flex flex-col overflow-hidden bg-white">
+<div class="max-w-sm w-full mx-auto relative bg-white border border-gray-200 rounded-2xl shadow-lg text-center flex flex-col overflow-hidden transition-transform duration-200 ease-in-out hover:scale-105 hover:shadow-lg">
     <!-- Image Section -->
     <div class="pt-6 px-6">
         <a class="block w-full mb-1">
