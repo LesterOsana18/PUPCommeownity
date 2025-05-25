@@ -54,6 +54,10 @@ Route::get('/donation-form', function () {
     return view('donation-form');
 });
 
+Route::get('/donation-options', function () {
+    return view('donation-options');
+});
+
 Route::get('/report', function () {
     return view('report');
 });
