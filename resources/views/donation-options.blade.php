@@ -3,14 +3,14 @@
         <main class="bg-white bg-opacity-30 backdrop-blur-md border border-gray-200 rounded-lg shadow-md">
             <!-- Header -->
             <h1 class="text-5xl text-center font-extrabold text-[#E7AB39] mt-12 mb-5">
-                WHAT WOULD YOU LOVE <br> TO GIVE TODAY?
+                MONETARY DONATION OPTIONS
             </h1>
 
             <!-- Cards Grid -->
             <div class="p-8 grid grid-cols-1 md:grid-cols-3 gap-4">
                 @foreach([
                     [
-                        'img' => '/images/donations-monetary.jpg',
+                        'img' => '/images/donate-gcash.jpg',
                         'alt' => 'Donate Cash',
                         'title' => 'DONATE CASH',
                         'desc' => 'Helps fund veterinary care, feeding supplies, and emergency needs for campus cats.',
@@ -47,10 +47,10 @@
 
             <!-- Button Style -->
             <div class="flex flex-col md:flex-row justify-center gap-4 mt-4 mb-12">
-                <a href="/donation-options" class="inline-flex justify-center items-center h-12 w-64 mr-6 px-3 py-2 text-sm font-medium text-white bg-[#502C58] rounded-lg">
+                <a href="#" class="inline-flex justify-center items-center h-12 w-64 mr-6 px-3 py-2 text-sm font-medium text-white bg-[#502C58] rounded-lg">
                     View Monetary Donation Options
                 </a>
-                <a href="/donation-form" class="inline-flex justify-center items-center h-12 w-64 ml-6 px-3 py-2 text-sm font-medium text-white bg-[#502C58] rounded-lg">
+                <a href="#" class="inline-flex justify-center items-center h-12 w-64 ml-6 px-3 py-2 text-sm font-medium text-white bg-[#502C58] rounded-lg">
                     Continue to Donation Form
                 </a>
             </div>
