@@ -37,9 +37,6 @@
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-center text-gray-900">{{ $card['title'] }}</h5>
                         </a>
                         <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 flex-1">{{ $card['desc'] }}</p>
-                        <a href="#" class="inline-flex justify-center items-center px-3 py-2 text-sm font-medium text-white bg-[#502C58] rounded-lg">
-                            Learn more
-                        </a>
                     </div>
                 </div>
                 @endforeach
