@@ -4,7 +4,7 @@
     </div>
     <div class="flex flex-col gap-5">
         <!--Adoptions-->
-        <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6" id="adoptions">
+        <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="adoptions">
             <h1 class="text-xl text-[#4ABDAC] font-bold">Adoptions</h1>
             <!--Table 1-->
             <div class="overflow-x-auto w-full">
@@ -281,7 +281,7 @@
             </div>
         </div>
         <!--Donations-->
-        <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6" id="donations">
+        <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="donations">
             <h1 class="text-xl text-[#4ABDAC] font-bold">Donations</h1>
             <!--Table 1-->
             <div class="overflow-x-auto w-full">
@@ -561,7 +561,7 @@
             </div>
         </div>
         <!--Applications-->
-        <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6" id="applications">
+        <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="applications">
             <h1 class="text-xl text-[#4ABDAC] font-bold">Applications</h1>
             <!--Table 1-->
             <div class="overflow-x-auto w-full">

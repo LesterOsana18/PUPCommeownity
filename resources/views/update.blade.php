@@ -4,7 +4,7 @@
     </div>
     <div class="flex flex-col gap-5">
         <!--Announcements-->
-        <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6" id="announcements">
+        <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="announcements">
             <h1 class="text-xl text-[#4ABDAC] font-bold">Announcements</h1>
             <div class="overflow-x-auto w-full">
                 <table class="table-fixed min-w-full border border-collapse text-sm">
@@ -73,7 +73,7 @@
             </div>
         </div>
         <!--Gallery-->
-        <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6" id="gallery">
+        <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="gallery">
             <h1 class="text-xl text-[#4ABDAC] font-bold">Gallery</h1>
             <div class="flex items-center justify-center gap-4">
                 <button class="bg-[#E7AB39] px-4 py-2 rounded-full font-bold hover:bg-[#cc8e19]">
@@ -98,7 +98,7 @@
             </button>
         </div>
         <!--Educational-->
-        <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6" id="educational">
+        <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="educational">
             <h1 class="text-xl text-[#4ABDAC] font-bold">Educational</h1>
             <div class="overflow-x-auto w-full">
                 <table class="table-fixed min-w-full border border-collapse text-sm">

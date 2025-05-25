@@ -4,7 +4,7 @@
     </div>
     <div class="flex flex-col gap-5">
         <!--Reports-->
-        <div class="flex flex-col gap-5 rounded-xl text-[#502C58] bg-white/10 backdrop-blur-lg shadow-md p-6" id="reports">
+        <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="reports">
             <h1 class="text-xl text-[#4ABDAC] font-bold">Reports</h1>
             <div class="overflow-x-auto w-full">
                 <table class="table-fixed min-w-full border border-collapse text-sm">
@@ -85,7 +85,7 @@
             </div>
         </div>
         <!--Posts-->
-        <div class="flex flex-col gap-5 rounded-xl text-[#502C58] bg-white/10 backdrop-blur-lg shadow-md p-6" id="posts">
+        <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="posts">
             <h1 class="text-xl text-[#4ABDAC] font-bold">Posts</h1>
             <div class="overflow-x-auto w-full">
                 <table class="table-fixed min-w-full border border-collapse text-sm">
