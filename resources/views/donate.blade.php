@@ -1,13 +1,13 @@
 <x-layout>
-    <section class="max-w-8xl mx-auto px-6 mb-12">
+    <section class="max-w-6xl mx-auto px-6 mb-12">
         <main class="bg-white bg-opacity-30 backdrop-blur-md border border-gray-200 rounded-lg shadow-md">
             <!-- Header -->
-            <h1 class="text-5xl text-center font-extrabold text-[#E7AB39] mt-12 mb-5">
+            <h1 class="text-5xl text-center font-extrabold text-[#E7AB39] mt-12 mb-5" style="text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">
                 WHAT WOULD YOU LOVE <br> TO GIVE TODAY?
             </h1>
 
             <!-- Cards Grid -->
-            <div class="p-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
                 @foreach([
                     [
                         'img' => '/images/donations-monetary.jpg',
