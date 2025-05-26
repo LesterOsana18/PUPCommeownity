@@ -1,5 +1,38 @@
 <x-layout>
     <section class="max-w-4xl mx-auto px-6 mb-12">
+        {{-- Success Confirmation Modal --}}
+        @if(session('success'))
+        <div
+            x-data="{ show: true }"
+            x-show="show"
+            style="z-index:1000"
+            class="mt-14 fixed inset-0 flex items-center justify-center bg-black bg-opacity-25 backdrop-blur-sm"
+        >
+            <div class="w-[770px] h-[500px] bg-white bg-opacity-80 rounded-2xl shadow-2xl border border-gray-300 p-8 mx-8 text-center relative flex flex-col items-center">
+                <div class="absolute top-2 right-4">
+                    <button @click="show = false" class="text-gray-600 hover:text-gray-900 text-2xl font-bold">&times;</button>
+                </div>
+                <div class="mb-6">
+                    <span class="inline-block text-2xl align-middle">📩</span>
+                    <span class="text-2xl font-extrabold text-[#502C58] align-middle">DONATION SUBMITTED!</span>
+                </div>
+                <img src="/images/donations-cat.jpg" alt="Cat" class="rounded-full w-32 h-32 mx-auto mb-6 border-4 border-white shadow-lg object-cover"/>
+                <div class="text-lg text-gray-900">
+                    <span class="font-bold italic block mb-6">Thank you for your generosity!</span>
+                    <p class="mb-1 italic">
+                        If you're donating cash, a confirmation email will be sent<br>once your donation has been received.
+                    </p>
+                    <p class="mb-1 italic">
+                        For item donations (such as cat food, medical supplies, or<br> other goods), you'll receive an email with your appointment<br> date and time for drop-off at the campus.
+                    </p>
+                    <p class="italic">
+                        We appreciate your support in caring for our campus cats! <span class="inline-block">🐾</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        @endif
+
         <form method="POST"
                 action="{{ url('/donation-form') }}"
                 enctype="multipart/form-data"
@@ -151,6 +184,7 @@
         </form>
     </section>
     <script>
+        // Toggle visibility of donation amount and proof fields based on donation type
         document.addEventListener('DOMContentLoaded', function () {
             const donationType = document.getElementById('donation_type');
             const amountField = document.getElementById('donation-amount-field');
@@ -168,6 +202,23 @@
 
             donationType.addEventListener('change', toggleAmountField);
             toggleAmountField(); // Set initial state on page load
+        });
+
+        // Modal functionality for success confirmation
+        document.addEventListener('DOMContentLoaded', function () {
+            var modal = document.getElementById('confirmation-modal');
+            var closeBtn = document.getElementById('close-modal-btn');
+            if(modal && closeBtn) {
+                closeBtn.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+                // Close on clicking outside the modal
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            }
         });
     </script>
 </x-layout>
