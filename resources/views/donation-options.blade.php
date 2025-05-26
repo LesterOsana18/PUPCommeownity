@@ -47,10 +47,10 @@
 
             <!-- Button Style -->
             <div class="flex flex-col md:flex-row justify-center gap-4 mt-4 mb-12">
-                <a href="/donate" class="inline-flex justify-center items-center h-12 w-64 mr-6 px-3 py-2 text-sm font-medium text-white bg-[#502C58] rounded-lg">
+                <a href="/donate" class="inline-flex justify-center items-center h-12 w-64 mr-6 px-3 py-2 text-sm font-medium text-white bg-[#502C58] rounded-lg hover:bg-[#3f2247]">
                     Back to Donations Page
                 </a>
-                <a href="/donation-form" class="inline-flex justify-center items-center h-12 w-64 ml-6 px-3 py-2 text-sm font-medium text-white bg-[#502C58] rounded-lg">
+                <a href="/donation-form" class="inline-flex justify-center items-center h-12 w-64 ml-6 px-3 py-2 text-sm font-medium text-white bg-[#502C58] rounded-lg hover:bg-[#3f2247]">
                     Continue to Donation Form
                 </a>
             </div>
