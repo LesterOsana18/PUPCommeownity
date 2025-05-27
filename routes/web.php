@@ -95,6 +95,14 @@ Route::get('/moderation', function () {
     return view('moderation');
 });
 
+Route::get('/admin-report', function () {
+    return view('admin-report');
+});
+
+Route::get('/admin-post', function () {
+    return view('admin-post');
+});
+
 Route::get('/update', function () {
     return view('update');
 });
