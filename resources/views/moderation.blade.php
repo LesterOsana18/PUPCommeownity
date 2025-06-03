@@ -28,7 +28,7 @@
                                 >OPEN</button>
                             </td>
                             <td class="px-4 py-2 border border-gray-500 whitespace-nowrap" contenteditable="true">May 14, 2025</td>
-                            <td class="px-4 py-2 border border-gray-500 min-w-[300px]" contenteditable="true">Subject</td>
+                            <td class="px-4 py-2 border border-gray-500 min-w-[300px]">Subject</td>
                             <td class="px-4 py-2 border border-gray-500 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
                                     <button class="rounded-lg px-3 py-2 bg-[#502C58] text-white font-semibold hover:bg-[#2e1a33] flex items-center">
@@ -49,7 +49,7 @@
                                 >OPEN</button>
                             </td>
                             <td class="px-4 py-2 border border-gray-500 whitespace-nowrap" contenteditable="true">May 13, 2025</td>
-                            <td class="px-4 py-2 border border-gray-500 min-w-[300px]" contenteditable="true">Subject</td>
+                            <td class="px-4 py-2 border border-gray-500 min-w-[300px]">Subject</td>
                             <td class="px-4 py-2 border border-gray-500 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
                                     <button class="rounded-lg px-3 py-2 bg-[#502C58] text-white font-semibold hover:bg-[#2e1a33] flex items-center">
@@ -70,7 +70,7 @@
                                 >OPEN</button>
                             </td>
                             <td class="px-4 py-2 border border-gray-500 whitespace-nowrap" contenteditable="true">May 15, 2025</td>
-                            <td class="px-4 py-2 border border-gray-500 min-w-[300px]" contenteditable="true">Subject</td>
+                            <td class="px-4 py-2 border border-gray-500 min-w-[300px]">Subject</td>
                             <td class="px-4 py-2 border border-gray-500 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
                                     <button class="rounded-lg px-3 py-2 bg-[#502C58] text-white font-semibold hover:bg-[#2e1a33] flex items-center">
@@ -109,7 +109,7 @@
                                 >OPEN</button>
                             </td>
                             <td class="px-4 py-2 border border-gray-500 whitespace-nowrap" contenteditable="true">May 14, 2025</td>
-                            <td class="px-4 py-2 border border-gray-500 min-w-[300px]" contenteditable="true">Subject</td>
+                            <td class="px-4 py-2 border border-gray-500 min-w-[300px]">Subject</td>
                             <td class="px-4 py-2 border border-gray-500 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
                                     <button class="rounded-lg px-3 py-2 bg-[#502C58] text-white font-semibold hover:bg-[#2e1a33] flex items-center">
@@ -130,7 +130,7 @@
                                 >OPEN</button>
                             </td>
                             <td class="px-4 py-2 border border-gray-500 whitespace-nowrap" contenteditable="true">May 13, 2025</td>
-                            <td class="px-4 py-2 border border-gray-500 min-w-[300px]" contenteditable="true">Subject</td>
+                            <td class="px-4 py-2 border border-gray-500 min-w-[300px]">Subject</td>
                             <td class="px-4 py-2 border border-gray-500 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
                                     <button class="rounded-lg px-3 py-2 bg-[#502C58] text-white font-semibold hover:bg-[#2e1a33] flex items-center">
@@ -151,7 +151,7 @@
                                 >OPEN</button>
                             </td>
                             <td class="px-4 py-2 border border-gray-500 whitespace-nowrap" contenteditable="true">May 15, 2025</td>
-                            <td class="px-4 py-2 border border-gray-500 min-w-[300px]" contenteditable="true">Subject</td>
+                            <td class="px-4 py-2 border border-gray-500 min-w-[300px]">Subject</td>
                             <td class="px-4 py-2 border border-gray-500 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
                                     <button class="rounded-lg px-3 py-2 bg-[#502C58] text-white font-semibold hover:bg-[#2e1a33] flex items-center">
