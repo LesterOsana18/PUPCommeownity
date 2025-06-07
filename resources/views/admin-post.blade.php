@@ -16,6 +16,18 @@
                 Edit
             </button>
         </div>
+        <div class="flex flex-col gap-2 text-sm">
+            <p class="font-bold text-lg">Subject</p>
+            <input
+            type="text"
+            id=""
+            name="post-subject"
+            value="Lorem ipsum dolor sit amet consectetur adipiscing elit."
+            class="flex rounded-lg bg-[#F1EAEA] p-2"
+            contenteditable="false"
+            disabled
+            >
+        </div>
         <div class="flex flex-col justify-between text-sm lg:flex-row lg:items-center lg:gap-20 gap-2">
             <div class="flex items-center gap-2">
                 <p class="font-bold">Status:</p>
@@ -145,7 +157,7 @@
         });
     });
     document.getElementById('edit-button').addEventListener('click', function () {
-        const editButton = document.getElementById('edit-button'); 
+        const editButton = document.getElementById('edit-button');
         if (editButton.classList.contains('bg-blue-500')) {
             editButton.classList.remove('bg-blue-500', 'hover:bg-blue-600');
             editButton.classList.add('bg-[#4ABDAC]', 'hover:bg-[#4ABDAC]');
