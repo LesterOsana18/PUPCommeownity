@@ -213,6 +213,7 @@
             checkboxesVisible = !checkboxesVisible;
             checkboxes.forEach(checkbox => {
                 checkbox.classList.toggle('hidden', !checkboxesVisible);
+            });
         });
 
         // Select All button functionality
