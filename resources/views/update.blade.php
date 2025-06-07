@@ -180,7 +180,7 @@
                     })
                     ->take(12);
             @endphp
-            <div class="grid grid-cols-4 gap-4">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
                 @forelse ($images as $image)
                     <div class="aspect-[3/2] bg-gray-200 rounded-lg overflow-hidden relative">
                         <img src="{{ asset('images/' . $image) }}" alt="{{ $image }}" class="w-full h-full object-cover">
