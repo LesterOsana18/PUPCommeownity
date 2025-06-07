@@ -73,8 +73,8 @@
             </button>
             <div class="ml-9 mt-1 space-y-1 hidden">
                 <a href="update#announcements" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Announcements</a>
-                <a href="update#gallery" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Gallery</a>
                 <a href="update#educational" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Educational</a>
+                <a href="update#gallery" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Gallery</a>
             </div>
         </div>
     </nav>
