@@ -122,16 +122,16 @@
                 disabled
                 >
             </div>
-            <div class="flex justify-end">
-                <button
-                    type="submit"
-                    class="flex items-center justify-center rounded-lg px-3 py-2 bg-[#502C58] text-white text-sm font-semibold hover:bg-[#2e1a33]"
-                    formaction=""
-                >
-                <i class="fa-regular fa-floppy-disk mr-2"></i>
-                Save
-                </button>
-            </div>
+        </div>
+        <div class="flex justify-end">
+            <button
+                type="submit"
+                class="flex items-center justify-center rounded-lg px-3 py-2 bg-[#502C58] text-white text-sm font-semibold hover:bg-[#2e1a33]"
+                formaction=""
+            >
+            <i class="fa-regular fa-floppy-disk mr-2"></i>
+            Save
+            </button>
         </div>
     </div>
 </x-admin-layout>
