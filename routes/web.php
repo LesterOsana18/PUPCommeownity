@@ -106,3 +106,11 @@ Route::get('/admin-post', function () {
 Route::get('/update', function () {
     return view('update');
 });
+
+Route::get('/admin-announcement', function () {
+    return view('admin-announcement');
+});
+
+Route::get('/admin-educational', function () {
+    return view('admin-educational');
+});
