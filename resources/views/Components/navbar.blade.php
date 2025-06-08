@@ -124,6 +124,26 @@
                     </div>
                 </div>
             </a>
+
+            @auth
+            <div class="relative group">
+                <button class="focus:outline-none">
+                    <img src="{{ asset('images/default-profile.svg') }}" alt="Profile" class="h-10 w-10 rounded-full border-2 border-white shadow-md">
+                </button>
+                <div class="absolute right-0 mt-2 w-48 bg-[#3d2243] shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity z-50">
+                    <a href="/login"
+                    class="flex items-center px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58]">
+                        <i class="fas fa-sign-out-alt mr-2"></i> Log In
+                    </a>
+                    @if(Auth::user()->role === 'admin')
+                    <a href="/moderation"
+                    class="flex items-center px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58]">
+                        <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+                    </a>
+                    @endif
+                </div>
+            </div>
+            @endauth
         </div>
 
         <!-- Mobile Hamburger -->
@@ -261,6 +281,25 @@
                     </div>
                 </div>
             </a>
+
+            @auth
+            <div class="space-y-1 border-t border-white pt-4">
+                <div class="flex items-center space-x-3">
+                    <img src="{{ asset('images/default-profile.svg') }}" alt="Profile" class="h-10 w-10 rounded-full border-2 border-white shadow-md">
+                    <span class="text-white font-bold">{{ Auth::user()->name }}</span>
+                </div>
+                <a href="/login"
+                class="block mt-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58] px-4 py-2 rounded-md">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Log In
+                </a>
+                @if(Auth::user()->role === 'admin')
+                <a href="/moderation"
+                class="block text-white hover:bg-[#E7AB39] hover:text-[#502C58] px-4 py-2 rounded-md">
+                    <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+                </a>
+                @endif
+            </div>
+            @endauth
         </div>
     </div>
 
