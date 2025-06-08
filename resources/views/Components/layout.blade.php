@@ -19,7 +19,6 @@
         href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
     />
 
-
     <!-- Tailwind Config Override for Custom Fonts -->
     <script>
         tailwind.config = {
@@ -139,6 +138,37 @@
     </div>
 
     @include('components.navbar')
+
+    @if (session('success'))
+    <div class="flex justify-center w-full fixed left-0 top-0 z-30 mt-8 auto-dismiss-alert">
+        <div class="bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded shadow-xl">
+            <span class="block sm:inline font-semibold">
+                {{ session('success') }}
+            </span>
+        </div>
+    </div>
+    @endif
+
+    @if (session('error'))
+        <div class="flex justify-center w-full fixed left-0 top-0 z-30 mt-8 auto-dismiss-alert">
+            <div class="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded shadow-xl">
+                <span class="block sm:inline font-semibold">
+                    {{ session('error') }}
+                </span>
+            </div>
+        </div>
+    @endif
+
+    @if (session('success') || session('error'))
+    <script>
+        setTimeout(function() {
+            let alerts = document.querySelectorAll('.auto-dismiss-alert');
+            alerts.forEach(function(alert) {
+                alert.style.display = 'none';
+            });
+        }, 5000); // Dismiss after 5 seconds
+    </script>
+    @endif
 
     <div class="py-12"></div>
 

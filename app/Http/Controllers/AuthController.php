@@ -56,7 +56,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('home');
     }
 
     public function showLoginForm()
@@ -73,7 +73,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('dashboard');
+            return redirect()->route('home')->with('success', 'Login successful!');
         }
 
         return back()->with('error', 'Invalid credentials.');

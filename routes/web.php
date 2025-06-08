@@ -15,6 +15,13 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// Home Route
+// This route serves the home page of the application.
+// It is the default route that users see when they visit the root URL.
+Route::get('/', function () {
+    return view('home');
+})->name('home');
+
 // Dashboard Route
 // This route is protected by the 'auth' middleware, meaning only authenticated users can access it.
 Route::get('/dashboard', function () {
@@ -27,10 +34,6 @@ Route::post('/donation-form', [DonationController::class, 'store'])->name('donat
 
 // Website Routes
 // These routes are for the public-facing pages of the website.
-Route::get('/', function () {
-    return view('home');
-});
-
 Route::get('/adopt', function () {
     return view('adopt');
 });
@@ -71,20 +74,8 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
-
 Route::get('/terms', function () {
     return view('terms');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
 });
 
 Route::get('/tables', function () {

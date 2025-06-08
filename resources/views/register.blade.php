@@ -167,6 +167,7 @@
                     <option value="event_coordinator">Event Coordinator</option>
                     <option value="foster_caregiver">Foster Caregiver</option>
                     <option value="adoption_counselor">Adoption Counselor</option>
+                    <option value="site_administrator">Site Administrator</option>
                 </select>
             </div>
 
