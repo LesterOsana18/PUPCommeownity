@@ -83,10 +83,6 @@ Route::get('/terms', function () {
     return view('terms');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
-
 Route::get('/tables', function () {
     return view('tables');
 });
