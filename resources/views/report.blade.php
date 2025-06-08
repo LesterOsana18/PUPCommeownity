@@ -323,7 +323,7 @@
                                 required
                                 class="w-full px-4 py-2
                                     border border-gray-300 rounded-md
-                                    focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50 p-2 border"></textarea>
+                                    focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50 p-2"></textarea>
                         </div>
 
                         <div>
@@ -340,7 +340,7 @@
                                 required
                                 class="w-full px-4 py-2
                                     border border-gray-300 rounded-md
-                                    focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50 p-2 border">
+                                    focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50 p-2">
                         </div>
 
                         {{-- <div>
@@ -371,7 +371,7 @@
                                 required
                                 class="w-full px-4 py-2
                                     border border-gray-300 rounded-md
-                                    focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50 p-2 border">
+                                    focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50 p-2">
                         </div>
                     </div>
                 </div>
