@@ -73,10 +73,10 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('home')->with('success', 'Login successful!');
+            return redirect()->route('home')->with('success', 'Logged in successfully!');
         }
 
-        return back()->with('error', 'Invalid credentials.');
+        return back()->with('error', 'Invalid credentials! Please try again.');
     }
 
     public function logout(Request $request)
