@@ -20,6 +20,6 @@
 
 <x-layout>
     <x-homepage.hero />
-    <x-homepage.carousel />
+    <x-homepage.carousel :carouselItems="$carouselItems" />
     <x-homepage.be-updated />
 </x-layout>

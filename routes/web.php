@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\ModerationController;
+use App\Http\Controllers\HomeController;
 
 // Registration Routes
 // This route shows the registration form.
@@ -21,9 +22,7 @@ Route::post('/logout', [AuthController::class, 'logout'])
 // Home Route
 // This route serves the home page of the application.
 // It is the default route that users see when they visit the root URL.
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Dashboard Route
 // This route is protected by the 'auth' middleware, meaning only authenticated users can access it.
