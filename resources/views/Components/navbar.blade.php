@@ -30,119 +30,183 @@
             Commeownity
         </a>
 
-        <!-- Desktop Menu -->
+        {{-- Desktop Menu (visible ≥ lg) --}}
         <div class="hidden lg:flex items-center space-x-6">
-            <a href="/" class="nav-link flex items-center font-bold text-lg relative">
+            {{-- Home --}}
+            <a href="{{ url('/') }}" class="nav-link flex items-center font-bold text-lg relative">
                 <div class="text-reveal-container">
                     <div class="text-original">
                         <i class="fa-solid fa-home mr-1"></i>
-                        <span class="{{ request()->is('/') ? 'underline underline-offset-4' : '' }}">Home</span>
+                        <span class="{{ request()->is('/') ? 'underline underline-offset-4' : '' }}">
+                        Home
+                        </span>
                     </div>
                     <div class="text-colored">
                         <i class="fa-solid fa-home mr-1"></i>
-                        <span class="{{ request()->is('/') ? 'underline underline-offset-4' : '' }}">Home</span>
+                        <span class="{{ request()->is('/') ? 'underline underline-offset-4' : '' }}">
+                        Home
+                        </span>
                     </div>
                 </div>
             </a>
 
-            <a href="/adopt" class="nav-link flex items-center font-bold text-lg relative">
+            {{-- Adopt a Cat --}}
+            <a href="{{ url('/adopt') }}" class="nav-link flex items-center font-bold text-lg relative">
                 <div class="text-reveal-container">
                     <div class="text-original">
                         <i class="fa-solid fa-cat mr-1"></i>
-                        <span class="{{ request()->is('adopt') ? 'underline underline-offset-4' : '' }}">Adopt a Cat</span>
+                        <span class="{{ request()->is('adopt') ? 'underline underline-offset-4' : '' }}">
+                        Adopt a Cat
+                        </span>
                     </div>
                     <div class="text-colored">
                         <i class="fa-solid fa-cat mr-1"></i>
-                        <span class="{{ request()->is('adopt') ? 'underline underline-offset-4' : '' }}">Adopt a Cat</span>
+                        <span class="{{ request()->is('adopt') ? 'underline underline-offset-4' : '' }}">
+                        Adopt a Cat
+                        </span>
                     </div>
                 </div>
             </a>
 
+            {{-- Get Involved dropdown --}}
             <div class="relative group">
                 @php
-                    $getInvolvedActive = request()->is('volunteer') || request()->is('donate') || request()->is('report*');
+                    $getInvolvedActive = request()->is('volunteer') ||
+                                        request()->is('donate')    ||
+                                        request()->is('report*');
                 @endphp
                 <button class="nav-button flex items-center font-bold focus:outline-none">
                     <div class="text-reveal-container">
                         <div class="text-original">
                             <i class="fa-solid fa-hands-helping mr-1"></i>
-                            <span class="{{ $getInvolvedActive ? 'underline underline-offset-4' : '' }}">Get Involved</span>
-                            <svg class="w-4 h-4 ml-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            <span class="{{ $getInvolvedActive ? 'underline underline-offset-4' : '' }}">
+                            Get Involved
+                            </span>
+                            <svg class="w-4 h-4 ml-1 inline" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
                             </svg>
                         </div>
                         <div class="text-colored">
                             <i class="fa-solid fa-hands-helping mr-1"></i>
-                            <span class="{{ $getInvolvedActive ? 'underline underline-offset-4' : '' }}">Get Involved</span>
-                            <svg class="w-4 h-4 ml-1 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            <span class="{{ $getInvolvedActive ? 'underline underline-offset-4' : '' }}">
+                            Get Involved
+                            </span>
+                            <svg class="w-4 h-4 ml-1 inline" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
                             </svg>
                         </div>
                     </div>
                 </button>
-                <div class="absolute left-0 mt-2 w-48 bg-[#3d2243] shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
-                    <a href="/volunteer"
-                        class="flex items-center px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58] {{ request()->is('volunteer') ? 'underline underline-offset-2' : '' }}">
+                <div class="absolute left-0 mt-2 w-48 bg-[#3d2243] shadow-lg
+                            rounded-md opacity-0 group-hover:opacity-100
+                            transition-opacity">
+                    <a href="{{ url('/volunteer') }}"
+                    class="flex items-center px-4 py-2 text-white
+                            hover:bg-[#E7AB39] hover:text-[#502C58]
+                            {{ request()->is('volunteer') ? 'underline underline-offset-2' : '' }}">
                         <i class="fas fa-user-friends mr-1"></i>
                         <span class="ml-1">Volunteer</span>
                     </a>
-                    <a href="/donate"
-                        class="flex items-center px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58] {{ request()->is('donate') ? 'underline underline-offset-2' : '' }}">
+                    <a href="{{ url('/donate') }}"
+                    class="flex items-center px-4 py-2 text-white
+                            hover:bg-[#E7AB39] hover:text-[#502C58]
+                            {{ request()->is('donate') ? 'underline underline-offset-2' : '' }}">
                         <i class="fas fa-donate mr-1"></i>
                         <span class="ml-1">Donate</span>
                     </a>
-                    <a href="/report"
-                        class="flex items-center px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58] {{ request()->is('report*') ? 'underline underline-offset-2' : '' }}">
+                    <a href="{{ url('/report') }}"
+                    class="flex items-center px-4 py-2 text-white
+                            hover:bg-[#E7AB39] hover:text-[#502C58]
+                            {{ request()->is('report*') ? 'underline underline-offset-2' : '' }}">
                         <i class="fas fa-exclamation-triangle mr-1"></i>
                         <span class="ml-1">Report a Cat</span>
                     </a>
                 </div>
             </div>
 
-            <a href="/about" class="nav-link flex items-center font-bold text-lg relative">
+            {{-- About & Resources --}}
+            <a href="{{ url('/about') }}" class="nav-link flex items-center font-bold text-lg relative">
                 <div class="text-reveal-container">
                     <div class="text-original">
                         <i class="fa-solid fa-info-circle mr-1"></i>
-                        <span class="{{ request()->is('about') ? 'underline underline-offset-4' : '' }}">About & Resources</span>
+                        <span class="{{ request()->is('about') ? 'underline underline-offset-4' : '' }}">
+                        About & Resources
+                        </span>
                     </div>
                     <div class="text-colored">
                         <i class="fa-solid fa-info-circle mr-1"></i>
-                        <span class="{{ request()->is('about') ? 'underline underline-offset-4' : '' }}">About & Resources</span>
+                        <span class="{{ request()->is('about') ? 'underline underline-offset-4' : '' }}">
+                        About & Resources
+                        </span>
                     </div>
                 </div>
             </a>
 
-            <a href="/login" class="nav-link flex items-center font-bold text-lg relative">
-                <div class="text-reveal-container">
-                    <div class="text-original">
-                        <i class="fa-solid fa-sign-in-alt mr-1"></i>
-                        <span class="{{ request()->is('login') ? 'underline underline-offset-4' : '' }}">Log In</span>
+            {{-- Show Login for guests only --}}
+            @guest
+                <a href="{{ route('login.form') }}" class="nav-link flex items-center font-bold text-lg relative">
+                    <div class="text-reveal-container">
+                        <div class="text-original">
+                            <i class="fa-solid fa-sign-in-alt mr-1"></i>
+                            <span class="{{ request()->is('login') ? 'underline underline-offset-4' : '' }}">
+                            Log In
+                            </span>
+                        </div>
+                        <div class="text-colored">
+                            <i class="fa-solid fa-sign-in-alt mr-1"></i>
+                            <span class="{{ request()->is('login') ? 'underline underline-offset-4' : '' }}">
+                            Log In
+                            </span>
+                        </div>
                     </div>
-                    <div class="text-colored">
-                        <i class="fa-solid fa-sign-in-alt mr-1"></i>
-                        <span class="{{ request()->is('login') ? 'underline underline-offset-4' : '' }}">Log In</span>
-                    </div>
-                </div>
-            </a>
+                </a>
+            @endguest
 
+            {{-- Profile + Logout + Dashboard for authenticated users --}}
             @auth
-            <div class="relative group">
-                <button class="focus:outline-none">
-                    <img src="{{ asset('images/default-profile.svg') }}" alt="Profile" class="h-10 w-10 rounded-full border-2 border-white shadow-md">
-                </button>
-                <div class="absolute right-0 mt-2 w-48 bg-[#3d2243] shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition-opacity z-50">
-                    <a href="/login"
-                    class="flex items-center px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58]">
-                        <i class="fas fa-sign-out-alt mr-2"></i> Log In
-                    </a>
-                    @if(Auth::user()->role === 'admin')
-                    <a href="/moderation"
-                    class="flex items-center px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58]">
-                        <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
-                    </a>
-                    @endif
+                <div class="relative group">
+                    <button class="focus:outline-none">
+                        <img
+                            src="{{ Auth::user()->profile_picture
+                                        ? asset('storage/' . Auth::user()->profile_picture)
+                                        : asset('images/default-profile.svg') }}"
+                            alt="Profile"
+                            class="h-10 w-10 rounded-full border-2 border-white shadow-md"
+                        />
+                    </button>
+                    <div class="absolute right-0 mt-2 w-48 bg-[#3d2243] shadow-lg
+                                rounded-md opacity-0 group-hover:opacity-100
+                                transition-opacity z-50">
+                        {{-- Log Out (POST) --}}
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit"
+                                    class="flex items-center w-full text-left px-4 py-2 text-white
+                                        hover:bg-[#E7AB39] hover:text-[#502C58]">
+                                <i class="fas fa-sign-out-alt mr-2"></i>
+                                <span>Log Out</span>
+                            </button>
+                        </form>
+
+                        {{-- Admin Dashboard --}}
+                        @if(Auth::user()->preferred_volunteer_role === 'site_administrator')
+                            <a href="{{ route('moderation') }}"
+                            class="flex items-center px-4 py-2 text-white
+                                    hover:bg-[#E7AB39] hover:text-[#502C58]">
+                                <i class="fas fa-tachometer-alt mr-2"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        @endif
+                    </div>
                 </div>
-            </div>
             @endauth
         </div>
 
@@ -164,141 +228,218 @@
         $getInvolvedActive = request()->is('volunteer') || request()->is('donate') || request()->is('report*');
     @endphp
 
-    <!-- Mobile Menu Panel -->
-    <div id="mobile-menu" class="fixed inset-0 bg-[#502C58] bg-opacity-95 transform -translate-x-full transition-transform duration-300 ease-in-out lg:hidden">
-        <!-- Close Button for Mobile Menu -->
-        <button id="menu-close" aria-label="Close menu" class="absolute top-4 right-4 focus:outline-none">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    {{-- Mobile Menu Panel (hidden by default, slides in on toggle) --}}
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-[#502C58] bg-opacity-95 transform -translate-x-full
+                transition-transform duration-300 ease-in-out lg:hidden">
+
+        {{-- Close button --}}
+        <button id="menu-close" aria-label="Close menu"
+                class="absolute top-4 right-4 focus:outline-none">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
 
         <div class="mt-20 px-6 space-y-6">
-            <a href="/" class="nav-link block font-bold text-lg relative">
+            {{-- Home --}}
+            <a href="{{ url('/') }}" class="nav-link block font-bold text-lg relative">
                 <div class="text-reveal-container">
                     <div class="text-original flex items-center">
                         <i class="fas fa-home mr-2"></i>
-                        <span class="{{ request()->is('/') ? 'underline underline-offset-4' : '' }}">Home</span>
+                        <span class="{{ request()->is('/') ? 'underline underline-offset-4' : '' }}">
+                        Home
+                        </span>
                     </div>
                     <div class="text-colored flex items-center">
                         <i class="fas fa-home mr-2"></i>
-                        <span class="{{ request()->is('/') ? 'underline underline-offset-4' : '' }}">Home</span>
+                        <span class="{{ request()->is('/') ? 'underline underline-offset-4' : '' }}">
+                        Home
+                        </span>
                     </div>
                 </div>
             </a>
 
-            <a href="/adopt" class="nav-link block font-bold text-lg relative">
+            {{-- Adopt a Cat --}}
+            <a href="{{ url('/adopt') }}" class="nav-link block font-bold text-lg relative">
                 <div class="text-reveal-container">
                     <div class="text-original flex items-center">
                         <i class="fas fa-cat mr-2"></i>
-                        <span class="{{ request()->is('adopt') ? 'underline underline-offset-4' : '' }}">Adopt a Cat</span>
+                        <span class="{{ request()->is('adopt') ? 'underline underline-offset-4' : '' }}">
+                        Adopt a Cat
+                        </span>
                     </div>
                     <div class="text-colored flex items-center">
                         <i class="fas fa-cat mr-2"></i>
-                        <span class="{{ request()->is('adopt') ? 'underline underline-offset-4' : '' }}">Adopt a Cat</span>
+                        <span class="{{ request()->is('adopt') ? 'underline underline-offset-4' : '' }}">
+                        Adopt a Cat
+                        </span>
                     </div>
                 </div>
             </a>
 
+            {{-- Get Involved (panel) --}}
             <div class="space-y-2">
                 <button class="nav-button w-full font-bold text-lg relative text-left">
                     <div class="text-reveal-container">
                         <div class="text-original flex items-center">
                             <i class="fas fa-hands-helping mr-2"></i>
-                            <span class="{{ $getInvolvedActive ? 'underline underline-offset-4' : '' }}">Get Involved</span>
+                            <span class="{{ $getInvolvedActive ? 'underline underline-offset-4' : '' }}">
+                            Get Involved
+                            </span>
                         </div>
                         <div class="text-colored flex items-center">
                             <i class="fas fa-hands-helping mr-2"></i>
-                            <span class="{{ $getInvolvedActive ? 'underline underline-offset-4' : '' }}">Get Involved</span>
+                            <span class="{{ $getInvolvedActive ? 'underline underline-offset-4' : '' }}">
+                            Get Involved
+                            </span>
                         </div>
                     </div>
                 </button>
-
                 <div class="pl-4 space-y-1">
-                    <a href="/volunteer" class="nav-link block font-bold text-base relative">
+                    <a href="{{ url('/volunteer') }}" class="nav-link block font-bold text-base relative">
+                        {{-- Volunteer --}}
                         <div class="text-reveal-container">
                             <div class="text-original flex items-center">
                                 <i class="fas fa-user-friends mr-1"></i>
-                                <span class="{{ request()->is('volunteer') ? 'underline underline-offset-4' : '' }}">Volunteer</span>
+                                <span class="{{ request()->is('volunteer') ? 'underline underline-offset-4' : '' }}">
+                                Volunteer
+                                </span>
                             </div>
                             <div class="text-colored flex items-center">
                                 <i class="fas fa-user-friends mr-1"></i>
-                                <span class="{{ request()->is('volunteer') ? 'underline underline-offset-4' : '' }}">Volunteer</span>
+                                <span class="{{ request()->is('volunteer') ? 'underline underline-offset-4' : '' }}">
+                                Volunteer
+                                </span>
                             </div>
                         </div>
                     </a>
-
-                    <a href="/donate" class="nav-link block font-bold text-base relative">
+                    <a href="{{ url('/donate') }}" class="nav-link block font-bold text-base relative">
+                        {{-- Donate --}}
                         <div class="text-reveal-container">
                             <div class="text-original flex items-center">
                                 <i class="fas fa-donate mr-1"></i>
-                                <span class="{{ request()->is('donate') ? 'underline underline-offset-4' : '' }}">Donate</span>
+                                <span class="{{ request()->is('donate') ? 'underline underline-offset-4' : '' }}">
+                                Donate
+                                </span>
                             </div>
                             <div class="text-colored flex items-center">
                                 <i class="fas fa-donate mr-1"></i>
-                                <span class="{{ request()->is('donate') ? 'underline underline-offset-4' : '' }}">Donate</span>
+                                <span class="{{ request()->is('donate') ? 'underline underline-offset-4' : '' }}">
+                                Donate
+                                </span>
                             </div>
                         </div>
                     </a>
-
-                    <a href="/report" class="nav-link block font-bold text-base relative">
+                    <a href="{{ url('/report') }}" class="nav-link block font-bold text-base relative">
+                        {{-- Report a Cat --}}
                         <div class="text-reveal-container">
                             <div class="text-original flex items-center">
                                 <i class="fas fa-exclamation-triangle mr-1"></i>
-                                <span class="{{ request()->is('report*') ? 'underline underline-offset-4' : '' }}">Report a Cat</span>
+                                <span class="{{ request()->is('report*') ? 'underline underline-offset-4' : '' }}">
+                                Report a Cat
+                                </span>
                             </div>
                             <div class="text-colored flex items-center">
                                 <i class="fas fa-exclamation-triangle mr-1"></i>
-                                <span class="{{ request()->is('report*') ? 'underline underline-offset-4' : '' }}">Report a Cat</span>
+                                <span class="{{ request()->is('report*') ? 'underline underline-offset-4' : '' }}">
+                                Report a Cat
+                                </span>
                             </div>
                         </div>
                     </a>
                 </div>
             </div>
 
-            <a href="/about" class="nav-link block font-bold text-lg relative">
+            {{-- About & Resources --}}
+            <a href="{{ url('/about') }}" class="nav-link block font-bold text-lg relative">
                 <div class="text-reveal-container">
                     <div class="text-original flex items-center">
                         <i class="fas fa-info-circle mr-2"></i>
-                        <span class="{{ request()->is('about') ? 'underline underline-offset-4' : '' }}">About & Resources</span>
+                        <span class="{{ request()->is('about') ? 'underline underline-offset-4' : '' }}">
+                        About & Resources
+                        </span>
                     </div>
                     <div class="text-colored flex items-center">
                         <i class="fas fa-info-circle mr-2"></i>
-                        <span class="{{ request()->is('about') ? 'underline underline-offset-4' : '' }}">About & Resources</span>
+                        <span class="{{ request()->is('about') ? 'underline underline-offset-4' : '' }}">
+                        About & Resources
+                        </span>
                     </div>
                 </div>
             </a>
 
-            <a href="/login" class="nav-link block font-bold text-lg relative">
-                <div class="text-reveal-container">
-                    <div class="text-original flex items-center">
-                        <i class="fas fa-sign-in-alt mr-2"></i>
-                        <span class="{{ request()->is('login') ? 'underline underline-offset-4' : '' }}">Log In</span>
+            {{-- Login for guests --}}
+            @guest
+                <a href="{{ route('login.form') }}" class="nav-link block font-bold text-lg relative">
+                    <div class="text-reveal-container">
+                        <div class="text-original flex items-center">
+                            <i class="fas fa-sign-in-alt mr-2"></i>
+                            <span class="{{ request()->is('login') ? 'underline underline-offset-4' : '' }}">
+                            Log In
+                            </span>
+                        </div>
+                        <div class="text-colored flex items-center">
+                            <i class="fas fa-sign-in-alt mr-2"></i>
+                            <span class="{{ request()->is('login') ? 'underline underline-offset-4' : '' }}">
+                            Log In
+                            </span>
+                        </div>
                     </div>
-                    <div class="text-colored flex items-center">
-                        <i class="fas fa-sign-in-alt mr-2"></i>
-                        <span class="{{ request()->is('login') ? 'underline underline-offset-4' : '' }}">Log In</span>
-                    </div>
-                </div>
-            </a>
+                </a>
+            @endguest
 
+            {{-- Profile & Logout & Dashboard for signed-in users --}}
             @auth
-            <div class="space-y-1 border-t border-white pt-4">
-                <div class="flex items-center space-x-3">
-                    <img src="{{ asset('images/default-profile.svg') }}" alt="Profile" class="h-10 w-10 rounded-full border-2 border-white shadow-md">
-                    <span class="text-white font-bold">{{ Auth::user()->name }}</span>
+                <div class="space-y-1 border-t border-white pt-4">
+                    <div class="flex items-center space-x-3">
+                        <img
+                            src="{{ Auth::user()->profile_picture
+                                        ? asset('storage/' . Auth::user()->profile_picture)
+                                        : asset('images/default-profile.svg') }}"
+                            alt="Profile"
+                            class="h-10 w-10 rounded-full border-2 border-white shadow-md"
+                        />
+                        <span class="text-white font-bold">{{ Auth::user()->name }}</span>
+                    </div>
+
+                    {{-- Log Out --}}
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit"
+                                class="nav-link block font-bold text-base relative px-4 py-2 mt-2">
+                            <div class="text-reveal-container">
+                                <div class="text-original flex items-center">
+                                    <i class="fas fa-sign-out-alt mr-1"></i>
+                                    <span>Log Out</span>
+                                </div>
+                                <div class="text-colored flex items-center">
+                                    <i class="fas fa-sign-out-alt mr-1"></i>
+                                    <span>Log Out</span>
+                                </div>
+                            </div>
+                        </button>
+                    </form>
+
+                    {{-- Admin Dashboard --}}
+                    @if(Auth::user()->preferred_volunteer_role === 'site_administrator')
+                        <a href="{{ route('moderation') }}"
+                        class="nav-link block font-bold text-base relative px-4 py-2 mt-2">
+                            <div class="text-reveal-container">
+                                <div class="text-original flex items-center">
+                                    <i class="fas fa-tachometer-alt mr-1"></i>
+                                    <span>Dashboard</span>
+                                </div>
+                                <div class="text-colored flex items-center">
+                                    <i class="fas fa-tachometer-alt mr-1"></i>
+                                    <span>Dashboard</span>
+                                </div>
+                            </div>
+                        </a>
+                    @endif
                 </div>
-                <a href="/login"
-                class="block mt-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58] px-4 py-2 rounded-md">
-                    <i class="fas fa-sign-out-alt mr-2"></i> Log In
-                </a>
-                @if(Auth::user()->role === 'admin')
-                <a href="/moderation"
-                class="block text-white hover:bg-[#E7AB39] hover:text-[#502C58] px-4 py-2 rounded-md">
-                    <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
-                </a>
-                @endif
-            </div>
             @endauth
         </div>
     </div>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DonationController;
+use App\Http\Controllers\ModerationController;
 
 // Registration Routes
 // This route shows the registration form.
@@ -13,7 +14,9 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 // This route shows the login form.
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.form');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/logout', [AuthController::class, 'logout'])
+    ->middleware('auth')
+    ->name('logout');
 
 // Home Route
 // This route serves the home page of the application.
@@ -82,9 +85,10 @@ Route::get('/tables', function () {
     return view('tables');
 });
 
-Route::get('/moderation', function () {
-    return view('moderation');
-});
+
+// Admin Routes
+Route::get('/moderation', [ModerationController::class, 'index'])
+    ->name('moderation');
 
 Route::get('/admin-report', function () {
     return view('admin-report');
