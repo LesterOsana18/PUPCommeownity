@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Announcement;
+use App\Models\Update;
 
 class HomeController extends Controller
 {
@@ -16,6 +17,10 @@ class HomeController extends Controller
             ->take(5)
             ->get();
 
-        return view('home', compact('announcements'));
+        $updates = Update::where('is_approved', true)
+            ->latest()
+            ->paginate(6);
+
+        return view('home', compact('announcements', 'updates'));
     }
 }

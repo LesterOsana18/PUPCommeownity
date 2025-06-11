@@ -21,7 +21,7 @@
 <x-layout>
     <x-homepage.hero />
     <x-homepage.carousel :carouselItems="$announcements" />
-    <x-homepage.be-updated />
+    @livewire('be-updated', [], 'be-updated')
 
     @include('components.modals.carousel')
 </x-layout>
