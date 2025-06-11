@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\ModerationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReportCatController;
 use App\Http\Controllers\Admin\AnnouncementController;
 
 // Registration Routes
@@ -34,6 +35,10 @@ Route::get('/dashboard', function () {
 // Donation Route
 // This route handles the donation form submission.
 Route::post('/donation-form', [DonationController::class, 'store'])->name('donation.store');
+
+// Report Route
+// This route handles the report-a-cat for submission.
+Route::post('/report', [ReportCatController::class, 'store'])->name('report.store');
 
 // Website Routes
 // These routes are for the public-facing pages of the website.
