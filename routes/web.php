@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\ModerationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\AnnouncementController;
 
 // Registration Routes
 // This route shows the registration form.
@@ -101,9 +102,19 @@ Route::get('/update', function () {
     return view('update');
 });
 
-Route::get('/admin-announcement', function () {
-    return view('admin-announcement');
+Route::prefix('admin/announcements')->name('admin.announcements.')->group(function () {
+    Route::get('/', [AnnouncementController::class, 'index'])->name('index');
+    Route::get('/create', [AnnouncementController::class, 'create'])->name('create');
+    Route::post('/', [AnnouncementController::class, 'store'])->name('store');
+    Route::get('/{announcement}', [AnnouncementController::class, 'show'])->name('show');
+    Route::put('/{announcement}', [AnnouncementController::class, 'update'])->name('update');
+    Route::delete('/{announcement}', [AnnouncementController::class, 'destroy'])->name('destroy');
 });
+
+// Optional: legacy/store endpoint for alternate route
+Route::post('/update/announcements', [AnnouncementController::class, 'store'])
+    ->middleware('auth')
+    ->name('update.announcements.store');
 
 Route::get('/admin-educational', function () {
     return view('admin-educational');
