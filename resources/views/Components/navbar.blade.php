@@ -21,6 +21,13 @@
         .nav-button:hover .text-colored {
             clip-path: circle(75% at 50% 50%);
         }
+
+        [data-dropdown] {
+            transition-property: opacity, visibility;
+            transition-duration: 300ms;
+            transition-timing-function: ease-in-out;
+            transition-delay: 150ms;
+        }
     </style>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
@@ -69,7 +76,7 @@
             </a>
 
             {{-- Get Involved dropdown --}}
-            <div class="relative group">
+            <div class="relative" onmouseenter="toggleDropdown(this, true)" onmouseleave="toggleDropdown(this, false)">
                 @php
                     $getInvolvedActive = request()->is('volunteer') ||
                                         request()->is('donate')    ||
@@ -106,8 +113,10 @@
                     </div>
                 </button>
                 <div class="absolute left-0 mt-2 w-48 bg-[#3d2243] shadow-lg
-                            rounded-md opacity-0 group-hover:opacity-100
-                            transition-opacity">
+                    rounded-md opacity-0 invisible pointer-events-none
+                    transition-all duration-200 ease-in-out"
+                    data-dropdown
+                >
                     <a href="{{ url('/volunteer') }}"
                     class="flex items-center px-4 py-2 text-white
                             hover:bg-[#E7AB39] hover:text-[#502C58]
@@ -172,7 +181,7 @@
 
             {{-- Profile + Logout + Dashboard for authenticated users --}}
             @auth
-                <div class="relative group">
+                <div class="relative" onmouseenter="toggleDropdown(this, true)" onmouseleave="toggleDropdown(this, false)">
                     <button class="focus:outline-none">
                         <img
                             src="{{ Auth::user()->profile_picture
@@ -183,8 +192,10 @@
                         />
                     </button>
                     <div class="absolute right-0 mt-2 w-48 bg-[#3d2243] shadow-lg
-                                rounded-md opacity-0 group-hover:opacity-100
-                                transition-opacity z-50">
+                        rounded-md opacity-0 invisible pointer-events-none
+                        transition-all duration-200 ease-in-out z-50"
+                        data-dropdown
+                    >
                         {{-- Log Out (POST) --}}
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -463,7 +474,18 @@
         toggle.addEventListener('click', toggleMenu);
         closeBtn.addEventListener('click', toggleMenu);
         });
+
+        function toggleDropdown(parent, show) {
+            const dropdown = parent.querySelector('[data-dropdown]');
+            if (!dropdown) return;
+
+            dropdown.classList.toggle('opacity-100', show);
+            dropdown.classList.toggle('visible', show);
+            dropdown.classList.toggle('pointer-events-auto', show);
+
+            dropdown.classList.toggle('opacity-0', !show);
+            dropdown.classList.toggle('invisible', !show);
+            dropdown.classList.toggle('pointer-events-none', !show);
+        }
     </script>
 </nav>
-
-

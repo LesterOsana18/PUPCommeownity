@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CarouselItem extends Model
+class Announcement extends Model
 {
     protected $fillable = [
         'title',
@@ -12,5 +12,10 @@ class CarouselItem extends Model
         'image_path',
         'excerpt',
         'content',
+        'is_active',
+    ];
+
+    protected $casts = [
+        'is_active' => 'boolean',
     ];
 }
