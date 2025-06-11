@@ -36,5 +36,6 @@
     </div>
     <div class="flex flex-col gap-5">
         @include('components.admin.update-announcements')
+        @include('components.admin.update-gallery')
     </div>
 </x-admin-layout>
