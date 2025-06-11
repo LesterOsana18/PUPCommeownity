@@ -29,10 +29,14 @@
                                 <a href="{{ route('admin.announcements.show', $announcement->id) }}" class="rounded-lg px-3 py-2 bg-[#502C58] text-white font-semibold hover:bg-[#2e1a33] flex items-center">
                                     <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Read
                                 </a>
-                                {{-- Delete button disabled for now (read-only mode) --}}
-                                <button disabled class="rounded-lg px-3 py-2 bg-gray-400 text-white font-semibold flex items-center cursor-not-allowed">
-                                    <i class="fa-regular fa-trash-can mr-2"></i> Delete
-                                </button>
+                                {{-- Delete button --}}
+                                <form action="{{ route('admin.announcements.destroy', $announcement->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this announcement?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="rounded-lg px-3 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 flex items-center">
+                                        <i class="fa-regular fa-trash-can mr-2"></i> Delete
+                                    </button>
+                                </form>
                             </div>
                         </td>
                     </tr>

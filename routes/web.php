@@ -107,6 +107,7 @@ Route::prefix('admin/announcements')->name('admin.announcements.')->group(functi
     Route::get('/create', [AnnouncementController::class, 'create'])->name('create');
     Route::post('/', [AnnouncementController::class, 'store'])->name('store');
     Route::get('/{announcement}', [AnnouncementController::class, 'show'])->name('show');
+    Route::delete('/{announcement}', [AnnouncementController::class, 'destroy'])->name('destroy');
 });
 
 Route::post('/update/announcements', [AnnouncementController::class, 'store'])

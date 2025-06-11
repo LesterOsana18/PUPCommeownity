@@ -16,7 +16,7 @@
                 <i class="fa-regular fa-pen-to-square mr-2"></i>
                 Edit
             </button>
-            <form method="POST" action="#">
+            <form method="POST" action="{{ route('admin.announcements.destroy', $announcement->id) }}" onsubmit="return confirm('Are you sure you want to delete this announcement?');">
                 @csrf
                 @method('DELETE')
                 <button class="rounded-lg px-3 py-2 bg-red-500 text-white text-sm font-semibold hover:bg-red-600 flex items-center" type="submit">
