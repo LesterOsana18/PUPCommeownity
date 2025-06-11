@@ -124,8 +124,8 @@
                 @endif
 
                 <!-- Scrollable Content -->
-                <div class="text-gray-600 text-sm leading-relaxed whitespace-pre-line max-h-48 overflow-y-auto pr-2 px-3 py-2 rounded-md border border-gray-200 bg-gray-50">
-                    {{ $selectedUpdate['content'] }}
+                <div class="text-gray-600 text-sm leading-relaxed max-h-48 overflow-y-auto pr-2 px-3 py-2 rounded-md border border-gray-200 bg-gray-50">
+                    {!! nl2br(e(ltrim($selectedUpdate['content']))) !!}
                 </div>
             @endif
         </div>
