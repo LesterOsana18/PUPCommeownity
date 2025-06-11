@@ -14,9 +14,9 @@
         </div>
 
         <div class="grid md:grid-cols-2 gap-4 mb-12">
-            <div class="bg-teal-100 p-6 rounded-lg text-center relative">
-                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://placecats.com/millie_neo/300/200');"></div>
-                <div class="absolute inset-0 bg-teal-100 opacity-60"></div>
+            <div class="bg-teal-100 p-6 rounded-lg text-center relative" >
+                <div class="absolute inset-0 bg-cover bg-center rounded-lg" style="background-image: url('{{ asset('/images/donate-now-cat.jpg') }}');"></div>
+                <div class="absolute inset-0 bg-teal-100 opacity-60 rounded-lg"></div>
                 <div class="relative z-10">
                     <h2 class="text-xl font-bold mb-2">Give Back!</h2>
                     <p class="text-sm mb-4">Your support would mean the world to us and the cats in our university.</p>
@@ -24,8 +24,8 @@
                 </div>
             </div>
             <div class="bg-yellow-100 p-6 rounded-lg text-center relative">
-                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://placecats.com/poppy/300/200');"></div>
-                <div class="absolute inset-0 bg-yellow-100 opacity-60"></div>
+                <div class="absolute inset-0 bg-cover bg-center rounded-lg" style="background-image: url('{{ asset('/images/adopt-now-cat.jpg') }}');"></div>
+                <div class="absolute inset-0 bg-yellow-100 opacity-60 rounded-lg"></div>
                 <div class="relative z-10">
                     <h2 class="text-xl font-bold mb-2">Interested?</h2>
                     <p class="text-sm mb-4">See a cat and wonder if they're free to adopt?</p>
@@ -46,7 +46,7 @@
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
                 @foreach(range(1,9) as $id)
                 <a href="/catprofile" class="bg-white rounded-xl shadow p-4 text-center hover:bg-purple-50">
-                    <img src="https://placecats.com/neo_banana/300/200" alt="Cat Photo" class="mx-auto rounded mb-2">
+                    <img src="" alt="Cat Photo" class="mx-auto rounded mb-2">
                     <p class="font-bold">Cat Name</p>
                     <p class="text-sm text-gray-600">Sex / Age</p>
                     <p class="text-xs text-gray-500">Other Info…</p>
@@ -63,7 +63,7 @@
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
                 @foreach(range(1,9) as $id)
                 <a href="#" class="bg-white rounded-xl shadow p-4 text-center hover:bg-purple-50">
-                    <img src="https://placecats.com/bella/300/200" alt="Cat Photo" class="mx-auto rounded mb-2">
+                    <img src="" alt="Cat Photo" class="mx-auto rounded mb-2">
                     <p class="font-bold">Cat Name</p>
                     <p class="text-sm text-gray-600">Sex / Age</p>
                     <p class="text-xs text-gray-500">Other Info…</p>
@@ -80,7 +80,7 @@
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
                 @foreach(range(1,3) as $id)
                 <div class="bg-white rounded-xl shadow p-4 text-center hover:bg-purple-50">
-                    <img src="https://placecats.com/g/300/200" alt="Legacy Cat" class="mx-auto grayscale rounded mb-2">
+                    <img src="" alt="Legacy Cat" class="mx-auto grayscale rounded mb-2" loading="lazy">
                     <p class="font-bold">Cat Name</p>
                     <p class="text-sm text-gray-600">XXXX - XXXX</p>
                 </div>
@@ -89,7 +89,7 @@
 
             {{-- Pogi Tribute --}}
             <div class="mt-10 max-w-md mx-auto bg-white p-6 rounded-xl shadow text-center hover:bg-purple-50">
-                <img src="/images/legacy-pogi.jpg" alt="Pogi" class="mx-auto grayscale rounded mb-4">
+                <img src="/images/legacy-pogi.jpg" alt="Pogi" class="mx-auto grayscale rounded mb-4" loading="lazy">
                 <h3 class="font-bold text-lg">Pogi</h3>
                 <p class="text-xs text-gray-600 mt-2">The tabby cat featured in our logo symbolizes our compassion and dedication to the PUPSP’s mission and vision.</p>
             </div>
