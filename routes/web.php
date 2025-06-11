@@ -6,8 +6,11 @@ use App\Http\Controllers\DonationController;
 use App\Http\Controllers\ModerationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReportCatController;
-use App\Http\Controllers\Admin\AnnouncementController;
+use App\Http\Controllers\AboutContactMsgController;
 use App\Http\Controllers\UpdateController;
+use App\Http\Controllers\Admin\AnnouncementController;
+use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\VolunteerController;
 
 // Registration Routes
 // This route shows the registration form.
@@ -95,7 +98,6 @@ Route::get('/tables', function () {
     return view('tables');
 });
 
-
 // Admin Routes
 Route::get('/moderation', [ModerationController::class, 'index'])
     ->name('moderation');
@@ -108,7 +110,8 @@ Route::get('/admin-post', function () {
     return view('admin-post');
 });
 
-Route::prefix('updates')->name('updates.')->group(function () {
+// Update Routes
+Route::prefix('update')->name('update.')->group(function () {
     Route::get('/', [UpdateController::class, 'index'])->name('index');          // List of public updates
     Route::get('/create', [UpdateController::class, 'create'])->name('create');  // Show update creation form
     Route::post('/', [UpdateController::class, 'store'])->name('store');         // Store user-submitted update
@@ -116,6 +119,7 @@ Route::prefix('updates')->name('updates.')->group(function () {
     Route::get('/{post}', [UpdateController::class, 'show'])->name('show');      // Read single update
 });
 
+// Announcement Routes
 Route::prefix('admin/announcements')->name('admin.announcements.')->group(function () {
     Route::get('/', [AnnouncementController::class, 'index'])->name('index');
     Route::get('/create', [AnnouncementController::class, 'create'])->name('create');
@@ -125,15 +129,29 @@ Route::prefix('admin/announcements')->name('admin.announcements.')->group(functi
     Route::delete('/{announcement}', [AnnouncementController::class, 'destroy'])->name('destroy');
 });
 
-Route::get('/update', function () {
-    return view('update');
-});
-
 // Optional: legacy/store endpoint for alternate route
 Route::post('/update/announcements', [AnnouncementController::class, 'store'])
     ->middleware('auth')
     ->name('update.announcements.store');
 
-Route::get('/admin-educational', function () {
-    return view('admin-educational');
+// Events Routes
+Route::prefix('admin/events')->name('admin.events.')->group(function () {
+    Route::get('/', [EventController::class, 'index'])->name('index');
+    Route::get('/create', [EventController::class, 'create'])->name('create');
+    Route::post('/', [EventController::class, 'store'])->name('store');
+    Route::get('/{event}', [EventController::class, 'show'])->name('show');
+    Route::put('/{event}', [EventController::class, 'update'])->name('update');
+    Route::delete('/{event}', [EventController::class, 'destroy'])->name('destroy');
+
+    // Nested routes for volunteers within events
+    Route::prefix('/{event}/volunteers')->name('volunteers.')->group(function () {
+        Route::get('/', [VolunteerController::class, 'index'])->name('index');
+        Route::post('/', [VolunteerController::class, 'store'])->name('store');
+        Route::delete('/{volunteer}', [VolunteerController::class, 'destroy'])->name('destroy');
+    });
 });
+
+// Optional: legacy/store endpoint for alternate route
+Route::post('/update/events', [EventController::class, 'store'])
+    ->middleware('auth')
+    ->name('update.events.store');
