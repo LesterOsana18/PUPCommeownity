@@ -6,6 +6,7 @@ use App\Http\Controllers\DonationController;
 use App\Http\Controllers\ModerationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\AnnouncementController;
+use App\Http\Controllers\Admin\UpdateController;
 
 // Registration Routes
 // This route shows the registration form.
@@ -98,8 +99,12 @@ Route::get('/admin-post', function () {
     return view('admin-post');
 });
 
-Route::get('/update', function () {
-    return view('update');
+Route::prefix('posts')->name('posts.')->group(function () {
+    Route::get('/', [UpdateController::class, 'index'])->name('index');          // List of public posts
+    Route::get('/create', [UpdateController::class, 'create'])->name('create');  // Show post creation form
+    Route::post('/', [UpdateController::class, 'store'])->name('store');         // Store user-submitted post
+    Route::get('/search', [UpdateController::class, 'search'])->name('search');  // Search posts
+    Route::get('/{post}', [UpdateController::class, 'show'])->name('show');      // Read single post
 });
 
 Route::prefix('admin/announcements')->name('admin.announcements.')->group(function () {
