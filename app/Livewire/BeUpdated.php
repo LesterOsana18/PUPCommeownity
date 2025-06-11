@@ -35,6 +35,7 @@ class BeUpdated extends Component
             'created_at',
         ]);
         $this->modalOpen = true;
+
     }
 
     public function closeModal()
