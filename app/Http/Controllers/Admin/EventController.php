@@ -28,6 +28,7 @@ class EventController extends Controller
             'time' => 'required',
             'location' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'image' => 'required|image|mimes:jpg,jpeg,png|max:5120',
             'target_volunteers' => 'nullable|integer',
         ]);
 
@@ -39,7 +40,7 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::findOrFail($id);
-        return view('events.show', compact('event'));
+        return view('components.admin.update-event-read', compact('event'));
     }
 
     public function update(Request $request, $id)
@@ -53,6 +54,7 @@ class EventController extends Controller
             'time' => 'required',
             'location' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'image' => 'required|image|mimes:jpg,jpeg,png|max:5120',
             'target_volunteers' => 'nullable|integer',
         ]);
 

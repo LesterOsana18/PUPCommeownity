@@ -16,6 +16,7 @@ return new class extends Migration
             $table->time('time');
             $table->string('location');
             $table->text('description')->nullable();
+            $table->string('image_path')->nullable();
             $table->integer('target_volunteers')->nullable();
             $table->integer('current_volunteers')->default(0);
             $table->timestamps();
