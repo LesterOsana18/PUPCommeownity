@@ -12,14 +12,11 @@ class PostUpdate extends Component
     use WithFileUploads;
 
     public string $title = '';
-    public string $excerpt = '';
     public string $content = '';
     public $image;
-    public $postModalOpen = false;
 
     protected $rules = [
         'title' => 'required|string|max:255',
-        'excerpt' => 'nullable|string|max:300',
         'content' => 'required|string',
         'image' => 'nullable|image|max:2048',
     ];
@@ -37,26 +34,20 @@ class PostUpdate extends Component
             'author' => Auth::check()
                 ? trim(Auth::user()->first_name . ' ' . Auth::user()->last_name)
                 : 'Anonymous',
-            'excerpt' => $this->excerpt,
+            'excerpt' => str()->limit(strip_tags($this->content), 300),
             'content' => $this->content,
             'image_path' => $imagePath,
             'is_approved' => false,
         ]);
 
+        // Reset only your form fields, leave UI to Alpine
+        $this->reset(['title', 'content', 'image']);
 
-        $this->reset(['title', 'excerpt', 'content', 'image', 'postModalOpen']);
+        // Flash message for the next Blade render
         session()->flash('message', 'Your update has been submitted and is pending approval.');
-        $this->dispatch('updatePosted');
-    }
 
-    public function openModal()
-    {
-        $this->postModalOpen = true;
-    }
-
-    public function closeModal()
-    {
-        $this->postModalOpen = false;
+        // Tell Alpine “hey, we’re done—close the modal”
+        $this->dispatchBrowserEvent('update-posted');
     }
 
     public function render()
