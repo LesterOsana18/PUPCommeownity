@@ -14,7 +14,16 @@ class BeUpdated extends Component
     public $selectedUpdate = null;
     public bool $modalOpen = false;
 
+    public string $search = '';
+
     protected $paginationTheme = 'simple-tailwind';
+
+    protected $queryString = ['search'];
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
     public function showUpdate($id)
     {
@@ -35,8 +44,17 @@ class BeUpdated extends Component
 
     public function render()
     {
+        $updates = Update::where('is_approved', true)
+            ->when($this->search, function ($query) {
+                $query->where('title', 'like', '%' . $this->search . '%')
+                    ->orWhere('author', 'like', '%' . $this->search . '%')
+                    ->orWhere('excerpt', 'like', '%' . $this->search . '%');
+            })
+            ->latest()
+            ->paginate(6);
+
         return view('livewire.be-updated', [
-            'updates' => Update::where('is_approved', true)->latest()->paginate(6)
+            'updates' => $updates,
         ]);
     }
 }

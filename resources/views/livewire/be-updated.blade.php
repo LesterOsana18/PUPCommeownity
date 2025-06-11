@@ -17,25 +17,35 @@
                     </a>
                 </div>
 
-                <!-- Search -->
-                <form role="search" action="{{ route('updates.search') }}" method="get" class="w-full max-w-2xl mt-6 mx-auto">
+                <!-- Livewire Search Input with Button -->
+                <div class="w-full max-w-2xl mt-6 mx-auto">
                     <label for="be-updated-search" class="sr-only">Search articles, events, and more</label>
                     <div class="relative">
+                        <!-- Search Icon -->
                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                             <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M19 19l-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                             </svg>
                         </div>
-                        <input type="search" id="be-updated-search" name="q"
+
+                        <!-- Input Field -->
+                        <input
+                            type="search"
+                            id="be-updated-search"
+                            wire:model.defer="search"
                             class="block w-full pl-10 pr-24 py-3 text-sm text-gray-900 border border-primary rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#48BDAC] focus:border-transparent transition"
-                            placeholder="Search for articles, events, and more…" required />
-                        <button type="submit"
-                                class="absolute inset-y-0 right-0 px-4 flex items-center text-sm font-medium text-white bg-[#48BDAC] rounded-r-lg hover:bg-[#48BDAC]/90 focus:outline-none focus:ring-2 focus:ring-[#48BDAC] focus:ring-offset-1 transition">
+                            placeholder="Search for articles, events, and more…" />
+
+                        <!-- Search Button -->
+                        <button
+                            type="button"
+                            wire:click="$refresh"
+                            class="absolute inset-y-0 right-0 px-4 flex items-center text-sm font-medium text-white bg-[#48BDAC] rounded-r-lg hover:bg-[#48BDAC]/90 focus:outline-none focus:ring-2 focus:ring-[#48BDAC] focus:ring-offset-1 transition">
                             Search
                         </button>
                     </div>
-                </form>
+                </div>
             </div>
 
             <!-- Grid of Updates -->
