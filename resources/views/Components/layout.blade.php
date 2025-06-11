@@ -8,6 +8,7 @@
     <link rel="icon" type="image/svg+xml" href="{{ asset('images/commeownity-icon.svg') }}">
 
     @livewireStyles
+
     <!-- Include Tailwind CSS from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -34,6 +35,8 @@
     </script>
 
     <style>
+        [x-cloak] { display: none !important; }
+
         /* Set custom positioning for the background image */
         .bg-image-container {
             position: fixed;
@@ -261,5 +264,3 @@
 
 </body>
 </html>
-
-
