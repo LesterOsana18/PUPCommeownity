@@ -20,6 +20,8 @@
 
 <x-layout>
     <x-homepage.hero />
-    <x-homepage.carousel :carouselItems="$carouselItems" />
+    <x-homepage.carousel :carouselItems="$announcements" />
     <x-homepage.be-updated />
+
+    @include('components.modals.carousel')
 </x-layout>

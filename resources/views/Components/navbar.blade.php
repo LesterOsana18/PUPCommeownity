@@ -106,8 +106,8 @@
                     </div>
                 </button>
                 <div class="absolute left-0 mt-2 w-48 bg-[#3d2243] shadow-lg
-                            rounded-md opacity-0 group-hover:opacity-100
-                            transition-opacity">
+                    rounded-md opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto
+                    transition-all duration-200 ease-in-out">
                     <a href="{{ url('/volunteer') }}"
                     class="flex items-center px-4 py-2 text-white
                             hover:bg-[#E7AB39] hover:text-[#502C58]
@@ -183,8 +183,8 @@
                         />
                     </button>
                     <div class="absolute right-0 mt-2 w-48 bg-[#3d2243] shadow-lg
-                                rounded-md opacity-0 group-hover:opacity-100
-                                transition-opacity z-50">
+                        rounded-md opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto
+                        transition-all duration-200 ease-in-out z-50">
                         {{-- Log Out (POST) --}}
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -465,5 +465,3 @@
         });
     </script>
 </nav>
-
-

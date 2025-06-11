@@ -5,13 +5,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\CarouselItem;
+use App\Models\Announcement;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $carouselItems = CarouselItem::latest()->get(); // No limit — loads all
-        return view('home', compact('carouselItems'));
+        $announcements = Announcement::where('is_active', true)
+            ->latest()
+            ->take(5)
+            ->get();
+
+        return view('home', compact('announcements'));
     }
 }
