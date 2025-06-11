@@ -1,5 +1,5 @@
 <!-- resources/views/components/modals/carousel.blade.php -->
-<div id="carouselModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center">
+<div id="carouselModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden items-center justify-center">
     <div class="relative bg-white rounded-2xl max-w-2xl w-full shadow-lg p-6">
         <!-- Close Button -->
         <button onclick="closeCarouselModal()" class="absolute top-4 right-4 text-gray-600 hover:text-black text-xl">
