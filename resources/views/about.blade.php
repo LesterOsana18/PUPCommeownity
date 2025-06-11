@@ -448,7 +448,7 @@
 
                 <div class="p-6 grid md:grid-cols-2 gap-8">
                     <!-- Contact Form -->
-                    <form class="space-y-4" method="POST" action="#">
+                    <form class="space-y-4" method="POST" action="{{ route('about.store') }}">
                         @csrf
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>

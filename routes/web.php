@@ -40,6 +40,10 @@ Route::post('/donation-form', [DonationController::class, 'store'])->name('donat
 // This route handles the report-a-cat for submission.
 Route::post('/report', [ReportCatController::class, 'store'])->name('report.store');
 
+// About Route
+// This route handles the contact/send-a-message form in about page.
+Route::post('/about', [AboutContactMsgController::class, 'store'])->name('about.store');
+
 // Website Routes
 // These routes are for the public-facing pages of the website.
 Route::get('/adopt', function () {

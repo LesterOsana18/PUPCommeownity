@@ -288,6 +288,7 @@
 
             <!-- Form -->
             <form method="POST" action="/report" class="space-y-10">
+                @csrf
 
                 <!-- Basic Information -->
                 <div class="space-y-5 p-6 bg-gray-50 rounded-xl">
