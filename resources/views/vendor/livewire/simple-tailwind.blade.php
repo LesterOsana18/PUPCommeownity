@@ -1,18 +1,16 @@
 @php
-if (! isset($scrollTo)) {
-    $scrollTo = false;
-}
+$scrollTo = false;
 
-$scrollIntoViewJsSnippet = ($scrollTo !== false)
-    ? <<<JS
-        (\$el.closest('{$scrollTo}') || document.querySelector('{$scrollTo}')).scrollIntoView()
-    JS
-    : '';
+$scrollIntoViewJsSnippet = '';
+$currentPage = $paginator->currentPage();
+$lastPage = $paginator->lastPage();
+$window = 2; // show currentPage ±2
 @endphp
 
 <div>
     @if ($paginator->hasPages())
         <nav role="navigation" aria-label="Pagination Navigation" class="flex justify-center items-center space-x-2 mt-6 font-poppins">
+
             {{-- First Page Link --}}
             @if (! $paginator->onFirstPage())
                 <button
@@ -39,30 +37,38 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
                 >&lsaquo;</button>
             @endif
 
-            {{-- Pagination Elements --}}
+            {{-- Page Number Buttons --}}
             @foreach ($elements as $element)
-                @if (is_string($element))
-                    <span class="px-3 py-1 text-gray-400">{{ $element }}</span>
-                @endif
-
                 @if (is_array($element))
+                    {{-- Ellipsis before --}}
+                    @if ($currentPage - $window > 2)
+                        <span class="px-2 text-gray-400">...</span>
+                    @endif
+
                     @foreach ($element as $page => $url)
-                        @if ($page == $paginator->currentPage())
-                            <span class="w-8 h-8 rounded-full bg-[#502C58] text-white flex items-center justify-center font-semibold">
-                                {{ $page }}
-                            </span>
-                        @else
-                            <button
-                                type="button"
-                                wire:click="gotoPage({{ $page }})"
-                                x-on:click="{{ $scrollIntoViewJsSnippet }}"
-                                wire:loading.attr="disabled"
-                                class="w-8 h-8 rounded-full bg-white border border-gray-300 text-[#502C58] flex items-center justify-center hover:bg-[#eee] transition"
-                            >
-                                {{ $page }}
-                            </button>
+                        @if ($page >= $currentPage - $window && $page <= $currentPage + $window)
+                            @if ($page == $currentPage)
+                                <span class="w-8 h-8 rounded-full bg-[#502C58] text-white flex items-center justify-center font-semibold">
+                                    {{ $page }}
+                                </span>
+                            @else
+                                <button
+                                    type="button"
+                                    wire:click="gotoPage({{ $page }})"
+                                    x-on:click="{{ $scrollIntoViewJsSnippet }}"
+                                    wire:loading.attr="disabled"
+                                    class="w-8 h-8 rounded-full bg-white border border-gray-300 text-[#502C58] flex items-center justify-center hover:bg-[#eee] transition"
+                                >
+                                    {{ $page }}
+                                </button>
+                            @endif
                         @endif
                     @endforeach
+
+                    {{-- Ellipsis after --}}
+                    @if ($currentPage + $window < $lastPage - 1)
+                        <span class="px-2 text-gray-400">...</span>
+                    @endif
                 @endif
             @endforeach
 
@@ -91,6 +97,7 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
             @else
                 <span class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center cursor-not-allowed">&raquo;</span>
             @endif
+
         </nav>
     @endif
 </div>
