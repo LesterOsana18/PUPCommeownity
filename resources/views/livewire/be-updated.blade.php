@@ -56,6 +56,7 @@
     <div
         wire:ignore.self
         x-data="{ showModal: @entangle('modalOpen').live  }"
+        x-effect="document.body.classList.toggle('overflow-hidden', showModal)"
         x-show="showModal"
         x-cloak
         x-transition
