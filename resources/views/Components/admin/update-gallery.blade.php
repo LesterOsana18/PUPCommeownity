@@ -36,21 +36,21 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const editBtn = document.getElementById('edit-button'),
-            selectBtn = document.getElementById('select-button'),
-            selectAllBtn = document.getElementById('select-all-button'),
-            checkboxes = document.querySelectorAll('#gallery input[type="checkbox"]');
-    let visible = false, all = false;
+    document.addEventListener('DOMContentLoaded', function () {
+        const editBtn = document.getElementById('edit-button'),
+                selectBtn = document.getElementById('select-button'),
+                selectAllBtn = document.getElementById('select-all-button'),
+                checkboxes = document.querySelectorAll('#gallery input[type="checkbox"]');
+        let visible = false, all = false;
 
-    editBtn.addEventListener('click', () => {
-        visible = !visible;
-        checkboxes.forEach(cb => cb.classList.toggle('hidden', !visible));
+        editBtn.addEventListener('click', () => {
+            visible = !visible;
+            checkboxes.forEach(cb => cb.classList.toggle('hidden', !visible));
+        });
+        selectAllBtn.addEventListener('click', () => {
+            if (!visible) { editBtn.click(); }
+            all = !all;
+            checkboxes.forEach(cb => cb.checked = all);
+        });
     });
-    selectAllBtn.addEventListener('click', () => {
-        if (!visible) { editBtn.click(); }
-        all = !all;
-        checkboxes.forEach(cb => cb.checked = all);
-    });
-});
 </script>
