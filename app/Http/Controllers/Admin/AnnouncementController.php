@@ -54,4 +54,25 @@ class AnnouncementController extends Controller
         return redirect('/update')->with('success', 'Announcement deleted successfully.');
     }
 
+    public function update(Request $request, Announcement $announcement)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+            'image' => 'nullable|image|max:5120', // 5MB
+        ]);
+
+        $announcement->title = $request->title;
+        $announcement->content = $request->content;
+
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('images', 'public');
+            $announcement->image_path = $path;
+        }
+
+        $announcement->excerpt = \Str::limit(strip_tags($announcement->content), 150);
+        $announcement->save();
+
+        return redirect('/update')->with('success', 'Announcement updated successfully.');
+    }
 }
