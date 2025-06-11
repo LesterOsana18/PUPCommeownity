@@ -34,8 +34,19 @@
         const modal = document.getElementById('carouselModal');
 
         document.getElementById('modal-title').textContent = item.title;
+        const date = new Date(item.created_at);
+
+        const formattedDate = new Intl.DateTimeFormat('en-US', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+        }).format(date);
+
         document.getElementById('modal-author').textContent =
-            `By ${item.author} • ` + new Date(item.created_at).toLocaleString();
+            `By ${item.author} • ${formattedDate}`;
         document.getElementById('modal-body').textContent = item.content;
 
         const imageEl = document.getElementById('modal-image');

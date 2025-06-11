@@ -24,7 +24,7 @@
                             <div class="w-full h-1/3 bg-white p-6 overflow-y-auto">
                                 <h3 class="text-2xl font-bold text-[#502C58] mb-2">{{ $item->title }}</h3>
                                 <p class="text-sm text-gray-500 mb-3">
-                                    By {{ $item->author }} • {{ $item->created_at->format('F j, Y \a\t g:i A') }}
+                                    By {{ $item->author }} • {{ \Carbon\Carbon::parse($item->created_at)->format('F j, Y \a\t g:i A') }}
                                 </p>
                                 <div class="text-gray-700 mb-4">
                                     <p>{{ Str::limit(strip_tags($item->content), 150) }}</p>

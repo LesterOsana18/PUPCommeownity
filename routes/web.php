@@ -7,6 +7,7 @@ use App\Http\Controllers\ModerationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReportCatController;
 use App\Http\Controllers\Admin\AnnouncementController;
+use App\Http\Controllers\UpdateController;
 
 // Registration Routes
 // This route shows the registration form.
@@ -107,8 +108,12 @@ Route::get('/admin-post', function () {
     return view('admin-post');
 });
 
-Route::get('/update', function () {
-    return view('update');
+Route::prefix('updates')->name('updates.')->group(function () {
+    Route::get('/', [UpdateController::class, 'index'])->name('index');          // List of public updates
+    Route::get('/create', [UpdateController::class, 'create'])->name('create');  // Show update creation form
+    Route::post('/', [UpdateController::class, 'store'])->name('store');         // Store user-submitted update
+    Route::get('/search', [UpdateController::class, 'search'])->name('search');  // Search updates
+    Route::get('/{post}', [UpdateController::class, 'show'])->name('show');      // Read single update
 });
 
 Route::prefix('admin/announcements')->name('admin.announcements.')->group(function () {
@@ -118,6 +123,10 @@ Route::prefix('admin/announcements')->name('admin.announcements.')->group(functi
     Route::get('/{announcement}', [AnnouncementController::class, 'show'])->name('show');
     Route::put('/{announcement}', [AnnouncementController::class, 'update'])->name('update');
     Route::delete('/{announcement}', [AnnouncementController::class, 'destroy'])->name('destroy');
+});
+
+Route::get('/update', function () {
+    return view('update');
 });
 
 // Optional: legacy/store endpoint for alternate route
