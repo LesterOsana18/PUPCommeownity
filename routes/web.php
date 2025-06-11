@@ -11,6 +11,8 @@ use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\VolunteerController;
+use App\Http\Controllers\AdoptionController;
+use App\Http\Controllers\AdoptionApplicationController;
 
 // Registration Routes
 // This route shows the registration form.
@@ -97,6 +99,24 @@ Route::get('/terms', function () {
 Route::get('/tables', function () {
     return view('tables');
 });
+
+// Adoption Routes
+Route::prefix('adoptions')->name('adoptions.')->group(function () {
+    // Route to display all available cats for adoption
+    Route::get('/', [AdoptionController::class, 'index'])->name('index');
+
+    // Route to show details of a specific cat (for adoption)
+    Route::get('/{id}', [AdoptionController::class, 'show'])->name('show');
+
+    // Route to handle the adoption request
+    Route::post('/{id}/adopt', [AdoptionController::class, 'adopt'])->name('adopt');
+});
+
+// Route to show the adoption application form
+Route::get('/application', [AdoptionApplicationController::class, 'create'])->name('application.create');
+
+// Route to handle the form submission
+Route::post('/application', [AdoptionApplicationController::class, 'store'])->name('application.store');
 
 // Admin Routes
 Route::get('/moderation', [ModerationController::class, 'index'])
