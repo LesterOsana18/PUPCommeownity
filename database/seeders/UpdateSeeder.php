@@ -15,10 +15,13 @@ class UpdateSeeder extends Seeder
     public function run()
     {
         for ($i = 1; $i <= 20; $i++) {
+            $imageIndex = ($i % 6) + 1;
+            $extension = in_array($imageIndex, [2, 3]) ? 'png' : 'jpg';
+
             Update::create([
                 'title' => "Sample Update #$i",
                 'author' => fake()->name(),
-                'image_path' => "images/carousel-temp-" . (($i % 6) + 1) . ".jpg",
+                'image_path' => "images/carousel-temp-$imageIndex.$extension",
                 'excerpt' => Str::limit("This is the excerpt for update #$i. Lorem ipsum dolor sit amet.", 120),
                 'content' => "Full content of the update #$i. This section contains detailed info...",
                 'is_approved' => true,
