@@ -116,6 +116,10 @@ Route::prefix('admin/announcements')->name('admin.announcements.')->group(functi
     Route::delete('/{announcement}', [AnnouncementController::class, 'destroy'])->name('destroy');
 });
 
+Route::get('/update', function () {
+    return view('update');
+});
+
 // Optional: legacy/store endpoint for alternate route
 Route::post('/update/announcements', [AnnouncementController::class, 'store'])
     ->middleware('auth')
