@@ -80,11 +80,14 @@
     </nav>
     <!-- Logout -->
     <div class="mt-auto px-2 mb-6">
-        <a href="/"
-            class="flex items-center px-4 py-2 rounded-lg text-white font-bold hover:text-[#E7AB39] transition ">
-            <i class="fas fa-sign-out-alt mr-3"></i>
-            <span>Logout</span>
-        </a>
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit"
+                class="w-full flex items-center px-4 py-2 rounded-lg text-white font-bold hover:text-[#E7AB39] transition">
+                <i class="fas fa-sign-out-alt mr-3"></i>
+                <span>Logout</span>
+            </button>
+        </form>
     </div>
 </aside>
 
