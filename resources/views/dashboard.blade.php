@@ -17,7 +17,7 @@
             </div>
             <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 flex flex-col items-center border border-gray-200">
                 <i class="fas fa-donate text-[#4ABDAC] text-3xl mb-3"></i>
-                <div class="text-3xl text-[#502C58] font-bold">$8,740</div>
+                <div class="text-3xl text-[#502C58] font-bold">P8,740</div>
                 <div class="text-black mt-1">Donations</div>
             </div>
             <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 flex flex-col items-center border border-gray-200">
