@@ -13,8 +13,12 @@
             <tr>
                 <!-- Status Toggle -->
                 <td class="px-4 py-2 border border-gray-500 text-center">
-                    <form action="{{ route('moderation.posts.toggle', $post) }}" method="POST" class="toggle-form">
+                    <form action="{{ route('moderation.posts.toggle', $post) }}"
+                        method="POST"
+                        class="toggle-form"
+                        onsubmit="return confirmToggleStatus();">
                         @csrf
+                        @method('PUT')
                         <button type="submit"
                             class="status-toggle rounded-lg w-32 py-2 font-semibold text-white
                                 {{ $post->is_approved ? 'bg-[#4ABDAC]' : 'bg-[#815F20]' }}
@@ -37,7 +41,7 @@
                 <!-- Action -->
                 <td class="px-4 py-2 border border-gray-500 whitespace-nowrap">
                     <div class="flex items-center justify-center space-x-2">
-                        <a href="{{ route('updates.show', $post) }}"
+                        <a href="{{ route('moderation.posts.read', $post) }}"
                             class="rounded-lg px-3 py-2 bg-[#502C58] text-white font-semibold hover:bg-[#2e1a33] flex items-center">
                             <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Read
                         </a>
@@ -72,3 +76,9 @@
         </tfoot>
     @endif
 </table>
+
+<script>
+    function confirmToggleStatus() {
+        return confirm("Are you sure you want to toggle the status of this post?");
+    }
+</script>

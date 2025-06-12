@@ -47,4 +47,17 @@ class ModerationController extends Controller
         return redirect()->back()->with('message', 'Post deleted successfully.');
     }
 
+    public function showPost(Update $post)
+    {
+        return view('components.admin.moderation-posts-read', [
+            'post' => $post,
+        ]);
+    }
+
+    public function update(Request $request, Update $post)
+    {
+        $post->update($request->only(['title', 'content'])); // Add other fields as needed
+
+        return redirect()->route('moderation')->with('success', 'Post updated successfully.');
+    }
 }

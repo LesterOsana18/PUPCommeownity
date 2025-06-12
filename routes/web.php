@@ -125,8 +125,12 @@ Route::get('/moderation', [ModerationController::class, 'index'])
     ->name('moderation');
 
 Route::middleware(['auth'])->group(function () {
-    Route::post('/moderation/posts/{post}/toggle', [ModerationController::class, 'toggleStatus'])->name('moderation.posts.toggle');
+    Route::put('/moderation/posts/{post}/toggle', [ModerationController::class, 'toggleStatus'])
+        ->middleware('auth')
+        ->name('moderation.posts.toggle');
     Route::delete('/moderation/posts/{post}', [ModerationController::class, 'delete'])->name('moderation.posts.delete');
+    Route::get('/moderation/posts/{post}/read', [ModerationController::class, 'showPost'])->name('moderation.posts.read');
+    Route::put('/moderation/posts/{post}', [ModerationController::class, 'update'])->name('moderation.posts.update');
 });
 
 Route::get('/admin-report', function () {

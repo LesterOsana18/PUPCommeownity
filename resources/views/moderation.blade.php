@@ -30,27 +30,3 @@
         </div>
     </div>
 </x-admin-layout>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('form.toggle-form').forEach(function (form) {
-            form.addEventListener('submit', function (e) {
-                const confirmed = confirm('Toggle post status?');
-                if (!confirmed) {
-                    e.preventDefault();
-                    e.stopImmediatePropagation();
-                    return false;
-                }
-
-                // Optional: Add class toggle animation manually here if needed
-                const button = form.querySelector('.status-toggle');
-                if (button) {
-                    const isOpen = button.textContent.trim() === 'OPEN';
-                    button.textContent = isOpen ? 'CLOSED' : 'OPEN';
-                    button.classList.toggle('bg-[#4ABDAC]', !isOpen);
-                    button.classList.toggle('bg-[#815F20]', isOpen);
-                }
-            });
-        });
-    });
-</script>
