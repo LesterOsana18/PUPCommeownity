@@ -18,9 +18,14 @@ return new class extends Migration {
             $table->text('excerpt');
             $table->text('content');
             $table->boolean('is_approved')->default(false);
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
             $table->timestamps();
-        });
 
+            // Add indexes for better performance
+            $table->index('is_approved');
+            $table->index('user_id');
+            $table->index('created_at');
+        });
     }
 
     /**

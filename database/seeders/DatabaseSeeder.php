@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Seed Be Updated posts only
+        $this->call(UpdateSeeder::class);
         $this->call(AnnouncementsTableSeeder::class);
     }
 }
