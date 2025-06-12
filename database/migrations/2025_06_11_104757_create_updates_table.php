@@ -14,13 +14,18 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->string('author');
-            $table->string('image_path');
+            $table->string('image_path')->nullable();
             $table->text('excerpt');
             $table->text('content');
             $table->boolean('is_approved')->default(false);
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
             $table->timestamps();
-        });
 
+            // Add indexes for better performance
+            $table->index('is_approved');
+            $table->index('user_id');
+            $table->index('created_at');
+        });
     }
 
     /**

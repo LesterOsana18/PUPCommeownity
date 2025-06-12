@@ -239,6 +239,10 @@
                 link.addEventListener('click', (e) => {
                     const href = link.getAttribute('href');
 
+                    if (link.closest('[wire\\:click], [wire\\:submit], [x-data]')) {
+                        return; // allow Livewire/Alpine to handle it
+                    }
+
                     if (
                         href &&
                         (href.startsWith('/') ||

@@ -8,11 +8,15 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReportCatController;
 use App\Http\Controllers\AboutContactMsgController;
 use App\Http\Controllers\UpdateController;
+posts/users
+use App\Livewire\PostUpdate;
+
 use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\VolunteerController;
 use App\Http\Controllers\AdoptionController;
 use App\Http\Controllers\AdoptionApplicationController;
+main
 
 // Registration Routes
 // This route shows the registration form.
@@ -130,8 +134,13 @@ Route::get('/admin-post', function () {
     return view('admin-post');
 });
 
+posts/users
+Route::middleware(['auth'])->get('/post-update', PostUpdate::class)->name('updates.post');
+
+
 // Update Routes
 Route::get('/update', [UpdateController::class, 'index'])->name('update');
+
 Route::prefix('updates')->name('updates.')->group(function () {
     Route::get('/', [UpdateController::class, 'index'])->name('index');          // List of public updates
     Route::get('/create', [UpdateController::class, 'create'])->name('create');  // Show update creation form

@@ -64,9 +64,15 @@
 
         modal.classList.remove('hidden');
         modal.classList.add('flex');
+
+        document.body.classList.add('overflow-hidden');
     }
 
     function closeCarouselModal() {
-        document.getElementById('carouselModal').classList.add('hidden');
+        const modal = document.getElementById('carouselModal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+
+        document.body.classList.remove('overflow-hidden');
     }
 </script>

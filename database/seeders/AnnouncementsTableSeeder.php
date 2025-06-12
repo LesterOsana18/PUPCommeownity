@@ -5,11 +5,11 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CarouselItemsTableSeeder extends Seeder
+class AnnouncementsTableSeeder extends Seeder
 {
     public function run(): void
     {
-        DB::table('carousel_items')->insert([
+        DB::table('announcements')->insert([
             [
                 'title' => 'Latest Community Event Success',
                 'author' => 'Jane Smith',
