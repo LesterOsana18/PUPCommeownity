@@ -86,7 +86,11 @@
                             • {{ \Carbon\Carbon::parse($selectedUpdate['created_at'])->format('F j, Y \a\t g:i A') }}
                         @endif
                     </p>
-                    @if (!empty($selectedUpdate['image_path']))
+                    @php
+                        $isDefaultImage = $selectedUpdate['image_path'] === 'images/def-img.svg';
+                    @endphp
+
+                    @if (!empty($selectedUpdate['image_path']) && !$isDefaultImage)
                         <div class="mb-4">
                             <img src="{{ asset($selectedUpdate['image_path']) }}"
                                 alt="{{ $selectedUpdate['title'] }}"
