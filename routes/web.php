@@ -131,7 +131,8 @@ Route::get('/admin-post', function () {
 });
 
 // Update Routes
-Route::prefix('update')->name('update.')->group(function () {
+Route::get('/update', [UpdateController::class, 'index'])->name('update');
+Route::prefix('updates')->name('updates.')->group(function () {
     Route::get('/', [UpdateController::class, 'index'])->name('index');          // List of public updates
     Route::get('/create', [UpdateController::class, 'create'])->name('create');  // Show update creation form
     Route::post('/', [UpdateController::class, 'store'])->name('store');         // Store user-submitted update
