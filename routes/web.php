@@ -124,6 +124,11 @@ Route::post('/application', [AdoptionApplicationController::class, 'store'])->na
 Route::get('/moderation', [ModerationController::class, 'index'])
     ->name('moderation');
 
+Route::middleware(['auth'])->group(function () {
+    Route::post('/moderation/posts/{post}/toggle', [ModerationController::class, 'toggleStatus'])->name('moderation.posts.toggle');
+    Route::delete('/moderation/posts/{post}', [ModerationController::class, 'delete'])->name('moderation.posts.delete');
+});
+
 Route::get('/admin-report', function () {
     return view('admin-report');
 });
@@ -133,7 +138,6 @@ Route::get('/admin-post', function () {
 });
 
 Route::middleware(['auth'])->get('/post-update', PostUpdate::class)->name('updates.post');
-
 
 // Update Routes
 Route::get('/update', [UpdateController::class, 'index'])->name('update');
