@@ -31,9 +31,9 @@
                     </ul>
 
                     <!-- Adoption Process Button -->
-                    <button href="/adoptionprocess" class="mt-6 inline-block bg-purple-800 hover:bg-purple-700 text-white px-6 py-2 rounded font-semibold">
+                    <a href="/adoptionprocess" class="mt-6 inline-block bg-purple-800 hover:bg-purple-700 text-white px-6 py-2 rounded font-semibold">
                         VIEW ADOPTION PROCESS
-                    </button>
+                    </a>
                 </div>
 
                 <!-- Cat Image Carousel -->

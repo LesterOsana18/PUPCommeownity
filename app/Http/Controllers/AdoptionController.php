@@ -10,14 +10,14 @@ class AdoptionController extends Controller
     // Display a listing of available cats for adoption
     public function index()
     {
-        $cats = Cat::where('sterilized', true)->get(); // can be adjusted, temp
+        $cats = Adoption::where('sterilized', true)->get(); // can be adjusted, temp
         return view('adoptions.index', compact('cats'));
     }
 
     // Show the details of a specific cat
     public function show($id)
     {
-        $cat = Cat::findOrFail($id);
+        $cat = Adoption::findOrFail($id);
         return view('adoptions.show', compact('cat'));
     }
 
@@ -29,7 +29,7 @@ class AdoptionController extends Controller
             'adopter_contact' => 'required|string|max:255',
         ]);
 
-        $cat = Cat::findOrFail($id);
+        $cat = Adoption::findOrFail($id);
 
         $adoption = new Adoption();
         $adoption->cat_id = $cat->id;

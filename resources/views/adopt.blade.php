@@ -11,6 +11,10 @@
             <p class="text-base text-gray-600 mb-4">
                 We have a variety of cats available for adoption, each with their own unique personality and story.
             </p>
+            <p class="text-base text-gray-600 mb-4">
+                If you're just looking for the adoption application form,
+                <a href="/adoptionprocess" class="text-purple-700 hover:text-purple-900">click here</a>.
+            </p><br>
         </div>
 
         <div class="grid md:grid-cols-2 gap-4 mb-12">

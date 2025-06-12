@@ -34,7 +34,7 @@
                     <li>Fill up the <a href="/application" class="font-bold text-purple-800 underline">online application form</a> in our website.</li>
                     <li>Schedule an online meeting with our staff to your availability for a brief interview.</li>
                     <li>
-                        Once the application form and the online interview have both been accomplished, set a date for you to visit the cat of your choice here at (?)
+                        Once the application form and the online interview have both been accomplished, set a date for you to visit the cat of your choice here at (?).
                     </li>
                     <li>Pay the adoption fee of ₱500.00 per cat, if not already paid.</li>
                     <li>Take your pet home! You may also bring a carrier, but it is not required.</li>
@@ -42,36 +42,40 @@
             </div>
         </div>
 
-
+        <!-- Adoption FAQ Section -->
         <div class="mt-6 grid grid-cols-1 gap-8 bg-white p-6 rounded-lg shadow">
-            <h2 class="text-2xl font-bold text-gray-900 mb-3">Questions about the adoption process?</h2>
-            <p class="mb-5">
-                You may visit our <a href="#" class="font-bold underline text-gray-900">Adoption FAQ</a> or you may also directly send us a question or message below!
-            </p>
-            <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="space-y-4">
-                    <div>
-                        <label for="name" class="block font-semibold mb-1">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your full name" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-purple-300 outline-none" />
-                    </div>
-                    <div>
-                        <label for="email" class="block font-semibold mb-1">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email address" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-purple-300 outline-none" />
-                    </div>
-                    <div>
-                        <label for="phone" class="block font-semibold mb-1">Phone</label>
-                        <input type="text" id="phone" name="phone" placeholder="Enter your phone number" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-purple-300 outline-none" />
-                    </div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-3">Frequently Asked Questions about Adoptions</h2>
+            <div class="space-y-4">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2 text-center">1. How do I apply for adoption?</h3>
+                    <p>You can apply for adoption by either visiting us in person or by filling out the online application form. More details can be found above under the 'Get Started' section.</p>
                 </div>
-                <div class="flex flex-col h-full">
-                    <label for="message" class="block font-semibold mb-1">Question or Message</label>
-                    <textarea id="message" name="message" placeholder="Enter your message here" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-base min-h-[160px] resize-none focus:ring-2 focus:ring-purple-300 outline-none"></textarea>
-                    <div class="flex-1"></div>
-                    <div class="flex justify-end mt-4">
-                        <button type="submit" class="bg-[#502C58] text-white font-semibold px-8 py-2 rounded-lg shadow hover:bg-[#3f2247] transition">Submit</button>
-                    </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2 text-center">2. Is there an adoption fee?</h3>
+                    <p>Yes, the adoption fee is ₱500.00 per cat. This fee helps cover basic care and expenses.</p>
                 </div>
-            </form>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2 text-center">3. Can I adopt a cat without a carrier?</h3>
+                    <p>You may adopt a cat without a carrier, but we recommend bringing one for your cat’s comfort during the journey home.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2 text-center">4. How do I know if a cat is available for adoption?</h3>
+                    <p>All the cats listed on our website or displayed at our shelter are available for adoption. If you are unsure, feel free to ask our staff for more information.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2 text-center">5. What if I change my mind after applying for adoption?</h3>
+                    <p>If you've changed your mind, please contact us as soon as possible. We understand, and we’ll do our best to assist you with any concerns you may have.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2 text-center">6. Do I need to bring anything else for the adoption?</h3>
+                    <p>In addition to the adoption fee and the completed application, please bring at least two valid IDs for verification. If you're adopting in person, a brief interview with our staff is also required.</p>
+                </div>
+            </div>
         </div>
     </section>
 </x-layout>
