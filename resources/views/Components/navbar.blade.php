@@ -22,6 +22,20 @@
             clip-path: circle(75% at 50% 50%);
         }
 
+        .dropdown-wrapper {
+            position: relative;
+        }
+
+        .dropdown-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 20px; /* Buffer zone to prevent flicker */
+            pointer-events: auto;
+        }
+
         [data-dropdown] {
             transition-property: opacity, visibility;
             transition-duration: 300ms;
@@ -76,7 +90,7 @@
             </a>
 
             {{-- Get Involved dropdown --}}
-            <div class="relative" onmouseenter="toggleDropdown(this, true)" onmouseleave="toggleDropdown(this, false)">
+            <div class="dropdown-wrapper" onmouseenter="toggleDropdown(this, true)" onmouseleave="toggleDropdown(this, false)">
                 @php
                     $getInvolvedActive = request()->is('volunteer') ||
                                         request()->is('donate')    ||
@@ -181,7 +195,7 @@
 
             {{-- Profile + Logout + Dashboard for authenticated users --}}
             @auth
-                <div class="relative" onmouseenter="toggleDropdown(this, true)" onmouseleave="toggleDropdown(this, false)">
+                <div class="dropdown-wrapper" onmouseenter="toggleDropdown(this, true)" onmouseleave="toggleDropdown(this, false)">
                     <button class="focus:outline-none">
                         <img
                             src="{{ Auth::user()->profile_picture
@@ -457,35 +471,40 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-        const toggle = document.getElementById('menu-toggle');
-        const menu = document.getElementById('mobile-menu');
-        const openIcon = document.getElementById('icon-open');
-        const closeIcon = document.getElementById('icon-close');
-        const closeBtn = document.getElementById('menu-close');
+            const toggle = document.getElementById('menu-toggle');
+            const menu = document.getElementById('mobile-menu');
+            const openIcon = document.getElementById('icon-open');
+            const closeIcon = document.getElementById('icon-close');
+            const closeBtn = document.getElementById('menu-close');
 
-        function toggleMenu() {
-            const expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', !expanded);
-            menu.classList.toggle('translate-x-0');
-            openIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
-        }
+            function toggleMenu() {
+                const expanded = toggle.getAttribute('aria-expanded') === 'true';
+                toggle.setAttribute('aria-expanded', !expanded);
+                menu.classList.toggle('translate-x-0');
+                openIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            }
 
-        toggle.addEventListener('click', toggleMenu);
-        closeBtn.addEventListener('click', toggleMenu);
+            toggle.addEventListener('click', toggleMenu);
+            closeBtn.addEventListener('click', toggleMenu);
         });
+
+        let dropdownTimeout;
 
         function toggleDropdown(parent, show) {
             const dropdown = parent.querySelector('[data-dropdown]');
             if (!dropdown) return;
 
-            dropdown.classList.toggle('opacity-100', show);
-            dropdown.classList.toggle('visible', show);
-            dropdown.classList.toggle('pointer-events-auto', show);
-
-            dropdown.classList.toggle('opacity-0', !show);
-            dropdown.classList.toggle('invisible', !show);
-            dropdown.classList.toggle('pointer-events-none', !show);
+            if (show) {
+                clearTimeout(dropdownTimeout);
+                dropdown.classList.add('opacity-100', 'visible', 'pointer-events-auto');
+                dropdown.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
+            } else {
+                dropdownTimeout = setTimeout(() => {
+                    dropdown.classList.remove('opacity-100', 'visible', 'pointer-events-auto');
+                    dropdown.classList.add('opacity-0', 'invisible', 'pointer-events-none');
+                }, 200);
+            }
         }
     </script>
 </nav>
