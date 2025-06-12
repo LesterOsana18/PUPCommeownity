@@ -15,9 +15,17 @@ class BeUpdated extends Component
     public bool $modalOpen = false;
 
     public string $search = '';
+    public bool $filterByPaws = false;
 
     protected $paginationTheme = 'simple-tailwind';
     protected $queryString = ['search'];
+    protected $listeners = ['filter-updated' => 'onFilterUpdated'];
+
+    public function onFilterUpdated()
+    {
+        $this->filterByPaws = session('filterByPaws', false);
+        $this->resetPage();
+    }
 
     public function updatingSearch()
     {
@@ -63,18 +71,26 @@ class BeUpdated extends Component
 
     public function render()
     {
-        $updates = Update::with('pawedByUsers') // 🐾 Load relationship
+        $this->filterByPaws = session('filterByPaws', false);
+
+        $updates = Update::with('pawedByUsers')
             ->where('is_approved', true)
             ->when($this->search, function ($query) {
                 $query->where('title', 'like', '%' . $this->search . '%')
                     ->orWhere('author', 'like', '%' . $this->search . '%')
                     ->orWhere('excerpt', 'like', '%' . $this->search . '%');
             })
+            ->when($this->filterByPaws && auth()->check(), function ($query) {
+                $query->whereHas('pawedByUsers', function ($q) {
+                    $q->where('users.id', auth()->id());
+                });
+            })
             ->orderBy('id', 'desc')
             ->paginate(6);
 
         return view('livewire.be-updated', [
             'updates' => $updates,
+            'filterByPaws' => $this->filterByPaws,
         ]);
     }
 }
