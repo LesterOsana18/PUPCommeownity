@@ -57,4 +57,9 @@ class Update extends Model
     {
         return asset($this->image_path ?? 'images/def-img.svg');
     }
+
+    public function pawedByUsers()
+    {
+        return $this->belongsToMany(User::class, 'paws')->withTimestamps();
+    }
 }
