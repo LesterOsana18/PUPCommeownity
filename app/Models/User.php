@@ -18,18 +18,18 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-    'first_name',
-    'last_name',
-    'middle_name',
-    'suffix',
-    'email',
-    'mobile_number',
-    'profile_picture',
-    'address',
-    'password',
-    'preferred_volunteer_role',
-    'availability',
-    'motivation_statement',
+        'first_name',
+        'last_name',
+        'middle_name',
+        'suffix',
+        'email',
+        'mobile_number',
+        'profile_picture',
+        'address',
+        'password',
+        'preferred_volunteer_role',
+        'availability',
+        'motivation_statement',
     ];
 
     /**
@@ -52,4 +52,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function pawedUpdates()
+    {
+        return $this->belongsToMany(Update::class, 'paws')->withTimestamps();
+    }
+
 }

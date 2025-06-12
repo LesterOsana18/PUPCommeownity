@@ -17,7 +17,6 @@ class BeUpdated extends Component
     public string $search = '';
 
     protected $paginationTheme = 'simple-tailwind';
-
     protected $queryString = ['search'];
 
     public function updatingSearch()
@@ -35,7 +34,6 @@ class BeUpdated extends Component
             'created_at',
         ]);
         $this->modalOpen = true;
-
     }
 
     public function closeModal()
@@ -43,9 +41,29 @@ class BeUpdated extends Component
         $this->modalOpen = false;
     }
 
+    public function togglePaw($updateId)
+    {
+        $update = Update::findOrFail($updateId);
+        $user = auth()->user();
+
+        if (!$user)
+            return;
+
+        if ($update->pawedByUsers()->where('user_id', $user->id)->exists()) {
+            $update->pawedByUsers()->detach($user->id);
+            $this->dispatch('paw-toggled', status: 'unpawed');
+        } else {
+            $update->pawedByUsers()->attach($user->id);
+            $this->dispatch('paw-toggled', status: 'pawed');
+        }
+
+        $this->dispatch('$refresh'); // force UI to reflect update
+    }
+
     public function render()
     {
-        $updates = Update::where('is_approved', true)
+        $updates = Update::with('pawedByUsers') // 🐾 Load relationship
+            ->where('is_approved', true)
             ->when($this->search, function ($query) {
                 $query->where('title', 'like', '%' . $this->search . '%')
                     ->orWhere('author', 'like', '%' . $this->search . '%')
