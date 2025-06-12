@@ -13,6 +13,14 @@ class AdoptionApplicationController extends Controller
         return view('application'); // Render the application form view
     }
 
+    // Fetch all adoption applications and pass them to the tables view
+    public function index()
+    {
+        $applications = AdoptionApplication::all();
+
+        return view('tables', compact('applications'));
+    }
+
     // Store the submitted application form data
     public function store(Request $request)
     {
@@ -37,7 +45,19 @@ class AdoptionApplicationController extends Controller
         // Create a new adoption application record
         AdoptionApplication::create($request->all());
 
-        // Redirect or return response
-        return redirect()->route('home')->with('success', 'Application submitted successfully!');
+        // Redirect to the tables page with a success message
+        return redirect()->route('tables')->with('success', 'Application submitted successfully!');
+    }
+
+    public function destroy($id)
+    {
+        // Find the adoption application by its ID
+        $application = AdoptionApplication::findOrFail($id);
+
+        // Delete the application
+        $application->delete();
+
+        // Redirect back to the adoption applications page with a success message
+        return redirect()->route('admin.adoption.index')->with('success', 'Application deleted successfully!');
     }
 }

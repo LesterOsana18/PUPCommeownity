@@ -102,6 +102,10 @@ Route::get('/tables', function () {
     return view('tables');
 });
 
+Route::get('/tables', [AdoptionApplicationController::class, 'index'])->name('tables');
+
+Route::delete('/admin/adoption-applications/{id}', [AdoptionApplicationController::class, 'destroy'])->name('admin.adoption.destroy');
+
 // Adoption Routes
 Route::prefix('adoptions')->name('adoptions.')->group(function () {
     // Route to display all available cats for adoption
