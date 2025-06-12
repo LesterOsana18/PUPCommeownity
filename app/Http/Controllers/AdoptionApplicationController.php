@@ -45,19 +45,16 @@ class AdoptionApplicationController extends Controller
         // Create a new adoption application record
         AdoptionApplication::create($request->all());
 
-        // Redirect to the tables page with a success message
-        return redirect()->route('tables')->with('success', 'Application submitted successfully!');
+        // Redirect to the home page with a success message
+        return redirect('/')->with('success', 'Application submitted successfully!');
     }
 
     public function destroy($id)
     {
-        // Find the adoption application by its ID
         $application = AdoptionApplication::findOrFail($id);
 
-        // Delete the application
         $application->delete();
 
-        // Redirect back to the adoption applications page with a success message
-        return redirect()->route('admin.adoption.index')->with('success', 'Application deleted successfully!');
+        return redirect()->route('tables')->with('success', 'Application deleted successfully!');
     }
 }
