@@ -27,6 +27,10 @@ class VolunteerController extends Controller
             'name' => $request->name,
         ]);
 
+        $event = Event::findOrFail($eventId);
+        $event->current_volunteers = $event->volunteers()->count();
+        $event->save();
+
         return redirect()->route('admin.events.volunteers.index', $eventId)->with('success', 'Volunteer added successfully!');
     }
 
@@ -34,6 +38,10 @@ class VolunteerController extends Controller
     {
         $volunteer = Volunteer::findOrFail($volunteerId);
         $volunteer->delete();
+
+        $event = Event::findOrFail($eventId);
+        $event->current_volunteers = $event->volunteers()->count();
+        $event->save();
 
         return redirect()->route('admin.events.volunteers.index', $eventId)->with('success', 'Volunteer removed successfully!');
     }

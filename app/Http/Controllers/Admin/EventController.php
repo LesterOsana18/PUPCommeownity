@@ -40,6 +40,10 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::findOrFail($id);
+
+        $event->current_volunteers = $event->volunteers()->count();
+        $event->save();
+
         return view('components.admin.update-event-read', compact('event'));
     }
 
@@ -47,20 +51,31 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
 
-        $request->validate([
-            'status' => 'required|string',
+        $validated = $request->validate([
+            'status' => 'required|string|in:CURRENT,PAST',
             'name' => 'required|string|max:255',
-            'date' => 'required|date',
-            'time' => 'required',
-            'location' => 'required|string|max:255',
             'description' => 'nullable|string',
             'image' => 'required|image|mimes:jpg,jpeg,png|max:5120',
             'target_volunteers' => 'nullable|integer',
+            'location' => 'nullable|string|max:255',
+            'time' => 'nullable|string|max:255',
         ]);
 
-        $event->update($request->all());
+        $event->name = $validated['name'];
+        $event->status = $validated['status'];
+        $event->description = $validated['description'] ?? $event->description;
+        $event->target_volunteers = $validated['target_volunteers'] ?? $event->target_volunteers;
+        $event->location = $validated['location'] ?? $event->location;
+        $event->time = $validated['time'] ?? $event->time;
 
-        return redirect()->route('admin.events.index')->with('success', 'Event updated successfully!');
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('public/events');
+            $event->image_path = $path;
+        }
+
+        $event->save();
+
+        return redirect()->route('admin.events.show', $event->id)->with('success', 'Event updated successfully!');
     }
 
     public function destroy($id)
