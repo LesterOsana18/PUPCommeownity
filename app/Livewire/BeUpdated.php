@@ -51,7 +51,7 @@ class BeUpdated extends Component
                     ->orWhere('author', 'like', '%' . $this->search . '%')
                     ->orWhere('excerpt', 'like', '%' . $this->search . '%');
             })
-            ->latest()
+            ->orderBy('id', 'desc')
             ->paginate(6);
 
         return view('livewire.be-updated', [
