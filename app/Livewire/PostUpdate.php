@@ -39,10 +39,9 @@ class PostUpdate extends Component
             $this->validate();
 
             // Handle image upload
-            $imagePath = null;
-            if ($this->image) {
-                $imagePath = $this->image->store('updates', 'public');
-            }
+            $imagePath = $this->image
+                ? $this->image->store('updates', 'public')
+                : 'images/def-img.svg';
 
             // Get authenticated user
             $user = Auth::user();
@@ -70,10 +69,8 @@ class PostUpdate extends Component
             $this->reset(['title', 'content', 'image']);
 
             // Flash success message
-            session()->flash('message', 'Your update has been submitted successfully and is pending approval.');
-
-            // Dispatch event to close modal (updated method for newer Livewire versions)
-            $this->dispatch('update-posted');
+            session()->flash('message', 'Your post has been submitted for review.');
+            return redirect()->route('home');
 
         } catch (\Exception $e) {
             // Log the error for debugging
@@ -85,6 +82,7 @@ class PostUpdate extends Component
 
             // Show error to user
             session()->flash('error', 'There was an error submitting your update. Please try again.');
+            return redirect()->route('home');
         }
     }
 
@@ -95,6 +93,7 @@ class PostUpdate extends Component
 
     public function render()
     {
-        return view('livewire.post-update');
+        return view('livewire.post-update-page')
+            ->layout('components.layout'); // uses your existing layout
     }
 }

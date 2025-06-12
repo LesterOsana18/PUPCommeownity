@@ -35,9 +35,14 @@
                             <span class="text-[#48BDAC]">Updated</span>
                         </h2>
 
-                        @auth
-                            <livewire:post-update />
-                        @endauth
+                        <a href="{{ route('updates.post') }}"
+                        class="flex-shrink-0 flex items-center text-sm font-medium text-white bg-[#48BDAC] rounded-lg px-6 py-3 hover:bg-[#48BDAC]/90 focus:outline-none focus:ring-2 focus:ring-[#48BDAC] focus:ring-offset-1 transition">
+                            <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 5V15M5 10H15" />
+                            </svg>
+                            Post
+                        </a>
                     </div>
                 </div>
 

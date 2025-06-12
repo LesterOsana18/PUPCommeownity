@@ -53,8 +53,8 @@ class Update extends Model
     /**
      * Get the full image URL.
      */
-    public function getImageUrlAttribute(): ?string
+    public function getImageUrlAttribute()
     {
-        return $this->image_path ? asset('storage/' . $this->image_path) : null;
+        return asset($this->image_path ?? 'images/def-img.svg');
     }
 }

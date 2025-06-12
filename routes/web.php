@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReportCatController;
 use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\UpdateController;
+use App\Livewire\PostUpdate;
 
 // Registration Routes
 // This route shows the registration form.
@@ -107,6 +108,8 @@ Route::get('/admin-report', function () {
 Route::get('/admin-post', function () {
     return view('admin-post');
 });
+
+Route::middleware(['auth'])->get('/post-update', PostUpdate::class)->name('updates.post');
 
 Route::prefix('updates')->name('updates.')->group(function () {
     Route::get('/', [UpdateController::class, 'index'])->name('index');          // List of public updates
