@@ -62,9 +62,10 @@
             </div>
         </div>
 
-        @if ($post->image_path && file_exists(public_path($post->image_path)) && $post->image_path !== 'images/def-img.svg')
+        @if ($post->image_path && $post->image_path !== 'images/def-img.svg')
             <div class="flex items-center justify-center">
-                <img src="{{ asset($post->image_path) }}" alt="Post Image"
+                <img src="{{ Str::startsWith($post->image_path, 'images/') ? asset($post->image_path) : asset('storage/' . $post->image_path) }}"
+                    alt="Post Image"
                     class="rounded-[15px] w-full max-h-64 object-cover" />
             </div>
         @endif
