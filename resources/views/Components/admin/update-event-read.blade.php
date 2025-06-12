@@ -120,13 +120,15 @@
                     >
                 </div>
             </div>
-            <p class="font-bold text-sm">Volunteer Names:</p>
-            <textarea
-                name="volunteer_names"
-                rows="5"
-                class="rounded-lg bg-[#F1EAEA] p-2"
-                readonly
-            >{{ $event->volunteers->pluck('name')->join("\n") }}</textarea>
+            <div class="flex flex-col gap-2">
+                <p class="font-bold text-sm">Volunteer Names:</p>
+                <textarea
+                    name="volunteer_names"
+                    rows="5"
+                    class="rounded-lg bg-[#F1EAEA] p-2"
+                    readonly
+                >{{ $event->volunteers->pluck('name')->join("\n") }}</textarea>
+            </div>
             <div class="flex flex-col gap-2">
                 <p class="font-bold text-sm">Location:</p>
                 <input
@@ -142,18 +144,20 @@
                 <input
                     type="text"
                     name="time"
-                    value="{{ old('time', $event->time) }}"
+                    value="{{ old('time', $event->time_start . ' - ' . $event->time_end) }}"
                     class="rounded-lg bg-[#F1EAEA] p-2"
                     disabled
                 >
             </div>
-            <p class="font-bold text-sm">Description:</p>
-            <textarea
-                name="description"
-                rows="5"
-                class="rounded-lg bg-[#F1EAEA] p-2"
-                disabled
-            >{{ old('description', $event->description) }}</textarea>
+            <div class="flex flex-col gap-2">
+                <p class="font-bold text-sm">Description:</p>
+                <textarea
+                    name="description"
+                    rows="5"
+                    class="rounded-lg bg-[#F1EAEA] p-2"
+                    disabled
+                >{{ old('description', $event->description) }}</textarea>
+            </div>
         </div>
     </form>
 </x-admin-layout>

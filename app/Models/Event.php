@@ -13,11 +13,13 @@ class Event extends Model
         'status',
         'name',
         'date',
-        'time',
+        'time_start',
+        'time_end',
         'location',
         'description',
         'target_volunteers',
         'current_volunteers',
+        'image_path',
     ];
 
     public function volunteers()
