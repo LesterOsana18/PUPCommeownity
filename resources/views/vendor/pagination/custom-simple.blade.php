@@ -10,8 +10,8 @@
         {{-- First Page --}}
         @if ($current > 1)
             <a href="{{ $paginator->url(1) }}#posts"
-               class="w-8 h-8 rounded-full bg-white border border-gray-300 text-[#502C58] flex items-center justify-center hover:bg-[#eee] transition">
-               &laquo;&laquo;
+                class="w-8 h-8 rounded-full bg-white border border-gray-300 text-[#502C58] flex items-center justify-center hover:bg-[#eee] transition">
+                &laquo;&laquo;
             </a>
         @else
             <span class="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center cursor-not-allowed">
