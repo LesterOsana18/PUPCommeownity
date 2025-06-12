@@ -10,14 +10,15 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
-            $table->string('status')->default('upcoming');
+            $table->string('status')->default('CURRENT');
             $table->string('name');
             $table->date('date');
-            $table->time('time');
+            $table->time('time_start');
+            $table->time('time_end');
             $table->string('location');
-            $table->text('description')->nullable();
+            $table->text('description');
             $table->string('image_path')->nullable();
-            $table->integer('target_volunteers')->nullable();
+            $table->integer('target_volunteers');
             $table->integer('current_volunteers')->default(0);
             $table->timestamps();
         });
