@@ -27,6 +27,7 @@ class BeUpdated extends Component
     public function showUpdate($id)
     {
         $this->selectedUpdate = Update::findOrFail($id)->only([
+            'id',
             'title',
             'author',
             'content',

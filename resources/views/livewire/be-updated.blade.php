@@ -109,6 +109,12 @@
                         @if (!empty($selectedUpdate['created_at']))
                             • {{ \Carbon\Carbon::parse($selectedUpdate['created_at'])->format('F j, Y \a\t g:i A') }}
                         @endif
+
+                        @php
+                            $pawCount = \App\Models\Update::find($selectedUpdate['id'])?->pawedByUsers()->count() ?? 0;
+                        @endphp
+
+                        • Pawed {{ $pawCount }} {{ Str::plural('time', $pawCount) }}
                     </p>
                     @php
                         $isDefaultImage = $selectedUpdate['image_path'] === 'images/def-img.svg';
