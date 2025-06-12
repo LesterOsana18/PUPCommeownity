@@ -9,7 +9,7 @@ $window = 2; // show currentPage ±2
 
 <div>
     @if ($paginator->hasPages())
-        <nav role="navigation" aria-label="Pagination Navigation" class="flex justify-center items-center space-x-2 mt-6 font-poppins">
+        <nav role="navigation" aria-label="Pagination Navigation" class="flex justify-center items-center space-x-2 mt-6 mb-0 font-poppins">
 
             {{-- First Page Link --}}
             @if (! $paginator->onFirstPage())

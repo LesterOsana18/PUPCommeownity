@@ -23,9 +23,9 @@
     <x-homepage.carousel :carouselItems="$announcements" />
 
     <!-- Be Updated Section -->
-    <div id="be-updated-section" class="py-12">
+    <div id="be-updated-section" class="pt-12 pb-4">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="mb-12 md:mb-16">
+            <div class="mb-4 md:mb-6">
 
                 <!-- Header Section -->
                 <div class="mb-8">

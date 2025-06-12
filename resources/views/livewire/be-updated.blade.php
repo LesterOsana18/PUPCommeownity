@@ -50,8 +50,10 @@
     </div>
 
     <!-- Pagination -->
-    <div class="mt-8 flex justify-center">
-        {{ $updates->links() }}
+    <div class="overflow-hidden mb-0 pb-0">
+        <div class="mt-4 mb-0 flex justify-center">
+            {{ $updates->links() }}
+        </div>
     </div>
 
     <!-- Read More Modal (teleported to <body>) -->
