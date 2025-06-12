@@ -36,7 +36,7 @@
                         </h2>
 
                         @auth
-                            @livewire('post-update', [], 'post-update')
+                            <livewire:post-update />
                         @endauth
                     </div>
                 </div>

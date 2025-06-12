@@ -12,7 +12,7 @@
     >
         <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M10 5V15M5 10H15" />
+                d="M10 5V15M5 10H15" />
         </svg>
         Post
     </button>
@@ -55,11 +55,11 @@
                 @endif
 
                 <!-- Livewire Form -->
-                <form wire:submit.prevent="submit" class="space-y-4">
+                <form wire:submit="submit" class="space-y-4">
                     <!-- Title -->
                     <div>
                         <label class="block font-medium text-sm">Title</label>
-                        <input type="text" wire:model.defer="title" class="w-full border rounded px-3 py-2" />
+                        <input type="text" wire:model="title" class="w-full border rounded px-3 py-2" />
                         @error('title')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
@@ -68,7 +68,7 @@
                     <!-- Content -->
                     <div>
                         <label class="block font-medium text-sm">Content</label>
-                        <textarea wire:model.defer="content" class="w-full border rounded px-3 py-2" rows="4"></textarea>
+                        <textarea wire:model="content" class="w-full border rounded px-3 py-2" rows="4"></textarea>
                         @error('content')
                             <span class="text-sm text-red-500">{{ $errors->first('content') }}</span>
                         @enderror
@@ -77,7 +77,7 @@
                     <!-- Image Upload -->
                     <div>
                         <label class="block font-medium text-sm">Image (optional)</label>
-                        <input type="file" wire:model="image" class="w-full text-sm" />
+                        <input type="file" wire:model.live="image" class="w-full text-sm" />
                         @error('image')
                             <span class="text-sm text-red-500">{{ $errors->first('image') }}</span>
                         @enderror

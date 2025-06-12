@@ -12,7 +12,7 @@
             <input
                 type="search"
                 id="be-updated-search"
-                wire:model.defer="search"
+                wire:model="search"
                 class="block w-full pl-10 pr-24 py-3 text-sm text-gray-900 border border-primary rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-[#48BDAC] focus:border-transparent transition"
                 placeholder="Search for articles, events, and more…" />
             <button
