@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->string('author');
-            $table->string('image_path');
+            $table->string('image_path')->nullable();
             $table->text('excerpt');
             $table->text('content');
             $table->boolean('is_approved')->default(false);
