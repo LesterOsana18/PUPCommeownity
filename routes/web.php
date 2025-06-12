@@ -102,9 +102,11 @@ Route::get('/tables', function () {
     return view('tables');
 });
 
+// Route to display all applications
 Route::get('/tables', [AdoptionApplicationController::class, 'index'])->name('tables');
 
-Route::delete('/admin/adoption-applications/{id}', [AdoptionApplicationController::class, 'destroy'])->name('admin.adoption.destroy');
+// Route to delete a specific adoption application
+Route::delete('/tables/{id}', [AdoptionApplicationController::class, 'destroy'])->name('tables.applications.destroy');
 
 // Adoption Routes
 Route::prefix('adoptions')->name('adoptions.')->group(function () {

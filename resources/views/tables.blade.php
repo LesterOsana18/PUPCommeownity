@@ -561,6 +561,7 @@
             </div>
         </div>
         <!--Applications-->
+        <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="applications">
             <h1 class="text-xl text-[#4ABDAC] font-bold">Applications</h1>
             <!-- Table -->
             <div class="overflow-x-auto w-full">
@@ -618,7 +619,7 @@
                                             <i class="fa-regular fa-pen-to-square mr-2"></i>
                                             Edit
                                         </button>
-                                        <form method="POST" action="{{ route('admin.adoption.destroy', $application->id) }}" onsubmit="return confirm('Are you sure?');" class="d-inline">
+                                        <form action="{{ route('tables.applications.destroy', $application->id) }}" method="POST" class="d-inline">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="rounded-lg px-3 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 flex items-center">
