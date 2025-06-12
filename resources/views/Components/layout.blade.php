@@ -129,6 +129,18 @@
         </div>
     </div>
 
+    @if (session('message'))
+    <div
+            x-data="{ show: true }"
+            x-init="setTimeout(() => show = false, 5000)"
+            x-show="show"
+            x-transition
+            class="fixed top-6 left-1/2 transform -translate-x-1/2 z-[999] bg-green-100 border border-green-300 text-green-800 px-6 py-3 rounded shadow-lg text-sm font-medium"
+        >
+            {{ session('message') }}
+        </div>
+    @endif
+
     <!-- Loader shown BEFORE navigation (starts hidden, drops down) -->
     <div id="transition-drop">
         <div class="flex flex-col items-center">

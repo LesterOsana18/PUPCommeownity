@@ -46,6 +46,18 @@
                     </div>
                 </div>
 
+                @if (session('message'))
+                    <div
+                        x-data="{ show: true }"
+                        x-init="setTimeout(() => show = false, 5000)"
+                        x-show="show"
+                        x-transition
+                        class="max-w-2xl mx-auto mt-6 px-6 py-4 rounded bg-green-100 border border-green-300 text-green-800 text-sm font-medium text-center"
+                    >
+                        {{ session('message') }}
+                    </div>
+                @endif
+
                 @livewire('be-updated', [], 'updates-grid')
 
             </div>
