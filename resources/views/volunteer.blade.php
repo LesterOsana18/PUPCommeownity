@@ -56,7 +56,41 @@
         </script>
 
         <div class="flex flex-col md:flex-col gap-8 px-6 lg:px-8 py-8 max-w-7xl mx-auto relative">
-            <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg overflow-hidden max-w-7xl mx-auto mb-10">
+            <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg overflow-hidden max-w-7xl mx-auto w-full mb-10">
+                <div class="bg-gradient-to-r from-[#502C58] to-[#3f2247] p-6 text-white">
+                    <h2 class="text-2xl font-bold">Volunteer Roles</h2>
+                </div>
+                <div class="p-6 bg-white/80">
+                    <ul class="space-y-6">
+                        <li>
+                            <h3 class="text-lg font-semibold text-[#502C58]">Event Coordinator</h3>
+                            <p class="text-gray-700">
+                                Organizes and manages events and activities for the organization, including planning, logistics, and volunteer coordination.
+                            </p>
+                        </li>
+                        <li>
+                            <h3 class="text-lg font-semibold text-[#502C58]">Foster Caregiver</h3>
+                            <p class="text-gray-700">
+                                Provides temporary homes and care for animals, ensuring their well-being until they are adopted.
+                            </p>
+                        </li>
+                        <li>
+                            <h3 class="text-lg font-semibold text-[#502C58]">Adoption Counselor</h3>
+                            <p class="text-gray-700">
+                                Assists prospective adopters through the adoption process, conducts interviews, and ensures suitable matches for animals.
+                            </p>
+                        </li>
+                        <li>
+                            <h3 class="text-lg font-semibold text-[#502C58]">Site Administrator</h3>
+                            <p class="text-gray-700">
+                                Manages the organization’s website, updates content, and ensures smooth online operations and communication.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg overflow-hidden max-w-7xl mx-auto w-full mb-10">
                 <div class="bg-gradient-to-r from-[#502C58] to-[#3f2247] p-6 text-white">
                     <h2 class="text-2xl font-bold">Current Events</h2>
                 </div>
@@ -115,7 +149,7 @@
                 </div>
             </div>
 
-            <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg overflow-hidden max-w-7xl mx-auto mb-10">
+            <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg overflow-hidden max-w-7xl mx-auto w-full mb-10">
                 <div class="bg-gradient-to-r from-[#502C58] to-[#3f2247] p-6 text-white">
                     <h2 class="text-2xl font-bold">Past Events</h2>
                 </div>
