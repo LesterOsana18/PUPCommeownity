@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\VolunteerController;
 use App\Http\Controllers\AdoptionController;
 use App\Http\Controllers\AdoptionApplicationController;
 
+use App\Http\Controllers\SupporterController;
+
 // Registration Routes
 // This route shows the registration form.
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
@@ -49,7 +51,7 @@ Route::post('/donation-form', [DonationController::class, 'store'])->name('donat
 Route::post('/report', [ReportCatController::class, 'store'])->name('report.store');
 
 // About Route
-// This route handles the contact/send-a-message form in about page.
+// This route handles the contact/send-a-message for.
 Route::post('/about', [AboutContactMsgController::class, 'store'])->name('about.store');
 
 // Website Routes
@@ -196,3 +198,6 @@ Route::prefix('admin/events')->name('admin.events.')->group(function () {
 Route::post('/update/events', [EventController::class, 'store'])
     ->middleware('auth')
     ->name('update.events.store');
+
+// This route handles the modal view of supporters and donors.
+Route::get('/about', [SupporterController::class, 'show']);

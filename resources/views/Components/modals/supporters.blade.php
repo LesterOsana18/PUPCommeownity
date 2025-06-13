@@ -13,38 +13,15 @@
         </div>
 
         <!-- Modal Content -->
-        @php
-            $supporters = [
-                ['name' => 'PUP College of Engineering', 'initials' => 'PCE'],
-                ['name' => 'Student Council', 'initials' => 'SC'],
-                ['name' => 'Cat Lovers', 'initials' => 'CL'],
-                ['name' => 'KindHeart', 'initials' => 'KH'],
-                ['name' => 'Animal Clinic', 'initials' => 'AC'],
-                ['name' => 'Donors', 'initials' => 'DN'],
-                // Add more here as needed
-            ];
-
-            $messages = [
-                'Your technical guidance and innovation inspire our work.',
-                'Thank you for amplifying our voice to more students.',
-                'We appreciate your love and support for every stray.',
-                'Your generosity fuels our mission to protect animals.',
-                'Compassion like yours makes real change happen.',
-                'Your support keeps tails wagging and hearts purring.',
-                // Add more here as needed
-            ];
-        @endphp
-
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            @foreach ($supporters as $index => $supporter)
+            @foreach ($supporters as $supporter)
                 <div class="bg-white border border-gray-200 rounded-xl p-6 hover:bg-[#502C58]/10 hover:shadow-md transition-shadow h-full">
                     <div
                         class="h-12 w-12 bg-[#502C58] rounded-full flex items-center justify-center text-white font-bold mb-4">
-                        {{ $supporter['initials'] }}
+                        {{ $supporter->initials }}
                     </div>
-                    <h3 class="font-semibold text-lg text-[#502C58] mb-2">{{ $supporter['name'] }}</h3>
-                    <p class="text-sm text-gray-600">{{ $messages[$index] ?? 'Thank you for supporting our cause.' }}
-                    </p>
+                    <h3 class="font-semibold text-lg text-[#502C58] mb-2">{{ $supporter->name }}</h3>
+                    <p class="text-sm text-gray-600">{{ $supporter->message ?? 'Thank you for supporting our cause.' }}</p>
                 </div>
             @endforeach
         </div>

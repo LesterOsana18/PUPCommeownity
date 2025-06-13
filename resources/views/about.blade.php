@@ -24,75 +24,6 @@
 
                     </div>
                 </div>
-
-                <div id="slideshow" class="relative w-full max-w-xl lg:max-w-2xl mx-auto" data-carousel="slide">
-                    <!-- Carousel wrapper -->
-                    <div class="relative h-96 overflow-hidden rounded-lg">
-                        @foreach ([
-                            [
-                                'image' => '/images/carousel-temp-1.jpg',
-                                'title' => 'Latest Community Event Success',
-                            ],
-                            [
-                                'image' => '/images/carousel-temp-2.png',
-                                'title' => 'New Partnership Announcement',
-                            ],
-                            [
-                                'image' => '/images/carousel-temp-3.png',
-                                'title' => 'Upcoming Workshop Series',
-                            ],
-                            [
-                                'image' => '/images/carousel-temp-4.jpg',
-                                'title' => 'Annual Fundraiser Results',
-                            ],
-                            [
-                                'image' => '/images/carousel-temp-5.jpg',
-                                'title' => 'Technology Innovation Award',
-                            ],
-                        ] as $index => $item)
-                            <!-- Item {{ $index + 1 }} -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <div class="absolute inset-0">
-                                    <img src="{{ $item['image'] }}" class="absolute block w-full h-full object-cover"
-                                        alt="{{ $item['title'] }}">
-                                    <div
-                                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
-                                        <h3 class="text-xl font-medium text-white">{{ $item['title'] }}</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-
-                    <!-- Slider controls -->
-                    <button type="button"
-                        class="absolute top-1/2 start-0 z-30 flex items-center justify-center h-full px-4 -translate-y-1/2 cursor-pointer group focus:outline-none"
-                        data-carousel-prev>
-                        <span
-                            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#502C58]/30 dark:bg-[#502C58]/30 group-hover:bg-[#502C58]/50 dark:group-hover:bg-[#502C58]/60 group-focus:ring-4 group-focus:ring-[#502C58]/70 dark:group-focus:ring-[#502C58]/70 group-focus:outline-none">
-                            <svg class="w-4 h-4 text-black dark:text-[#774383] rtl:rotate-180"
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="M5 1 1 5l4 4" />
-                            </svg>
-                            <span class="sr-only">Previous</span>
-                        </span>
-                    </button>
-                    <button type="button"
-                        class="absolute top-1/2 end-0 z-30 flex items-center justify-center h-full px-4 -translate-y-1/2 cursor-pointer group focus:outline-none"
-                        data-carousel-next>
-                        <span
-                            class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#502C58]/30 dark:bg-[#502C58]/30 group-hover:bg-[#502C58]/50 dark:group-hover:bg-[#502C58]/60 group-focus:ring-4 group-focus:ring-[#502C58]/70 dark:group-focus:ring-[#502C58]/70 group-focus:outline-none">
-                            <svg class="w-4 h-4 text-black dark:text-[#774383] rtl:rotate-180" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" d="m1 9 4-4-4-4" />
-                            </svg>
-                            <span class="sr-only">Next</span>
-                        </span>
-                    </button>
-                </div>
             </div>
     </section>
 
@@ -215,7 +146,7 @@
             <!-- Leadership & Resources - Side by Side -->
             <div class="grid md:grid-cols-2 gap-6">
                 <!-- Team & Committees -->
-                <section class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg overflow-hidden">
+                <section class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-lg overflow-hidden ">
                     <div class="bg-gradient-to-r from-[#502C58] to-[#3f2247] p-6 text-white border-b border-gray-200">
                         <h2 class="text-2xl font-bold mb-1">Our Leadership</h2>
                         <p class="text-white/90">Meet the passionate people behind Sintang Pusa</p>
@@ -270,17 +201,23 @@
                     </div>
 
                     <div class="p-4 grid grid-cols-2 sm:grid-cols-3 gap-4 flex-grow">
-                        @foreach (['PUP Engineering', 'Student Council', 'Cat Lovers', 'KindHeart', 'Animal Clinic', 'Donors'] as $name)
+                        @foreach ($previewSupporters as $supporter)
                             <div class="text-center p-3 bg-gray-50 rounded-lg hover:bg-[#48BDAC]/30 transition-colors">
-                                <div
-                                    class="mx-auto w-12 h-12 bg-[#502C58] rounded-full flex items-center justify-center text-white font-semibold mb-3 text-base">
-                                    {{ substr($name, 0, 1) }}
+                                <div class="mx-auto w-12 h-12 bg-[#502C58] rounded-full flex items-center justify-center text-white font-semibold mb-3 text-base">
+                                    {{ $supporter->initials }}
                                 </div>
-                                <h3 class="text-sm font-medium text-gray-800">{{ $name }}</h3>
+
+                                <div>
+                                    <h3 class="text-sm font-medium text-gray-800">
+                                        {{ $supporter->name }}
+                                    </h3>
+                                    <p class="text-sm text-gray-500 mt-2">
+                                        {{ $supporter->message }}
+                                    </p>
+                                </div>
                             </div>
                         @endforeach
                     </div>
-
 
                     <!-- CTA pinned at the bottom -->
                     <div class="p-4 bg-gray-50 text-center">
