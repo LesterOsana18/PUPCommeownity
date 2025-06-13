@@ -11,6 +11,7 @@ class Volunteer extends Model
 
     protected $fillable = [
         'event_id',
+        'user_id',
         'name',
     ];
 

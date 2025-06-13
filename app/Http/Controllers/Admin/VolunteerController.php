@@ -24,6 +24,7 @@ class VolunteerController extends Controller
 
         Volunteer::create([
             'event_id' => $eventId,
+            'user_id' => auth()->id(),
             'name' => $request->name,
         ]);
 
