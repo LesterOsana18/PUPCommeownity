@@ -1,5 +1,5 @@
 <!-- Donations -->
-<div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="adoptions">
+<div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="donations">
     <h1 class="text-xl text-[#4ABDAC] font-bold">Donations</h1>
     <!-- Table Header -->
     <div class="overflow-x-auto w-full">
