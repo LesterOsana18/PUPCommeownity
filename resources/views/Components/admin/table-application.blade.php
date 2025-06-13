@@ -34,17 +34,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($applications as $application)
+                    @foreach ($applications as $application)
                         <tr>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->first_name }}</td>
-                            <!-- ... other fields ... -->
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->last_name }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->address }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->phone }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->email }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->birth_date }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->company_business_name }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->civil_status }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->sex }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->adopted_before }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->alt_first_name }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->alt_last_name }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->relationship_to_alt }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->phone_alt }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->email_alt }}</td>
                             <td class="px-4 py-2 border border-gray-500 text-center">
                                 <div class="flex items-center justify-center gap-2">
                                     <button class="rounded-lg px-3 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 flex items-center">
                                         <i class="fa-regular fa-pen-to-square mr-2"></i>
                                         Edit
                                     </button>
-                                    <form action="{{ route('tables.applications.destroy', $application->id) }}" method="POST" class="inline">
+                                    <form action="{{ route('tables.applications.destroy', $application->id) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="rounded-lg px-3 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 flex items-center">
@@ -55,11 +68,7 @@
                                 </div>
                             </td>
                         </tr>
-                    @empty
-                        <tr>
-                            <td colspan="16" class="text-center px-4 py-2">No applications found.</td>
-                        </tr>
-                    @endforelse
+                    @endforeach
                 </tbody>
             </table>
         </div>
