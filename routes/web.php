@@ -1,20 +1,24 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DonationController;
-use App\Http\Controllers\ModerationController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ReportCatController;
-use App\Http\Controllers\AboutContactMsgController;
-use App\Http\Controllers\UpdateController;
 use App\Livewire\PostUpdate;
 
+// Controllers
+use App\Http\Controllers\AboutContactMsgController;
+use App\Http\Controllers\AdoptionApplicationController;
+use App\Http\Controllers\AdoptionController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DonationController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ModerationController;
+use App\Http\Controllers\ReportCatController;
+use App\Http\Controllers\TablesController;
+use App\Http\Controllers\UpdateController;
+
+// Admin Controllers
 use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\VolunteerController;
-use App\Http\Controllers\AdoptionController;
-use App\Http\Controllers\AdoptionApplicationController;
 
 // Registration Routes
 // This route shows the registration form.
@@ -98,12 +102,15 @@ Route::get('/terms', function () {
     return view('terms');
 });
 
-Route::get('/tables', function () {
+/* Route::get('/tables', function () {
     return view('tables');
-});
+}); */
 
-// Route to display all applications
-Route::get('/tables', [AdoptionApplicationController::class, 'index'])->name('tables');
+/* // Route to display all applications
+Route::get('/tables', [AdoptionApplicationController::class, 'index'])->name('tables'); */
+
+// Route to show the tables page with donations, adoptions, and applications data
+Route::get('/tables', [TablesController::class, 'index'])->name('tables');
 
 // Route to delete a specific adoption application
 Route::delete('/tables/{id}', [AdoptionApplicationController::class, 'destroy'])->name('tables.applications.destroy');
@@ -125,6 +132,14 @@ Route::get('/application', [AdoptionApplicationController::class, 'create'])->na
 
 // Route to handle the form submission
 Route::post('/application', [AdoptionApplicationController::class, 'store'])->name('application.store');
+
+// Donation Routes
+Route::get('/donations', [DonationController::class, 'index'])->name('donations.index');
+    // Edit a donation
+    Route::get('/donations/{donation}/edit', [DonationController::class, 'edit'])->name('donations.edit');
+
+    // Delete a donation
+    Route::delete('/donations/{donation}', [DonationController::class, 'destroy'])->name('donations.destroy');
 
 // Admin Routes
 Route::get('/moderation', [ModerationController::class, 'index'])
