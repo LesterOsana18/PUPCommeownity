@@ -51,7 +51,7 @@ Route::post('/donation-form', [DonationController::class, 'store'])->name('donat
 Route::post('/report', [ReportCatController::class, 'store'])->name('report.store');
 
 // About Route
-// This route handles the contact/send-a-message, and the view of teams and supporters.
+// This route handles the contact/send-a-message in About page.
 Route::post('/about', [AboutContactMsgController::class, 'store'])->name('about.store');
 // Route::get('/about', [AboutController::class, 'index'])->name('about');
 
@@ -200,5 +200,6 @@ Route::post('/update/events', [EventController::class, 'store'])
     ->middleware('auth')
     ->name('update.events.store');
 
-
-    Route::get('/about', [AboutController::class, 'index']);
+// About Page
+// This route handles the view of teams and supporters.
+Route::get('/about', [AboutController::class, 'index']);
