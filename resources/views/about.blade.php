@@ -164,13 +164,12 @@
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
-                                @foreach ([['Office of the President', 'op.pupsp2019@gmail.com'], ['Office of the VP', 'pupsp.comms@gmail.com'], ['Secretary General', 'sintangpusa2019@gmail.com'], ['Treasurer', 'sp.officeofthetreasurer@gmail.com'], ['Auditor', 'pupsp.officeoftheauditor@gmail.com']] as $entry)
+                                @foreach ($previewCommittees as $entry)
                                     <tr class="hover:bg-[#48BDAC]/30 transition-colors">
                                         <td class="px-4 py-3 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            {{ $entry[0] }}</td>
+                                            {{ $entry->office }}</td>
                                         <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-500">
-                                            <a href="mailto:{{ $entry[1] }}"
-                                                class="text-[#502C58] hover:underline">{{ $entry[1] }}</a>
+                                            <a href="mailto:{{ $entry->email }}" class="text-[#502C58] hover:underline">{{ $entry->email }}</a>
                                         </td>
                                     </tr>
                                 @endforeach

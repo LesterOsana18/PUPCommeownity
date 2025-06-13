@@ -30,30 +30,14 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach ([
-                        ['Office of the President', 'op.pupsp2019@gmail.com', 'Yelen Nepomuceno', 'Event proposals, resolutions, memoranda'],
-                        ['Office of the Vice President', 'pupsp.comms@gmail.com', 'Anna Maria J. Sengco', 'External inquiries and partnerships'],
-                        ['Office of the Secretary General', 'sintangpusa2019@gmail.com', 'Kristylle Ann F. De Vera', 'Internal communications'],
-                        ['Office of the Treasurer', 'sp.officeofthetreasurer@gmail.com', 'Shammyzel Ashley A. Lucina', 'Reimbursement reports'],
-                        ['Office of the Auditor', 'pupsp.officeoftheauditor@gmail.com', 'Danna Althea S. Teh', 'Financial audits'],
-                        ['Adoption & Fostering Committee', 'pupspadoptionandfoster23@gmail.com', 'Alaiza C. Dela Cruz', 'Adoption and foster arrangements'],
-                        ['Cat Monitoring & Feeding Committee', 'pupsp.catmonfeedcomms@gmail.com', 'Kyla Marie Moral', 'Campus cat welfare monitoring'],
-                        ['Creatives Committee', 'pupsp.creatives@gmail.com', 'Ivy Myuki S. Añovert', 'Visuals and content creation'],
-                        ['Marketing Committee', 'pupsp.mktg@gmail.com', 'Martin Jay T. Pollicar', 'External outreach and sponsorships'],
-                        ['Membership & Recruitment Committee', 'pupsp.membership@gmail.com', 'Rhea Janell H. Orocio', 'Volunteer and member management'],
-                        ['Publications Committee', 'pubcom.pupsp@gmail.com', 'Reynalyn R. Bawag', 'Publication materials and releases'],
-                    ] as $entry)
+                    @foreach ($committees as $entry)
                         <tr class="hover:bg-gray-50 transition-colors">
-                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">
-                                {{ $entry[0] }}</td>
+                            <td class="px-4 py-2 whitespace-nowrap text-sm font-medium text-gray-900">{{ $entry->office }}</td>
                             <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">
-                                <a href="mailto:{{ $entry[1] }}"
-                                    class="text-[#502C58] hover:underline">
-                                    {{ $entry[1] }}
-                                </a>
+                                <a href="mailto:{{ $entry->email }}" class="text-[#502C58] hover:underline">{{ $entry->email }}</a>
                             </td>
-                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">{{ $entry[2] }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-500">{{ $entry[3] }}</td>
+                            <td class="px-4 py-2 whitespace-nowrap text-sm text-gray-500">{{ $entry->person_in_charge }}</td>
+                            <td class="px-4 py-2 text-sm text-gray-500">{{ $entry->role }}</td>
                         </tr>
                     @endforeach
                 </tbody>
