@@ -7,10 +7,6 @@
             <div class="rounded-lg px-4 py-2 bg-[#502C58]">
                 Donations
             </div>
-            <button class="rounded-lg px-4 py-2 bg-[#4ABDAC] hover:bg-[#369688] flex items-center">
-                <i class="fa-solid fa-plus mr-2"></i>
-                Add Record
-            </button>
         </div>
         <table class="table-fixed min-w-full border border-collapse text-sm">
             <thead>
