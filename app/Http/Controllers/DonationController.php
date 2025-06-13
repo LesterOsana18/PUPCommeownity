@@ -74,7 +74,7 @@ class DonationController extends Controller
 
         $donation->update($validated);
 
-        return redirect()->route('donations.index')->with('success', 'Donation updated successfully!');
+        return redirect()->route('tables')->with('success', 'Donation updated successfully!');
     }
 
     public function destroy(Donation $donation)
@@ -84,6 +84,6 @@ class DonationController extends Controller
         }
         $donation->delete();
 
-        return redirect()->route('donations.index')->with('success', 'Donation deleted successfully!');
+        return redirect()->route('tables')->with('success', 'Donation deleted successfully!');
     }
 }
