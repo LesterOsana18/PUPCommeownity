@@ -86,4 +86,9 @@ class DonationController extends Controller
 
         return redirect()->route('tables')->with('success', 'Donation deleted successfully!');
     }
+
+    public function create()
+    {
+        return view('donation-form');
+    }
 }

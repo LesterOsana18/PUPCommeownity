@@ -144,6 +144,9 @@ Route::get('/donations', [DonationController::class, 'index'])->name('donations.
     // Delete a donation
     Route::delete('/donations/{donation}', [DonationController::class, 'destroy'])->name('donations.destroy');
 
+    // Create a new donation
+    Route::get('/donations/create', [DonationController::class, 'create'])->name('donations.create');
+
 // Admin Routes
 Route::get('/moderation', [ModerationController::class, 'index'])
     ->name('moderation');
