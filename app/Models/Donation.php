@@ -17,4 +17,10 @@ class Donation extends Model
         'message',
         'agreement',
     ];
+
+    // Mutator for donation_type
+    public function setDonationTypeAttribute($value)
+    {
+        $this->attributes['donation_type'] = ucfirst(strtolower($value));
+    }
 }
