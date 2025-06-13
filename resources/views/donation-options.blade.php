@@ -2,7 +2,7 @@
     <section class="max-w-6xl mx-auto px-6 mb-12">
         <main class="bg-white bg-opacity-30 backdrop-blur-md border border-gray-200 rounded-lg shadow-md">
             <!-- Header -->
-            <h1 class="text-5xl text-center font-extrabold text-[#E7AB39] mt-12 mb-4 text-outline-red" style="text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">
+            <h1 class="text-5xl text-center font-extrabold text-[#E7AB39] mt-12 mb-4 text-outline-red">
                 MONETARY DONATION OPTIONS
             </h1>
 
