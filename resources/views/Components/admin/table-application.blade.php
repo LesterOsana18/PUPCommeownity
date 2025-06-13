@@ -1,4 +1,4 @@
-<!--Applications-->
+<!-- Applications -->
 <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="applications">
     <h1 class="text-xl text-[#4ABDAC] font-bold">Applications</h1>
         <!-- Table -->

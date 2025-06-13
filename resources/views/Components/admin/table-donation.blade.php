@@ -1,11 +1,11 @@
-<!--Donations-->
-<div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="donations">
+<!-- Donations -->
+<div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="adoptions">
     <h1 class="text-xl text-[#4ABDAC] font-bold">Donations</h1>
-    <!--Table 1-->
+    <!-- Table Header -->
     <div class="overflow-x-auto w-full">
         <div class="flex flex-row gap-2 mb-3 text-sm text-white font-semibold">
             <div class="rounded-lg px-4 py-2 bg-[#502C58]">
-                Table Name
+                Donations
             </div>
             <button class="rounded-lg px-4 py-2 bg-[#4ABDAC] hover:bg-[#369688] flex items-center">
                 <i class="fa-solid fa-plus mr-2"></i>
@@ -15,265 +15,64 @@
         <table class="table-fixed min-w-full border border-collapse text-sm">
             <thead>
                 <tr>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 1</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 2</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 3</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 4</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 5</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 6</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 7</th>
-
+                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Full Name</th>
+                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Email</th>
+                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Mobile Number</th>
+                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Donation Type</th>
+                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Amount</th>
+                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Proof</th>
+                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Details</th>
+                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Message</th>
+                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Agreement</th>
                     <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="px-4 py-2 border border-gray-500">Value 1</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 2</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 3</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 4</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 5</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 6</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 7</td>
-                    <td class="px-4 py-2 border border-gray-500 text-center max-w-[200px]">
-                        <div class="flex items-center justify-center gap-2">
-                            <button class="rounded-lg px-3 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 flex items-center">
-                                <i class="fa-regular fa-pen-to-square mr-2"></i>
-                                Edit
-                            </button>
-                            <button class="rounded-lg px-3 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 flex items-center">
-                                <i class="fa-regular fa-trash-can mr-2"></i>
-                                Delete
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border border-gray-500">Value 1</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 2</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 3</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 4</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 5</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 6</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 7</td>
-                    <td class="px-4 py-2 border border-gray-500 text-center max-w-[200px]">
-                        <div class="flex items-center justify-center gap-2">
-                            <button class="rounded-lg px-3 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 flex items-center">
-                                <i class="fa-regular fa-pen-to-square mr-2"></i>
-                                Edit
-                            </button>
-                            <button class="rounded-lg px-3 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 flex items-center">
-                                <i class="fa-regular fa-trash-can mr-2"></i>
-                                Delete
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border border-gray-500">Value 1</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 2</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 3</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 4</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 5</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 6</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 7</td>
-                    <td class="px-4 py-2 border border-gray-500 text-center max-w-[200px]">
-                        <div class="flex items-center justify-center gap-2">
-                            <button class="rounded-lg px-3 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 flex items-center">
-                                <i class="fa-regular fa-pen-to-square mr-2"></i>
-                                Edit
-                            </button>
-                            <button class="rounded-lg px-3 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 flex items-center">
-                                <i class="fa-regular fa-trash-can mr-2"></i>
-                                Delete
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <!--Table 2-->
-    <div class="overflow-x-auto w-full">
-        <div class="flex flex-row gap-2 mb-3 text-sm text-white font-semibold">
-            <div class="rounded-lg px-4 py-2 bg-[#502C58]">
-                Table Name
-            </div>
-            <button class="rounded-lg px-4 py-2 bg-[#4ABDAC] hover:bg-[#369688] flex items-center">
-                <i class="fa-solid fa-plus mr-2"></i>
-                Add Record
-            </button>
-        </div>
-        <table class="table-fixed min-w-full border border-collapse text-sm">
-            <thead>
-                <tr>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 1</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 2</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 3</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 4</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 5</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 6</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 7</th>
-
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="px-4 py-2 border border-gray-500">Value 1</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 2</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 3</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 4</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 5</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 6</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 7</td>
-                    <td class="px-4 py-2 border border-gray-500 text-center max-w-[200px]">
-                        <div class="flex items-center justify-center gap-2">
-                            <button class="rounded-lg px-3 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 flex items-center">
-                                <i class="fa-regular fa-pen-to-square mr-2"></i>
-                                Edit
-                            </button>
-                            <button class="rounded-lg px-3 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 flex items-center">
-                                <i class="fa-regular fa-trash-can mr-2"></i>
-                                Delete
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border border-gray-500">Value 1</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 2</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 3</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 4</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 5</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 6</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 7</td>
-                    <td class="px-4 py-2 border border-gray-500 text-center max-w-[200px]">
-                        <div class="flex items-center justify-center gap-2">
-                            <button class="rounded-lg px-3 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 flex items-center">
-                                <i class="fa-regular fa-pen-to-square mr-2"></i>
-                                Edit
-                            </button>
-                            <button class="rounded-lg px-3 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 flex items-center">
-                                <i class="fa-regular fa-trash-can mr-2"></i>
-                                Delete
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border border-gray-500">Value 1</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 2</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 3</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 4</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 5</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 6</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 7</td>
-                    <td class="px-4 py-2 border border-gray-500 text-center max-w-[200px]">
-                        <div class="flex items-center justify-center gap-2">
-                            <button class="rounded-lg px-3 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 flex items-center">
-                                <i class="fa-regular fa-pen-to-square mr-2"></i>
-                                Edit
-                            </button>
-                            <button class="rounded-lg px-3 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 flex items-center">
-                                <i class="fa-regular fa-trash-can mr-2"></i>
-                                Delete
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <!--Table 3-->
-    <div class="overflow-x-auto w-full">
-        <div class="flex flex-row gap-2 mb-3 text-sm text-white font-semibold">
-            <div class="rounded-lg px-4 py-2 bg-[#502C58]">
-                Table Name
-            </div>
-            <button class="rounded-lg px-4 py-2 bg-[#4ABDAC] hover:bg-[#369688] flex items-center">
-                <i class="fa-solid fa-plus mr-2"></i>
-                Add Record
-            </button>
-        </div>
-        <table class="table-fixed min-w-full border border-collapse text-sm">
-            <thead>
-                <tr>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 1</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 2</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 3</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 4</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 5</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 6</th>
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Attribute 7</th>
-
-                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="px-4 py-2 border border-gray-500">Value 1</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 2</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 3</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 4</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 5</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 6</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 7</td>
-                    <td class="px-4 py-2 border border-gray-500 text-center max-w-[200px]">
-                        <div class="flex items-center justify-center gap-2">
-                            <button class="rounded-lg px-3 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 flex items-center">
-                                <i class="fa-regular fa-pen-to-square mr-2"></i>
-                                Edit
-                            </button>
-                            <button class="rounded-lg px-3 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 flex items-center">
-                                <i class="fa-regular fa-trash-can mr-2"></i>
-                                Delete
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border border-gray-500">Value 1</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 2</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 3</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 4</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 5</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 6</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 7</td>
-                    <td class="px-4 py-2 border border-gray-500 text-center max-w-[200px]">
-                        <div class="flex items-center justify-center gap-2">
-                            <button class="rounded-lg px-3 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 flex items-center">
-                                <i class="fa-regular fa-pen-to-square mr-2"></i>
-                                Edit
-                            </button>
-                            <button class="rounded-lg px-3 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 flex items-center">
-                                <i class="fa-regular fa-trash-can mr-2"></i>
-                                Delete
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border border-gray-500">Value 1</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 2</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 3</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 4</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 5</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 6</td>
-                    <td class="px-4 py-2 border border-gray-500">Value 7</td>
-                    <td class="px-4 py-2 border border-gray-500 text-center max-w-[200px]">
-                        <div class="flex items-center justify-center gap-2">
-                            <button class="rounded-lg px-3 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 flex items-center">
-                                <i class="fa-regular fa-pen-to-square mr-2"></i>
-                                Edit
-                            </button>
-                            <button class="rounded-lg px-3 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 flex items-center">
-                                <i class="fa-regular fa-trash-can mr-2"></i>
-                                Delete
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+                @forelse ($donations as $donation)
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-500">{{ $donation->full_name }}</td>
+                        <td class="px-4 py-2 border border-gray-500">{{ $donation->email }}</td>
+                        <td class="px-4 py-2 border border-gray-500">{{ $donation->mobile_number }}</td>
+                        <td class="px-4 py-2 border border-gray-500">{{ ucfirst($donation->donation_type) }}</td>
+                        <td class="px-4 py-2 border border-gray-500">{{ $donation->donation_amount ?? '-' }}</td>
+                        <td class="px-4 py-2 border border-gray-500">
+                            @if (!empty($donation->donation_proof))
+                                <a href="{{ asset('storage/' . $donation->donation_proof) }}" target="_blank" class="text-blue-600 underline">View</a>
+                            @else
+                                -
+                            @endif
+                        </td>
+                        <td class="px-4 py-2 border border-gray-500">{{ $donation->donation_details }}</td>
+                        <td class="px-4 py-2 border border-gray-500">{{ $donation->message ?? '-' }}</td>
+                        <td class="px-4 py-2 border border-gray-500 text-center">
+                            @if ($donation->agreement)
+                                <span class="text-green-600 font-semibold">Yes</span>
+                            @else
+                                <span class="text-red-600 font-semibold">No</span>
+                            @endif
+                        </td>
+                        <td class="px-4 py-2 border border-gray-500 text-center">
+                            <div class="flex items-center justify-center gap-2">
+                                <a href="{{ route('donations.edit', $donation->id ?? 0) }}" class="rounded-lg px-3 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 flex items-center">
+                                    <i class="fa-regular fa-pen-to-square mr-2"></i>
+                                    Edit
+                                </a>
+                                <form action="{{ route('donations.destroy', $donation->id ?? 0) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this donation?');" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="rounded-lg px-3 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 flex items-center">
+                                        <i class="fa-regular fa-trash-can mr-2"></i>
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="10" class="text-center px-4 py-2">No donations found.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>

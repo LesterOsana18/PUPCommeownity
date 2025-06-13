@@ -1,4 +1,4 @@
-<!--Adoptions-->
+<!-- Adoptions -->
 <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="adoptions">
     <h1 class="text-xl text-[#4ABDAC] font-bold">Adoptions</h1>
     <!--Table 1-->
