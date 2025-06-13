@@ -14,7 +14,40 @@
 
         <!-- Modal Content -->
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            @php
+            @foreach ($resources as $resource)
+                <div
+                    class="group flex flex-col h-full border border-gray-200 rounded-xl hover:bg-[#502C58]/10 overflow-hidden shadow-sm hover:shadow-lg transition-all">
+                    <div class="w-full bg-gray-100 overflow-hidden relative aspect-video">
+                        <img
+                            src="{{ asset($resource->image) }}"
+                            alt="{{ $resource->title }}"
+                            class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+
+                    <div class="flex flex-col justify-between flex-1 p-4">
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-700 mb-2 group-hover:text-[#502C58] transition-colors">
+                                {{ $resource->title }}
+                            </h3>
+                            <p class="text-sm text-gray-600 line-clamp-3">
+                                {{ $resource->description }}
+                            </p>
+                        </div>
+                        <a href="{{ $resource->link ?? '#' }}"
+                            class="mt-4 text-sm font-medium text-[#502C58] hover:text-[#3f2247] flex items-center transition-colors">
+                            View Resource
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            @endforeach
+            {{-- @php
                 $resources = [
                     [
                         'title' => 'Cat Care Basics',
@@ -90,7 +123,7 @@
                         </a>
                     </div>
                 </div>
-            @endforeach
+            @endforeach --}}
         </div>
     </div>
 </div>

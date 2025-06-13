@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AnnouncementsTableSeeder::class);
         $this->call(SupporterSeeder::class);
         $this->call(TeamCommitteeSeeder::class);
+        $this->call(ResourceSeeder::class);
     }
 }

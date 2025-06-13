@@ -242,50 +242,17 @@
                 </div>
                 <div class="bg-white">
                     <div class="grid grid-cols-4 gap-0 border-b border-gray-200">
-                        {{-- Should accomodate up to 3 only --}}
-                        @php
-                            $cards = [
-                                [
-                                    'image' => '/images/legacy-pogi.jpg',
-                                    'title' => 'Cat Care Basics',
-                                    'description' =>
-                                        'Essential guide for new cat owners covering nutrition, grooming, and health.',
-                                ],
-                                [
-                                    'image' => '/images/about-us-sample-pic-1.jpg',
-                                    'title' => 'TNR Handbook',
-                                    'description' =>
-                                        'Complete guide to Trap-Neuter-Return programs for community cats.',
-                                ],
-                                [
-                                    'image' => '/images/about-us-sample-pic-2.jpg',
-                                    'title' => 'Feline First Aid',
-                                    'description' =>
-                                        'Emergency procedures and first aid tips for cat injuries and illnesses.',
-                                ],
-                                [
-                                    'image' => '/images/about-us-sample-pic-3.jpg',
-                                    'title' => 'Adoption Process',
-                                    'description' =>
-                                        'Step-by-step guide to our cat adoption procedures and requirements.',
-                                ],
-                            ];
-                        @endphp
-
-                        @foreach ($cards as $card)
-                            <div
-                                class="p-4 border-r border-b border-gray-200 hover:bg-[#48BDAC]/30 transition-colors flex flex-col h-full">
-                                <!-- Image Container -->
+                        {{-- Should accomodate up to 4 only --}}
+                        @foreach ($previewResources as $card)
+                            <div class="p-4 border-r border-b border-gray-200 hover:bg-[#48BDAC]/30 transition-colors flex flex-col h-full">
                                 <div class="h-32 bg-gray-100 rounded mb-3 flex items-center justify-center">
-                                    <img src="{{ $card['image'] }}" alt="{{ $card['title'] }}"
-                                        class="h-full w-full object-cover rounded">
+                                    <img src="{{ $card->image }}" alt="{{ $card->title }}" class="h-full w-full object-cover rounded">
                                 </div>
-                                <!-- Title and Description -->
                                 <div class="flex-grow min-h-[60px]">
-                                    <h3 class="font-medium text-gray-800 text-sm mb-1">{{ $card['title'] }}</h3>
-                                    <p class="text-xs text-gray-500 mb-1">{{ $card['description'] }}</p>
+                                    <h3 class="font-medium text-gray-800 text-sm mb-1">{{ $card->title }}</h3>
+                                    <p class="text-xs text-gray-500 mb-1">{{ $card->description }}</p>
                                 </div>
-                                <a href="#" class="text-xs text-[#502C58] hover:underline mt-auto">View →</a>
+                                <a href="{{ $card->link ?? '#' }}" class="text-xs text-[#502C58] hover:underline mt-auto">View →</a>
                             </div>
                         @endforeach
                     </div>

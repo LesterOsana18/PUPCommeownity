@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TeamCommittee;
 use App\Models\Supporter;
+use App\Models\Resource;
 
 class AboutController extends Controller
 {
@@ -16,11 +17,16 @@ class AboutController extends Controller
         $supporters = Supporter::all();
         $previewSupporters = Supporter::limit(3)->get();
 
+        $resources = Resource::all();
+        $previewResources = Resource::limit(4)->get();
+
         return view('about', compact(
             'committees',
             'previewCommittees',
             'supporters',
-            'previewSupporters'
+            'previewSupporters',
+            'resources',
+            'previewResources'
         ));
     }
 }
