@@ -121,6 +121,16 @@
                 </div>
             </div>
 
+            <div class="flex flex-col gap-2">
+                <p class="font-bold text-sm">Volunteer Names:</p>
+                <textarea
+                    name="volunteer_names"
+                    rows="5"
+                    class="rounded-lg bg-[#F1EAEA] p-2"
+                    readonly
+                >{{ $event->volunteers->pluck('name')->join("\n") }}</textarea>
+            </div>
+
             <div class="flex flex-col gap-2 text-sm">
                 <label class="font-bold text-sm" for="date">Date:</label>
                 <input
