@@ -21,20 +21,26 @@
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Phone</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Email</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Birth Date</th>
+                        <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Occupation</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Company/Business Name</th>
+                        <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Social Media Profile</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Civil Status</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Sex</th>
+                        <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Adoption Prompt</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Adopted Before</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Alternate First Name</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Alternate Last Name</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Relationship to Alternate</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Alternate Phone</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Alternate Email</th>
+                        <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Co-signer Name</th>
+                        <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Co-signer Relationship</th>
+                        <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Co-signer Signature</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($applications as $application)
+                    @forelse ($applications as $application)
                         <tr>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->first_name }}</td>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->last_name }}</td>
@@ -42,22 +48,42 @@
                             <td class="px-4 py-2 border border-gray-500">{{ $application->phone }}</td>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->email }}</td>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->birth_date }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->occupation }}</td>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->company_business_name }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->social_media_profile }}</td>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->civil_status }}</td>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->sex }}</td>
+                            <td class="px-4 py-2 border border-gray-500">
+                                @if($application->adoption_prompt)
+                                    {{ implode(', ', array_map('ucfirst', explode(',', $application->adoption_prompt))) }}
+                                @else
+                                    N/A
+                                @endif
+                            </td>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->adopted_before }}</td>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->alt_first_name }}</td>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->alt_last_name }}</td>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->relationship_to_alt }}</td>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->phone_alt }}</td>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->email_alt }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->co_signer_name }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->co_signer_relationship }}</td>
+                            <td class="px-4 py-2 border border-gray-500">
+                                @if($application->co_signer_signature)
+                                    <a href="{{ asset('storage/' . $application->co_signer_signature) }}" target="_blank" class="text-[#4ABDAC] underline">
+                                        View
+                                    </a>
+                                @else
+                                    N/A
+                                @endif
+                            </td>
                             <td class="px-4 py-2 border border-gray-500 text-center">
                                 <div class="flex items-center justify-center gap-2">
                                     <button class="rounded-lg px-3 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 flex items-center">
                                         <i class="fa-regular fa-pen-to-square mr-2"></i>
                                         Edit
                                     </button>
-                                    <form action="{{ route('tables.applications.destroy', $application->id) }}" method="POST" class="d-inline">
+                                    <form action="{{ route('tables.applications.destroy', $application->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this application?');" class="d-inline">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="rounded-lg px-3 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 flex items-center">
@@ -68,7 +94,11 @@
                                 </div>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="22" class="text-center text-gray-500 px-4 py-6 border border-gray-500">No applications found.</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

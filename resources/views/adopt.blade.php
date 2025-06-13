@@ -13,7 +13,7 @@
             </p>
             <p class="text-base text-gray-600 mb-4">
                 If you're just looking for the adoption application form,
-                <a href="/adoptionprocess" class="text-purple-700 hover:text-purple-900">click here</a>.
+                <a href="/application" class="text-purple-700 hover:text-purple-900">click here</a>.
             </p><br>
         </div>
 

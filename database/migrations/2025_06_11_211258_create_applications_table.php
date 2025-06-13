@@ -21,13 +21,17 @@ return new class extends Migration
             $table->string('social_media_profile')->nullable();
             $table->enum('civil_status', ['single', 'married', 'other']);
             $table->enum('sex', ['male', 'female', 'other']);
-            $table->text('adoption_reason')->nullable();
+            $table->string('adoption_prompt')->nullable();
             $table->enum('adopted_before', ['yes', 'no']);
             $table->string('alt_first_name');
             $table->string('alt_last_name');
             $table->string('relationship_to_alt');
             $table->string('phone_alt');
             $table->string('email_alt');
+            // New fields for minor/parent-guardian logic:
+            $table->string('co_signer_name')->nullable();
+            $table->string('co_signer_relationship')->nullable();
+            $table->string('co_signer_signature')->nullable(); // stores file path
             $table->timestamps();
         });
     }
