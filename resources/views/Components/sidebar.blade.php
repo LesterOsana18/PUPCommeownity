@@ -1,7 +1,7 @@
 <aside
     id="sidebar"
     class="w-64 bg-[#502C58] shadow-lg transform -translate-x-full md:translate-x-0 transition-transform duration-200 ease-in-out flex flex-col
-           fixed inset-y-0 left-0 h-screen z-50"
+        fixed inset-y-0 left-0 h-screen z-50"
     style="will-change: transform;"
 >
     <style>
@@ -96,9 +96,9 @@
             <i class="fas fa-chevron-down text-xs text-white ml-auto"></i>
         </button>
         <div class="ml-9 mt-1 space-y-1 hidden">
-            <a href="tables#adoptions" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Adoptions</a>
-            <a href="tables#donations" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Donations</a>
-            <a href="tables#applications" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Applications</a>
+            <a href="/tables#adoptions" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Adoptions</a>
+            <a href="/tables#donations" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Donations</a>
+            <a href="/tables#applications" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Applications</a>
         </div>
 
         <!-- Moderation -->
@@ -116,8 +116,8 @@
             <i class="fas fa-chevron-down text-xs text-white ml-auto"></i>
         </button>
         <div class="ml-9 mt-1 space-y-1 hidden">
-            <a href="moderation#reports" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Reports</a>
-            <a href="moderation#posts" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Posts</a>
+            <a href="/moderation#reports" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Reports</a>
+            <a href="/moderation#posts" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Posts</a>
         </div>
 
         <!-- Update -->
@@ -135,9 +135,9 @@
             <i class="fas fa-chevron-down text-xs text-white ml-auto"></i>
         </button>
         <div class="ml-9 mt-1 space-y-1 hidden">
-            <a href="update#announcements" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Announcements</a>
-            <a href="update#events" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Events</a>
-            <a href="update#gallery" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Gallery</a>
+            <a href="/update#announcements" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Announcements</a>
+            <a href="/update#events" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Events</a>
+            <a href="/update#gallery" class="block px-2 py-1 text-white rounded hover:bg-[#E7AB39] hover:text-[#502C58]">Gallery</a>
         </div>
     </nav>
 
