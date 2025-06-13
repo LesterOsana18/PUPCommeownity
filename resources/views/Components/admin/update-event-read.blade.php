@@ -18,6 +18,7 @@
         </button>
 
         <button
+            id="save-button"
             type="submit"
             form="update-form"
             class="rounded-lg px-3 py-2 bg-[#4ABDAC] text-white text-sm font-semibold hover:bg-[#3da6a0] flex items-center"
@@ -91,9 +92,8 @@
         <div class="flex items-center justify-center">
             <div class="w-lg aspect-[3/2] relative group flex flex-col gap-2 text-sm">
                 <label class="font-bold text-lg" for="image">Event Image</label>
-                <input type="file" name="image" accept="image/*" class="bg-[#F1EAEA] p-2 rounded-lg" disabled>
-                <img src="{{ asset(str_replace('public/', '', $event->image_path)) }}" class="w-full h-auto rounded-[15px] max-h-64 object-cover" alt="Current Image">
-            </div>
+                <input type="file" name="image_path" accept="image/*" class="bg-[#F1EAEA] p-2 rounded-lg" disabled>
+                <img src="{{ asset('storage/' . $event->image_path) }}" alt="Event Image" class="w-full h-auto rounded-[15px] max-h-64 object-cover">            </div>
         </div>
 
         <div class="flex flex-col gap-2 text-sm">
@@ -120,15 +120,18 @@
                     >
                 </div>
             </div>
-            <div class="flex flex-col gap-2">
-                <p class="font-bold text-sm">Volunteer Names:</p>
-                <textarea
-                    name="volunteer_names"
-                    rows="5"
+
+            <div class="flex flex-col gap-2 text-sm">
+                <label class="font-bold text-sm" for="date">Date:</label>
+                <input
+                    type="date"
+                    name="date"
+                    value="{{ old('date', $event->date ? \Carbon\Carbon::parse($event->date)->format('Y-m-d') : '') }}"
                     class="rounded-lg bg-[#F1EAEA] p-2"
-                    readonly
-                >{{ $event->volunteers->pluck('name')->join("\n") }}</textarea>
+                    disabled
+                >
             </div>
+
             <div class="flex flex-col gap-2">
                 <p class="font-bold text-sm">Location:</p>
                 <input
@@ -141,13 +144,28 @@
             </div>
             <div class="flex flex-col gap-2">
                 <p class="font-bold text-sm">Time:</p>
-                <input
-                    type="text"
-                    name="time"
-                    value="{{ old('time', $event->time_start . ' - ' . $event->time_end) }}"
-                    class="rounded-lg bg-[#F1EAEA] p-2"
-                    disabled
-                >
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-2 items-center">
+                        <p class="font-bold text-sm">Start Time:</p>
+                        <input
+                            type="time"
+                            name="time_start"
+                            value="{{ old('time_start', $event->time_start) }}"
+                            class="rounded-lg bg-[#F1EAEA] p-2 w-full"
+                            required
+                        >
+                    </div>
+                    <div class="grid grid-cols-2 items-center">
+                        <p class="font-bold text-sm">End Time:</p>
+                        <input
+                            type="time"
+                            name="time_end"
+                            value="{{ old('time_end', $event->time_end) }}"
+                            class="rounded-lg bg-[#F1EAEA] p-2 w-full"
+                            required
+                        >
+                    </div>
+                </div>
             </div>
             <div class="flex flex-col gap-2">
                 <p class="font-bold text-sm">Description:</p>
