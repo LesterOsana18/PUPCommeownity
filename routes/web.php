@@ -113,24 +113,22 @@ Route::get('/terms', function () {
 /* // Route to display all applications
 Route::get('/tables', [AdoptionApplicationController::class, 'index'])->name('tables'); */
 
-// Show the edit form for an application
-Route::get('/tables/{id}/edit', [AdoptionApplicationController::class, 'edit'])->name('tables.applications.edit');
-
-// Update the application
-Route::put('/tables/{id}', [AdoptionApplicationController::class, 'update'])->name('tables.applications.update');
-
-Route::get('/application', [ApplicationController::class, 'create'])->name('application.create');
-
-// Route to show the tables page with donations, adoptions, and applications data
+// Show the tables page with donations, adoptions, and applications data
 Route::get('/tables', [TablesController::class, 'index'])->name('tables');
 
-// Route to delete a specific adoption application
+// Applications CRUD (Edit, Update, Delete)
+Route::get('/tables/{id}/edit', [AdoptionApplicationController::class, 'edit'])->name('tables.applications.edit');
+Route::put('/tables/{id}', [AdoptionApplicationController::class, 'update'])->name('tables.applications.update');
 Route::delete('/tables/{id}', [AdoptionApplicationController::class, 'destroy'])->name('tables.applications.destroy');
+
+// Create application view
+Route::get('/application', [AdoptionApplicationController::class, 'create'])->name('application.create');
 
 // Volunteer Page Route
 Route::get('/volunteer', [VolunteerPageController::class, 'index'])->name('volunteer');
 
-Route::get('/adopt', [AdoptionController::class, 'adopt']);
+// Adoption Page Route
+Route::get('/adopt', [AdoptionController::class, 'adopt'])->name('adopt');
 
 // Adoption Routes
 Route::prefix('adoptions')->name('adoptions.')->group(function () {
