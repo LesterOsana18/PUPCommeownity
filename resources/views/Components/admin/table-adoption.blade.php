@@ -5,7 +5,7 @@
     <div class="overflow-x-auto w-full">
         <div class="flex flex-row gap-2 mb-3 text-sm text-white font-semibold">
             <div class="rounded-lg px-4 py-2 bg-[#502C58]">
-                Table Name
+                Available Cats
             </div>
             <button class="rounded-lg px-4 py-2 bg-[#4ABDAC] hover:bg-[#369688] flex items-center">
                 <i class="fa-solid fa-plus mr-2"></i>
@@ -96,7 +96,7 @@
     <div class="overflow-x-auto w-full">
         <div class="flex flex-row gap-2 mb-3 text-sm text-white font-semibold">
             <div class="rounded-lg px-4 py-2 bg-[#502C58]">
-                Table Name
+                Previously Available Cats
             </div>
             <button class="rounded-lg px-4 py-2 bg-[#4ABDAC] hover:bg-[#369688] flex items-center">
                 <i class="fa-solid fa-plus mr-2"></i>
@@ -187,7 +187,7 @@
     <div class="overflow-x-auto w-full">
         <div class="flex flex-row gap-2 mb-3 text-sm text-white font-semibold">
             <div class="rounded-lg px-4 py-2 bg-[#502C58]">
-                Table Name
+                Legacy Cats
             </div>
             <button class="rounded-lg px-4 py-2 bg-[#4ABDAC] hover:bg-[#369688] flex items-center">
                 <i class="fa-solid fa-plus mr-2"></i>

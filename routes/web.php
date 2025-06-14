@@ -119,6 +119,8 @@ Route::get('/tables/{id}/edit', [AdoptionApplicationController::class, 'edit'])-
 // Update the application
 Route::put('/tables/{id}', [AdoptionApplicationController::class, 'update'])->name('tables.applications.update');
 
+Route::get('/application', [ApplicationController::class, 'create'])->name('application.create');
+
 // Route to show the tables page with donations, adoptions, and applications data
 Route::get('/tables', [TablesController::class, 'index'])->name('tables');
 
