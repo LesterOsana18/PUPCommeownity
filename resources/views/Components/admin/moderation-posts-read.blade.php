@@ -64,8 +64,23 @@
 
         @if ($post->image_path && $post->image_path !== 'images/def-img.svg')
             <div class="flex items-center justify-center">
-                <img src="{{ Str::startsWith($post->image_path, 'http') ? $post->image_path : asset('storage/' . $post->image_path) }}"
+                @php
+                    $imagePath = $post->image_path;
+
+                    if (Str::startsWith($imagePath, 'http')) {
+                        $imageSrc = $imagePath;
+                    } elseif (Str::startsWith($imagePath, 'images/')) {
+                        $imageSrc = asset($imagePath);
+                    } elseif (Str::startsWith($imagePath, 'updates/')) {
+                        $imageSrc = asset('storage/' . $imagePath);
+                    } else {
+                        $imageSrc = asset('images/def-img.svg');
+                    }
+                @endphp
+
+                <img src="{{ $imageSrc }}"
                     alt="Post Image"
+                    onerror="this.onerror=null;this.src='{{ asset('images/def-img.svg') }}';"
                     class="rounded-[15px] w-full max-h-64 object-cover" />
             </div>
         @endif
