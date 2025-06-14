@@ -34,7 +34,7 @@ class ResourceSeeder extends Seeder
             ],
             [
                 'title' => 'Adoption Process',
-                'description' =>'Step-by-step guide to our cat adoption procedures and requirements.',
+                'description' => 'Step-by-step guide to our cat adoption procedures and requirements.',
                 'image' => '/images/about-us-sample-pic-3.jpg',
                 'link' => '#',
             ],
@@ -49,19 +49,7 @@ class ResourceSeeder extends Seeder
                 'description' => 'Handbook for PUP Cat Coalition volunteers with policies and procedures.',
                 'image' => '/images/about-us-sample-pic-5.jpg',
                 'link' => '#',
-            ],
-            // [
-            //     'title' => 'Test 1',
-            //     'description' =>'Test. Test. Test. Test.',
-            //     'image' => '/images/about-us-sample-pic-1.jpg',
-            //     'link' => '#',
-            // ],
-            // [
-            //     'title' => 'Test 2',
-            //     'description' =>'Test. Test. Test. Test.',
-            //     'image' => '/images/about-us-sample-pic-1.jpg',
-            //     'link' => '#',
-            // ],
+            ]
         ]);
     }
 }

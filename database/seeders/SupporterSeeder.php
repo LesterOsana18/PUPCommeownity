@@ -56,20 +56,6 @@ class SupporterSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            [
-                'name' => 'Test 1',
-                'initials' => 'T1',
-                'message' => 'Test. Test. Test.',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'name' => 'Test 2',
-                'initials' => 'T2',
-                'message' => 'Test. Test. Test.',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
         ]);
     }
 }
