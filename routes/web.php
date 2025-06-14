@@ -128,6 +128,7 @@ Route::get('/application', [AdoptionApplicationController::class, 'create'])->na
 
 // Volunteer Page Route
 Route::get('/volunteer', [VolunteerPageController::class, 'index'])->name('volunteer');
+Route::post('/events/{event}/volunteer', [VolunteerController::class, 'store'])->name('events.volunteer');
 
 // Adoption Page Route
 Route::get('/adopt', [AdoptionController::class, 'adopt'])->name('adopt');
