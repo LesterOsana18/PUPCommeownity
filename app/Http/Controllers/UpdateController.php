@@ -16,7 +16,7 @@ class UpdateController extends Controller
     public function index()
     {
         $updates = Update::where('is_approved', true)->latest()->paginate(6);
-        $events = Event::latest()->paginate(6);
+        $events = Event::latest()->get();
         $resources = Resource::latest()->get();
         $committees = TeamCommittee::all();
 
