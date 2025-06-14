@@ -1,3 +1,5 @@
+@php use Illuminate\Support\Str; @endphp
+
 <x-layout>
     <section class="max-w-3xl mx-auto px-4 py-12 text-center">
         <div>
@@ -50,8 +52,17 @@
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
                 @forelse($cats as $cat)
                     <a class="bg-white rounded-xl shadow p-4 text-center hover:bg-purple-50">
-                        <img src="{{ $cat->photo_path ? asset('storage/' . $cat->photo_path) : '/images/def-img.svg' }}"
-                             alt="{{ $cat->name }}" class="mx-auto rounded mb-2" loading="lazy">
+                        @php
+                            $path = $cat->photo_path;
+                            $image = match (true) {
+                                Str::startsWith($path, 'http') => $path,
+                                Str::startsWith($path, 'cats/') => asset('storage/' . $path),
+                                Str::startsWith($path, 'images/') => asset($path),
+                                default => asset('images/def-img.svg'),
+                            };
+                        @endphp
+
+                        <img src="{{ $image }}" alt="{{ $cat->name }}" class="mx-auto rounded mb-2">
                         <p class="font-bold">{{ $cat->name }}</p>
                         <p class="text-sm text-gray-600">{{ ucfirst($cat->sex) }} / {{ $cat->age }} year{{ $cat->age == 1 ? '' : 's' }}</p>
                         <p class="text-xs text-gray-500">{{ $cat->breed }}, {{ $cat->color }}</p>
