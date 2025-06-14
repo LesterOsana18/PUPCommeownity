@@ -18,6 +18,7 @@ use App\Http\Controllers\VolunteerPageController;
 
 // Admin Controllers
 use App\Http\Controllers\Admin\AnnouncementController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\VolunteerController;
 
@@ -46,6 +47,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth')->name('dashboard');
+// This route uses the DashboardController to handle the logic for displaying the dashboard view.
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 // Donation Route
 // This route handles the donation form submission.
