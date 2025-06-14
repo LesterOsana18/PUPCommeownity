@@ -55,6 +55,6 @@
             @livewire('past-events')
         </div>
     </section>
-
-    @livewire('event-modal')
 </x-layout>
+
+@livewire('event-modal')

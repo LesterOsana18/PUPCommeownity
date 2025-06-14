@@ -21,7 +21,7 @@
 
             <!-- Close Button -->
             <button @click="showModal = false"
-                class="absolute top-10 right-4 text-gray-500 hover:text-black text-2xl leading-none focus:outline-none lg:top-4">
+                class="absolute top-4 right-4 text-gray-500 hover:text-black text-2xl leading-none focus:outline-none">
                 &times;
             </button>
 
@@ -29,7 +29,7 @@
                 <!-- Modal Header -->
                 <div class="mb-6 flex flex-col md:flex-row md:items-center gap-6">
                     <div class="w-full md:w-1/3 flex-shrink-0">
-                        <img src="{{ asset('storage/' . $event->image_path) }}" alt="{{ $event->name }}" class="mt-7 w-full h-48 object-cover rounded-xl shadow lg:mt-4">
+                        <img src="{{ asset('storage/' . $event->image_path) }}" alt="{{ $event->name }}" class="mt-4 w-full h-48 object-cover rounded-xl shadow">
                     </div>
                     <div class="w-full md:w-2/3">
                         <h2 class="text-3xl font-extrabold text-[#502C58] mb-2">{{ $event->name }}</h2>
