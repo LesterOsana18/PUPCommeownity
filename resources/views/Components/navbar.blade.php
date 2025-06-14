@@ -223,7 +223,7 @@
 
                         {{-- Admin Dashboard --}}
                         @if(Auth::user()->preferred_volunteer_role === 'site_administrator')
-                            <a href="{{ route('moderation') }}"
+                            <a href="{{ route('dashboard') }}"
                             class="flex items-center px-4 py-2 text-white
                                     hover:bg-[#E7AB39] hover:text-[#502C58]">
                                 <i class="fas fa-tachometer-alt mr-2"></i>
