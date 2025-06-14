@@ -19,13 +19,10 @@ class CurrentEvents extends Component
 
     public function render()
     {
-        $currentEvents = Event::where('status', 'CURRENT')
-            ->whereDate('date', '>=', now()->toDateString())
-            ->orderBy('date')
-            ->paginate(3);
-
         return view('livewire.current-events', [
-            'currentEvents' => $currentEvents
+            'currentEvents' => Event::where('status', 'CURRENT')
+                                ->orderBy('date')
+                                ->paginate(3)
         ]);
     }
 }

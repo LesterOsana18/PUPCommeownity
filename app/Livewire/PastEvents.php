@@ -19,15 +19,10 @@ class PastEvents extends Component
 
     public function render()
     {
-        $pastEvents = Event::where(function ($query) {
-                $query->where('status', 'PAST')
-                    ->orWhere('date', '<', now()->toDateString());
-            })
-            ->orderByDesc('date')
-            ->paginate(3);
-
         return view('livewire.past-events', [
-            'pastEvents' => $pastEvents
+            'pastEvents' => Event::where('status', 'PAST')
+                            ->orderByDesc('date')
+                            ->paginate(3)
         ]);
     }
 }
