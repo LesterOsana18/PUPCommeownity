@@ -14,6 +14,14 @@ class AdoptionController extends Controller
         return view('adopt', compact('cats'));
     }
 
+    public function adopt()
+    {
+        $cats = \App\Models\Adoption::where('adopted', false)->get(); // available
+        $previousCats = \App\Models\Adoption::where('adopted', true)->get(); // previous/adopted
+
+        return view('adopt', compact('cats', 'previousCats'));
+    }
+
     // // Display a listing of available cats for adoption
     // public function index()
     // {

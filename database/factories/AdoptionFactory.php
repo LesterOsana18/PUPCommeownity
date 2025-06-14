@@ -20,6 +20,14 @@ class AdoptionFactory extends Factory
             'sterilized' => $this->faker->boolean,
             'location' => $this->faker->city,
             'photo_path' => null,
+            'adopted' => false, // default for available cats
         ];
+    }
+
+    public function adopted()
+    {
+        return $this->state(fn (array $attributes) => [
+            'adopted' => true,
+        ]);
     }
 }

@@ -21,5 +21,6 @@ class Adoption extends Model
         'sterilized',
         'location',
         'photo_path',
+        'adopted'
     ];
 }

@@ -124,7 +124,7 @@ Route::get('/tables', [TablesController::class, 'index'])->name('tables');
 // Route to delete a specific adoption application
 Route::delete('/tables/{id}', [AdoptionApplicationController::class, 'destroy'])->name('tables.applications.destroy');
 
-Route::get('/adopt', [AdoptionController::class, 'gallery'])->name('adoption.gallery');
+Route::get('/adopt', [AdoptionController::class, 'adopt']);
 
 // Adoption Routes
 Route::prefix('adoptions')->name('adoptions.')->group(function () {
