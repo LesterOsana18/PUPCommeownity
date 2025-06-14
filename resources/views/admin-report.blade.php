@@ -25,11 +25,13 @@
             </div>
             <div class="flex items-center gap-2">
                 <p class="font-bold">Date & Time Spotted:</p>
-                <p id="">April 30, 2025, 8:00 AM</p>
+                {{-- <p id="">April 30, 2025, 8:00 AM</p> --}}
+                <p>{{ \Carbon\Carbon::parse($report->seen_at)->format('F j, Y, g:i A') }}</p>
             </div>
             <div class="flex items-center gap-2">
                 <p class="font-bold">Report No.:</p>
-                <p id="">1</p>
+                {{-- <p id="">1</p> --}}
+                <p>{{ $report->id }}</p>
             </div>
         </div>
         <div class="flex items-center justify-center">
@@ -41,28 +43,32 @@
             <p class="font-bold text-lg">Cat's Details</p>
             <div>
                 <p class="font-bold">Cat Description:</p>
-                <p id="">Lorem ipsum dolor sit amet consectetur adipiscing elit. Ex sapien vitae pellentesque sem placerat in id. Pretium tellus duis convallis tempus leo eu aenean. Urna tempor pulvinar vivamus fringilla lacus nec metus. Iaculis massa nisl malesuada lacinia integer nunc posuere. Semper vel class aptent taciti sociosqu ad litora. Conubia nostra inceptos himenaeos orci varius natoque penatibus. Dis parturient montes nascetur ridiculus mus donec rhoncus. Nulla molestie mattis scelerisque maximus eget fermentum odio. Purus est efficitur laoreet mauris pharetra vestibulum fusce.</p>
+                {{-- <p id="">Lorem ipsum dolor sit amet consectetur adipiscing elit. Ex sapien vitae pellentesque sem placerat in id. Pretium tellus duis convallis tempus leo eu aenean. Urna tempor pulvinar vivamus fringilla lacus nec metus. Iaculis massa nisl malesuada lacinia integer nunc posuere. Semper vel class aptent taciti sociosqu ad litora. Conubia nostra inceptos himenaeos orci varius natoque penatibus. Dis parturient montes nascetur ridiculus mus donec rhoncus. Nulla molestie mattis scelerisque maximus eget fermentum odio. Purus est efficitur laoreet mauris pharetra vestibulum fusce.</p> --}}
+                <p>{{ $report->description }}</p>
             </div>
             <div class="flex flex-col lg:flex-row lg:gap-2">
                 <p class="font-bold">Location:</p>
-                <p id="">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+                {{-- <p id="">Lorem ipsum dolor sit amet consectetur adipiscing elit.</p> --}}
+                <p>{{ $report->location }}</p>
             </div>
         </div>
         <div class="flex flex-col gap-2 text-sm">
             <p class="font-bold text-lg">Additional Details</p>
             <div>
                 <p class="font-bold">Condition/Behavior Observed:</p>
-                <p id="">Lorem ipsum dolor sit amet consectetur adipiscing elit. Ex sapien vitae pellentesque sem placerat in id. Pretium tellus duis convallis tempus leo eu aenean. Urna tempor pulvinar vivamus fringilla lacus nec metus. Iaculis massa nisl malesuada lacinia integer nunc posuere. Semper vel class aptent taciti sociosqu ad litora. Conubia nostra inceptos himenaeos orci varius natoque penatibus. Dis parturient montes nascetur ridiculus mus donec rhoncus. Nulla molestie mattis scelerisque maximus eget fermentum odio. Purus est efficitur laoreet mauris pharetra vestibulum fusce.</p>
+                {{-- <p id="">Lorem ipsum dolor sit amet consectetur adipiscing elit. Ex sapien vitae pellentesque sem placerat in id. Pretium tellus duis convallis tempus leo eu aenean. Urna tempor pulvinar vivamus fringilla lacus nec metus. Iaculis massa nisl malesuada lacinia integer nunc posuere. Semper vel class aptent taciti sociosqu ad litora. Conubia nostra inceptos himenaeos orci varius natoque penatibus. Dis parturient montes nascetur ridiculus mus donec rhoncus. Nulla molestie mattis scelerisque maximus eget fermentum odio. Purus est efficitur laoreet mauris pharetra vestibulum fusce.</p> --}}
+                <p>{{ $report->observation }}</p>
             </div>
             <div class="flex flex-row gap-2">
                 <p class="font-bold">Is this a Recurring Sight?:</p>
-                <p id="">No</p>
+                {{-- <p id="">No</p> --}}
+                <p>{{ ucfirst($report->recurring) }}</p>
             </div>
         </div>
-        <div class="flex flex-col gap-2 text-sm">
+        {{-- <div class="flex flex-col gap-2 text-sm">
             <p class="font-bold text-lg">Reporter's Details</p>
             <div class="flex flex-row gap-2">
-                <p class="font-bold">Reporter By:</p>
+                <p class="font-bold">Reported By:</p>
                 <p id="">Paula Sanchez</p>
             </div>
             <div class="flex flex-row gap-2">
@@ -73,6 +79,26 @@
                 <p class="font-bold">Affliation:</p>
                 <p id="">Student</p>
             </div>
+        </div> --}}
+        <div class="flex flex-col gap-2 text-sm">
+            <p class="font-bold text-lg">Reporter's Details</p>
+
+            @if (!$report->privacy)
+                <div class="flex flex-row gap-2">
+                    <p class="font-bold">Reported By:</p>
+                    <p>{{ $report->reporter_name }}</p>
+                </div>
+                <div class="flex flex-row gap-2">
+                    <p class="font-bold">Email Address:</p>
+                    <p>{{ $report->reporter_email }}</p>
+                </div>
+                <div class="flex flex-row gap-2">
+                    <p class="font-bold">Affiliation:</p>
+                    <p>{{ ucfirst($report->reporter_affiliation) }}</p>
+                </div>
+            @else
+                <p class="italic text-gray-500">Reporter chose to stay anonymous.</p>
+            @endif
         </div>
     </div>
 </x-admin-layout>

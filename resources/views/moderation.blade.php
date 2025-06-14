@@ -4,7 +4,9 @@
     </div>
 
     <div class="flex flex-col gap-5">
-        @include('components.admin.moderation-reports')
+        {{-- @include('components.admin.moderation-reports') --}}
+        @include('components.admin.moderation-reports', ['reports' => $reports])
+
         <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="posts">
             <h1 class="text-xl text-[#4ABDAC] font-bold">Posts</h1>
             <div class="flex items-center gap-2 mb-4">
@@ -28,5 +30,8 @@
                 </table>
             </div>
         </div>
+
+        @include('components.admin.moderation-messages')
+
     </div>
 </x-admin-layout>

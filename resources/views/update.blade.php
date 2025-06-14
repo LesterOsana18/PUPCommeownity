@@ -38,5 +38,6 @@
         @include('components.admin.update-announcements')
         @include('components.admin.update-events')
         @include('components.admin.update-gallery')
+        @include('components.admin.update-resources')
     </div>
 </x-admin-layout>

@@ -35,4 +35,25 @@ class ReportCatController extends Controller
 
         return redirect()->back()->with('success', 'Cat report submitted successfully!');
     }
+
+    public function index()
+    {
+        $reports = Report::latest()->get();
+        return view('Components.admin.moderation-reports', compact('reports'));
+    }
+
+    public function show($id)
+    {
+        $report = \App\Models\Report::findOrFail($id);
+        return view('admin-report', compact('report'));
+    }
+
+    public function toggleStatus($id)
+    {
+        $report = Report::findOrFail($id);
+        $report->status = $report->status === 'open' ? 'closed' : 'open';
+        $report->save();
+
+        return response()->json(['new_status' => $report->status]);
+    }
 }

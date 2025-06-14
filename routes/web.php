@@ -54,10 +54,12 @@ Route::post('/donation-form', [DonationController::class, 'store'])->name('donat
 // Report Route
 // This route handles the report-a-cat for submission.
 Route::post('/report', [ReportCatController::class, 'store'])->name('report.store');
+Route::get('/admin/reports/{id}', [ReportCatController::class, 'show'])->name('reports.show');
 
 // About Route
 // This route handles the contact/send-a-message in About page.
 Route::post('/about', [AboutContactMsgController::class, 'store'])->name('about.store');
+Route::get('/moderation/messages', [AboutContactMsgController::class, 'index'])->name('moderation.messages');
 // Route::get('/about', [AboutController::class, 'index'])->name('about');
 
 // Website Routes
@@ -172,9 +174,9 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/moderation/posts/{post}', [ModerationController::class, 'update'])->name('moderation.posts.update');
 });
 
-Route::get('/admin-report', function () {
-    return view('admin-report');
-});
+// Route::get('/admin-report', function () {
+//     return view('admin-report');
+// });
 
 Route::get('/admin-post', function () {
     return view('admin-post');
@@ -233,3 +235,6 @@ Route::post('/update/events', [EventController::class, 'store'])
 // About Page
 // This route handles the view of teams and supporters.
 Route::get('/about', [AboutController::class, 'index']);
+
+// Admin - Resource
+Route::delete('/admin/resources/{id}', [UpdateController::class, 'destroyResource'])->name('admin.resources.destroy');

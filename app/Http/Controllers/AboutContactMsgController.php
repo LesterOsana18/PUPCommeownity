@@ -18,4 +18,10 @@ class AboutContactMsgController extends Controller
 
         return redirect()->back()->with('success', 'Message sent successfully!');
     }
+
+    public function index()
+    {
+        $messages = AboutContactMsg::latest()->get();
+        return view('admin.moderation-contact-messages', compact('messages'));
+    }
 }

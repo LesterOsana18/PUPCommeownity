@@ -16,5 +16,6 @@ class Report extends Model
         'reporter_name',
         'reporter_email',
         'reporter_affiliation',
+        'privacy',
     ];
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('reporter_name')->nullable();
             $table->string('reporter_email')->nullable();
             $table->enum('reporter_affiliation', ['student', 'faculty', 'staff', 'visitor']);
+            $table->boolean('privacy')->default(true); // 👈 Add this
             $table->timestamps();
         });
     }

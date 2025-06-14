@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Update;
+use App\Models\Report;
+use App\Models\AboutContactMsg;
 
 class ModerationController extends Controller
 {
@@ -23,8 +25,12 @@ class ModerationController extends Controller
         }
 
         $allPosts = $query->latest()->paginate(10)->withQueryString();
+        $reports = Report::latest()->get();
+        // $reports = Report::all();
+        $messages = AboutContactMsg::latest()->get();
 
-        return view('moderation', compact('allPosts', 'filter'));
+        // return view('moderation', compact('allPosts', 'filter'));
+        return view('moderation', compact('allPosts', 'filter', 'reports', 'messages'));
     }
 
     public function scopePending($query)

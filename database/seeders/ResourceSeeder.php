@@ -50,18 +50,18 @@ class ResourceSeeder extends Seeder
                 'image' => '/images/about-us-sample-pic-5.jpg',
                 'link' => '#',
             ],
-            [
-                'title' => 'Test 1',
-                'description' =>'Test. Test. Test. Test.',
-                'image' => '/images/about-us-sample-pic-1.jpg',
-                'link' => '#',
-            ],
-            [
-                'title' => 'Test 2',
-                'description' =>'Test. Test. Test. Test.',
-                'image' => '/images/about-us-sample-pic-1.jpg',
-                'link' => '#',
-            ],
+            // [
+            //     'title' => 'Test 1',
+            //     'description' =>'Test. Test. Test. Test.',
+            //     'image' => '/images/about-us-sample-pic-1.jpg',
+            //     'link' => '#',
+            // ],
+            // [
+            //     'title' => 'Test 2',
+            //     'description' =>'Test. Test. Test. Test.',
+            //     'image' => '/images/about-us-sample-pic-1.jpg',
+            //     'link' => '#',
+            // ],
         ]);
     }
 }
