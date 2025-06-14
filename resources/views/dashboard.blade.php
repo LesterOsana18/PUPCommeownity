@@ -28,7 +28,7 @@
         </div>
 
         <!-- Charts -->
-        <div class="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 gap-6 mb-6">
             <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 border border-gray-200">
                 <div class="inline-block rounded-lg px-4 py-2 mb-3 bg-[#502C58] text-sm text-white font-semibold">
                     History of Adoptions
@@ -48,31 +48,39 @@
         </div>
 
         <!-- List of Users Table -->
-        <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 border border-gray-200 mt-6">
-            <div class="inline-block rounded-lg px-4 py-2 mb-3 bg-[#502C58] text-sm text-white font-semibold">
-                Current Volunteers
-            </div>
-            <div class="overflow-x-auto">
-                <table class="min-w-full rounded-lg">
+        <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="users">
+            <h1 class="text-xl text-[#4ABDAC] font-bold">Users</h1>
+            <!-- Table Header -->
+            <div class="overflow-x-auto w-full">
+                <div class="flex flex-row gap-2 mb-3 text-sm text-white font-semibold">
+                    <div class="rounded-lg px-4 py-2 bg-[#502C58]">
+                        Current Volunteers
+                    </div>
+                </div>
+                <table class="table-fixed min-w-full border border-collapse text-sm">
                     <thead>
                         <tr>
-                            <th class="py-2 px-4 font-semibold text-left">First Name</th>
-                            <th class="py-2 px-4 font-semibold text-left">Last Name</th>
-                            <th class="py-2 px-4 font-semibold text-left">Email</th>
-                            <th class="py-2 px-4 font-semibold text-left">Mobile Number</th>
-                            <th class="py-2 px-4 font-semibold text-left">Preferred Volunteer Role</th>
+                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">First Name</th>
+                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Last Name</th>
+                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Email</th>
+                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Mobile Number</th>
+                            <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Preferred Role</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($users as $user)
+                        @forelse ($users as $user)
                             <tr>
-                                <td class="py-2 px-4">{{ $user->first_name }}</td>
-                                <td class="py-2 px-4">{{ $user->last_name }}</td>
-                                <td class="py-2 px-4">{{ $user->email }}</td>
-                                <td class="py-2 px-4">{{ $user->mobile_number }}</td>
-                                <td class="py-2 px-4">{{ $user->preferred_volunteer_role_label }}</td>
+                                <td class="px-4 py-2 border border-gray-500">{{ $user->first_name }}</td>
+                                <td class="px-4 py-2 border border-gray-500">{{ $user->last_name }}</td>
+                                <td class="px-4 py-2 border border-gray-500">{{ $user->email }}</td>
+                                <td class="px-4 py-2 border border-gray-500">{{ $user->mobile_number }}</td>
+                                <td class="px-4 py-2 border border-gray-500">{{ $user->preferred_volunteer_role_label }}</td>
                             </tr>
-                        @endforeach
+                        @empty
+                            <tr>
+                                <td colspan="6" class="text-center text-gray-500 px-4 py-6 border border-gray-500">No users found.</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
