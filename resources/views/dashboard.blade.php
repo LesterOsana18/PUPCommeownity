@@ -26,11 +26,12 @@
                 <div class="text-black mt-1">Applications</div>
             </div>
         </div>
+
         <!-- Charts -->
         <div class="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 gap-6">
             <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 border border-gray-200">
                 <div class="inline-block rounded-lg px-4 py-2 mb-3 bg-[#502C58] text-sm text-white font-semibold">
-                    Statistics of Adoptions
+                    History of Adoptions
                 </div>
                 <div>
                     <canvas id="lineChart" height="220"></canvas>
@@ -45,6 +46,7 @@
                 </div>
             </div>
         </div>
+
         <!-- List of Users Table -->
         <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 border border-gray-200 mt-6">
             <div class="inline-block rounded-lg px-4 py-2 mb-3 bg-[#502C58] text-sm text-white font-semibold">
@@ -76,18 +78,25 @@
             </div>
         </div>
     </div>
+
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Line Chart: Adoptions Over Months (Sample Data)
+        // Get PHP data as JSON
+        const adoptionLabels = {!! json_encode(array_keys($adoptionsPerMonth)) !!};
+        const adoptionData = {!! json_encode(array_values($adoptionsPerMonth)) !!};
+        const donationLabels = {!! json_encode($donationLabels) !!};
+        const donationData = {!! json_encode($donationData) !!};
+
+        // Line Chart: Adoptions Over Months
         const ctxLine = document.getElementById('lineChart').getContext('2d');
         new Chart(ctxLine, {
             type: 'line',
             data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                labels: adoptionLabels,
                 datasets: [{
                     label: 'Adoptions',
-                    data: [90, 75, 110, 80, 95, 84], // Sample that adds up to 534
+                    data: adoptionData,
                     fill: false,
                     borderColor: '#4ABDAC',
                     backgroundColor: '#4ABDAC',
@@ -103,18 +112,19 @@
             }
         });
 
-        // Pie Chart: Donations Breakdown (Sample Data)
+        // Pie Chart: Donations Breakdown
         const ctxPie = document.getElementById('pieChart').getContext('2d');
         new Chart(ctxPie, {
             type: 'pie',
             data: {
-                labels: ['Cat Food', 'Money', 'Litter Sand'],
+                labels: donationLabels,
                 datasets: [{
-                    data: [3200, 4000, 1540], // Total is $8,740
+                    data: donationData,
                     backgroundColor: [
                         '#502C58',
                         '#4ABDAC',
-                        '#E7AB39'
+                        '#E7AB39',
+                        '#F67280'
                     ]
                 }]
             },
