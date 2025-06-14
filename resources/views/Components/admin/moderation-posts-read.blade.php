@@ -64,7 +64,7 @@
 
         @if ($post->image_path && $post->image_path !== 'images/def-img.svg')
             <div class="flex items-center justify-center">
-                <img src="{{ Str::startsWith($post->image_path, 'images/') ? asset($post->image_path) : asset('storage/' . $post->image_path) }}"
+                <img src="{{ Str::startsWith($post->image_path, 'http') ? $post->image_path : asset('storage/' . $post->image_path) }}"
                     alt="Post Image"
                     class="rounded-[15px] w-full max-h-64 object-cover" />
             </div>
