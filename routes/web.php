@@ -194,6 +194,7 @@ Route::prefix('updates')->name('updates.')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/updates/{post}/edit', [UpdateController::class, 'edit'])->name('updates.edit');
     Route::delete('/updates/{post}', [UpdateController::class, 'destroy'])->name('updates.destroy');
+    Route::put('/updates/{post}', [UpdateController::class, 'update'])->name('updates.update');
 });
 
 
