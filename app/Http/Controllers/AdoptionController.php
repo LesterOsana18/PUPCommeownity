@@ -7,40 +7,47 @@ use App\Models\Adoption;
 
 class AdoptionController extends Controller
 {
-    // Display a listing of available cats for adoption
-    public function index()
+
+    public function gallery()
     {
-        $cats = Adoption::where('sterilized', true)->get(); // can be adjusted, temp
-        return view('adoptions.index', compact('cats'));
+        $cats = \App\Models\Adoption::all();
+        return view('adopt', compact('cats'));
     }
 
-    // Show the details of a specific cat
-    public function show($id)
-    {
-        $cat = Adoption::findOrFail($id);
-        return view('adoptions.show', compact('cat'));
-    }
+    // // Display a listing of available cats for adoption
+    // public function index()
+    // {
+    //     $cats = Adoption::where('sterilized', true)->get(); // can be adjusted, temp
+    //     return view('adoptions.index', compact('cats'));
+    // }
 
-    // Handle the adoption request
-    public function adopt(Request $request, $id)
-    {
-        $request->validate([
-            'adopter_name' => 'required|string|max:255',
-            'adopter_contact' => 'required|string|max:255',
-        ]);
+    // // Show the details of a specific cat
+    // public function show($id)
+    // {
+    //     $cat = Adoption::findOrFail($id);
+    //     return view('adoptions.show', compact('cat'));
+    // }
 
-        $cat = Adoption::findOrFail($id);
+    // // Handle the adoption request
+    // public function adopt(Request $request, $id)
+    // {
+    //     $request->validate([
+    //         'adopter_name' => 'required|string|max:255',
+    //         'adopter_contact' => 'required|string|max:255',
+    //     ]);
 
-        $adoption = new Adoption();
-        $adoption->cat_id = $cat->id;
-        $adoption->adopter_name = $request->adopter_name;
-        $adoption->adopter_contact = $request->adopter_contact;
-        $adoption->adopted_at = now();
-        $adoption->save();
+    //     $cat = Adoption::findOrFail($id);
 
-        // Optionally mark the cat as adopted
-        $cat->update(['adopted' => true]);
+    //     $adoption = new Adoption();
+    //     $adoption->cat_id = $cat->id;
+    //     $adoption->adopter_name = $request->adopter_name;
+    //     $adoption->adopter_contact = $request->adopter_contact;
+    //     $adoption->adopted_at = now();
+    //     $adoption->save();
 
-        return redirect()->route('adoptions.index')->with('success', 'Cat adopted successfully!');
-    }
+    //     // Optionally mark the cat as adopted
+    //     $cat->update(['adopted' => true]);
+
+    //     return redirect()->route('adoptions.index')->with('success', 'Cat adopted successfully!');
+    // }
 }
