@@ -63,7 +63,7 @@ class AdoptionApplicationController extends Controller
 
         // Convert adoption_prompt to a string
         if (isset($validated['adoption_prompt'])) {
-            $validated['adoption_prompt'] = implode(',', $validated['adopt.index']);
+            $validated['adoption_prompt'] = implode(',', $validated['adoption_prompt']);
         }
 
         // dd($validated);

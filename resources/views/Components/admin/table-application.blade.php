@@ -7,10 +7,10 @@
                 <div class="rounded-lg px-4 py-2 bg-[#502C58]">
                     Adoption Applications
                 </div>
-                <button class="rounded-lg px-4 py-2 bg-[#4ABDAC] hover:bg-[#369688] flex items-center">
+                <a href="{{ route('application.create') }}" class="rounded-lg px-4 py-2 bg-[#4ABDAC] hover:bg-[#369688] flex items-center">
                     <i class="fa-solid fa-plus mr-2"></i>
                     Add Record
-                </button>
+                </a>
             </div>
             <table class="table-fixed min-w-full border border-collapse text-sm">
                 <thead>

@@ -2,6 +2,10 @@
     <div class="container mx-auto max-w-2xl p-8 bg-white rounded-lg shadow">
         <h2 class="text-2xl font-bold mb-4 text-[#4ABDAC]">Edit Adoption Application</h2>
 
+        <a href="{{ route('tables') }}" class="inline-block mb-6 text-[#4ABDAC] hover:text-[#369688] font-semibold">
+            ← Back to Tables
+        </a>
+
         <form action="{{ route('tables.applications.update', $application->id) }}" method="POST">
             @csrf
             @method('PUT')
