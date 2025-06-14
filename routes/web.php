@@ -112,6 +112,12 @@ Route::get('/terms', function () {
 /* // Route to display all applications
 Route::get('/tables', [AdoptionApplicationController::class, 'index'])->name('tables'); */
 
+// Show the edit form for an application
+Route::get('/tables/{id}/edit', [AdoptionApplicationController::class, 'edit'])->name('tables.applications.edit');
+
+// Update the application
+Route::put('/tables/{id}', [AdoptionApplicationController::class, 'update'])->name('tables.applications.update');
+
 // Route to show the tables page with donations, adoptions, and applications data
 Route::get('/tables', [TablesController::class, 'index'])->name('tables');
 

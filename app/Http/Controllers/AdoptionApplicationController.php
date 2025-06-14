@@ -82,6 +82,48 @@ class AdoptionApplicationController extends Controller
         return redirect('/')->with('success', 'Application submitted successfully!');
     }
 
+    public function edit($id)
+    {
+        $application = AdoptionApplication::findOrFail($id);
+        return view('Components.admin.update-application', compact('application'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Validation rules (reuse your baseRules array if possible)
+        $baseRules = [
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'address' => 'required|string',
+            'phone' => 'required|string',
+            'email' => 'required|email',
+            'birth_date' => 'required|date',
+            'occupation' => 'nullable|string|max:255',
+            'company_business_name' => 'required|string',
+            'social_media_profile' => 'nullable|string|max:255',
+            'civil_status' => 'required|in:single,married,other',
+            'sex' => 'required|in:male,female,other',
+            'adoption_prompt' => 'required|array',
+            'adoption_prompt.*' => 'in:friends,social_media,website,posters,other',
+            'adopted_before' => 'required|in:yes,no',
+            'alt_first_name' => 'required|string',
+            'alt_last_name' => 'required|string',
+            'relationship_to_alt' => 'required|string',
+            'phone_alt' => 'required|string',
+            'email_alt' => 'required|email',
+        ];
+
+        $validated = $request->validate($baseRules);
+
+        // Convert adoption_prompt array to string for saving
+        $validated['adoption_prompt'] = implode(',', $validated['adoption_prompt']);
+
+        $application = \App\Models\AdoptionApplication::findOrFail($id);
+        $application->update($validated);
+
+        return redirect()->route('tables')->with('success', 'Application updated successfully!');
+    }
+
     public function destroy($id)
     {
         $application = AdoptionApplication::findOrFail($id);

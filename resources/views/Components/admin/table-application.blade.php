@@ -79,10 +79,11 @@
                             </td>
                             <td class="px-4 py-2 border border-gray-500 text-center">
                                 <div class="flex items-center justify-center gap-2">
-                                    <button class="rounded-lg px-3 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 flex items-center">
-                                        <i class="fa-regular fa-pen-to-square mr-2"></i>
-                                        Edit
-                                    </button>
+                                    <a href="{{ route('tables.applications.edit', $application->id) }}"
+                                        class="rounded-lg px-3 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 flex items-center">
+                                         <i class="fa-regular fa-pen-to-square mr-2"></i>
+                                         Edit
+                                     </a>
                                     <form action="{{ route('tables.applications.destroy', $application->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this application?');" class="d-inline">
                                         @csrf
                                         @method('DELETE')
