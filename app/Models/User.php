@@ -58,4 +58,15 @@ class User extends Authenticatable
         return $this->belongsToMany(Update::class, 'paws')->withTimestamps();
     }
 
+    public function getPreferredVolunteerRoleLabelAttribute()
+    {
+        $labels = [
+            'event_coordinator' => 'Event Coordinator',
+            'foster_caregiver' => 'Foster Caregiver',
+            'adoption_counselor' => 'Adoption Counselor',
+            'site_administrator' => 'Site Administrator'
+        ];
+        return $labels[$this->preferred_volunteer_role] ?? ucfirst(str_replace('_', ' ', $this->preferred_volunteer_role));
+    }
+
 }
