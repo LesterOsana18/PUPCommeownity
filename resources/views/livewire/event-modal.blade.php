@@ -1,22 +1,9 @@
 <div x-data="{ showModal: @entangle('showModal') }">
     <!-- Modal Backdrop -->
     <div x-show="showModal"
-         x-transition:enter="transition ease-out duration-300"
-         x-transition:enter-start="opacity-0"
-         x-transition:enter-end="opacity-100"
-         x-transition:leave="transition ease-in duration-200"
-         x-transition:leave-start="opacity-100"
-         x-transition:leave-end="opacity-0"
          class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center px-4">
-
         <!-- Modal Content -->
         <div x-show="showModal"
-             x-transition:enter="transition ease-out duration-300"
-             x-transition:enter-start="opacity-0 scale-95"
-             x-transition:enter-end="opacity-100 scale-100"
-             x-transition:leave="transition ease-in duration-200"
-             x-transition:leave-start="opacity-100 scale-100"
-             x-transition:leave-end="opacity-0 scale-95"
              class="bg-white rounded-2xl shadow-xl p-6 w-full max-w-5xl max-h-[90vh] overflow-y-auto relative">
 
             <!-- Close Button -->
