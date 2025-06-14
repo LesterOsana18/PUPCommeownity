@@ -17,7 +17,10 @@
         </div>
 
         <script>
-            window.EVENTS_DATA = @json($currentEvents);
+            window.EVENTS_DATA = {};
+            @foreach($currentEvents as $event)
+                window.EVENTS_DATA[{{ $event['id'] }}] = @json($event);
+            @endforeach
             window.isLoggedIn = {{ $user ? 'true' : 'false' }};
             window.userId = {{ $user ? $user->id : 'null' }};
             window.userName = {!! $user ? json_encode($user->first_name . ' ' . $user->last_name) : 'null' !!};
@@ -95,7 +98,7 @@
                                     </div>
                                 </div>
                                 <p class="text-gray-600 text-sm mb-4">{{ $event['description'] }}</p>
-                                <button onclick="openEventModal({{ $i }})"
+                                <button onclick="openEventModal({{ $event['id'] }})"
                                     class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-[#502C58] hover:bg-[#3f2247] focus:outline-none focus:ring-2 focus:ring-[#502C58]">
                                     Read
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none"
@@ -108,10 +111,8 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="p-6 flex justify-center space-x-2 font-poppins">
-                    <button class="w-8 h-8 text-white bg-[#0a9396] rounded-full hover:bg-[#0a9396]/80 font-bold">1</button>
-                    <button class="w-8 h-8 text-[#0a9396] bg-white rounded-full hover:bg-[#0a9396]/20">2</button>
-                    <button class="w-8 h-8 text-[#0a9396] bg-white rounded-full hover:bg-[#0a9396]/20">3</button>
+                <div class="p-6 flex justify-center">
+                    {{ $currentEvents->links('vendor.pagination.custom-simple') }}
                 </div>
             </div>
 
@@ -138,10 +139,8 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="p-6 flex justify-center space-x-2 font-poppins">
-                    <button class="w-8 h-8 text-white bg-[#0a9396] rounded-full hover:bg-[#0a9396]/80 font-bold">1</button>
-                    <button class="w-8 h-8 text-[#0a9396] bg-white rounded-full hover:bg-[#0a9396]/20">2</button>
-                    <button class="w-8 h-8 text-[#0a9396] bg-white rounded-full hover:bg-[#0a9396]/20">3</button>
+                <div class="p-6 flex justify-center">
+                    {{ $currentEvents->links('vendor.pagination.custom-simple') }}
                 </div>
             </div>
         </div>
@@ -153,8 +152,8 @@
             document.body.classList.toggle('overflow-hidden');
         }
 
-        function openEventModal(eventIndex) {
-            const data = window.EVENTS_DATA[eventIndex];
+        function openEventModal(eventId) {
+            const data = window.EVENTS_DATA[eventId];
             if (!data) return;
             document.getElementById('event-modal-image').src = data.image;
             document.getElementById('event-modal-image').alt = data.title;
