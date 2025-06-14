@@ -4,20 +4,20 @@
     </div>
 
     <div class="pt-4 px-4 pb-0 grid grid-cols-1 md:grid-cols-3 gap-6">
-        @foreach ($currentEvents as $i => $event)
+        @foreach ($currentEvents as $event)
             @php
-                $current = $event['current'];
-                $target = $event['target'];
+                $current = $event->current_volunteers;
+                $target = $event->target_volunteers;
                 $progress = min(100, ($current && $target) ? ($current / $target) * 100 : 0);
             @endphp
             <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all">
                 <div class="h-48 flex items-center justify-center overflow-hidden">
-                    <img src="{{ $event['image'] }}" alt="{{ $event['title'] }}" class="w-full h-full object-cover">
+                    <img src="{{ asset('storage/' . $event->image_path) }}" alt="{{ $event->name }}" class="w-full h-full object-cover">
                 </div>
                 <div class="p-6">
                     <div class="flex flex-col items-center mb-3 w-full">
                         <h3 class="text-xl font-semibold text-gray-800 group-hover:text-[#502C58] transition-colors w-full text-left">
-                            {{ $event['title'] }}
+                            {{ $event->name }}
                         </h3>
                         <div class="mt-2 flex flex-col items-center w-full">
                             <div class="flex justify-center gap-x-4 mb-1 text-sm">
@@ -34,8 +34,8 @@
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 text-sm mb-4">{{ $event['description'] }}</p>
-                    <button onclick="openEventModal({{ $event['id'] }})"
+                    <p class="text-gray-600 text-sm mb-4">{{ $event->description }}</p>
+                    <button wire:click="$dispatch('openEventModal', { eventId: {{ $event->id }} })"
                         class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-[#502C58] hover:bg-[#3f2247] focus:outline-none focus:ring-2 focus:ring-[#502C58]">
                         Read
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none"
@@ -48,10 +48,11 @@
             </div>
         @endforeach
     </div>
-    <!--Pagination-->
-    {{-- <div class="overflow-hidden mb-0 pb-0">
-        <div class="mt-4 mb-0 flex justify-center">
+
+    <!-- Pagination -->
+    <div class="overflow-hidden mb-0 pb-0">
+        <div class="mt-4 mb-4 flex justify-center">
             {{ $currentEvents->links() }}
         </div>
-    </div> --}}
+    </div>
 </div>
