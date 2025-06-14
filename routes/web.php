@@ -14,6 +14,7 @@ use App\Http\Controllers\ModerationController;
 use App\Http\Controllers\ReportCatController;
 use App\Http\Controllers\TablesController;
 use App\Http\Controllers\UpdateController;
+use App\Http\Controllers\VolunteerPageController;
 
 // Admin Controllers
 use App\Http\Controllers\Admin\AnnouncementController;
@@ -123,6 +124,9 @@ Route::get('/tables', [TablesController::class, 'index'])->name('tables');
 
 // Route to delete a specific adoption application
 Route::delete('/tables/{id}', [AdoptionApplicationController::class, 'destroy'])->name('tables.applications.destroy');
+
+// Volunteer Page Route
+Route::get('/volunteer', [VolunteerPageController::class, 'index'])->name('volunteer');
 
 Route::get('/adopt', [AdoptionController::class, 'adopt']);
 
