@@ -49,7 +49,7 @@
 
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
                 @forelse($cats as $cat)
-                    <a href="{{ url('/catprofile/' . $cat->id) }}" class="bg-white rounded-xl shadow p-4 text-center hover:bg-purple-50">
+                    <a class="bg-white rounded-xl shadow p-4 text-center hover:bg-purple-50">
                         <img src="{{ $cat->photo_path ? asset('storage/' . $cat->photo_path) : '/images/def-img.svg' }}"
                              alt="{{ $cat->name }}" class="mx-auto rounded mb-2" loading="lazy">
                         <p class="font-bold">{{ $cat->name }}</p>
@@ -57,7 +57,16 @@
                         <p class="text-xs text-gray-500">{{ $cat->breed }}, {{ $cat->color }}</p>
                         <p class="text-xs text-gray-500">Weight: {{ $cat->weight }}kg</p>
                         <p class="text-xs text-gray-500">Sterilized: {{ $cat->sterilized ? 'Yes' : 'No' }}</p>
-                        <p class="text-xs text-gray-500">Location: {{ $cat->location }}</p>
+                        <p class="text-xs text-gray-500">
+                            Location:
+                            <span class="font-bold underline text-gray-700">{{ $cat->location }}</span>
+                        </p>
+                        @if($cat->additional_remarks)
+                            <br><p class="text-xs text-gray-500">
+                                Additional Remarks:
+                                <span class="font-bold text-gray-800">{{ $cat->additional_remarks }}</span>
+                            </p>
+                        @endif
                     </a>
                 @empty
                     <p class="col-span-full text-gray-500">No cats available for adoption at this time.</p>
@@ -73,16 +82,16 @@
             </p>
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
                 @forelse($previousCats as $cat)
-                    <a href="#" class="bg-white rounded-xl shadow p-4 text-center hover:bg-purple-50">
+                    <div class="bg-white rounded-xl shadow p-4 text-center hover:bg-purple-50">
                         <img src="{{ $cat->photo_path ? asset('storage/' . $cat->photo_path) : '/images/def-img.svg' }}"
                             alt="{{ $cat->name }}" class="mx-auto rounded mb-2">
                         <p class="font-bold">{{ $cat->name }}</p>
-                        <p class="text-sm text-gray-600">{{ ucfirst($cat->sex) }} / {{ $cat->age }} year{{ $cat->age == 1 ? '' : 's' }}</p>
-                        <p class="text-xs text-gray-500">{{ $cat->breed }}, {{ $cat->color }}</p>
-                        <p class="text-xs text-gray-500">Weight: {{ $cat->weight }}kg</p>
-                        <p class="text-xs text-gray-500">Sterilized: {{ $cat->sterilized ? 'Yes' : 'No' }}</p>
-                        <p class="text-xs text-gray-500">Location: {{ $cat->location }}</p>
-                    </a>
+                        <p class="text-sm text-gray-600">{{ ucfirst($cat->sex) }}{{ $cat->breed ? ' • ' . $cat->breed : '' }}{{ $cat->color ? ' • ' . ucfirst($cat->color) : '' }}</p>
+                        <p class="text-xs text-gray-500">Adopted at age {{ $cat->age }}</p>
+                        @if($cat->additional_remarks)
+                            <p class="text-xs text-gray-500 mt-2 italic">{{ $cat->additional_remarks }}</p>
+                        @endif
+                    </div>
                 @empty
                     <p class="col-span-full text-gray-500">No previous cats to show at this time.</p>
                 @endforelse
@@ -95,13 +104,26 @@
             <p class="text-sm text-gray-600 text-left mb-6">A gallery of campus cats that have unfortunately passed away due to various circumstances, including a tabby cat named <em>Pogi</em>.</p>
 
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-                @foreach(range(1,3) as $id)
-                <div class="bg-white rounded-xl shadow p-4 text-center hover:bg-purple-50">
-                    <img src="/images/def-img.svg" alt="Legacy Cat" class="mx-auto grayscale rounded mb-2" loading="lazy">
-                    <p class="font-bold">Cat Name</p>
-                    <p class="text-sm text-gray-600">XXXX - XXXX</p>
-                </div>
-                @endforeach
+                @forelse($deceasedCats as $cat)
+                    <div class="bg-white rounded-xl shadow p-4 text-center hover:bg-purple-50">
+                        <img src="{{ $cat->photo_path ? asset('storage/' . $cat->photo_path) : '/images/def-img.svg' }}"
+                             alt="{{ $cat->name }}" class="mx-auto grayscale rounded mb-2" loading="lazy">
+                        <p class="font-bold">{{ $cat->name }}</p>
+                        <p class="text-sm text-gray-600">
+                            Year of Death:
+                            @if($cat->date_of_death)
+                                {{ \Carbon\Carbon::parse($cat->date_of_death)->format('Y') }}
+                            @else
+                                ????
+                            @endif
+                        </p>
+                        @if($cat->additional_remarks)
+                            <p class="text-xs text-gray-500 mt-2 italic">{{ $cat->additional_remarks }}</p>
+                        @endif
+                    </div>
+                @empty
+                    <p class="col-span-full text-gray-500">No legacy cats at this time.</p>
+                @endforelse
             </div>
 
             {{-- Pogi Tribute --}}

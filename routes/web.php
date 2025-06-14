@@ -136,23 +136,14 @@ Route::post('/events/{event}/volunteer', [VolunteerController::class, 'store'])-
 // Adoption Page Route
 Route::get('/adopt', [AdoptionController::class, 'adopt'])->name('adopt');
 
-// Adoption Routes
-Route::prefix('adoptions')->name('adoptions.')->group(function () {
-    // Route to display all available cats for adoption
-    Route::get('/', [AdoptionController::class, 'index'])->name('index');
-
-    // Route to show details of a specific cat (for adoption)
-    Route::get('/{id}', [AdoptionController::class, 'show'])->name('show');
-
-    // Route to handle the adoption request
-    Route::post('/{id}/adopt', [AdoptionController::class, 'adopt'])->name('adopt');
-});
-
 // Route to show the adoption application form
 Route::get('/application', [AdoptionApplicationController::class, 'create'])->name('application.create');
 
 // Route to handle the form submission
 Route::post('/application', [AdoptionApplicationController::class, 'store'])->name('application.store');
+
+// Adoption CRUD Routes
+Route::resource('adoptions', AdoptionController::class);
 
 // Donations CRUD (Create, Read, Update, Delete)
 Route::get('/donations', [DonationController::class, 'index'])->name('donations.index');

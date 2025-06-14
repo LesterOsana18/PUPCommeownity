@@ -16,46 +16,93 @@ class AdoptionController extends Controller
 
     public function adopt()
     {
-        $cats = \App\Models\Adoption::where('adopted', false)->get(); // available
-        $previousCats = \App\Models\Adoption::where('adopted', true)->get(); // previous/adopted
+        $cats = \App\Models\Adoption::where('adopted', false)->where('deceased', false)->get(); // available
+        $previousCats = \App\Models\Adoption::where('adopted', true)->where('deceased', false)->get(); // previous/adopted
+        $deceasedCats = \App\Models\Adoption::where('deceased', true)->get(); // legacy/deceased
 
-        return view('adopt', compact('cats', 'previousCats'));
+        return view('adopt', compact('cats', 'previousCats', 'deceasedCats'));
     }
 
-    // // Display a listing of available cats for adoption
-    // public function index()
-    // {
-    //     $cats = Adoption::where('sterilized', true)->get(); // can be adjusted, temp
-    //     return view('adoptions.index', compact('cats'));
-    // }
+    public function create()
+    {
+        return view('create-adoption');
+    }
 
-    // // Show the details of a specific cat
-    // public function show($id)
-    // {
-    //     $cat = Adoption::findOrFail($id);
-    //     return view('adoptions.show', compact('cat'));
-    // }
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name'        => 'required|string|max:255',
+            'breed'       => 'required|string|max:255',
+            'sex'         => 'required|in:male,female',
+            'age'         => 'required|integer|min:0',
+            'color'       => 'required|in:black,white,brown,orange,gray,other',
+            'weight'      => 'required|numeric|min:0',
+            'sterilized'  => 'nullable|boolean',
+            'location'    => 'required|string|max:255',
+            'photo_path'  => 'required|image|mimes:jpg,jpeg,png,webp,gif|max:2048',
+            'adopted'     => 'nullable|boolean',
+            'additional_remarks' => 'nullable|string',
+            'deceased' => 'required|boolean',
+            'date_of_death' => 'nullable|date'
+        ]);
 
-    // // Handle the adoption request
-    // public function adopt(Request $request, $id)
-    // {
-    //     $request->validate([
-    //         'adopter_name' => 'required|string|max:255',
-    //         'adopter_contact' => 'required|string|max:255',
-    //     ]);
+        // Only require 'sterilized' and 'adopted' if the cat is NOT deceased
+        if (!$request->input('deceased')) {
+            $rules['sterilized'] = 'required|boolean';
+            $rules['adopted'] = 'required|boolean';
+        } else {
+            // If deceased, you might want to allow these to be nullable instead
+            $rules['sterilized'] = 'nullable|boolean';
+            $rules['adopted'] = 'nullable|boolean';
+        }
 
-    //     $cat = Adoption::findOrFail($id);
+        // Handle image upload here
+        if ($request->hasFile('photo_path')) {
+            $path = $request->file('photo_path')->store('cats', 'public');
+            $validated['photo_path'] = $path; // e.g. cats/yourimage.jpg
+        }
 
-    //     $adoption = new Adoption();
-    //     $adoption->cat_id = $cat->id;
-    //     $adoption->adopter_name = $request->adopter_name;
-    //     $adoption->adopter_contact = $request->adopter_contact;
-    //     $adoption->adopted_at = now();
-    //     $adoption->save();
+        Adoption::create($validated);
 
-    //     // Optionally mark the cat as adopted
-    //     $cat->update(['adopted' => true]);
+        return redirect('/tables')->with('success', 'Cat added to gallery!');
+    }
 
-    //     return redirect()->route('adoptions.index')->with('success', 'Cat adopted successfully!');
-    // }
+    public function update(Request $request, $id)
+    {
+        $rules = [
+            'name'        => 'required|string|max:255',
+            'breed'       => 'required|string|max:255',
+            'sex'         => 'required|in:male,female',
+            'age'         => 'required|integer|min:0',
+            'color'       => 'required|in:black,white,brown,orange,gray,other',
+            'weight'      => 'required|numeric|min:0',
+            'sterilized'  => 'nullable|boolean',
+            'location'    => 'required|string|max:255',
+            'photo_path'  => 'required|image|mimes:jpg,jpeg,png,webp,gif|max:2048',
+            'adopted'     => 'nullable|boolean',
+            'additional_remarks' => 'nullable|string',
+            'deceased' => 'required|boolean',
+            'date_of_death' => 'nullable|date'
+        ];
+
+        // Only require 'sterilized' and 'adopted' if the cat is NOT deceased
+        if (!$request->input('deceased')) {
+            $rules['sterilized'] = 'required|boolean';
+            $rules['adopted'] = 'required|boolean';
+        } else {
+            $rules['sterilized'] = 'nullable|boolean';
+            $rules['adopted'] = 'nullable|boolean';
+        }
+
+        $validated = $request->validate($rules);
+
+        // Find the cat or adoption record
+        $cat = \App\Models\Adoption::findOrFail($id);
+
+        // Update the cat
+        $cat->update($validated);
+
+        // Redirect or return response as needed
+        return redirect('/')->with('success', 'Cat updated successfully.');
+    }
 }

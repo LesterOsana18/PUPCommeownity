@@ -14,9 +14,9 @@ return new class extends Migration
             $table->string('breed');
             $table->enum('sex', ['male', 'female']);
             $table->integer('age');
-            $table->enum('color', ['black', 'white', 'brown', 'orange', 'gray', 'other']);
+            $table->enum('color', ['Black', 'White', 'Brown', 'Orange', 'Gray', 'Other']);
             $table->decimal('weight', 5, 2);
-            $table->boolean('sterilized');
+            $table->boolean('sterilized')->nullable();;
             $table->text('location');
             $table->text('photo_path')->nullable();
             $table->timestamps();

@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class AdoptionApplication extends Model
 {
     protected $table = 'adoption_applications';
+
+    use HasFactory;
 
     protected $fillable = [
         'first_name',

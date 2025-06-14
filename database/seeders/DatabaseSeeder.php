@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             SupporterSeeder::class,
             TeamCommitteeSeeder::class,
             ResourceSeeder::class,
+            AdoptionApplicationSeeder::class,
             AdoptionSeeder::class,
             DonationsTableSeeder::class,
             ReportSeeder::class,

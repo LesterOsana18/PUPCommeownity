@@ -11,9 +11,11 @@ class TablesController extends Controller
     public function index()
     {
         $donations = Donation::all();
-        // $adoptions = Adoption::all();
         $applications = AdoptionApplication::all();
+        $cats = \App\Models\Adoption::where('adopted', false)->where('deceased', false)->get(); // Available
+        $previousCats = \App\Models\Adoption::where('adopted', true)->where('deceased', false)->get(); // Previously available (adopted)
+        $deceasedCats = \App\Models\Adoption::where('deceased', true)->get(); // Legacy
 
-        return view('tables', compact('donations', 'applications')); // Add 'adoptions' here after creating the Adoption model
+        return view('tables', compact('donations', 'applications', 'cats', 'previousCats', 'deceasedCats')); // Add 'adoptions' here after creating the Adoption model
     }
 }
