@@ -167,8 +167,7 @@
                     $isMinor = $age < 18;
                 }
             @endphp
-            <div id="coSignerSection"
-                 class="{{ $isMinor ? '' : 'hidden' }} border border-yellow-400 bg-yellow-50 rounded-md p-4 mt-6">
+            <div id="coSignerSection" class="{{ $isMinor ? '' : 'hidden' }} border border-yellow-400 bg-yellow-50 rounded-md p-4 mt-6">
                 <h2 class="text-lg font-semibold mb-2 text-yellow-800">Parent/Guardian Co-Signer Details (required for minors)</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
                     <div>

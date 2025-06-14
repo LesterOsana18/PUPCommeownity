@@ -53,11 +53,11 @@
                         </td>
                         <td class="px-4 py-2 border border-gray-500 text-center">
                             <div class="flex items-center justify-center gap-2">
-                                <a href="{{ route('donations.edit', $donation->id ?? 0) }}" class="rounded-lg px-3 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 flex items-center">
+                                <a href="{{ route('donations.edit', $donation->id) }}" class="rounded-lg px-3 py-2 bg-blue-500 text-white font-semibold hover:bg-blue-600 flex items-center">
                                     <i class="fa-regular fa-pen-to-square mr-2"></i>
                                     Edit
                                 </a>
-                                <form action="{{ route('donations.destroy', $donation->id ?? 0) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this donation?');" class="d-inline">
+                                <form action="{{ route('donations.destroy', $donation->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this donation?');" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="rounded-lg px-3 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 flex items-center">
