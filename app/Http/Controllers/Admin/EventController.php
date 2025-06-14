@@ -10,7 +10,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::paginate(10);
+        $events = Event::latest()->paginate();
         return view('components.admin.update-events', compact('events'));
     }
 
@@ -34,7 +34,15 @@ class EventController extends Controller
         ]);
 
         if ($request->hasFile('image_path')) {
-            $validated['image_path'] = $request->file('image_path')->store('images', 'public');
+            $image = $request->file('image_path');
+            $originalName = $image->getClientOriginalName();
+
+            if (file_exists(public_path('images/'.$originalName))) {
+                File::delete(public_path('images/'.$originalName));
+            }
+
+            $image->move(public_path('images'), $originalName);
+            $validated['image_path'] = 'images/'.$originalName;
         }
 
         Event::create([
@@ -74,11 +82,23 @@ class EventController extends Controller
             'time_start' => 'required',
             'time_end' => 'required',
             'description' => 'nullable|string',
-            'image_path' => 'nullable|image|max:2048',
+            'image_path' => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
         ]);
 
         if ($request->hasFile('image_path')) {
-            $validated['image_path'] = $request->file('image_path')->store('events', 'public');
+            if ($event->image_path && file_exists(public_path($event->image_path))) {
+                File::delete(public_path($event->image_path));
+            }
+
+            $image = $request->file('image_path');
+            $originalName = $image->getClientOriginalName();
+
+            if (file_exists(public_path('images/'.$originalName))) {
+                File::delete(public_path('images/'.$originalName));
+            }
+
+            $image->move(public_path('images'), $originalName);
+            $validated['image_path'] = 'images/'.$originalName;
         }
 
         $event->update($validated);
@@ -86,10 +106,14 @@ class EventController extends Controller
         return redirect('/update')->with('success', 'Event updated successfully!');
     }
 
-
     public function destroy($id)
     {
         $event = Event::findOrFail($id);
+
+        if ($event->image_path && file_exists(public_path($event->image_path))) {
+            File::delete(public_path($event->image_path));
+        }
+
         $event->delete();
 
         return redirect('/update')->with('success', 'Event deleted successfully!');

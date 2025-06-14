@@ -93,7 +93,8 @@
             <div class="w-lg aspect-[3/2] relative group flex flex-col gap-2 text-sm">
                 <label class="font-bold text-lg" for="image">Event Image</label>
                 <input type="file" name="image_path" accept="image/*" class="bg-[#F1EAEA] p-2 rounded-lg" disabled>
-                <img src="{{ asset('storage/' . $event->image_path) }}" alt="Event Image" class="w-full h-auto rounded-[15px] max-h-64 object-cover">            </div>
+                <img src="{{ asset(str_replace('public/', '', $event->image_path)) }}"  alt="{{ $event->name }}" class="w-full h-auto rounded-[15px] max-h-64 object-cover">
+            </div>
         </div>
 
         <div class="flex flex-col gap-2 text-sm">

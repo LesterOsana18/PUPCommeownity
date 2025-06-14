@@ -48,10 +48,4 @@
             </tbody>
         </table>
     </div>
-
-    @if ($events instanceof \Illuminate\Pagination\LengthAwarePaginator && $events->hasPages())
-        <div class="mt-4">
-            {{ $events->links() }}
-        </div>
-    @endif
 </div>
