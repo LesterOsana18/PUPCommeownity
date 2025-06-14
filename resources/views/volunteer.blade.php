@@ -131,7 +131,7 @@
                                 <p class="text-gray-600 text-sm mb-4">{{ $event['description'] }}</p>
                                 <button onclick="openEventModal({{ $i }})"
                                     class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-[#502C58] hover:bg-[#3f2247] focus:outline-none focus:ring-2 focus:ring-[#502C58] transition-colors">
-                                    Volunteer Now
+                                    Read
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
