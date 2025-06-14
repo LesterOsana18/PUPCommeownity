@@ -7,22 +7,22 @@
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-6">
             <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 flex flex-col items-center border border-gray-200">
                 <i class="fas fa-users text-[#4ABDAC] text-3xl mb-3"></i>
-                <div class="text-3xl text-[#502C58] font-bold">1,245</div>
+                <div class="text-3xl text-[#502C58] font-bold">{{ $totalUsers }}</div>
                 <div class="text-black mt-1">Total Users</div>
             </div>
             <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 flex flex-col items-center border border-gray-200">
                 <i class="fas fa-paw text-[#4ABDAC] text-3xl mb-3"></i>
-                <div class="text-3xl text-[#502C58] font-bold">534</div>
+                <div class="text-3xl text-[#502C58] font-bold">{{ $totalAdoptions }}</div>
                 <div class="text-black mt-1">Adoptions</div>
             </div>
             <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 flex flex-col items-center border border-gray-200">
                 <i class="fas fa-donate text-[#4ABDAC] text-3xl mb-3"></i>
-                <div class="text-3xl text-[#502C58] font-bold">P8,740</div>
+                <div class="text-3xl text-[#502C58] font-bold">P{{ number_format($totalDonations, 2) }}</div>
                 <div class="text-black mt-1">Donations</div>
             </div>
             <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 flex flex-col items-center border border-gray-200">
                 <i class="fas fa-clipboard-check text-[#4ABDAC] text-3xl mb-3"></i>
-                <div class="text-3xl text-[#502C58] font-bold">192</div>
+                <div class="text-3xl text-[#502C58] font-bold">{{ $totalApplications }}</div>
                 <div class="text-black mt-1">Applications</div>
             </div>
         </div>
@@ -30,7 +30,7 @@
         <div class="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 gap-6">
             <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 border border-gray-200">
                 <div class="inline-block rounded-lg px-4 py-2 mb-3 bg-[#502C58] text-sm text-white font-semibold">
-                    Graph Name
+                    Statistics of Adoptions
                 </div>
                 <div>
                     <canvas id="lineChart" height="220"></canvas>
@@ -38,11 +38,41 @@
             </div>
             <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 border border-gray-200">
                 <div class="inline-block rounded-lg px-4 py-2 mb-3 bg-[#502C58] text-sm text-white font-semibold">
-                    Graph Name
+                    Percentage of Donations
                 </div>
                 <div>
                     <canvas id="pieChart" height="220"></canvas>
                 </div>
+            </div>
+        </div>
+        <!-- List of Users Table -->
+        <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 border border-gray-200 mt-6">
+            <div class="inline-block rounded-lg px-4 py-2 mb-3 bg-[#502C58] text-sm text-white font-semibold">
+                Current Volunteers
+            </div>
+            <div class="overflow-x-auto">
+                <table class="min-w-full rounded-lg">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-4 font-semibold text-left">First Name</th>
+                            <th class="py-2 px-4 font-semibold text-left">Last Name</th>
+                            <th class="py-2 px-4 font-semibold text-left">Email</th>
+                            <th class="py-2 px-4 font-semibold text-left">Mobile Number</th>
+                            <th class="py-2 px-4 font-semibold text-left">Preferred Volunteer Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($users as $user)
+                            <tr>
+                                <td class="py-2 px-4">{{ $user->first_name }}</td>
+                                <td class="py-2 px-4">{{ $user->last_name }}</td>
+                                <td class="py-2 px-4">{{ $user->email }}</td>
+                                <td class="py-2 px-4">{{ $user->mobile_number }}</td>
+                                <td class="py-2 px-4">{{ $user->preferred_volunteer_role_label }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
