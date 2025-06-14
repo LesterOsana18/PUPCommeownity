@@ -48,7 +48,7 @@ class DonationController extends Controller
     public function edit(Donation $donation)
     {
         // Show a form for editing a donation
-        return view('donations.edit', compact('donation'));
+        return view('Components.admin.update-donation', compact('donation'));
     }
 
     public function update(Request $request, Donation $donation)
