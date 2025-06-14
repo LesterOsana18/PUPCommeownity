@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
             AdoptionSeeder::class,
             DonationsTableSeeder::class,
             ReportSeeder::class,
-            AboutContactMsgSeeder::class
+            AboutContactMsgSeeder::class,
+            EventSeeder::class
         ]);
     }
 }
