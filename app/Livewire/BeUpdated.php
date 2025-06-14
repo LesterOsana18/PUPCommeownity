@@ -41,6 +41,7 @@ class BeUpdated extends Component
             'content',
             'image_path',
             'created_at',
+            'user_id',
         ]);
         $this->modalOpen = true;
     }

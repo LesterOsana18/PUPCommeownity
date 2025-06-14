@@ -34,4 +34,17 @@ class UpdateController extends Controller
 
         return redirect()->back()->with('success', 'Resource deleted successfully.');
     }
+
+    public function destroy(Update $post)
+    {
+        // Optional: Ensure only the owner can delete their post
+        if (auth()->id() !== $post->user_id) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $post->delete();
+
+        return redirect()->back()->with('message', 'Post deleted successfully.');
+    }
+
 }

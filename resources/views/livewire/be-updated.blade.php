@@ -130,6 +130,31 @@
                     <div class="text-gray-600 text-sm leading-relaxed max-h-48 overflow-y-auto pr-2 px-3 py-2 rounded-md border border-gray-200 bg-gray-50">
                         {!! nl2br(e(ltrim($selectedUpdate['content']))) !!}
                     </div>
+
+                    <!-- Action Buttons for Author -->
+                    @if ($selectedUpdate && auth()->check() && auth()->id() === $selectedUpdate['user_id'])
+                        <div class="mt-6 flex flex-wrap items-center justify-start gap-2">
+                            <div class="h-10">
+                                <a href="{{ route('updates.edit', $selectedUpdate['id']) }}"
+                                class="h-full px-4 text-sm text-white bg-[#502C58] rounded-lg font-semibold hover:bg-[#2e1a33] inline-flex items-center justify-center leading-none appearance-none no-underline">
+                                    Edit
+                                </a>
+                            </div>
+
+                            <div class="h-10">
+                                <form action="{{ route('updates.destroy', $selectedUpdate['id']) }}"
+                                    method="POST"
+                                    onsubmit="return confirm('Are you sure you want to delete this post?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                            class="h-full px-4 text-sm text-white bg-red-500 rounded-lg font-semibold hover:bg-red-600 inline-flex items-center justify-center leading-none appearance-none">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    @endif
                 @endif
             </div>
         </div>
