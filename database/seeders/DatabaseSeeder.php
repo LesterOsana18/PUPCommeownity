@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
             TeamCommitteeSeeder::class,
             ResourceSeeder::class,
             AdoptionSeeder::class,
-            DonationsTableSeeder::class
-            ReportSeeder::class
+            DonationsTableSeeder::class,
+            ReportSeeder::class,
             AboutContactMsgSeeder::class
         ]);
     }
