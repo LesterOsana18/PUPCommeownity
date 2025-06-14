@@ -39,7 +39,7 @@ class AdoptionApplicationFactory extends Factory
             'social_media_profile' => $this->faker->url,
             'civil_status' => $this->faker->randomElement(['Single', 'Married', 'Other']),
             'sex' => $this->faker->randomElement(['Male', 'Female', 'Other']),
-            'adoption_prompt' => collect(['in:friends', 'social_media', 'website', 'posters', 'other'])
+            'adoption_prompt' => collect(['friends', 'social_media', 'website', 'posters', 'other'])
                 ->random(rand(1, 3))
                 ->implode(','),
             'adopted_before' => $this->faker->randomElement(['yes', 'no']),
