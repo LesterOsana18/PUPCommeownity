@@ -7,7 +7,7 @@
         @foreach ($pastEvents as $event)
             <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all">
                 <div class="h-48 flex items-center justify-center overflow-hidden">
-                    <img src="{{ asset('storage/' . $event->image_path) }}" alt="{{ $event->name }}"
+                    <img src="{{ asset(str_replace('public/', '', $event->image_path)) }}" alt="{{ $event->name }}"
                         class="w-full h-full object-cover">
                 </div>
                 <div class="p-6">
