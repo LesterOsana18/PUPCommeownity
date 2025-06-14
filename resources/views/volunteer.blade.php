@@ -16,43 +16,11 @@
             </p>
         </div>
 
-        @php
-            $events = [
-                [
-                    'title' => 'Paw-sitive Adoption Day',
-                    'description' => 'Help our campus cats find loving forever homes through a one-day adoption drive featuring meet-and-greets and adoption education booths.',
-                    'date' => 'June 20, 2025',
-                    'time' => '9:00 AM',
-                    'location' => 'Anonas St., Sta. Mesa, Manila',
-                    'image' => '/images/about-us-sample-pic-1.jpg',
-                    'current' => 12,
-                    'target' => 20,
-                ],
-                [
-                    'title' => 'Fur-tography Contest',
-                    'description' => 'Show off your photography skills by capturing our feline residents at their finest. Winning entries will be featured on our official pages and printed for a charity exhibit!',
-                    'date' => 'July 10, 2025',
-                    'time' => '1:00 PM',
-                    'location' => 'PUP Main Auditorium',
-                    'image' => '/images/about-us-sample-pic-2.jpg',
-                    'current' => 5,
-                    'target' => 15,
-                ],
-                [
-                    'title' => 'Whisker Wellness Week',
-                    'description' => 'A week-long campaign offering free spay/neuter services, vet checkups, and a mini-seminar on feline health for both students and our campus cats.',
-                    'date' => 'August 3-9, 2025',
-                    'time' => 'Whole Day',
-                    'location' => 'PUP Clinic',
-                    'image' => '/images/about-us-sample-pic-3.jpg',
-                    'current' => 18,
-                    'target' => 25,
-                ],
-            ];
-        @endphp
-
         <script>
-            window.EVENTS_DATA = @json($events);
+            window.EVENTS_DATA = @json($currentEvents);
+            window.isLoggedIn = {{ $user ? 'true' : 'false' }};
+            window.userId = {{ $user ? $user->id : 'null' }};
+            window.userName = {!! $user ? json_encode($user->first_name . ' ' . $user->last_name) : 'null' !!};
         </script>
 
         <div class="flex flex-col md:flex-col gap-8 px-6 lg:px-8 py-8 max-w-7xl mx-auto relative">
@@ -96,21 +64,19 @@
                 </div>
 
                 <div class="pt-4 px-4 pb-0 grid grid-cols-1 md:grid-cols-3 gap-6">
-                    @foreach ($events as $i => $event)
+                    @foreach ($currentEvents as $i => $event)
                         @php
                             $current = $event['current'];
                             $target = $event['target'];
-                            $progress = min(100, ($current / $target) * 100);
+                            $progress = min(100, ($current && $target) ? ($current / $target) * 100 : 0);
                         @endphp
                         <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all">
                             <div class="h-48 flex items-center justify-center overflow-hidden">
-                                <img src="{{ $event['image'] }}" alt="{{ $event['title'] }}"
-                                    class="w-full h-full object-cover">
+                                <img src="{{ $event['image'] }}" alt="{{ $event['title'] }}" class="w-full h-full object-cover">
                             </div>
                             <div class="p-6">
                                 <div class="flex flex-col items-center mb-3 w-full">
-                                    <h3
-                                        class="text-xl font-semibold text-gray-800 group-hover:text-[#502C58] transition-colors w-full text-left">
+                                    <h3 class="text-xl font-semibold text-gray-800 group-hover:text-[#502C58] transition-colors w-full text-left">
                                         {{ $event['title'] }}
                                     </h3>
                                     <div class="mt-2 flex flex-col items-center w-full">
@@ -130,7 +96,7 @@
                                 </div>
                                 <p class="text-gray-600 text-sm mb-4">{{ $event['description'] }}</p>
                                 <button onclick="openEventModal({{ $i }})"
-                                    class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-[#502C58] hover:bg-[#3f2247] focus:outline-none focus:ring-2 focus:ring-[#502C58] transition-colors">
+                                    class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-[#502C58] hover:bg-[#3f2247] focus:outline-none focus:ring-2 focus:ring-[#502C58]">
                                     Read
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor">
@@ -155,23 +121,7 @@
                 </div>
 
                 <div class="pt-4 px-4 pb-0 grid grid-cols-1 md:grid-cols-3 gap-6">
-                    @foreach ([
-                        [
-                            'title' => 'Cat Café for a Cause',
-                            'description' => 'Attendees enjoyed drinks and pastries while bonding with rescued cats in a cozy setup, raising funds for their food, shelter, and medical needs.',
-                            'image' => '/images/about-us-sample-pic-4.jpg',
-                        ],
-                        [
-                            'title' => 'TNR 101 Workshop',
-                            'description' => 'We held an educational session that introduced the Trap-Neuter-Return method, emphasizing its importance in managing the campus cat population humanely.',
-                            'image' => '/images/about-us-sample-pic-5.jpg',
-                        ],
-                        [
-                            'title' => 'Meowmorial Day',
-                            'description' => 'We honored our departed feline companions with a touching candle-lighting ceremony and a memorial wall where students shared photos and messages.',
-                            'image' => '/images/carousel-temp-5.jpg',
-                        ],
-                    ] as $action)
+                    @foreach ($pastEvents as $action)
                         <div class="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all">
                             <div class="h-48 flex items-center justify-center overflow-hidden">
                                 <img src="{{ $action['image'] }}" alt="{{ $action['title'] }}"
@@ -179,8 +129,7 @@
                             </div>
                             <div class="p-6">
                                 <div class="flex flex-col items-start mb-3">
-                                    <h3
-                                        class="text-xl font-semibold text-gray-800 group-hover:text-[#502C58] transition-colors">
+                                    <h3 class="text-xl font-semibold text-gray-800 group-hover:text-[#502C58] transition-colors">
                                         {{ $action['title'] }}
                                     </h3>
                                 </div>
@@ -199,13 +148,11 @@
     </section>
 
     <script>
-        // Toggle modal visibility
         function toggleModal(modalId) {
             document.getElementById(modalId).classList.toggle('hidden');
             document.body.classList.toggle('overflow-hidden');
         }
 
-        // Open event modal and fill content
         function openEventModal(eventIndex) {
             const data = window.EVENTS_DATA[eventIndex];
             if (!data) return;
@@ -218,35 +165,42 @@
             document.getElementById('event-modal-description').textContent = data.description;
             document.getElementById('event-modal-current').textContent = data.current;
             document.getElementById('event-modal-target').textContent = data.target;
+            document.getElementById('event-modal-volunteer-btn').setAttribute('data-event-id', data.id);
             // Progress bar
             const progress = Math.min(100, (data.current / data.target) * 100);
             document.getElementById('event-modal-progress').style.width = progress + '%';
             toggleModal('events-modal');
         }
 
-        // Close modal when clicking outside content
-        window.addEventListener('click', function(event) {
-            const modals = ['events-modal'];
-            modals.forEach(modalId => {
-                const modal = document.getElementById(modalId);
-                if (event.target === modal) {
-                    toggleModal(modalId);
-                }
-            });
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                const modals = ['events-modal'];
-                modals.forEach(modalId => {
-                    const modal = document.getElementById(modalId);
-                    if (!modal.classList.contains('hidden')) {
-                        toggleModal(modalId);
-                    }
+        // Handle Volunteer Now button click
+        function handleVolunteerNow(e) {
+            if (window.isLoggedIn) {
+                // Submit volunteer via AJAX
+                const eventId = e.target.getAttribute('data-event-id');
+                fetch(`/admin/events/${eventId}/volunteers`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: window.userName
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    alert('Thank you for volunteering!');
+                    toggleModal('events-modal');
+                    location.reload(); // Refresh to update volunteer count
+                })
+                .catch(err => {
+                    alert('An error occurred while submitting your volunteer request.');
                 });
+            } else {
+                window.location.href = "/register";
             }
-        });
+        }
     </script>
 </x-layout>
 

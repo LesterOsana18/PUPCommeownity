@@ -56,10 +56,11 @@
             <p id="event-modal-description" class="text-gray-700"></p>
         </div>
         <div class="flex justify-end">
-            <a href="/register"
-                class="px-6 py-2 bg-[#502C58] text-white font-semibold rounded-lg shadow hover:bg-[#3f2247] transition-colors">
+            <button id="event-modal-volunteer-btn"
+                class="px-6 py-2 bg-[#502C58] text-white font-semibold rounded-lg shadow hover:bg-[#3f2247] transition-colors"
+                onclick="handleVolunteerNow(event)">
                 Volunteer Now
-            </a>
+            </button>
         </div>
     </div>
 </div>
