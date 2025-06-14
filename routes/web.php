@@ -150,16 +150,12 @@ Route::get('/application', [AdoptionApplicationController::class, 'create'])->na
 // Route to handle the form submission
 Route::post('/application', [AdoptionApplicationController::class, 'store'])->name('application.store');
 
-// Donation Routes
+// Donations CRUD (Create, Read, Update, Delete)
 Route::get('/donations', [DonationController::class, 'index'])->name('donations.index');
-    // Edit a donation
-    Route::get('/donations/{donation}/edit', [DonationController::class, 'edit'])->name('donations.edit');
-
-    // Delete a donation
-    Route::delete('/donations/{donation}', [DonationController::class, 'destroy'])->name('donations.destroy');
-
-    // Create a new donation
     Route::get('/donations/create', [DonationController::class, 'create'])->name('donations.create');
+    Route::get('/donations/{donation}/edit', [DonationController::class, 'edit'])->name('donations.edit');
+    Route::put('/donations/{donation}', [DonationController::class, 'update'])->name('donations.update');
+    Route::delete('/donations/{donation}', [DonationController::class, 'destroy'])->name('donations.destroy');
 
 // Admin Routes
 Route::get('/moderation', [ModerationController::class, 'index'])
