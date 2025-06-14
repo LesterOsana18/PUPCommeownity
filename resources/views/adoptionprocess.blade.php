@@ -22,7 +22,7 @@
             <div class="mb-6">
                 <p class="font-semibold mb-1">For our <span class="font-bold">in-person</span> applications, follow these steps:</p>
                 <ol class="list-decimal list-inside mb-4 pl-4 text-gray-800">
-                    <li>Visit us at Anonas Street, Sta. Mesa, Manila, Philippines, where the PUP Main Campus is, with <a href="https://www.gsis.gov.ph/ginhawa-for-all/list-of-acceptable-valid-ids/" target="_blank" class="text-purple-700 underline">at least 2 Valid ID’s</a></li>
+                    <li>Visit us at Anonas Street, Sta. Mesa, Manila, Philippines, where the PUP Main Campus is, with <a href="https://www.gsis.gov.ph/ginhawa-for-all/list-of-acceptable-valid-ids/" target="_blank" class="text-purple-700 underline">at least 2 Valid ID’s</a>.</li>
                     <li>Prepare for a brief interview with our staff for us to assess if you are fit to adopt one of our cats.</li>
                     <li>Visit your chosen pet to confirm your choice.</li>
                     <li>Pay the adoption fee of ₱500.00 per cat.</li>
