@@ -1,7 +1,7 @@
 <aside
     id="sidebar"
     class="w-64 bg-[#502C58] shadow-lg transform -translate-x-full md:translate-x-0 transition-transform duration-200 ease-in-out flex flex-col
-        fixed inset-y-0 left-0 h-screen z-50"
+        fixed inset-y-0 left-0 h-screen z-50 overflow-y-auto"
     style="will-change: transform;"
 >
     <style>
@@ -146,7 +146,7 @@
 
     <!-- Back to Home -->
     <div class="px-2 mb-2">
-        <a href="/" class="sidebar-link flex items-center px-4 py-2 rounded-lg font-bold transition relative">
+        <a href="/" class="sidebar-link w-full flex items-center px-4 py-2 rounded-lg font-bold transition relative bg-transparent">
             <div class="text-reveal-container">
                 <span class="text-original">
                     <i class="fas fa-home"></i>
@@ -155,6 +155,22 @@
                 <span class="text-colored">
                     <i class="fas fa-home"></i>
                     <span>Back to Home</span>
+                </span>
+            </div>
+        </a>
+    </div>
+
+    <!-- Edit Profile -->
+    <div class="px-2 mb-2">
+        <a href="{{ route('profile.edit') }}" class="sidebar-link w-full flex items-center px-4 py-2 rounded-lg font-bold transition relative bg-transparent">
+            <div class="text-reveal-container">
+                <span class="text-original">
+                    <i class="fas fa-user-edit"></i>
+                    <span>Edit Profile</span>
+                </span>
+                <span class="text-colored">
+                    <i class="fas fa-user-edit"></i>
+                    <span>Edit Profile</span>
                 </span>
             </div>
         </a>

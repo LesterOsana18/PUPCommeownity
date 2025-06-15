@@ -193,7 +193,7 @@
                 </a>
             @endguest
 
-            {{-- Profile + Logout + Dashboard for authenticated users --}}
+            {{-- Profile Picture + Edit Profile + Dashboard + Logout for Authenticated Users --}}
             @auth
                 <div class="dropdown-wrapper" onmouseenter="toggleDropdown(this, true)" onmouseleave="toggleDropdown(this, false)">
                     <button class="focus:outline-none">
@@ -205,31 +205,32 @@
                             class="h-10 w-10 rounded-full border-2 border-white shadow-md"
                         />
                     </button>
-                    <div class="absolute right-0 mt-2 w-48 bg-[#3d2243] shadow-lg
-                        rounded-md opacity-0 invisible pointer-events-none
-                        transition-all duration-200 ease-in-out z-50"
-                        data-dropdown
-                    >
-                        {{-- Log Out (POST) --}}
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button type="submit"
-                                    class="flex items-center w-full text-left px-4 py-2 text-white
-                                        hover:bg-[#E7AB39] hover:text-[#502C58]">
-                                <i class="fas fa-sign-out-alt mr-2"></i>
-                                <span>Log Out</span>
-                            </button>
-                        </form>
+                    <div class="absolute right-0 mt-2 w-48 bg-[#3d2243] shadow-lg rounded-md z-50" data-dropdown>
+                        <!-- Edit Profile Button -->
+                        <a href="{{ route('profile.edit') }}"
+                            class="flex items-center w-full text-left px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58]">
+                            <i class="fas fa-user-edit mr-2"></i>
+                            <span>Edit Profile</span>
+                        </a>
 
-                        {{-- Admin Dashboard --}}
+                        <!-- Dashboard Button -->
                         @if(Auth::user()->preferred_volunteer_role === 'site_administrator')
                             <a href="{{ route('dashboard') }}"
-                            class="flex items-center px-4 py-2 text-white
-                                    hover:bg-[#E7AB39] hover:text-[#502C58]">
+                            class="flex items-center w-full text-left px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58]">
                                 <i class="fas fa-tachometer-alt mr-2"></i>
                                 <span>Dashboard</span>
                             </a>
                         @endif
+
+                        <!-- Log Out Button -->
+                        <form method="POST" action="{{ route('logout') }}" class="m-0 p-0">
+                            @csrf
+                            <button type="submit"
+                                    class="flex items-center w-full text-left px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58]">
+                                <i class="fas fa-sign-out-alt mr-2"></i>
+                                <span>Log Out</span>
+                            </button>
+                        </form>
                     </div>
                 </div>
             @endauth
