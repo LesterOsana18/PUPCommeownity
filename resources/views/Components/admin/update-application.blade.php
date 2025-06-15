@@ -216,7 +216,6 @@
     </div>
 
     <script>
-        // Show/hide co-signer section and toggle required attributes based on age
         document.addEventListener('DOMContentLoaded', function () {
             function toggleCoSigner() {
                 const birthDate = document.getElementById('birth_date').value;
@@ -239,14 +238,29 @@
                 document.getElementsByName('co_signer_relationship').forEach(rb => {
                     rb.required = isMinor;
                 });
-                // Only require signature if not already present
-                @if (empty($application->co_signer_signature ?? null))
-                    document.getElementById('co_signer_signature').required = isMinor;
-                @endif
+                document.getElementById('co_signer_signature').required = isMinor;
+
+                // If becoming a minor, and no radio selected, select the first by default to prevent browser validation block
+                if (isMinor) {
+                    const radios = document.getElementsByName('co_signer_relationship');
+                    let anyChecked = false;
+                    radios.forEach(rb => {
+                        if (rb.checked) anyChecked = true;
+                    });
+                    if (!anyChecked && radios.length > 0) {
+                        radios[0].checked = true;
+                    }
+                }
 
                 // Dynamically add/remove hidden fields for co-signer if not a minor
                 const hiddenDiv = document.getElementById('coSignerHiddenFields');
                 if (!isMinor) {
+                    document.getElementById('co_signer_name').required = false;
+                    document.getElementsByName('co_signer_relationship').forEach(rb => {
+                        rb.required = false;
+                    });
+                    document.getElementById('co_signer_signature').required = false;
+
                     hiddenDiv.innerHTML = `
                         <input type="hidden" name="co_signer_name" value="">
                         <input type="hidden" name="co_signer_relationship" value="">

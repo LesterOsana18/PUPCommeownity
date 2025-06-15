@@ -91,9 +91,12 @@ class AdoptionApplicationController extends Controller
         // Remove co-signer rules if not a minor
         if ($age >= 18) {
             unset($rules['co_signer_name'], $rules['co_signer_relationship'], $rules['co_signer_signature']);
-        }
-        if ($age < 18 && $application->co_signer_signature) {
-            $rules['co_signer_signature'] = 'nullable|image|mimes:jpg,jpeg,png|max:4096';
+        } else {
+            if ($application->co_signer_signature) {
+                $rules['co_signer_signature'] = 'nullable|image|mimes:jpg,jpeg,png|max:4096';
+            } else {
+                $rules['co_signer_signature'] = 'required|image|mimes:jpg,jpeg,png|max:4096';
+            }
         }
 
         $validated = $request->validate($rules);
