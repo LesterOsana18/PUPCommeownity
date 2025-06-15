@@ -25,7 +25,7 @@
                                         @method('DELETE')
                                         <button type="submit"
                                             class="rounded-lg px-3 py-2 bg-red-600 text-white font-semibold hover:bg-red-700 flex items-center">
-                                            <i class="fa-solid fa-trash mr-2"></i> Delete
+                                            <i class="fa-regular fa-trash-can mr-2"></i> Delete
                                         </button>
                                     </form>
                                 </div>
