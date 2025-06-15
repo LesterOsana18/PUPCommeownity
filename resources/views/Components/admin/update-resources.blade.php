@@ -1,7 +1,7 @@
 <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="resources">
     <div class="flex items-center justify-between">
         <h1 class="text-xl text-[#4ABDAC] font-bold">Resources</h1>
-        <a href="#" {{-- Update this with the actual route if you have a "create" page --}}
+        <a href="#" {{-- Update with actual "create" page --}}
             class="flex items-center gap-2 px-4 py-2 bg-[#502C58] text-white font-semibold rounded-lg hover:bg-[#2e1a33] text-sm">
             <i class="fa-solid fa-plus"></i> Create
         </a>
