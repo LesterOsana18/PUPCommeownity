@@ -12,13 +12,13 @@ class ReportCatController extends Controller
         $validated = $request->validate([
             'description' => 'required|string|max:1000',
             'location' => 'required|string|max:255',
-            'seen-at' => 'required|date',
+            'seen_at' => 'required|date',
             'media' => 'nullable|file|mimes:jpg,jpeg,png,mp4|max:10240',
             'observation' => 'required|string|max:1000',
             'recurring' => 'required|in:yes,no',
-            'reporter-name' => 'nullable|string|max:255',
-            'reporter-email' => 'nullable|email|max:255',
-            'reporter-affiliation' => 'required|in:student,faculty,staff,visitor',
+            'reporter_name' => 'nullable|string|max:255',
+            'reporter_email' => 'nullable|email|max:255',
+            'reporter_affiliation' => 'required|in:student,faculty,staff,visitor',
             'privacy' => 'accepted',
         ]);
 
