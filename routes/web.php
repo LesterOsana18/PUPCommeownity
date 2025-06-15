@@ -55,8 +55,6 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::post('/donation-form', [DonationController::class, 'store'])->name('donation.store');
 
 // Report Route
-// This route handles the report-a-cat for submission.
-Route::post('/report', [ReportCatController::class, 'store'])->name('report.store');
 Route::get('/admin/reports/{id}', [ReportCatController::class, 'show'])->name('reports.show');
 
 // About Route
@@ -102,6 +100,8 @@ Route::get('/donation-options', function () {
 Route::get('/report', function () {
     return view('report');
 });
+// This route handles the report-a-cat for submission.
+Route::post('/report', [ReportCatController::class, 'store'])->name('report.store');
 
 Route::get('/about', function () {
     return view('about');

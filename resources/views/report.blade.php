@@ -287,7 +287,7 @@
             </div>
 
             <!-- Form -->
-            <form method="POST" action="/report" class="space-y-10">
+            <form method="POST" action="/report" class="space-y-10" enctype="multipart/form-data">
                 @csrf
 
                 <!-- Basic Information -->
@@ -305,9 +305,6 @@
                             <h3 class="text-xl font-semibold text-[#502C58]">Basic Information</h3>
                         </div>
                     </div>
-                    {{-- <p class="text-xs font-light text-gray-400">
-                        <span class="text-[#ce4257] font-bold text-sm">*</span> indicates required fields
-                    </p> --}}
 
                     <div class="space-y-6">
                         <div>
@@ -343,32 +340,16 @@
                                     border border-gray-300 rounded-md
                                     focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50 p-2">
                         </div>
-
-                        {{-- <div>
-                            <label for="location" class="block mb-1 text-sm font-medium text-gray-700">
-                                Location Seen <span class="text-[#ce4257] font-bold text-sm">*</span>
-                            </label>
-                            <p class="text-xs text-gray-400 mb-2">Click on the map to select the location</p>
-
-                            <!-- Read-only input that stores lat,lng -->
-                            <input type="text" id="location" name="location" required readonly
-                                class="w-full px-4 py-2 mb-3 border border-gray-300 rounded-md
-                                       focus:border-[#E7AB39] focus:ring focus:ring-[#E7AB39] focus:ring-opacity-50" />
-
-                            <!-- Map container -->
-                            <div id="map" class="w-full h-64 rounded-md border border-gray-300"></div>
-                        </div> --}}
-
                         <div>
                             <label
-                            for="seen-at"
+                            for="seen_at"
                             class="block mb-1 text-sm font-medium text-gray-700">
                             Date & Time Spotted <span class="text-[#ce4257] font-bold text-sm">*</span>
                             </label>
                             <input
                                 type="datetime-local"
-                                id="seen-at"
-                                name="seen-at"
+                                id="seen_at"
+                                name="seen_at"
                                 required
                                 class="w-full px-4 py-2
                                     border border-gray-300 rounded-md
@@ -497,41 +478,41 @@
 
                     <div>
                         <label
-                            for="reporter-name"
+                            for="reporter_name"
                             class="block text-sm font-medium text-gray-700 mb-1">
                             Name
                         </label>
                         <p class="text-xs text-gray-400 mb-2">Optional - if you'd allow us to contact you</p>
                         <input
                             type="text"
-                            id="reporter-name"
-                            name="reporter-name"
+                            id="reporter_name"
+                            name="reporter_name"
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E7AB39] focus:border-[#E7AB39] transition placeholder-gray-400">
                     </div>
 
                     <div>
                         <label
-                            for="reporter-email"
+                            for="reporter_email"
                             class="block text-sm font-medium text-gray-700 mb-1">
                             Email Address
                         </label>
                         <p class="text-xs text-gray-400 mb-2">Optional - for follow-up questions</p>
                         <input
                             type="email"
-                            id="reporter-email"
-                            name="reporter-email"
+                            id="reporter_email"
+                            name="reporter_email"
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E7AB39] focus:border-[#E7AB39] transition placeholder-gray-400">
                     </div>
 
                     <div>
                         <label
-                            for="reporter-affiliation"
+                            for="reporter_affiliation"
                             class="block text-sm font-medium text-gray-700 mb-1">
                             Affiliation <span class="text-red-500">*</span>
                         </label>
                         <select
-                            id="reporter-affiliation"
-                            name="reporter-affiliation"
+                            id="reporter_affiliation"
+                            name="reporter_affiliation"
                             required
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#E7AB39] focus:border-[#E7AB39] transition bg-white placeholder-gray-400">
                             <option value="" disabled selected>Select your affiliation</option>

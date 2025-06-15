@@ -25,7 +25,7 @@ class ReportCatController extends Controller
         // Handle file upload (if present)
         if ($request->hasFile('media')) {
             $path = $request->file('media')->store('cat_reports', 'public');
-            $validated['media_path'] = $path;
+            $validated['media'] = $path;
         }
 
         // Convert privacy to boolean
