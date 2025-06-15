@@ -131,43 +131,6 @@
                 </div>
             </fieldset>
 
-            {{-- Alternate Contact
-            <fieldset class="border border-purple-200 bg-purple-50 rounded-md p-4">
-                <legend class="font-semibold text-lg text-purple-800 px-2">Alternate Contact</legend>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
-                    <div>
-                        <label for="alt_first_name" class="block mb-1 font-semibold">First Name <span class="text-red-600">*</span></label>
-                        <input type="text" id="alt_first_name" name="alt_first_name" value="{{ old('alt_first_name') }}" required
-                            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#E7AB39]" />
-                    </div>
-                    <div>
-                        <label for="alt_last_name" class="block mb-1 font-semibold">Last Name <span class="text-red-600">*</span></label>
-                        <input type="text" id="alt_last_name" name="alt_last_name" value="{{ old('alt_last_name') }}" required
-                            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#E7AB39]" />
-                    </div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                    <div>
-                        <label for="relationship_to_alt" class="block mb-1 font-semibold">Relationship to Applicant <span class="text-red-600">*</span></label>
-                        <input type="text" id="relationship_to_alt" name="relationship_to_alt" value="{{ old('relationship_to_alt') }}" required
-                            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#E7AB39]" />
-                    </div>
-                    <div>
-                        <label for="phone_alt" class="block mb-1 font-semibold">Phone <span class="text-red-600">*</span></label>
-                        <input type="tel" id="phone_alt" name="phone_alt" value="{{ old('phone_alt') }}" required
-                            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#E7AB39]" pattern="^[0-9\-\+\s\(\)]*$" />
-                    </div>
-                </div>
-                <div class="mt-4">
-                    <label for="email_alt" class="block mb-1 font-semibold">Email <span class="text-red-600">*</span></label>
-                    <input type="email" id="email_alt" name="email_alt" value="{{ old('email_alt') }}" required
-                        class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#E7AB39]" />
-                </div>
-                <p class="text-xs italic text-gray-600 mt-4" id="minorNote">
-                    If the applicant is a minor, a parent or a guardian must be the alternate contact and co-sign the application.
-                </p>
-            </fieldset> --}}
-
             {{-- Co-Signer Section (for minors) --}}
             <fieldset id="coSignerSection" class="hidden border border-yellow-400 bg-yellow-50 rounded-md p-4">
                 <legend class="font-semibold text-lg text-yellow-800 px-2">Parent/Guardian Co-Signer (for minors)</legend>

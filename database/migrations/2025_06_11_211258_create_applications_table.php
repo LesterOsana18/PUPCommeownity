@@ -23,11 +23,6 @@ return new class extends Migration
             $table->enum('sex', ['male', 'female', 'other']);
             $table->string('adoption_prompt')->nullable(); // comma-separated values
             $table->enum('adopted_before', ['yes', 'no']);
-            $table->string('alt_first_name');
-            $table->string('alt_last_name');
-            $table->string('relationship_to_alt');
-            $table->string('phone_alt');
-            $table->string('email_alt');
             $table->string('co_signer_name')->nullable();
             $table->string('co_signer_relationship')->nullable();
             $table->string('co_signer_signature')->nullable(); // stores file path

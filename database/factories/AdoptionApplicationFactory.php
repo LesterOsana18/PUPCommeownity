@@ -20,11 +20,11 @@ class AdoptionApplicationFactory extends Factory
         if ($isMinor) {
             $co_signer_name = $this->faker->name;
             $co_signer_relationship = $this->faker->randomElement(['Parent', 'Guardian']);
-            $co_signer_signature = $this->faker->name;
+            $co_signer_signature = $this->faker->name; // or a fake file path if that's what you use
         } else {
             $co_signer_name = 'N/A';
             $co_signer_relationship = 'N/A';
-            $co_signer_signature = 'N/A';
+            $co_signer_signature = null; // No signature if not a minor
         }
 
         return [
@@ -43,11 +43,6 @@ class AdoptionApplicationFactory extends Factory
                 ->random(rand(1, 3))
                 ->implode(','),
             'adopted_before' => $this->faker->randomElement(['yes', 'no']),
-            // 'alt_first_name' => $this->faker->firstName,
-            // 'alt_last_name' => $this->faker->lastName,
-            // 'relationship_to_alt' => $this->faker->randomElement(['Friend', 'Family', 'Colleague', 'Guardian']),
-            // 'phone_alt' => $this->faker->phoneNumber,
-            // 'email_alt' => $this->faker->safeEmail,
             'co_signer_name' => $co_signer_name,
             'co_signer_relationship' => $co_signer_relationship,
             'co_signer_signature' => $co_signer_signature,
