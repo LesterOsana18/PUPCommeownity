@@ -249,6 +249,7 @@ Route::get('/about', [AboutController::class, 'index']);
 // Admin - Resource
 Route::delete('/admin/resources/{id}', [UpdateController::class, 'destroyResource'])->name('admin.resources.destroy');
 
+// Edit Profile Routes
 Route::middleware('auth')->group(function () {
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
