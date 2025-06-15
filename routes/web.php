@@ -20,6 +20,7 @@ use App\Http\Controllers\VolunteerPageController;
 use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\VolunteerController;
 
 use App\Http\Controllers\AboutController;
@@ -247,3 +248,8 @@ Route::get('/about', [AboutController::class, 'index']);
 
 // Admin - Resource
 Route::delete('/admin/resources/{id}', [UpdateController::class, 'destroyResource'])->name('admin.resources.destroy');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+});
