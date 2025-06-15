@@ -20,7 +20,7 @@ class AdoptionApplicationFactory extends Factory
         if ($isMinor) {
             $co_signer_name = $this->faker->name;
             $co_signer_relationship = $this->faker->randomElement(['Parent', 'Guardian']);
-            $co_signer_signature = $this->faker->name; // or a fake file path if that's what you use
+            $co_signer_signature = $this->faker->name;
         } else {
             $co_signer_name = 'N/A';
             $co_signer_relationship = 'N/A';
