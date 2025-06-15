@@ -56,8 +56,8 @@
                             $path = $cat->photo_path;
                             $image = match (true) {
                                 Str::startsWith($path, 'http') => $path,
-                                Str::startsWith($path, 'cats/') => asset('storage/' . $path),
                                 Str::startsWith($path, 'images/') => asset($path),
+                                Str::startsWith($path, 'cats/') => asset('images/' . $path),
                                 default => asset('images/def-img.svg'),
                             };
                         @endphp
