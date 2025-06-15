@@ -26,55 +26,58 @@
                     <div>
                         <label for="first_name" class="block mb-1 font-semibold">First Name <span class="text-red-600">*</span></label>
                         <input type="text" id="first_name" name="first_name" value="{{ old('first_name') }}" required autocomplete="given-name"
-                            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#E7AB39]" />
+                            class="w-full border border-gray-300 rounded-md px-4 py-2 placeholder-gray-400 focus:outline-none focus:ring-[#502C58] focus:border-[#502C58] transition"/>
                     </div>
                     <div>
                         <label for="last_name" class="block mb-1 font-semibold">Last Name <span class="text-red-600">*</span></label>
                         <input type="text" id="last_name" name="last_name" value="{{ old('last_name') }}" required autocomplete="family-name"
-                            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#E7AB39]" />
+                            class="w-full border border-gray-300 rounded-md px-4 py-2 placeholder-gray-400 focus:outline-none focus:ring-[#502C58] focus:border-[#502C58] transition"/>
                     </div>
                 </div>
                 <div class="mt-4">
                     <label for="address" class="block mb-1 font-semibold">Address <span class="text-red-600">*</span></label>
                     <input type="text" id="address" name="address" value="{{ old('address') }}" required autocomplete="street-address"
-                        class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#E7AB39]" />
+                            class="w-full border border-gray-300 rounded-md px-4 py-2 placeholder-gray-400 focus:outline-none focus:ring-[#502C58] focus:border-[#502C58] transition"/>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
                     <div>
                         <label for="phone" class="block mb-1 font-semibold">Phone <span class="text-red-600">*</span></label>
                         <input type="tel" id="phone" name="phone" value="{{ old('phone') }}" required autocomplete="tel"
-                            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#E7AB39]" pattern="^[0-9\-\+\s\(\)]*$" />
+                            class="w-full border border-gray-300 rounded-md px-4 py-2 placeholder-gray-400 focus:outline-none focus:ring-[#502C58] focus:border-[#502C58] transition" pattern="^[0-9\-\+\s\(\)]*$" />
                     </div>
                     <div>
                         <label for="email" class="block mb-1 font-semibold">Email <span class="text-red-600">*</span></label>
                         <input type="email" id="email" name="email" value="{{ old('email') }}" required autocomplete="email"
-                            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#E7AB39]" />
+                            class="w-full border border-gray-300 rounded-md px-4 py-2 placeholder-gray-400 focus:outline-none focus:ring-[#502C58] focus:border-[#502C58] transition" />
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
                     <div>
                         <label for="birth_date" class="block mb-1 font-semibold">Birth Date <span class="text-red-600">*</span></label>
                         <input type="date" id="birth_date" name="birth_date" value="{{ old('birth_date') }}" required
-                            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#E7AB39]" />
+                            class="w-full border border-gray-300 rounded-md px-4 py-2 placeholder-gray-400 focus:outline-none focus:ring-[#502C58] focus:border-[#502C58] transition" />
                     </div>
                     <div>
                         <label for="occupation" class="block mb-1 font-semibold">Occupation</label>
                         <input type="text" id="occupation" name="occupation" value="{{ old('occupation') }}"
-                            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#E7AB39]" autocomplete="organization-title" />
+                            class="w-full border border-gray-300 rounded-md px-4 py-2 placeholder-gray-400 focus:outline-none focus:ring-[#502C58] focus:border-[#502C58] transition" autocomplete="organization-title" />
                     </div>
                 </div>
+                <p class="text-xs italic text-gray-600 mt-4" id="minorNote">
+                    If the applicant is a minor, a parent or a guardian must be the alternate contact and co-sign the application.
+                </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
                     <div>
                         <label for="company_business_name" class="block mb-1 font-semibold">Company Business Name <span class="text-red-600">*</span></label>
                         <span class="block text-xs italic text-gray-500 mb-1">Type N/A if unemployed</span>
                         <input type="text" id="company_business_name" name="company_business_name" value="{{ old('company_business_name') }}" required
-                            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#E7AB39]" />
+                            class="w-full border border-gray-300 rounded-md px-4 py-2 placeholder-gray-400 focus:outline-none focus:ring-[#502C58] focus:border-[#502C58] transition" />
                     </div>
                     <div>
                         <label for="social_media_profile" class="block mb-1 font-semibold">Social Media Profile</label>
                         <span class="block text-xs italic text-gray-500 mb-1">Type N/A if you have no social media</span>
                         <input type="text" id="social_media_profile" name="social_media_profile" value="{{ old('social_media_profile') }}"
-                            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#E7AB39]" autocomplete="url" />
+                            class="w-full border border-gray-300 rounded-md px-4 py-2 placeholder-gray-400 focus:outline-none focus:ring-[#502C58] focus:border-[#502C58] transition" autocomplete="url" />
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
@@ -172,7 +175,7 @@
                     <div>
                         <label for="co_signer_name" class="block mb-1 font-semibold">Full Name <span class="text-red-600">*</span></label>
                         <input type="text" id="co_signer_name" name="co_signer_name"
-                            class="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-[#E7AB39]" />
+                            class="w-full border border-gray-300 rounded-md px-4 py-2 placeholder-gray-400 focus:outline-none focus:ring-[#502C58] focus:border-[#502C58] transition" />
                     </div>
                     <div>
                         <span class="block mb-1 font-semibold">Relationship to Applicant <span class="text-red-600">*</span></span>
