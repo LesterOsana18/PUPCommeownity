@@ -30,7 +30,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <!-- Pie Chart with Details to the Right -->
             <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 border border-gray-200 flex flex-col">
-                <div class="inline-block rounded-lg px-4 py-2 mb-3 bg-[#502C58] text-sm text-white font-semibold">
+                <div class="inline-block rounded-lg px-4 py-2 mb-3 bg-[#502C58] text-sm text-white font-semibold text-center">
                     Percentage of Donations
                 </div>
                 <div class="flex flex-row items-center justify-center flex-1 gap-6">
@@ -40,13 +40,20 @@
                     </div>
                     <!-- Pie Chart Details -->
                     <div class="flex flex-col justify-center space-y-2">
+                        @php
+                            $total = array_sum($donationData);
+                        @endphp
                         @foreach($donationLabels as $i => $label)
+                            @php
+                                $count = $donationData[$i] ?? 0;
+                                $percent = $total ? round(($count / $total) * 100, 1) : 0;
+                            @endphp
                             <div class="flex items-center gap-2">
                                 <span class="inline-block w-3 h-3 rounded-full"
                                     style="background-color: {{ ['#502C58','#4ABDAC','#E7AB39','#F67280'][$i % 4] }}"></span>
-                                <span class="font-semibold">{{ $label }}:</span>
-                                <span>
-                                    {{ isset($donationData[$i]) ? 'P' . number_format($donationData[$i], 2) : 'P0.00' }}
+                                <span class="font-semibold min-w-[6rem]">{{ $label }}:</span>
+                                <span class="tabular-nums">
+                                    {{ $percent }}%
                                 </span>
                             </div>
                         @endforeach
@@ -55,7 +62,7 @@
             </div>
             <!-- Bar Chart -->
             <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 border border-gray-200 flex flex-col">
-                <div class="inline-block rounded-lg px-4 py-2 mb-3 bg-[#502C58] text-sm text-white font-semibold">
+                <div class="inline-block rounded-lg px-4 py-2 mb-3 bg-[#502C58] text-sm text-white font-semibold text-center">
                     Adoptions Per Month
                 </div>
                 <div class="flex-1 flex items-center justify-center">

@@ -35,7 +35,7 @@ class DashboardController extends \App\Http\Controllers\Controller
         $totalApplications = AdoptionApplication::count();
 
         // Get donations breakdown by type
-        $donationBreakdown = Donation::selectRaw('donation_type, SUM(donation_amount) as total')
+        $donationBreakdown = Donation::selectRaw('donation_type, COUNT(*) as total')
             ->groupBy('donation_type')
             ->pluck('total', 'donation_type')
             ->toArray();
