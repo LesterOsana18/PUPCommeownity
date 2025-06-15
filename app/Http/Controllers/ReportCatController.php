@@ -62,4 +62,11 @@ class ReportCatController extends Controller
 
         return redirect()->back()->with('message', $report->is_resolved ? 'Report marked as resolved.' : 'Report marked as unresolved.');
     }
+
+    public function destroy (Report $report)
+    {
+        $report->delete();
+
+        return redirect()->back()->with('success', 'Report deleted successfully.');
+    }
 }
