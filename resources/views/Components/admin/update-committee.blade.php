@@ -1,4 +1,4 @@
-<div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="committee">
+<div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200" id="committees">
     <div class="flex items-center justify-between">
         <h1 class="text-xl text-[#4ABDAC] font-bold">Committee List</h1>
     </div>
