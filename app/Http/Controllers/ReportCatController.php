@@ -22,6 +22,9 @@ class ReportCatController extends Controller
             'privacy' => 'accepted',
         ]);
 
+        // Default status of each report -> Unresolved
+        $validated['is_resolved'] = false;
+
         // Handle file upload (if present)
         if ($request->hasFile('media')) {
             $path = $request->file('media')->store('cat_reports', 'public');
@@ -48,12 +51,15 @@ class ReportCatController extends Controller
         return view('admin-report', compact('report'));
     }
 
-    public function toggleStatus($id)
+    public function resolve(Report $report)
     {
-        $report = Report::findOrFail($id);
-        $report->status = $report->status === 'open' ? 'closed' : 'open';
+        // $report->update(['is_resolved' => true]);
+        // return redirect()->back()->with('message', 'Report marked as resolved.');
+
+        // Toggle the is_resolved value
+        $report->is_resolved = !$report->is_resolved;
         $report->save();
 
-        return response()->json(['new_status' => $report->status]);
+        return redirect()->back()->with('message', $report->is_resolved ? 'Report marked as resolved.' : 'Report marked as unresolved.');
     }
 }

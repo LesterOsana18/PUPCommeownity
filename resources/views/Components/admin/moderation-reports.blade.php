@@ -15,14 +15,29 @@
                 @forelse ($reports as $report)
                     <tr>
                         <td class="px-4 py-2 border border-gray-500 text-center">
-                            <button
-                                class="status-toggle rounded-lg w-32 py-2 font-semibold text-white bg-[#4ABDAC] hover:bg-[#E7AB39]"
-                                data-open-text="OPEN"
-                                data-closed-text="CLOSED"
-                                data-open-class="bg-[#4ABDAC]"
-                                data-closed-class="bg-[#815F20]">
-                                OPEN
-                            </button>
+                            {{-- @if ($report->is_resolved)
+                                <span class="inline-block w-32 py-2 font-semibold text-white text-center rounded-lg bg-[#815F20]">
+                                    Resolved
+                                </span>
+                            @else --}}
+                                {{-- <form action="{{ route('reports.resolve', $report->id) }}" method="POST" onsubmit="return confirm('Mark this report as resolved?');">
+                                    @csrf
+                                    @method('PATCH')
+                                    <button type="submit"
+                                        class="w-32 py-2 font-semibold text-white rounded-lg bg-yellow-500 hover:bg-[#4ABDAC]">
+                                        Mark as Resolved
+                                    </button>
+                                </form> --}}
+                                <form action="{{ route('reports.resolve', $report->id) }}" method="POST" class="inline">
+                                    @csrf
+                                    @method('PATCH')
+                                    <button type="submit"
+                                        class="rounded-lg w-40 py-2 font-semibold text-white
+                                            {{ $report->is_resolved ? 'bg-[#815F20] hover:bg-[#6b4d1a]' : 'bg-[#4ABDAC] hover:bg-[#379e9f]' }}">
+                                        {{ $report->is_resolved ? 'Resolved' : 'Mark as Resolved' }}
+                                    </button>
+                                </form>
+                            {{-- @endif --}}
                         </td>
                         <td class="px-4 py-2 border border-gray-500 whitespace-nowrap">
                             {{ \Carbon\Carbon::parse($report->created_at)->format('M d, Y') }}

@@ -17,5 +17,6 @@ class Report extends Model
         'reporter_email',
         'reporter_affiliation',
         'privacy',
+        'is_resolved',
     ];
 }

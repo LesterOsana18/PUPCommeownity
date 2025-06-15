@@ -26,6 +26,7 @@ class ReportSeeder extends Seeder
             'reporter_email' => 'juan@example.com',
             'reporter_affiliation' => 'student',
             'privacy' => false,
+            'is_resolved' => false,
             'created_at' => Carbon::parse('2025-06-12 11:00:00'),
             'updated_at' => Carbon::parse('2025-06-12 11:00:00'),
         ],
@@ -40,6 +41,7 @@ class ReportSeeder extends Seeder
             'reporter_email' => 'maria@example.com',
             'reporter_affiliation' => 'faculty',
             'privacy' => false,
+            'is_resolved' => false,
             'created_at' => Carbon::parse('2025-06-11 09:00:00'),
             'updated_at' => Carbon::parse('2025-06-11 09:00:00'),
         ],
@@ -54,6 +56,7 @@ class ReportSeeder extends Seeder
             'reporter_email' => 'pedro@example.com',
             'reporter_affiliation' => 'staff',
             'privacy' => false,
+            'is_resolved' => true,
             'created_at' => Carbon::parse('2025-06-10 14:30:00'),
             'updated_at' => Carbon::parse('2025-06-10 14:30:00'),
         ]

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('reporter_email')->nullable();
             $table->enum('reporter_affiliation', ['student', 'faculty', 'staff', 'visitor']);
             $table->boolean('privacy')->default(true);
+            $table->boolean('is_resolved')->default(false);
             $table->timestamps();
         });
     }

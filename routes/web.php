@@ -97,11 +97,12 @@ Route::get('/donation-options', function () {
     return view('donation-options');
 });
 
+// Report Routes
 Route::get('/report', function () {
-    return view('report');
+    return view('report'); // Render report submission form
 });
-// This route handles the report-a-cat for submission.
-Route::post('/report', [ReportCatController::class, 'store'])->name('report.store');
+Route::post('/report', [ReportCatController::class, 'store'])->name('report.store'); // Handles report submission form
+Route::patch('/reports/{report}/resolve', [ReportCatController::class, 'resolve'])->name('reports.resolve'); // Resolve-a-report route
 
 Route::get('/about', function () {
     return view('about');
