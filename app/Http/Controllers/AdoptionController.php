@@ -57,10 +57,25 @@ class AdoptionController extends Controller
             $rules['adopted'] = 'nullable|boolean';
         }
 
-        // Handle image upload here
+        // Set adopted and deceased defaults if not present
+        if (!isset($validated['adopted'])) {
+            $validated['adopted'] = 0;
+        }
+        if (!isset($validated['deceased'])) {
+            $validated['deceased'] = 0;
+        }
+
+        // Handle image upload - store in public/images/cats
         if ($request->hasFile('photo_path')) {
-            $path = $request->file('photo_path')->store('cats', 'public');
-            $validated['photo_path'] = $path; // e.g. cats/yourimage.jpg
+            $file = $request->file('photo_path');
+            $filename = uniqid('cat_') . '.' . $file->getClientOriginalExtension();
+            $destinationPath = public_path('images/cats');
+            if (!is_dir($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+            $file->move($destinationPath, $filename);
+            // Save relative path for use with asset('images/cats/...')
+            $validated['photo_path'] = 'images/cats/' . $filename;
         }
 
         Adoption::create($validated);
@@ -95,7 +110,6 @@ class AdoptionController extends Controller
             'date_of_death' => 'nullable|date'
         ];
 
-        // Only require 'sterilized' and 'adopted' if the cat is NOT deceased
         if (!$request->input('deceased')) {
             $rules['sterilized'] = 'required|boolean';
             $rules['adopted'] = 'required|boolean';
@@ -106,13 +120,26 @@ class AdoptionController extends Controller
 
         $validated = $request->validate($rules);
 
-        // Find the cat or adoption record
         $cat = \App\Models\Adoption::findOrFail($id);
 
-        // Update the cat
+        // Handle image upload - store in public/images/cats
+        if ($request->hasFile('photo_path')) {
+            // Delete old photo if exists
+            if ($cat->photo_path && file_exists(public_path($cat->photo_path))) {
+                unlink(public_path($cat->photo_path));
+            }
+            $file = $request->file('photo_path');
+            $filename = uniqid('cat_') . '.' . $file->getClientOriginalExtension();
+            $destinationPath = public_path('images/cats');
+            if (!is_dir($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+            $file->move($destinationPath, $filename);
+            $validated['photo_path'] = 'images/cats/' . $filename;
+        }
+
         $cat->update($validated);
 
-        // Redirect or return response as needed
         return redirect()->route('tables')->with('success', 'Cat details updated successfully!');
     }
 

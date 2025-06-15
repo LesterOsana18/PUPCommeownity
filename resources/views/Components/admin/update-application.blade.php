@@ -6,7 +6,18 @@
             ← Back to Tables
         </a>
 
-        <form action="{{ route('tables.applications.update', $application->id) }}" method="POST">
+        {{-- Show validation errors --}}
+        @if ($errors->any())
+            <div class="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form action="{{ route('tables.applications.update', $application->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -122,41 +133,6 @@
                 @error('adopted_before') <span class="text-red-600 text-xs">{{ $message }}</span> @enderror
             </div>
 
-            <!-- Alternate First Name -->
-            <div class="mb-4">
-                <label for="alt_first_name" class="block text-gray-700">Alternate First Name</label>
-                <input id="alt_first_name" name="alt_first_name" type="text" class="form-input w-full" value="{{ old('alt_first_name', $application->alt_first_name) }}" required>
-                @error('alt_first_name') <span class="text-red-600 text-xs">{{ $message }}</span> @enderror
-            </div>
-
-            <!-- Alternate Last Name -->
-            <div class="mb-4">
-                <label for="alt_last_name" class="block text-gray-700">Alternate Last Name</label>
-                <input id="alt_last_name" name="alt_last_name" type="text" class="form-input w-full" value="{{ old('alt_last_name', $application->alt_last_name) }}" required>
-                @error('alt_last_name') <span class="text-red-600 text-xs">{{ $message }}</span> @enderror
-            </div>
-
-            <!-- Relationship to Alternate -->
-            <div class="mb-4">
-                <label for="relationship_to_alt" class="block text-gray-700">Relationship to Alternate</label>
-                <input id="relationship_to_alt" name="relationship_to_alt" type="text" class="form-input w-full" value="{{ old('relationship_to_alt', $application->relationship_to_alt) }}" required>
-                @error('relationship_to_alt') <span class="text-red-600 text-xs">{{ $message }}</span> @enderror
-            </div>
-
-            <!-- Alternate Phone -->
-            <div class="mb-4">
-                <label for="phone_alt" class="block text-gray-700">Alternate Phone</label>
-                <input id="phone_alt" name="phone_alt" type="text" class="form-input w-full" value="{{ old('phone_alt', $application->phone_alt) }}" required>
-                @error('phone_alt') <span class="text-red-600 text-xs">{{ $message }}</span> @enderror
-            </div>
-
-            <!-- Alternate Email -->
-            <div class="mb-4">
-                <label for="email_alt" class="block text-gray-700">Alternate Email</label>
-                <input id="email_alt" name="email_alt" type="email" class="form-input w-full" value="{{ old('email_alt', $application->email_alt) }}" required>
-                @error('email_alt') <span class="text-red-600 text-xs">{{ $message }}</span> @enderror
-            </div>
-
             {{-- Co-Signer Section (hidden by default, shown if applicant is minor) --}}
             @php
                 // Determine if the applicant is a minor (you may use your own logic here)
@@ -228,6 +204,8 @@
                     @error('co_signer_signature') <span class="text-red-600 text-xs">{{ $message }}</span> @enderror
                 </div>
             </div>
+            {{-- Container for dynamic hidden fields --}}
+            <div id="coSignerHiddenFields"></div>
 
             <div class="mt-6 flex justify-end">
                 <button type="submit" class="px-6 py-2 bg-[#4ABDAC] text-white rounded-lg font-semibold hover:bg-[#369688]">
@@ -265,6 +243,18 @@
                 @if (empty($application->co_signer_signature ?? null))
                     document.getElementById('co_signer_signature').required = isMinor;
                 @endif
+
+                // Dynamically add/remove hidden fields for co-signer if not a minor
+                const hiddenDiv = document.getElementById('coSignerHiddenFields');
+                if (!isMinor) {
+                    hiddenDiv.innerHTML = `
+                        <input type="hidden" name="co_signer_name" value="">
+                        <input type="hidden" name="co_signer_relationship" value="">
+                        <input type="hidden" name="co_signer_signature" value="">
+                    `;
+                } else {
+                    hiddenDiv.innerHTML = '';
+                }
             }
             document.getElementById('birth_date').addEventListener('change', toggleCoSigner);
             toggleCoSigner();
