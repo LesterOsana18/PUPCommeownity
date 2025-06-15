@@ -27,22 +27,41 @@
             </div>
         </div>
 
-        <!-- Charts -->
-        <div class="grid grid-cols-1 md:grid-cols-1 xl:grid-cols-2 gap-6 mb-6">
-            <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 border border-gray-200">
-                <div class="inline-block rounded-lg px-4 py-2 mb-3 bg-[#502C58] text-sm text-white font-semibold">
-                    History of Adoptions
-                </div>
-                <div>
-                    <canvas id="lineChart" height="220"></canvas>
-                </div>
-            </div>
-            <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 border border-gray-200">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <!-- Pie Chart with Details to the Right -->
+            <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 border border-gray-200 flex flex-col">
                 <div class="inline-block rounded-lg px-4 py-2 mb-3 bg-[#502C58] text-sm text-white font-semibold">
                     Percentage of Donations
                 </div>
-                <div>
-                    <canvas id="pieChart" height="220"></canvas>
+                <div class="flex flex-row items-center justify-center flex-1 gap-6">
+                    <!-- Pie Chart -->
+                    <div class="relative w-52 h-52 flex-shrink-0 flex items-center justify-center">
+                        <canvas id="pieChart"></canvas>
+                    </div>
+                    <!-- Pie Chart Details -->
+                    <div class="flex flex-col justify-center space-y-2">
+                        @foreach($donationLabels as $i => $label)
+                            <div class="flex items-center gap-2">
+                                <span class="inline-block w-3 h-3 rounded-full"
+                                    style="background-color: {{ ['#502C58','#4ABDAC','#E7AB39','#F67280'][$i % 4] }}"></span>
+                                <span class="font-semibold">{{ $label }}:</span>
+                                <span>
+                                    {{ isset($donationData[$i]) ? 'P' . number_format($donationData[$i], 2) : 'P0.00' }}
+                                </span>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+            <!-- Bar Chart -->
+            <div class="bg-white/10 backdrop-blur-lg rounded-lg shadow-md p-6 border border-gray-200 flex flex-col">
+                <div class="inline-block rounded-lg px-4 py-2 mb-3 bg-[#502C58] text-sm text-white font-semibold">
+                    Adoptions Per Month
+                </div>
+                <div class="flex-1 flex items-center justify-center">
+                    <div class="relative w-full h-64">
+                        <canvas id="barChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
@@ -91,34 +110,16 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Get PHP data as JSON
-        const adoptionLabels = {!! json_encode(array_keys($adoptionsPerMonth)) !!};
-        const adoptionData = {!! json_encode(array_values($adoptionsPerMonth)) !!};
-        const donationLabels = {!! json_encode($donationLabels) !!};
-        const donationData = {!! json_encode($donationData) !!};
+        let adoptionLabels = {!! json_encode(array_keys($adoptionsPerMonth)) !!};
+        let adoptionData = {!! json_encode(array_values($adoptionsPerMonth)) !!};
+        const donationLabels = {!! json_encode($donationLabels ?? ['One-Time','Monthly','Event','Other']) !!};
+        const donationData = {!! json_encode($donationData ?? [100,200,150,75]) !!};
 
-        // Line Chart: Adoptions Over Months
-        const ctxLine = document.getElementById('lineChart').getContext('2d');
-        new Chart(ctxLine, {
-            type: 'line',
-            data: {
-                labels: adoptionLabels,
-                datasets: [{
-                    label: 'Adoptions',
-                    data: adoptionData,
-                    fill: false,
-                    borderColor: '#4ABDAC',
-                    backgroundColor: '#4ABDAC',
-                    tension: 0.4,
-                    pointBackgroundColor: '#502C58',
-                    pointBorderColor: '#4ABDAC',
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: { legend: { display: true } },
-                scales: { y: { beginAtZero: true } }
-            }
-        });
+        // Fallback sample data in JS if still empty
+        if (adoptionLabels.length === 0 || adoptionData.length === 0) {
+            adoptionLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            adoptionData = [2, 4, 5, 6, 3, 7, 4, 5, 6, 2, 1, 3];
+        }
 
         // Pie Chart: Donations Breakdown
         const ctxPie = document.getElementById('pieChart').getContext('2d');
@@ -139,6 +140,29 @@
             options: {
                 responsive: true,
                 plugins: { legend: { display: true, position: 'bottom' } }
+            }
+        });
+
+        // Bar Chart: Adoptions Per Month
+        const ctxBar = document.getElementById('barChart').getContext('2d');
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: adoptionLabels,
+                datasets: [{
+                    label: 'Adoptions',
+                    data: adoptionData,
+                    backgroundColor: '#4ABDAC',
+                    borderColor: '#502C58',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: true } },
+                scales: {
+                    y: { beginAtZero: true }
+                }
             }
         });
     </script>

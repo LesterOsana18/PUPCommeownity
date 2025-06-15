@@ -18,18 +18,21 @@ class DashboardController extends \App\Http\Controllers\Controller
         $users = User::select('first_name', 'last_name', 'email', 'mobile_number', 'preferred_volunteer_role')->get();
         $totalUsers = $users->count();
 
-        // Calculate totals for adoptions, donations, and applications
-        $totalAdoptions = Adoption::count();
+        // Randomized adoptions per month
+        $months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        $adoptionsPerMonth = [];
+        foreach ($months as $month) {
+            // You can adjust min/max as you like
+            $adoptionsPerMonth[$month] = rand(1, 8);
+        }
+
+        // Make totalAdoptions the sum of the randomized values -- can be removed
+        $totalAdoptions = array_sum($adoptionsPerMonth);
+
+        // Calculate totals for donations and applications (real data)
+        // $totalAdoptions = Adoption::count();
         $totalDonations = Donation::sum('donation_amount');
         $totalApplications = AdoptionApplication::count();
-
-        // Get adoptions per month
-        $adoptionsPerMonth = Adoption::selectRaw('MONTHNAME(created_at) as month, COUNT(*) as count')
-            ->whereYear('created_at', now()->year)
-            ->groupBy('month')
-            ->orderByRaw('MIN(MONTH(created_at))')
-            ->pluck('count', 'month')
-            ->toArray();
 
         // Get donations breakdown by type
         $donationBreakdown = Donation::selectRaw('donation_type, SUM(donation_amount) as total')
