@@ -28,11 +28,11 @@
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Sex</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Adoption Prompt</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Adopted Before</th>
-                        <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Alternate First Name</th>
+                        {{-- <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Alternate First Name</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Alternate Last Name</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Relationship to Alternate</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Alternate Phone</th>
-                        <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Alternate Email</th>
+                        <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Alternate Email</th> --}}
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Co-signer Name</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Co-signer Relationship</th>
                         <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Co-signer Signature</th>
@@ -61,11 +61,11 @@
                                 @endif
                             </td>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->adopted_before }}</td>
-                            <td class="px-4 py-2 border border-gray-500">{{ $application->alt_first_name }}</td>
+                            {{-- <td class="px-4 py-2 border border-gray-500">{{ $application->alt_first_name }}</td>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->alt_last_name }}</td>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->relationship_to_alt }}</td>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->phone_alt }}</td>
-                            <td class="px-4 py-2 border border-gray-500">{{ $application->email_alt }}</td>
+                            <td class="px-4 py-2 border border-gray-500">{{ $application->email_alt }}</td> --}}
                             <td class="px-4 py-2 border border-gray-500">{{ $application->co_signer_name }}</td>
                             <td class="px-4 py-2 border border-gray-500">{{ $application->co_signer_relationship }}</td>
                             <td class="px-4 py-2 border border-gray-500">

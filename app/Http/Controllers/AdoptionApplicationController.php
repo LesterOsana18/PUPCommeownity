@@ -21,11 +21,9 @@ class AdoptionApplicationController extends Controller
         return view('table-application', compact('applications'));
     }
 
-    // Store the submitted application form data
-    public function store(Request $request)
+    protected function validationRules($age = null)
     {
-        // Validate common fields
-        $baseRules = [
+        $rules = [
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'address' => 'required|string',
@@ -39,39 +37,32 @@ class AdoptionApplicationController extends Controller
             'sex' => 'required|in:male,female,other',
             'adoption_prompt' => 'required|array',
             'adoption_prompt.*' => 'in:friends,social_media,website,posters,other',
-            'adopted_before' => 'required|in:yes,no',
-            'alt_first_name' => 'required|string',
-            'alt_last_name' => 'required|string',
-            'relationship_to_alt' => 'required|string',
-            'phone_alt' => 'required|string',
-            'email_alt' => 'required|email',
+            'adopted_before' => 'required|in:yes,no'
         ];
 
-        // Calculate the age
+        if ($age !== null && $age < 18) {
+            $rules['co_signer_name'] = 'required|string|max:255';
+            $rules['co_signer_relationship'] = 'required|string|in:parent,guardian';
+            $rules['co_signer_signature'] = 'required|image|mimes:jpg,jpeg,png|max:4096';
+        }
+        return $rules;
+    }
+
+    public function store(Request $request)
+    {
         $birthDate = $request->input('birth_date');
         $age = Carbon::parse($birthDate)->age;
 
-        // If minor, require co-signer fields and relationship_to_alt must be Parent/Guardian
-        if ($age < 18) {
-            $baseRules['co_signer_name'] = 'required|string|max:255';
-            $baseRules['co_signer_relationship'] = 'required|string|in:Parent,Guardian';
-            $baseRules['co_signer_signature'] = 'required|image|mimes:jpg,jpeg,png|max:4096'; // 4MB max
-            $baseRules['relationship_to_alt'] = 'required|string|in:Parent,Guardian,Parent/Guardian';
-        }
+        $rules = $this->validationRules($age);
+        $validated = $request->validate($rules);
 
-        $validated = $request->validate($baseRules);
-
-        // Convert adoption_prompt to a string
         if (isset($validated['adoption_prompt'])) {
             $validated['adoption_prompt'] = implode(',', $validated['adoption_prompt']);
         }
 
-        // dd($validated);
-
-        // Handle file upload for co_signer_signature
         if ($age < 18 && $request->hasFile('co_signer_signature')) {
             $file = $request->file('co_signer_signature');
-            $path = $file->store('signatures', 'public'); // stored in storage/app/public/signatures
+            $path = $file->store('signatures', 'public');
             $validated['co_signer_signature'] = $path;
         } else {
             unset($validated['co_signer_signature']);
@@ -90,35 +81,47 @@ class AdoptionApplicationController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validation rules (reuse your baseRules array if possible)
-        $baseRules = [
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'address' => 'required|string',
-            'phone' => 'required|string',
-            'email' => 'required|email',
-            'birth_date' => 'required|date',
-            'occupation' => 'nullable|string|max:255',
-            'company_business_name' => 'required|string',
-            'social_media_profile' => 'nullable|string|max:255',
-            'civil_status' => 'required|in:single,married,other',
-            'sex' => 'required|in:male,female,other',
-            'adoption_prompt' => 'required|array',
-            'adoption_prompt.*' => 'in:friends,social_media,website,posters,other',
-            'adopted_before' => 'required|in:yes,no',
-            'alt_first_name' => 'required|string',
-            'alt_last_name' => 'required|string',
-            'relationship_to_alt' => 'required|string',
-            'phone_alt' => 'required|string',
-            'email_alt' => 'required|email',
-        ];
+        $application = AdoptionApplication::findOrFail($id);
 
-        $validated = $request->validate($baseRules);
+        $birthDate = $request->input('birth_date');
+        $age = Carbon::parse($birthDate)->age;
 
-        // Convert adoption_prompt array to string for saving
-        $validated['adoption_prompt'] = implode(',', $validated['adoption_prompt']);
+        $rules = $this->validationRules($age);
 
-        $application = \App\Models\AdoptionApplication::findOrFail($id);
+        // Remove co-signer rules if not a minor
+        if ($age >= 18) {
+            unset($rules['co_signer_name'], $rules['co_signer_relationship'], $rules['co_signer_signature']);
+        }
+        if ($age < 18 && $application->co_signer_signature) {
+            $rules['co_signer_signature'] = 'nullable|image|mimes:jpg,jpeg,png|max:4096';
+        }
+
+        $validated = $request->validate($rules);
+
+        if (isset($validated['adoption_prompt'])) {
+            $validated['adoption_prompt'] = implode(',', $validated['adoption_prompt']);
+        }
+
+        // Handle co-signer signature upload
+        if ($age < 18 && $request->hasFile('co_signer_signature')) {
+            if ($application->co_signer_signature) {
+                \Storage::disk('public')->delete($application->co_signer_signature);
+            }
+            $file = $request->file('co_signer_signature');
+            $path = $file->store('signatures', 'public');
+            $validated['co_signer_signature'] = $path;
+        }
+
+        // If not a minor, clear all co-signer fields and remove old file
+        if ($age >= 18) {
+            $validated['co_signer_name'] = null;
+            $validated['co_signer_relationship'] = null;
+            if ($application->co_signer_signature) {
+                \Storage::disk('public')->delete($application->co_signer_signature);
+            }
+            $validated['co_signer_signature'] = null;
+        }
+
         $application->update($validated);
 
         return redirect()->route('tables')->with('success', 'Application updated successfully!');
@@ -127,6 +130,9 @@ class AdoptionApplicationController extends Controller
     public function destroy($id)
     {
         $application = AdoptionApplication::findOrFail($id);
+        if ($application->co_signer_signature) {
+            \Storage::disk('public')->delete($application->co_signer_signature);
+        }
         $application->delete();
         return redirect()->route('tables')->with('success', 'Application deleted successfully!');
     }

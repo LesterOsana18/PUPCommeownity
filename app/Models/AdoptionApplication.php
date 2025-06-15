@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class AdoptionApplication extends Model
 {
-    protected $table = 'adoption_applications';
-
     use HasFactory;
+
+    protected $table = 'adoption_applications';
 
     protected $fillable = [
         'first_name',
@@ -25,13 +25,18 @@ class AdoptionApplication extends Model
         'sex',
         'adoption_prompt',
         'adopted_before',
-        'alt_first_name',
-        'alt_last_name',
-        'relationship_to_alt',
-        'phone_alt',
-        'email_alt',
+        // 'alt_first_name',
+        // 'alt_last_name',
+        // 'relationship_to_alt',
+        // 'phone_alt',
+        // 'email_alt',
         'co_signer_name',
         'co_signer_relationship',
         'co_signer_signature',
+    ];
+
+    //auto-cast birth_date as Carbon object
+    protected $casts = [
+        'birth_date' => 'date',
     ];
 }
