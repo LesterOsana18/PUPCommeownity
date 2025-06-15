@@ -26,10 +26,8 @@ class ModerationController extends Controller
 
         $allPosts = $query->latest()->paginate(10)->withQueryString();
         $reports = Report::latest()->get();
-        // $reports = Report::all();
         $messages = AboutContactMsg::latest()->get();
 
-        // return view('moderation', compact('allPosts', 'filter'));
         return view('moderation', compact('allPosts', 'filter', 'reports', 'messages'));
     }
 
@@ -65,5 +63,13 @@ class ModerationController extends Controller
         $post->update($request->only(['title', 'content'])); // Add other fields as needed
 
         return redirect()->route('moderation')->with('success', 'Post updated successfully.');
+    }
+
+    // Delete function for inquiries
+    public function delete_msg(AboutContactMsg $message)
+    {
+        $message->delete();
+
+        return redirect()->back()->with('message', 'Inquiry deleted successfully.');
     }
 }

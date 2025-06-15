@@ -168,6 +168,10 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/moderation/posts/{post}', [ModerationController::class, 'delete'])->name('moderation.posts.delete');
     Route::get('/moderation/posts/{post}/read', [ModerationController::class, 'showPost'])->name('moderation.posts.read');
     Route::put('/moderation/posts/{post}', [ModerationController::class, 'update'])->name('moderation.posts.update');
+
+    // Delete Function for Inquiries
+    Route::delete('/moderation/messages/{message}', [ModerationController::class, 'delete_msg'])
+        ->name('moderation.messages.delete-msg');
 });
 
 // Route::get('/admin-report', function () {
