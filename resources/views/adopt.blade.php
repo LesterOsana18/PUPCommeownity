@@ -44,9 +44,12 @@
         <section class="mb-16">
             <div class="flex justify-between items-center mb-4">
                 <h2 class="text-2xl font-semibold">Available Cats in the University</h2>
-                <select class="border rounded px-3 py-1 text-sm">
+                <p class="text-sm text-gray-600 text-left mb-6">
+                    A gallery of campus cats that are ready for a loving home!
+                    </p>
+                {{-- <select class="border rounded px-3 py-1 text-sm">
                     <option value="">Filter</option>
-                </select>
+                </select> --}}
             </div>
 
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">

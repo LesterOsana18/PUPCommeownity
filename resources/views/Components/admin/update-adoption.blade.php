@@ -53,12 +53,12 @@
                 <label for="color" class="block text-gray-700">Color</label>
                 <select name="color" id="color" class="form-select w-full" required>
                     <option value="">Select color</option>
-                    <option value="black"  {{ old('color', $cat->color) == 'black' ? 'selected' : '' }}>Black</option>
-                    <option value="white"  {{ old('color', $cat->color) == 'white' ? 'selected' : '' }}>White</option>
-                    <option value="brown"  {{ old('color', $cat->color) == 'brown' ? 'selected' : '' }}>Brown</option>
-                    <option value="orange" {{ old('color', $cat->color) == 'orange' ? 'selected' : '' }}>Orange</option>
-                    <option value="gray"   {{ old('color', $cat->color) == 'gray' ? 'selected' : '' }}>Gray</option>
-                    <option value="other"  {{ old('color', $cat->color) == 'other' ? 'selected' : '' }}>Other</option>
+                    <option value="black"  {{ strtolower(trim(old('color', $cat->color))) == 'black' ? 'selected' : '' }}>Black</option>
+                    <option value="white"  {{ strtolower(trim(old('color', $cat->color))) == 'white' ? 'selected' : '' }}>White</option>
+                    <option value="brown"  {{ strtolower(trim(old('color', $cat->color))) == 'brown' ? 'selected' : '' }}>Brown</option>
+                    <option value="orange" {{ strtolower(trim(old('color', $cat->color))) == 'orange' ? 'selected' : '' }}>Orange</option>
+                    <option value="gray"   {{ strtolower(trim(old('color', $cat->color))) == 'gray' ? 'selected' : '' }}>Gray</option>
+                    <option value="other"  {{ strtolower(trim(old('color', $cat->color))) == 'other' ? 'selected' : '' }}>Other</option>
                 </select>
                 @error('color') <span class="text-red-600 text-xs">{{ $message }}</span> @enderror
             </div>
@@ -112,10 +112,21 @@
             <!-- Photo -->
             <div class="mb-4">
                 <label for="photo_path" class="block text-gray-700">Photo</label>
+                @php
+                    $path = $cat->photo_path ?? '';
+                    $image = match (true) {
+                        blank($path) => asset('images/def-img.svg'),
+                        Str::startsWith($path, 'http') => $path,
+                        Str::startsWith($path, 'storage/') => asset($path),
+                        Str::startsWith($path, 'cats/') => asset('storage/' . $path),
+                        Str::startsWith($path, 'images/') => asset($path),
+                        default => asset('images/def-img.svg'),
+                    };
+                @endphp
                 @if (!empty($cat->photo_path))
                     <div class="mb-2">
                         <span class="block text-sm text-gray-600 mb-1">Current photo:</span>
-                        <img src="{{ asset('storage/' . $cat->photo_path) }}" alt="Cat Photo" class="h-24 rounded border">
+                        <img src="{{ $image }}" alt="Cat Photo" class="h-24 rounded border">
                     </div>
                 @endif
                 <input id="photo_path" name="photo_path" type="file" class="form-input w-full" accept="image/*">

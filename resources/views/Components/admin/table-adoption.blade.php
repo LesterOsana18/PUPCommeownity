@@ -17,6 +17,7 @@
         <table class="table-fixed min-w-full border border-collapse text-sm">
             <thead>
                 <tr>
+                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Picture</th>
                     <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Name</th>
                     <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Breed</th>
                     <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Sex</th>
@@ -30,6 +31,20 @@
             <tbody>
                 @forelse ($cats as $cat)
                     <tr>
+                        <td class="px-4 py-2 border border-gray-500 text-center">
+                            @php
+                                $path = $cat->photo_path ?? $cat->picture ?? '';
+                                $image = match (true) {
+                                    blank($path) => asset('images/def-img.svg'),
+                                    Str::startsWith($path, 'http') => $path,
+                                    Str::startsWith($path, 'storage/') => asset($path),
+                                    Str::startsWith($path, 'cats/') => asset('storage/' . $path),
+                                    Str::startsWith($path, 'images/') => asset($path),
+                                    default => asset('images/def-img.svg')
+                                };
+                            @endphp
+                            <img src="{{ $image }}" alt="Cat picture" class="h-16 w-16 object-cover rounded-full mx-auto">
+                        </td>
                         <td class="px-4 py-2 border border-gray-500">{{ $cat->name }}</td>
                         <td class="px-4 py-2 border border-gray-500">{{ $cat->breed }}</td>
                         <td class="px-4 py-2 border border-gray-500 capitalize">{{ $cat->sex }}</td>
@@ -56,7 +71,7 @@
                         </td>
                     </tr>
                 @empty
-                    <tr><td colspan="8" class="px-4 py-2 border border-gray-500 text-center">No available cats.</td></tr>
+                    <tr><td colspan="9" class="px-4 py-2 border border-gray-500 text-center">No available cats.</td></tr>
                 @endforelse
             </tbody>
         </table>
@@ -77,6 +92,7 @@
         <table class="table-fixed min-w-full border border-collapse text-sm">
             <thead>
                 <tr>
+                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Picture</th>
                     <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Name</th>
                     <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Breed</th>
                     <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Sex</th>
@@ -90,6 +106,20 @@
             <tbody>
                 @forelse ($previousCats as $cat)
                     <tr>
+                        <td class="px-4 py-2 border border-gray-500 text-center">
+                            @php
+                                $path = $cat->photo_path ?? $cat->picture ?? '';
+                                $image = match (true) {
+                                    blank($path) => asset('images/def-img.svg'),
+                                    Str::startsWith($path, 'http') => $path,
+                                    Str::startsWith($path, 'storage/') => asset($path),
+                                    Str::startsWith($path, 'cats/') => asset('storage/' . $path),
+                                    Str::startsWith($path, 'images/') => asset($path),
+                                    default => asset('images/def-img.svg')
+                                };
+                            @endphp
+                            <img src="{{ $image }}" alt="Cat picture" class="h-16 w-16 object-cover rounded-full mx-auto">
+                        </td>
                         <td class="px-4 py-2 border border-gray-500">{{ $cat->name }}</td>
                         <td class="px-4 py-2 border border-gray-500">{{ $cat->breed }}</td>
                         <td class="px-4 py-2 border border-gray-500 capitalize">{{ $cat->sex }}</td>
@@ -116,7 +146,7 @@
                         </td>
                     </tr>
                 @empty
-                    <tr><td colspan="8" class="px-4 py-2 border border-gray-500 text-center">No previously available cats.</td></tr>
+                    <tr><td colspan="9" class="px-4 py-2 border border-gray-500 text-center">No previously available cats.</td></tr>
                 @endforelse
             </tbody>
         </table>
@@ -137,6 +167,7 @@
         <table class="table-fixed min-w-full border border-collapse text-sm">
             <thead>
                 <tr>
+                    <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Picture</th>
                     <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Name</th>
                     <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Breed</th>
                     <th class="bg-[#E7AB39] font-bold px-4 py-2 border border-gray-500">Sex</th>
@@ -150,6 +181,20 @@
             <tbody>
                 @forelse ($deceasedCats as $cat)
                     <tr>
+                        <td class="px-4 py-2 border border-gray-500 text-center">
+                            @php
+                                $path = $cat->photo_path ?? $cat->picture ?? '';
+                                $image = match (true) {
+                                    blank($path) => asset('images/def-img.svg'),
+                                    Str::startsWith($path, 'http') => $path,
+                                    Str::startsWith($path, 'storage/') => asset($path),
+                                    Str::startsWith($path, 'cats/') => asset('storage/' . $path),
+                                    Str::startsWith($path, 'images/') => asset($path),
+                                    default => asset('images/def-img.svg')
+                                };
+                            @endphp
+                            <img src="{{ $image }}" alt="Cat picture" class="h-16 w-16 object-cover rounded-full mx-auto">
+                        </td>
                         <td class="px-4 py-2 border border-gray-500">{{ $cat->name }}</td>
                         <td class="px-4 py-2 border border-gray-500">{{ $cat->breed }}</td>
                         <td class="px-4 py-2 border border-gray-500 capitalize">{{ $cat->sex }}</td>
@@ -178,7 +223,7 @@
                         </td>
                     </tr>
                 @empty
-                    <tr><td colspan="8" class="px-4 py-2 border border-gray-500 text-center">No legacy cats.</td></tr>
+                    <tr><td colspan="9" class="px-4 py-2 border border-gray-500 text-center">No legacy cats.</td></tr>
                 @endforelse
             </tbody>
         </table>
