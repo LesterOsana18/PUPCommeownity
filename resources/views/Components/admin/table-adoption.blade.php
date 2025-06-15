@@ -45,7 +45,7 @@
                                     <i class="fa-regular fa-pen-to-square mr-2"></i>
                                     Edit
                                 </a>
-                                <form action="{{ route('adoptions.destroy', $cat->id) }}" method="POST" onsubmit="return confirm('Are you sure?');" class="inline">
+                                <form action="{{ route('adoptions.destroy', $cat->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this cat from the gallery?');" class="inline">
                                     @csrf @method('DELETE')
                                     <button type="submit" class="rounded-lg px-3 py-2 bg-red-500 text-white font-semibold hover:bg-red-600 flex items-center">
                                         <i class="fa-regular fa-trash-can mr-2"></i>

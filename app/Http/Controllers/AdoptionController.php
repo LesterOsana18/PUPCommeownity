@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Adoption;
+use Illuminate\Support\Facades\Storage;
 
 class AdoptionController extends Controller
 {
@@ -39,7 +40,7 @@ class AdoptionController extends Controller
             'weight'      => 'required|numeric|min:0',
             'sterilized'  => 'nullable|boolean',
             'location'    => 'required|string|max:255',
-            'photo_path'  => 'required|image|mimes:jpg,jpeg,png,webp,gif|max:2048',
+            'photo_path'  => 'nullable|image|mimes:jpg,jpeg,png,webp,gif|max:2048',
             'adopted'     => 'nullable|boolean',
             'additional_remarks' => 'nullable|string',
             'deceased' => 'required|boolean',
@@ -67,6 +68,15 @@ class AdoptionController extends Controller
         return redirect('/tables')->with('success', 'Cat added to gallery!');
     }
 
+    public function edit($id)
+    {
+        // Fetch the cat/adoption record by its ID
+        $cat = Adoption::findOrFail($id);
+
+        // Return the edit view with the cat data
+        return view('Components.admin.update-adoption', compact('cat'));
+    }
+
     public function update(Request $request, $id)
     {
         $rules = [
@@ -78,7 +88,7 @@ class AdoptionController extends Controller
             'weight'      => 'required|numeric|min:0',
             'sterilized'  => 'nullable|boolean',
             'location'    => 'required|string|max:255',
-            'photo_path'  => 'required|image|mimes:jpg,jpeg,png,webp,gif|max:2048',
+            'photo_path'  => 'nullable|image|mimes:jpg,jpeg,png,webp,gif|max:2048',
             'adopted'     => 'nullable|boolean',
             'additional_remarks' => 'nullable|string',
             'deceased' => 'required|boolean',
@@ -103,6 +113,23 @@ class AdoptionController extends Controller
         $cat->update($validated);
 
         // Redirect or return response as needed
-        return redirect('/')->with('success', 'Cat updated successfully.');
+        return redirect()->route('tables')->with('success', 'Cat details updated successfully!');
+    }
+
+    public function destroy($id)
+    {
+        // Find the adoption/cat by ID
+        $cat = Adoption::findOrFail($id);
+
+        //Delete associated image from storage
+        if ($cat->photo_path) {
+            \Storage::delete($cat->photo_path);
+        }
+
+        // Delete the record
+        $cat->delete();
+
+        // Redirect back to the tables page with a success message
+        return redirect()->route('tables')->with('success', 'Cat record deleted successfully.');
     }
 }

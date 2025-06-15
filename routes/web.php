@@ -143,7 +143,12 @@ Route::get('/application', [AdoptionApplicationController::class, 'create'])->na
 Route::post('/application', [AdoptionApplicationController::class, 'store'])->name('application.store');
 
 // Adoption CRUD Routes
-Route::resource('adoptions', AdoptionController::class);
+// Route::resource('adoptions', AdoptionController::class);
+Route::get('/adoptions/create', [AdoptionController::class, 'create'])->name('adoptions.create');
+Route::post('/adoptions', [AdoptionController::class, 'store'])->name('adoptions.store');
+Route::get('/adoptions/{id}/edit', [AdoptionController::class, 'edit'])->name('adoptions.edit');
+Route::put('/tables/adoptions/{id}', [AdoptionController::class, 'update'])->name('tables.adoptions.update');
+Route::delete('/adoptions/{id}', [AdoptionController::class, 'destroy'])->name('adoptions.destroy');
 
 // Donations CRUD (Create, Read, Update, Delete)
 Route::get('/donations', [DonationController::class, 'index'])->name('donations.index');
