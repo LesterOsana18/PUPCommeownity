@@ -36,7 +36,11 @@
         </div>
         <div class="flex items-center justify-center">
             <div class="w-lg aspect-[3/2]">
-                <img src="images/carousel-temp-1.jpg" alt="Cat 1" class="w-full h-full object-cover rounded-[15px]">
+                @if ($report->media && file_exists(public_path('storage/' . $report->media)))
+                    <img src="{{ asset('storage/' . $report->media) }}" alt="Cat Report" class="w-full h-full object-cover rounded-[15px]">
+                @else
+                    <p class="text-center text-gray-500">No media uploaded or file missing.</p>
+                @endif
             </div>
         </div>
         <div class="flex flex-col gap-2 text-sm">
