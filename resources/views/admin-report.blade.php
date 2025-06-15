@@ -23,7 +23,7 @@
                         @method('PATCH')
                         <button type="submit"
                             class="rounded-md px-3 py-1 font-semibold text-white text-xs
-                                {{ $report->is_resolved ? 'bg-[#815F20] hover:bg-[#6b4d1a]' : 'bg-[#4ABDAC] hover:bg-[#379e9f]' }}">
+                                {{ $report->is_resolved ? 'bg-[#815F20] hover:bg-[#6b4d1a]' : 'bg-[#4ABDAC] hover:bg-[#E7AB39]' }}">
                             {{ $report->is_resolved ? 'RESOLVED' : 'MARK AS RESOLVED' }}
                         </button>
                     </form>
