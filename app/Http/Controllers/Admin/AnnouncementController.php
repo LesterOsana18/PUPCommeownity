@@ -30,12 +30,14 @@ class AnnouncementController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
-            'image' => 'required|image|mimes:jpg,jpeg,png|max:5120',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
         ]);
 
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('images', 'public');
             $validated['image_path'] = $imagePath;
+        } else {
+            $validated['image_path'] = 'images/def-img.svg'; // default image
         }
 
         $validated['is_active'] = true;
@@ -68,6 +70,8 @@ class AnnouncementController extends Controller
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('images', 'public');
             $announcement->image_path = $path;
+        } elseif (!$announcement->image_path) {
+            $announcement->image_path = 'images/def-img.svg'; // default if missing
         }
 
         $announcement->excerpt = \Str::limit(strip_tags($announcement->content), 150);
