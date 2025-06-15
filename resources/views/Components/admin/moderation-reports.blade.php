@@ -34,7 +34,7 @@
                                     <button type="submit"
                                         class="rounded-lg w-40 py-2 font-semibold text-white
                                             {{ $report->is_resolved ? 'bg-[#815F20] hover:bg-[#6b4d1a]' : 'bg-[#4ABDAC] hover:bg-[#379e9f]' }}">
-                                        {{ $report->is_resolved ? 'Resolved' : 'Mark as Resolved' }}
+                                        {{ $report->is_resolved ? 'RESOLVED' : 'MARK AS RESOLVED' }}
                                     </button>
                                 </form>
                             {{-- @endif --}}
