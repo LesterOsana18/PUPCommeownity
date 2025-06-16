@@ -68,7 +68,7 @@
                     <h3 class="text-lg font-semibold text-[#502C58] mb-1">Event Details</h3>
                     <p class="text-gray-700">{{ $event->description }}</p>
                 </div>
-                <<div class="flex justify-end">
+                <div class="flex justify-end">
                     <button wire:click="volunteer"
                         class="px-6 py-2 bg-[#502C58] text-white font-semibold rounded-lg shadow hover:bg-[#3f2247] transition-colors">
                         Volunteer Now
