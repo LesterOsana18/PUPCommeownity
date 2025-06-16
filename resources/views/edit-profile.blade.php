@@ -21,11 +21,11 @@
                 }, 5000); // Dismiss after 5 seconds
             </script>
         @endif
-        <div class="flex items-center justify-between mb-5">
+        <div class="flex items-center justify-center mb-5">
             <h1 class="text-2xl font-bold text-[#502C58]">Edit Profile</h1>
         </div>
         <div class="flex justify-center items-center flex-1">
-            <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 border border-gray-200 w-full">
+            <div class="flex flex-col gap-5 rounded-xl bg-white/10 backdrop-blur-lg shadow-md p-6 mb-10 border border-gray-200 w-full max-w-4xl mx-auto">
                 <form id="editProfileForm" method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="space-y-5">
                     @csrf
                     {{-- Profile Picture --}}
