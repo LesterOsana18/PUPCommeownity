@@ -42,6 +42,18 @@
             transition-timing-function: ease-in-out;
             transition-delay: 150ms;
         }
+
+        [data-dropdown].dropdown-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        [data-dropdown].dropdown-visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
     </style>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
@@ -205,7 +217,7 @@
                             class="h-10 w-10 rounded-full border-2 border-white shadow-md"
                         />
                     </button>
-                    <div class="absolute right-0 mt-2 w-48 bg-[#3d2243] shadow-lg rounded-md z-50" data-dropdown>
+                    <div class="absolute right-0 mt-2 w-48 bg-[#3d2243] shadow-lg rounded-md z-50 opacity-0 invisible pointer-events-none" data-dropdown>
                         <!-- Edit Profile Button -->
                         <a href="{{ route('profile.edit') }}"
                             class="flex items-center w-full text-left px-4 py-2 text-white hover:bg-[#E7AB39] hover:text-[#502C58]">
@@ -449,6 +461,21 @@
                         </button>
                     </form>
 
+                    {{-- Edit Profile --}}
+                    <a href="{{ route('profile.edit') }}"
+                    class="nav-link block font-bold text-base relative px-4 py-2 mt-2">
+                        <div class="text-reveal-container">
+                            <div class="text-original flex items-center">
+                                <i class="fas fa-user-edit mr-1"></i>
+                                <span>Edit Profile</span>
+                            </div>
+                            <div class="text-colored flex items-center">
+                                <i class="fas fa-user-edit mr-1"></i>
+                                <span>Edit Profile</span>
+                            </div>
+                        </div>
+                    </a>
+
                     {{-- Admin Dashboard --}}
                     @if(Auth::user()->preferred_volunteer_role === 'site_administrator')
                         <a href="{{ route('moderation') }}"
@@ -488,6 +515,12 @@
 
             toggle.addEventListener('click', toggleMenu);
             closeBtn.addEventListener('click', toggleMenu);
+
+            const allDropdowns = document.querySelectorAll('[data-dropdown]');
+            allDropdowns.forEach(dropdown => {
+                dropdown.classList.add('dropdown-hidden');
+                dropdown.classList.remove('dropdown-visible');
+            });
         });
 
         let dropdownTimeout;
@@ -498,12 +531,12 @@
 
             if (show) {
                 clearTimeout(dropdownTimeout);
-                dropdown.classList.add('opacity-100', 'visible', 'pointer-events-auto');
-                dropdown.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
+                dropdown.classList.add('dropdown-visible');
+                dropdown.classList.remove('dropdown-hidden');
             } else {
                 dropdownTimeout = setTimeout(() => {
-                    dropdown.classList.remove('opacity-100', 'visible', 'pointer-events-auto');
-                    dropdown.classList.add('opacity-0', 'invisible', 'pointer-events-none');
+                    dropdown.classList.remove('dropdown-visible');
+                    dropdown.classList.add('dropdown-hidden');
                 }, 200);
             }
         }
