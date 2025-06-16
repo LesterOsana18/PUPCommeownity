@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-layout>
     <div class="flex flex-col min-h-screen">
         <!-- Display success message -->
         @if (session('success'))
@@ -157,4 +157,4 @@
             });
         });
     </script>
-</x-admin-layout>
+</x-layout>
