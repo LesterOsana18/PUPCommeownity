@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <p class="text-xs italic text-gray-600 mt-4" id="minorNote">
-                    If the applicant is a minor, a parent or a guardian must be the alternate contact and co-sign the application.
+                    If the applicant is a minor, a parent or a guardian must co-sign the application.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
                     <div>
