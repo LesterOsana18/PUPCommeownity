@@ -114,7 +114,5 @@ class UpdateSeeder extends Seeder
             $pawUsers = $users->where('id', '!=', $user->id)->random(rand(0, 5))->pluck('id')->toArray();
             $update->pawedByUsers()->attach($pawUsers);
         }
-
-        $this->command->info('30 updates seeded with local images and realistic content!');
     }
 }
