@@ -30,7 +30,7 @@ class DashboardController extends \App\Http\Controllers\Controller
         $totalAdoptions = array_sum($adoptionsPerMonth);
 
         // Calculate totals for donations and applications (real data)
-        // $totalAdoptions = Adoption::count();
+        $totalAdoptions = Adoption::count();
         $totalDonations = Donation::sum('donation_amount');
         $totalApplications = AdoptionApplication::count();
 
